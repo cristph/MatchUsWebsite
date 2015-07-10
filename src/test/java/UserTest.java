@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 import us.match.website.dao.UserDao;
 import us.match.website.dao.daoImpl.UserDaoImpl;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class UserTest {
     private UserDao ud=new UserDaoImpl();
     User u=new User();
+    @Before
     public void setUp(){
         try {
             InputStream in = new FileInputStream("C:\\Users/Public/Pictures/Sample Pictures/1.jpg");
@@ -23,9 +25,9 @@ public class UserTest {
             in.close();
             u.setUsername("wh");
             u.setPassword("123");
-            u.setNickname("zy");
+            u.setNickname("wh");
             u.setInstruction("aaa");
-            u.setRealname("zy");
+            u.setRealname("wh");
             u.setSex("male");
             u.setBirthday("1");
             u.setFace(photo);
@@ -38,15 +40,15 @@ public class UserTest {
         }
     }
 
-//    @Test(timeout=1000)
+   @Test
     public void testAdd(){
         assertEquals(true, ud.addUser(u));
     }
 
 //    @Test(timeout=1000)
-    public void testDelete(){
-        assertEquals(true,ud.deleteUser(u));
-    }
+//    public void testDelete(){
+//        assertEquals(true,ud.deleteUser(u));
+//    }
 
     @Ignore("Update() Not yet implemented")
     @Test(timeout=1000)
