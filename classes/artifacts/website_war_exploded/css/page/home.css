@@ -1,0 +1,32 @@
+#hot_project {
+
+}
+
+#hot_team {
+
+}
+
+#hot_talent {
+
+}
+
+#home_img_div {
+    width: 100%;
+    height: 65%;
+    background: grey;
+}
+
+.hot_project_option {
+    width: 300px;
+    height: 200px;
+}
+
+.hot_team_option {
+    width: 300px;
+    height: 200px;
+}
+
+.hot_talent_option {
+    width: 300px;
+    height: 200px;
+}

@@ -1,17 +1,21 @@
 package us.match.website.service.serviceImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
+
+import javax.annotation.Resource;
 
 /**
  * Created by WH on 2015/7/10.
  */
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService{
-    @Autowired
+
+
+    @Resource(name="userDaoImpl")
     UserDao userDao;
 
     @Override

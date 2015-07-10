@@ -4,27 +4,33 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Repository;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
+
+import javax.annotation.Resource;
 
 /**
  * Created by apple on 2015/7/10.
  */
+@Repository("userDaoImpl")
 public class UserDaoImpl implements UserDao {
-    @Override
+
+    @Resource(name="sessionFactory")
+    SessionFactory sessionFactory;
+
     public boolean addUser(User user) {
-//        boolean result=true;
-//        try{
-//            Session session = SessionFactory.Session();
+        boolean result=true;
+        try{
+            Session session = sessionFactory.getCurrentSession();
 //            session.beginTransaction();
-//            session.save(user);
+            session.save(user);
 //            session.getTransaction().commit();
-//            session.close();
-////            sf.close();
-//        }catch(Exception e){
-//            result=false;
-//            e.printStackTrace();
-//        }
+            session.close();
+        }catch(Exception e){
+            result=false;
+            e.printStackTrace();
+        }
         return true;
     }
 
