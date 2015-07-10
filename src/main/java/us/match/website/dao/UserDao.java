@@ -10,7 +10,7 @@ public interface UserDao {
     public boolean deleteUser(User user);
     public boolean updateUser(User user);
     /*
-    下面都是查找
+    锟斤拷锟芥都锟角诧拷锟斤拷
      */
     public User find();
 }
