@@ -13,21 +13,19 @@ import us.match.website.model.User;
 public class UserDaoImpl implements UserDao {
     @Override
     public boolean addUser(User user) {
-        boolean result=true;
-        try {
-            Configuration cfg = new Configuration();
-            SessionFactory sf = cfg.configure().buildSessionFactory();
-            Session session = sf.openSession();
-            session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
-            session.close();
-            sf.close();
-        }catch(Exception e){
-            result=false;
-            e.printStackTrace();
-        }
-        return result;
+//        boolean result=true;
+//        try{
+//            Session session = SessionFactory.Session();
+//            session.beginTransaction();
+//            session.save(user);
+//            session.getTransaction().commit();
+//            session.close();
+////            sf.close();
+//        }catch(Exception e){
+//            result=false;
+//            e.printStackTrace();
+//        }
+        return true;
     }
 
     @Override
