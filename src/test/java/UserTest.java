@@ -26,7 +26,7 @@ public class UserTest {
             u.setNickname("zy");
             u.setInstruction("aaa");
             u.setRealname("zy");
-            u.setSex("ÄÐ");
+            u.setSex("male");
             u.setBirthday("1");
             u.setFace(photo);
             u.setUniversity("nju");
