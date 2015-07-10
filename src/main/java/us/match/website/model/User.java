@@ -57,7 +57,32 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        char hexDigits[]={'0','1','2','3','4','5','6','7','8','9'
+                ,'A','B','C','D','E','F','G','H','I','J','K','L','M','N',
+                'O','P','Q','R','S','T','U','V','W','X','Y','Z',
+                'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+                'o','p','q','r','s','t','u','v','w','x','y','z'};
+        try {
+            byte[] btInput = password.getBytes();
+            // 获得MD5摘要算法的 MessageDigest 对象
+            MessageDigest mdInst = MessageDigest.getInstance("MD5");
+            // 使用指定的字节更新摘要
+            mdInst.update(btInput);
+            // 获得密文
+            byte[] md = mdInst.digest();
+            // 把密文转换成十六进制的字符串形式
+            int j = md.length;
+            char str[] = new char[j * 2];
+            int k = 0;
+            for (int i = 0; i < j; i++) {
+                byte byte0 = md[i];
+                str[k++] = hexDigits[byte0 >>> 4 & 0xf];
+                str[k++] = hexDigits[byte0 & 0xf];
+            }
+            this.password=new String(str);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void setUsername(String username) {
@@ -197,32 +222,6 @@ public class User {
         friends = friends.substring(0, friends.lastIndexOf(","));
         friends += "}";
     }
-    public void  topassword(){
-        char hexDigits[]={'0','1','2','3','4','5','6','7','8','9'
-                ,'A','B','C','D','E','F','G','H','I','J','K','L','M','N',
-                'O','P','Q','R','S','T','U','V','W','X','Y','Z',
-        'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
-        'o','p','q','r','s','t','u','v','w','x','y','z'};
-        try {
-            byte[] btInput = password.getBytes();
-            // 获得MD5摘要算法的 MessageDigest 对象
-            MessageDigest mdInst = MessageDigest.getInstance("MD5");
-            // 使用指定的字节更新摘要
-            mdInst.update(btInput);
-            // 获得密文
-            byte[] md = mdInst.digest();
-            // 把密文转换成十六进制的字符串形式
-            int j = md.length;
-            char str[] = new char[j * 2];
-            int k = 0;
-            for (int i = 0; i < j; i++) {
-                byte byte0 = md[i];
-                str[k++] = hexDigits[byte0 >>> 4 & 0xf];
-                str[k++] = hexDigits[byte0 & 0xf];
-            }
-            password=new String(str);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+
+
 }
