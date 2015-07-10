@@ -12,6 +12,6 @@
     <title>MatchUs</title>
 </head>
 <body>
-  <h1>Welcome to MATCH.US ! :D</h1>
+  <h1>Welcome to MATCH.US ! :D ${returnValue}</h1>
 </body>
 </html>
