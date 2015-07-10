@@ -1,16 +1,15 @@
 package us.match.website.controller;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by WH on 2015/7/10.
  */
-public class IndexController extends MultiActionController{
-    public ModelAndView visitIndex(HttpServletRequest req,HttpServletResponse res){
-        return new ModelAndView("index","returnValue","Hi Hi");
+@Controller
+public class IndexController {
+    @RequestMapping("/")
+    public String index() {
+        return "index";
     }
-
 }
