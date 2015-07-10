@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
     public boolean addUser(User user) {
         boolean result=true;
         try {
-            Configuration cfg = new AnnotationConfiguration();
+            Configuration cfg = new Configuration();
             SessionFactory sf = cfg.configure().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();

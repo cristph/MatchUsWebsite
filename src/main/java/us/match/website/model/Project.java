@@ -16,6 +16,9 @@ public class Project {
     private String publisherid="";
     private byte[] picture;
     private boolean state;
+    private String subject;
+    private String subsubject;
+    private String moduel;
     @Id
     @GeneratedValue
     public String getId() {
@@ -65,5 +68,29 @@ public class Project {
 
     public void setState(boolean state) {
         this.state = state;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getSubsubject() {
+        return subsubject;
+    }
+
+    public void setSubsubject(String subsubject) {
+        this.subsubject = subsubject;
+    }
+
+    public String getModuel() {
+        return moduel;
+    }
+
+    public void setModuel(String moduel) {
+        this.moduel = moduel;
     }
 }
