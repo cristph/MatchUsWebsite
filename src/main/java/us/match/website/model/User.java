@@ -1,7 +1,6 @@
 package us.match.website.model;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
