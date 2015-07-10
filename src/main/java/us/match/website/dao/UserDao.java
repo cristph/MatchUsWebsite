@@ -7,8 +7,8 @@ import us.match.website.model.User;
  */
 public interface UserDao {
     public boolean addUser(User user);
-    public boolean delete(User user);
-    public boolean update(User user);
+    public boolean deleteUser(User user);
+    public boolean updateUser(User user);
     /*
     下面都是查找
      */
