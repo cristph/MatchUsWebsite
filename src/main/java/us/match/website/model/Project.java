@@ -15,6 +15,7 @@ public class Project {
     private String pname="";
     private String publisherid="";
     private byte[] picture;
+    private boolean state;
     @Id
     @GeneratedValue
     public String getId() {
@@ -56,5 +57,13 @@ public class Project {
 
     public void setPicture(byte[] picture) {
         this.picture = picture;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
     }
 }
