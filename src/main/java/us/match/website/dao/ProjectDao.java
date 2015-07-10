@@ -10,8 +10,6 @@ public interface ProjectDao {
     public boolean addProject(Project project);
     public boolean deleteProject(Project projetc);
     public boolean updateProject(Project project);
-    /*
-    下面都是查找
-     */
+
     public Project find();
 }
