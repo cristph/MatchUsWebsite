@@ -5,4 +5,5 @@ package us.match.website.service;
  */
 public interface UserService {
     public String login(String username,String password);
+    public String logout(String username);
 }

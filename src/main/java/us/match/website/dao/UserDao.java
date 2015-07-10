@@ -10,7 +10,7 @@ public interface UserDao {
     public boolean deleteUser(User user);
     public boolean updateUser(User user);
     /*
-    ���涼�ǲ���
+
      */
     public User find();
 }
