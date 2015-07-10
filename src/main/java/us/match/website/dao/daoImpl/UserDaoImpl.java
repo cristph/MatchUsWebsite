@@ -51,6 +51,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean updateUser(User user) {
+        boolean result=true;
+        try{
+            String id=user.getUsername();
+            Configuration cfg = new AnnotationConfiguration();
+            SessionFactory sf = cfg.configure().buildSessionFactory();
+            Session session = sf.openSession();
+            session.beginTransaction();
+            session.delete(user);
+            session.getTransaction().commit();
+            session.close();
+            sf.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return false;
     }
 
