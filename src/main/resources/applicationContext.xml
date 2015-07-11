@@ -13,10 +13,9 @@
        ">
 
     <context:component-scan base-package="us.match.website">
-        <context:exclude-filter type="regex"
-                                expression="us.match.website.controller.*"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <!--<context:annotation-config/> &lt;!&ndash;add by wh&ndash;&gt;-->
+
     <bean id="mappings"
              class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
               <!-- typed as a java.util.Properties -->
@@ -41,6 +40,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <!-- 依赖注入数据源，注入正是上面定义的dataSource -->
+        <property name="packagesToScan" value="us.match.website.model"/>
         <property name="dataSource" ref="dataSource"/>
         <!-- 定义Hibernate的SessionFactory的属性 -->
         <property name="hibernateProperties">
@@ -56,6 +56,7 @@
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
+
     </bean>
 
     <!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->

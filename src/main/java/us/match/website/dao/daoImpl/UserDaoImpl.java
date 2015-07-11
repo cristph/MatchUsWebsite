@@ -24,16 +24,17 @@ public class UserDaoImpl implements UserDao {
     public boolean addUser(User user) {
         boolean result=true;
         try{
-            Session session = sessionFactory.getCurrentSession();
-//            session.beginTransaction();
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
             session.save(user);
-//            session.getTransaction().commit();
+            session.getTransaction().commit();
             session.close();
+
         }catch(Exception e){
             result=false;
             e.printStackTrace();
         }
-        return true;
+        return result;
     }
 
     @Override
