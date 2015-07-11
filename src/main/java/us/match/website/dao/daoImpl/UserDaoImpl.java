@@ -18,21 +18,23 @@ import javax.annotation.Resource;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Resource
-    SessionFactory sessionFactory;
+//    @Resource
+//    SessionFactory sessionFactory;
+
 
     public boolean addUser(User user) {
         boolean result=true;
-        try{
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
-            session.close();
-        }catch(Exception e){
-            result=false;
-            e.printStackTrace();
-        }
+//        try{
+//            Session session = sessionFactory.openSession();
+//            session.beginTransaction();
+//            session.save(user);
+//            session.getTransaction().commit();
+//            session.close();
+//
+//        }catch(Exception e){
+//            result=false;
+//            e.printStackTrace();
+//        }
         return result;
     }
 
@@ -40,11 +42,14 @@ public class UserDaoImpl implements UserDao {
     public boolean deleteUser(User user) {
         boolean result=true;
         try {
-            Session session = sessionFactory.openSession();
+            Configuration cfg = new AnnotationConfiguration();
+            SessionFactory sf = cfg.configure().buildSessionFactory();
+            Session session = sf.openSession();
             session.beginTransaction();
             session.delete(user);
             session.getTransaction().commit();
             session.close();
+            sf.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
@@ -56,16 +61,19 @@ public class UserDaoImpl implements UserDao {
     public boolean updateUser(User user) {
         boolean result=true;
         try{
-            Session session = sessionFactory.openSession();
+            String id=user.getUsername();
+            Configuration cfg = new AnnotationConfiguration();
+            SessionFactory sf = cfg.configure().buildSessionFactory();
+            Session session = sf.openSession();
             session.beginTransaction();
-            session.update(user);
+            session.delete(user);
             session.getTransaction().commit();
             session.close();
+            sf.close();
         }catch(Exception e){
-            result=false;
             e.printStackTrace();
         }
-        return result;
+        return false;
     }
 
     @Override
