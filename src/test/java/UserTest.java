@@ -65,9 +65,10 @@ public class UserTest {
 //        assertEquals(true,ud.deleteUser(u));
 //    }
 
-    @Ignore("Update() Not yet implemented")
-    @Test(timeout=1000)
-    public void testUpdate(){
-
-    }
+//    @Ignore("Update() Not yet implemented")
+//    @Test(timeout=1000)
+//
+//    public void testUpdate(){
+//
+//    }
 }

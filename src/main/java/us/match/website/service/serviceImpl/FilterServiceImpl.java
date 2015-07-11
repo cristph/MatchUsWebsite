@@ -6,7 +6,7 @@ import us.match.website.service.FilterService;
 /**
  * Created by WH on 2015/7/10.
  */
-@Service("filterServiceImpl")
+@Service
 public class FilterServiceImpl implements FilterService{
 
 }
