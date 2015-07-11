@@ -7,7 +7,7 @@ import us.match.website.model.Project;
 /**
  * Created by Seven on 15/7/10.
  */
-@Repository("prjectDaoImpl")
+@Repository
 public class ProjectDaoImpl implements ProjectDao {
     public boolean addProject(Project project) {
         return false;

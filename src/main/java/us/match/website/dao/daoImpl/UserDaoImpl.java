@@ -2,6 +2,7 @@ package us.match.website.dao.daoImpl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.Source;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
