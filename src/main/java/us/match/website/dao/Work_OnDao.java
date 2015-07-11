@@ -7,11 +7,9 @@ import us.match.website.model.Work_On;
  * Created by apple on 2015/7/10.
  */
 public interface Work_OnDao {
-    public boolean addWO(Project project);
-    public boolean deleteWO(Project projetc);
-    public boolean updateWO(Project project);
-    /*
-    以下是查询方面的
-     */
+    public boolean addWO(Work_On wo);
+    public boolean deleteWO(Work_On wo);
+    public boolean updateWO(Work_On wo);
+
     public Work_On find();
 }

@@ -29,7 +29,6 @@ public class UserDaoImpl implements UserDao {
             session.save(user);
             session.getTransaction().commit();
             session.close();
-
         }catch(Exception e){
             result=false;
             e.printStackTrace();
@@ -41,14 +40,11 @@ public class UserDaoImpl implements UserDao {
     public boolean deleteUser(User user) {
         boolean result=true;
         try {
-            Configuration cfg = new AnnotationConfiguration();
-            SessionFactory sf = cfg.configure().buildSessionFactory();
-            Session session = sf.openSession();
+            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(user);
             session.getTransaction().commit();
             session.close();
-            sf.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
@@ -60,19 +56,16 @@ public class UserDaoImpl implements UserDao {
     public boolean updateUser(User user) {
         boolean result=true;
         try{
-            String id=user.getUsername();
-            Configuration cfg = new AnnotationConfiguration();
-            SessionFactory sf = cfg.configure().buildSessionFactory();
-            Session session = sf.openSession();
+            Session session = sessionFactory.openSession();
             session.beginTransaction();
-            session.delete(user);
+            session.update(user);
             session.getTransaction().commit();
             session.close();
-            sf.close();
         }catch(Exception e){
+            result=false;
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override
