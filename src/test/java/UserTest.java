@@ -22,7 +22,6 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by apple on 2015/7/10.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 public class UserTest {
     static{
         File f=new File(".");
@@ -30,8 +29,8 @@ public class UserTest {
     }
     ApplicationContext context = new FileSystemXmlApplicationContext("web/WEB-INF/applicationContext.xml");
 
-    @Resource(name="userDaoImpl")
-    private UserDao ud;
+
+    UserDao ud=(UserDao)context.getBean("userDao");
 
     User u=new User();
     @Before
