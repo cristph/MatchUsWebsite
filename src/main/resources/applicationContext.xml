@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context">
+
+        <context:component-scan base-package="us.match.website"/>
+    <context:annotation-config/> <!--add by wh-->
+    <bean id="mappings"
+             class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+              <!-- typed as a java.util.Properties -->
+              <property name="properties">
+                  <props>
+                      <prop key="jdbc.driverClassName">com.mysql.jdbc.Driver</prop>
+                      <prop key="jdbc.url">jdbc:mysql://192.168.1.105:3306/DataStore</prop>
+                      <prop key="jdbc.username">root</prop>
+                      <prop key="jdbc.password">admin</prop>
+                  </props>
+              </property>
+       </bean>
+
+       <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+             destroy-method="close">
+              <property name="driverClass" value="${jdbc.driverClassName}" />
+              <property name="jdbcUrl" value="${jdbc.url}" />
+              <property name="user" value="${jdbc.username}" />
+              <property name="password" value="${jdbc.password}" />
+       </bean>
+    <!-- 定义Hibernate的SessionFactory -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <!-- 依赖注入数据源，注入正是上面定义的dataSource -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 定义Hibernate的SessionFactory的属性 -->
+        <property name="hibernateProperties">
+            <props>
+                <!-- 指定数据库方言 -->
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLInnoDBDialect</prop>
+                <!-- 是否根据需要每次自动创建数据库 -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <!-- 显示Hibernate持久化操作所生成的SQL -->
+                <prop key="hibernate.show_sql">true</prop>
+                <!-- 将SQL脚本进行格式化后再输出 -->
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->
+    <!-- 该类实现PlatformTransactionManager接口，是针对Hibernate的特定实现-->
+    <bean id="transactionManager" class=
+            "org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <!-- 配置HibernateTransactionManager时需要依注入SessionFactory的引用 -->
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="transactionManager" />
+
+    <bean name="userDao" id="userDao" class="us.match.website.dao.UserDao" />
+
+</beans>
