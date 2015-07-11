@@ -14,7 +14,7 @@ import java.sql.SQLException;
 @Aspect
 public class DaoExceptionHandle {
 
-    @Pointcut("execution(* us.match.website.dao.daoImpl.*.*(..))")
+    @Pointcut("execution(* us.match.website.dao.daoImpl.UserDaoImpl.addUser(..))")
     private void pointCut(){}
 
     @AfterThrowing(pointcut = "pointCut()",throwing="ex")
