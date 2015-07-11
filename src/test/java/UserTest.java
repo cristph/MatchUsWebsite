@@ -59,7 +59,7 @@ public class UserTest {
 
    @Test
     public void testAdd(){
-        assertEquals(true, ud.addUser(u));
+        assertEquals(false, ud.addUser(u));
     }
 
 //    @Test(timeout=1000)
