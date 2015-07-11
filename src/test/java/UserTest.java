@@ -57,13 +57,20 @@ public class UserTest {
 
    @Test
     public void testAdd(){
-        assertEquals(false, ud.addUser(u));
+       assertEquals(false, ud.addUser(u));
     }
-
-//    @Test(timeout=1000)
-//    public void testDelete(){
-//        assertEquals(true,ud.deleteUser(u));
-//    }
+    @Test
+    public void testfinduser(){
+        User user=ud.findUser("wh");
+        User answer=new User();
+        answer.setPassword("123");
+        boolean m =user.getPassword().equals(answer.getPassword());
+        assertEquals(true,m);
+    }
+   @Test
+    public void testDelete(){
+       assertEquals(true,ud.deleteUser(u));
+    }
 
 //    @Ignore("Update() Not yet implemented")
 //    @Test(timeout=1000)
