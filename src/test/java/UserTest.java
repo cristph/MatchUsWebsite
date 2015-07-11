@@ -27,9 +27,7 @@ public class UserTest {
         File f=new File(".");
         System.out.println(f.getAbsolutePath());
     }
-    ApplicationContext context = new FileSystemXmlApplicationContext("web/WEB-INF/applicationContext.xml");
-
-
+    ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     UserDao ud=(UserDao)context.getBean("userDao");
 
     User u=new User();
