@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 /**
  * Created by apple on 2015/7/10.
  */
-
+@Repository
 public class UserDaoImpl implements UserDao {
 
     @Resource(name="sessionFactory")

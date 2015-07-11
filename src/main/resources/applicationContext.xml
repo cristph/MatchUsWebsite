@@ -56,9 +56,7 @@
         <!-- 配置HibernateTransactionManager时需要依注入SessionFactory的引用 -->
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <tx:advice id="txAdvice" transaction-manager="transactionManager" />
+    <tx:annotation-driven/>
 
-    <bean id="userDao" class="us.match.website.dao.daoImpl.UserDaoImpl">
-
-    </bean>
+    <!--<bean id="userDao" class="us.match.website.dao.daoImpl.UserDaoImpl"/>-->
 </beans>
