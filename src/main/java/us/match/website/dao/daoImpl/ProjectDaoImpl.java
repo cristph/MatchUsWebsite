@@ -17,47 +17,50 @@ public class ProjectDaoImpl implements ProjectDao {
     SessionFactory sessionFactory;
     public boolean addProject(Project project) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try{
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(project);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally {
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     public boolean deleteProject(Project project) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try {
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(project);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally {
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     public boolean updateProject(Project project) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try{
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.update(project);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally {
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     public Project find() {

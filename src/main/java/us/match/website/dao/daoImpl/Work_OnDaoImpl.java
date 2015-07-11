@@ -20,49 +20,52 @@ public class Work_OnDaoImpl implements Work_OnDao {
     @Override
     public boolean addWO(Work_On wo) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try{
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.save(wo);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally {
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     @Override
     public boolean deleteWO(Work_On wo) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try {
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(wo);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally {
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     @Override
     public boolean updateWO(Work_On wo) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try{
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.update(wo);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally {
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     @Override

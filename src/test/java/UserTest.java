@@ -64,11 +64,12 @@ public class UserTest {
         User user=ud.findUser("wh");
         User answer=new User();
         answer.setPassword("123");
-        assertEquals(answer.getPassword(),user.getPassword());
+        boolean m =user.getPassword().equals(answer.getPassword());
+        assertEquals(true,m);
     }
    @Test
     public void testDelete(){
-        assertEquals(true,ud.deleteUser(u));
+       assertEquals(true,ud.deleteUser(u));
     }
 
 //    @Ignore("Update() Not yet implemented")

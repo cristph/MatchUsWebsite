@@ -18,69 +18,69 @@ import javax.annotation.Resource;
  */
 @Repository
 public class UserDaoImpl implements UserDao {
-
     @Resource
     SessionFactory sessionFactory;
-
-
     public boolean addUser(User user) {
+        Session session = sessionFactory.openSession();
         boolean result = true;
         try {
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
            result=false;
            e.printStackTrace();
-       }
+       }finally{
+            session.save(user);
+            session.getTransaction().commit();
             return result;
+        }
         }
 
     @Override
     public boolean deleteUser(User user) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try {
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(user);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return result;
     }
 
     @Override
     public boolean updateUser(User user) {
         boolean result=true;
+        Session session = sessionFactory.openSession();
         try{
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             session.update(user);
-            session.getTransaction().commit();
-            session.close();
         }catch(Exception e){
             e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
         }
-        return false;
     }
 
     @Override
     public User findUser(String username) {
+        User result=new User();
         try {
             Session session = sessionFactory.openSession();
             session.beginTransaction();
-            User result = (User) session.get(User.class, username);
-            session.getTransaction().commit();
+            result = (User) session.get(User.class, username);
             session.close();
-            return result;
         }catch(Exception e) {
             e.printStackTrace();
-            return null;
+        }finally{
+            return result;
         }
     }
 }
