@@ -58,5 +58,4 @@
     </bean>
     <tx:annotation-driven/>
 
-    <!--<bean id="userDao" class="us.match.website.dao.daoImpl.UserDaoImpl"/>-->
 </beans>

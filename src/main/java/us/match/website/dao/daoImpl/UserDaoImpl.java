@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Resource(name="sessionFactory")
+    @Resource
     SessionFactory sessionFactory;
 
     public boolean addUser(User user) {

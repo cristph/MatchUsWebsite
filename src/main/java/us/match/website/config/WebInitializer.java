@@ -1,7 +1,9 @@
 package us.match.website.config;
 
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -14,18 +16,22 @@ import javax.servlet.ServletRegistration;
 /**
  * Created by Ezio on 7/10/2015.
  */
-@ContextConfiguration
 public class WebInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+        AnnotationConfigWebApplicationContext rootContext =
+                new AnnotationConfigWebApplicationContext();
         rootContext.register(AppConfig.class);
 
-        rootContext.setServletContext(servletContext);
+        servletContext.addListener(new ContextLoaderListener(rootContext));
 
-        ServletRegistration.Dynamic appPervlet = servletContext.addServlet("dispatcher", new DispatcherServlet(rootContext));
-        appPervlet.addMapping("/");
-        appPervlet.setLoadOnStartup(1);
+        // Create the dispatcher servlet's Spring application context
+        AnnotationConfigWebApplicationContext dispatcherServlet = new AnnotationConfigWebApplicationContext();
+        dispatcherServlet.register(MvcConfig.class);
+        // Register and map the dispatcher servlet
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherServlet));
+        dispatcher.addMapping("/");
+        dispatcher.setLoadOnStartup(1);
 
         FilterRegistration.Dynamic encodingFilter = servletContext.addFilter("encodingFilter", new CharacterEncodingFilter());
         encodingFilter.setInitParameter("encoding", "UTF-8");
