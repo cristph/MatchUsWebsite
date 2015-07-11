@@ -18,22 +18,23 @@ import javax.annotation.Resource;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @Resource
-    SessionFactory sessionFactory;
+//    @Resource
+//    SessionFactory sessionFactory;
+
 
     public boolean addUser(User user) {
         boolean result=true;
-        try{
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
-            session.close();
-
-        }catch(Exception e){
-            result=false;
-            e.printStackTrace();
-        }
+//        try{
+//            Session session = sessionFactory.openSession();
+//            session.beginTransaction();
+//            session.save(user);
+//            session.getTransaction().commit();
+//            session.close();
+//
+//        }catch(Exception e){
+//            result=false;
+//            e.printStackTrace();
+//        }
         return result;
     }
 
