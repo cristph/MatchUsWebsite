@@ -18,6 +18,7 @@ public class UserInfoController extends MultiActionController{
     /*处理访问个人信息的请求*/
     @Resource
     UserService userService;
+
     public ModelAndView getBasicInfo(HttpServletRequest req,
                                      HttpServletResponse res){
         String name=req.getParameter("UserName");

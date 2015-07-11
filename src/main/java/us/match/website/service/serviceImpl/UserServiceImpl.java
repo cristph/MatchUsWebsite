@@ -19,17 +19,17 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public String login(String username, String password) {
+    public User login(String username, String password) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        return "success";
+        return user;
     }
 
     @Override
-    public String logout(String username) {
+    public User logout(String username) {
         User user = new User();
         user.setUsername(username);
-        return "success";
+        return user;
     }
 }

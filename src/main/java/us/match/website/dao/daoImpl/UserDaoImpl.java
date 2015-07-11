@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Source;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
