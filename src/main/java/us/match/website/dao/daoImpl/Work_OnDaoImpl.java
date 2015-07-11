@@ -3,24 +3,27 @@ package us.match.website.dao.daoImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import us.match.website.dao.ProjectDao;
+import us.match.website.dao.Work_OnDao;
 import us.match.website.model.Project;
+import us.match.website.model.Work_On;
 
 import javax.annotation.Resource;
 
 /**
- * Created by Seven on 15/7/10.
+ * Created by apple on 2015/7/11.
  */
 @Repository
-public class ProjectDaoImpl implements ProjectDao {
+public class Work_OnDaoImpl implements Work_OnDao {
     @Resource
     SessionFactory sessionFactory;
-    public boolean addProject(Project project) {
+
+    @Override
+    public boolean addWO(Work_On wo) {
         boolean result=true;
         try{
             Session session = sessionFactory.openSession();
             session.beginTransaction();
-            session.save(project);
+            session.save(wo);
             session.getTransaction().commit();
             session.close();
         }catch(Exception e){
@@ -30,12 +33,13 @@ public class ProjectDaoImpl implements ProjectDao {
         return result;
     }
 
-    public boolean deleteProject(Project project) {
+    @Override
+    public boolean deleteWO(Work_On wo) {
         boolean result=true;
         try {
             Session session = sessionFactory.openSession();
             session.beginTransaction();
-            session.delete(project);
+            session.delete(wo);
             session.getTransaction().commit();
             session.close();
         }catch(Exception e){
@@ -45,12 +49,13 @@ public class ProjectDaoImpl implements ProjectDao {
         return result;
     }
 
-    public boolean updateProject(Project project) {
+    @Override
+    public boolean updateWO(Work_On wo) {
         boolean result=true;
         try{
             Session session = sessionFactory.openSession();
             session.beginTransaction();
-            session.update(project);
+            session.update(wo);
             session.getTransaction().commit();
             session.close();
         }catch(Exception e){
@@ -60,7 +65,8 @@ public class ProjectDaoImpl implements ProjectDao {
         return result;
     }
 
-    public Project find() {
+    @Override
+    public Work_On find() {
         return null;
     }
 }
