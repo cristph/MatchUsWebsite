@@ -5,17 +5,18 @@ import org.springframework.stereotype.Service;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
-
 import javax.annotation.Resource;
+
+
 
 /**
  * Created by WH on 2015/7/10.
  */
-@Service("userServiceImpl")
+@Service("userService")
 public class UserServiceImpl implements UserService{
 
 
-    @Resource(name="userDaoImpl")
+    @Resource(name="userDao")
     UserDao userDao;
 
     @Override
