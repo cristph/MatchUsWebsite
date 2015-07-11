@@ -19,25 +19,24 @@ import javax.annotation.Resource;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-//    @Resource
-//    SessionFactory sessionFactory;
+    @Resource
+    SessionFactory sessionFactory;
 
 
     public boolean addUser(User user) {
-        boolean result=true;
-//        try{
-//            Session session = sessionFactory.openSession();
-//            session.beginTransaction();
-//            session.save(user);
-//            session.getTransaction().commit();
-//            session.close();
-//
-//        }catch(Exception e){
-//            result=false;
-//            e.printStackTrace();
-//        }
-        return result;
-    }
+        boolean result = true;
+        try {
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+           result=false;
+           e.printStackTrace();
+       }
+            return result;
+        }
 
     @Override
     public boolean deleteUser(User user) {
@@ -78,7 +77,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User find() {
-        return null;
+    public User findUser(String username) {
+        try {
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
+            User result = (User) session.get(User.class, username);
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
