@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 
-    <context:component-scan base-package="us.match.website">
+    <context:component-scan base-package="us.match.website" >
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -49,7 +49,7 @@
             <props>
                 <!-- 指定数据库方言 -->
                 <prop key="hibernate.dialect">
-                    org.hibernate.dialect.MySQLInnoDBDialect</prop>
+                    org.hibernate.dialect.MySQL5InnoDBDialect</prop>
                 <!-- 是否根据需要每次自动创建数据库 -->
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <!-- 显示Hibernate持久化操作所生成的SQL -->
@@ -69,5 +69,17 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <tx:annotation-driven/>
-    <aop:aspectj-autoproxy />
+
+    <bean id="exceptionHandle" class="us.match.website.dao.daoImpl.DaoExceptionHandle"></bean>
+    <aop:config>
+        <!-- 全局切点 -->
+        <aop:pointcut expression="within(us.match.website.dao.daoImpl.UserDaoImpl)"
+                      id="servicePointcut" />
+        <!-- 切面 -->
+        <aop:aspect id="serviceAspect" ref="exceptionHandle">
+            <!-- 执行的切面方法 -->
+            <aop:after-throwing method="addUserException" pointcut-ref="servicePointcut" />
+            <aop:after method="afterTest" pointcut-ref="servicePointcut"/>
+        </aop:aspect>
+    </aop:config>
 </beans>
