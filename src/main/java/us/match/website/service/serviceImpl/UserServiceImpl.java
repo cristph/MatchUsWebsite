@@ -23,7 +23,16 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        return user;
+        User userFromDao=userDao.findUser(username);
+        if(userFromDao!=null){
+            if(userFromDao.getPassword().equals(user.getPassword())){
+                return user; //login success
+            }else{
+                return null; //login failed
+            }
+        }else {
+            return null;  //user not existed
+        }
     }
 
     @Override
