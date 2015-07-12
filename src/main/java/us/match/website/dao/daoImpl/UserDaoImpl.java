@@ -22,14 +22,15 @@ public class UserDaoImpl implements UserDao {
     @Resource
     SessionFactory sessionFactory;
 
-    public boolean addUser(User user) {
+    public User addUser(User user) {
+        User result=new User();
         Session session = sessionFactory.openSession();
-        boolean result = true;
         try {
             session.beginTransaction();
             session.save(user);
+            User u =(User)session.get(User.class,user.getUsername());
         } catch (Exception e) {
-           result=false;
+           result=null;
            e.printStackTrace();
        }finally{
             session.getTransaction().commit();
