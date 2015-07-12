@@ -58,6 +58,7 @@ public class CheckCodeController {
         }
     }
 
+    @ResponseBody
     @RequestMapping(value="/validate")
     public boolean validate(@RequestParam("userCheckCode") String code,
                             HttpServletRequest request){
