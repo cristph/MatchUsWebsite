@@ -13,5 +13,10 @@
 </head>
 <body>
   <h1>Welcome to MATCH.US ! :D </h1>
+<form method="post" action="/login">
+    <p>UserName:<input type="text" name="username"/></p>
+    <p>Password:<input type="password" name="password"/></p>
+    <input type="submit" value="Submit"/>
+</form>
 </body>
 </html>

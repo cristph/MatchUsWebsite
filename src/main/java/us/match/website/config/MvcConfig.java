@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
  * Created by Ezio on 7/10/2015.
  */
 @Configuration
-//@EnableWebMvc
+@EnableWebMvc
 @ComponentScan(basePackages = "us.match.website.controller")
 public class MvcConfig {
     @Bean
