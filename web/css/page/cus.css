@@ -286,3 +286,11 @@ body {
     background-repeat: no-repeat;
     background-position: center 0;
 }
+
+#checkCode{
+    border: 1px;
+}
+
+#img_code{
+    left: 70px;
+}
