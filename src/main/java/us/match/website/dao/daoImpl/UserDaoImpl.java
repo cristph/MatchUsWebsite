@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
+import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
 
@@ -20,18 +21,19 @@ import javax.annotation.Resource;
 public class UserDaoImpl implements UserDao {
     @Resource
     SessionFactory sessionFactory;
+
     public boolean addUser(User user) {
         Session session = sessionFactory.openSession();
         boolean result = true;
         try {
             session.beginTransaction();
-            session.close();
+            session.save(user);
         } catch (Exception e) {
            result=false;
            e.printStackTrace();
        }finally{
-            session.save(user);
             session.getTransaction().commit();
+            session.close();
             return result;
         }
         }
@@ -72,14 +74,16 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findUser(String username) {
         User result=new User();
+        Session session = sessionFactory.openSession();
         try {
-            Session session = sessionFactory.openSession();
             session.beginTransaction();
             result = (User) session.get(User.class, username);
-            session.close();
+
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
+            session.getTransaction().commit();
+            session.close();
             return result;
         }
     }

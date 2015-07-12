@@ -11,6 +11,7 @@ import us.match.website.dao.daoImpl.UserDaoImpl;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import org.junit.Ignore;
+import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
 import java.io.File;
@@ -23,13 +24,8 @@ import static org.junit.Assert.assertEquals;
  * Created by apple on 2015/7/10.
  */
 public class UserTest {
-    static{
-        File f=new File(".");
-        System.out.println(f.getAbsolutePath());
-    }
     ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     UserDao ud=(UserDao)context.getBean("userDaoImpl");
-
     User u=new User();
     @Before
     public void setUp(){
@@ -38,11 +34,11 @@ public class UserTest {
             byte[] photo = new byte[10];
 //            in.read(photo);
 //            in.close();
-            u.setUsername("wh");
+            u.setUsername("gjp");
             u.setPassword("123");
-            u.setNickname("wh");
+            u.setNickname("gjp");
             u.setInstruction("aaa");
-            u.setRealname("wh");
+            u.setRealname("gjp");
             u.setSex("male");
             u.setBirthday("1");
             u.setFace(photo);
@@ -57,17 +53,20 @@ public class UserTest {
 
    @Test
     public void testAdd(){
-       assertEquals(false, ud.addUser(u));
+       u.setPassword(MD5.toMD5(u.getPassword()));
+       assertEquals(true, ud.addUser(u));
     }
     @Test
     public void testfinduser(){
-        User user=ud.findUser("wh");
+        User user=ud.findUser("gjp");
         User answer=new User();
-        answer.setPassword("123");
+        answer.setPassword(MD5.toMD5("123"));
+        System.out.println("ggg" + user.getPassword());
+        System.out.println("fff"+answer.getPassword());
         boolean m =user.getPassword().equals(answer.getPassword());
-        assertEquals(true,m);
+        assertEquals(true, m);
     }
-   @Test
+  @Test
     public void testDelete(){
        assertEquals(true,ud.deleteUser(u));
     }

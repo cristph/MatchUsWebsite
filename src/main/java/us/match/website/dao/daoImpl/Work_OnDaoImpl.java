@@ -16,7 +16,6 @@ import javax.annotation.Resource;
 public class Work_OnDaoImpl implements Work_OnDao {
     @Resource
     SessionFactory sessionFactory;
-
     @Override
     public boolean addWO(Work_On wo) {
         boolean result=true;
