@@ -63,14 +63,14 @@
                 <h4 class="modal-title" id="exampleModalLabel">登陆</h4>
             </div>
             <div class="modal-body">
-                <form class='form-signin'>
+                <form class='form-signin' method="post" action="/login">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
-                        <input type='email' id='inputEmail' class='form-control' placeholder='Email address' required autofocus>
+                        <input type='email' id='inputEmail'  name="username" class='form-control' placeholder='Email address' required autofocus>
                     </div>
                     <div class="form-group">
                         <label class="control-label">密码：</label>
-                        <input type='password' id='inputPassword' class='form-control' placeholder='Password' required>
+                        <input type='password' id='inputPassword' name="password" class='form-control' placeholder='Password' required>
                     </div>
                     <div class='checkbox'>
                         <label>
