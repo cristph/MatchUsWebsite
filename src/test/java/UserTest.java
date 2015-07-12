@@ -34,14 +34,14 @@ public class UserTest {
 //            InputStream in = new FileInputStream("C:\\Users/Public/Pictures/Sample Pictures/1.jpg");
 //            in.read(photo);
 //            in.close();
-            u.setUsername("wh");
+            u.setUsername("zzz");
             u.setPassword("123");
-            u.setNickname("wh");
+            u.setNickname("zy");
             u.setInstruction("aaa");
-            u.setRealname("wh");
+            u.setRealname("zy");
             u.setSex("male");
             u.setBirthday("1");
-            u.setFace(Identicon.creat(Identicon.tohash("wh"),200));
+            u.setFace(Identicon.creat(Identicon.tohash(u.getUsername()),200));
             u.setUniversity("nju");
             u.setMajor("software");
             u.setProinstruction("many works");
@@ -66,10 +66,10 @@ public class UserTest {
 //        boolean m =user.getPassword().equals(answer.getPassword());
 //        assertEquals(true, m);
 //    }
-//  @Test
-//    public void testDelete(){
-//       assertEquals(true,ud.deleteUser(u));
-//    }
+  @Test
+    public void testDelete(){
+       assertEquals(true,ud.deleteUser(u));
+    }
 
 //    @Ignore("Update() Not yet implemented")
 //    @Test(timeout=1000)
