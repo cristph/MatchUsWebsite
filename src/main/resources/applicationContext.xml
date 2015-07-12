@@ -69,17 +69,4 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <tx:annotation-driven/>
-
-    <bean id="exceptionHandle" class="us.match.website.dao.daoImpl.DaoExceptionHandle"></bean>
-    <aop:config>
-        <!-- 全局切点 -->
-        <aop:pointcut expression="within(us.match.website.dao.daoImpl.UserDaoImpl)"
-                      id="servicePointcut" />
-        <!-- 切面 -->
-        <aop:aspect id="serviceAspect" ref="exceptionHandle">
-            <!-- 执行的切面方法 -->
-            <aop:after-throwing method="addUserException" pointcut-ref="servicePointcut" />
-            <aop:after method="afterTest" pointcut-ref="servicePointcut"/>
-        </aop:aspect>
-    </aop:config>
 </beans>
