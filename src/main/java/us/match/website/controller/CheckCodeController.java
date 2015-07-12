@@ -41,7 +41,7 @@ public class CheckCodeController {
         g.fillRect(0, 0, idCode.getWidth(), idCode.getHeight()) ;
 
         g.setColor(idCode.getRandomColor(180, 200)) ;
-        idCode.drawRandomLines(g, 160) ;
+        idCode.drawRandomLines(g, 30) ;
         String codeString=idCode.drawRandomString(4, g) ;
         g.dispose() ;
         try {
