@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
+import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
 
@@ -22,8 +23,9 @@ public class UserServiceImpl implements UserService {
     public User login(String username, String password) {
         User user = new User();
         user.setUsername(username);
-        user.setPassword(password);
+        user.setPassword(MD5.toMD5(password));
         User userFromDao=userDao.findUser(username);
+        System.out.println("______________"+username+" "+user.getPassword());
         if(userFromDao!=null){
             if(userFromDao.getPassword().equals(user.getPassword())){
                 return user; //login success
@@ -41,4 +43,15 @@ public class UserServiceImpl implements UserService {
         user.setUsername(username);
         return user;
     }
+
+    @Override
+    public User register(User user) {
+        User u=userDao.addUser(user);
+        if(u!=null){
+            return u;
+        }else
+            return null;
+    }
+
+
 }
