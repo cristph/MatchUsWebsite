@@ -20,9 +20,8 @@ import java.io.IOException;
 
 @Controller
 public class CheckCodeController {
-    @ResponseBody
     @RequestMapping(value="/checkCode.jpg",method = RequestMethod.POST)
-    public String getCheckCode(HttpServletResponse response,Model model){
+    public void getCheckCode(HttpServletResponse response,Model model){
         //设置不缓存图片
         response.setHeader("Pragma", "No-cache");
         response.setHeader("Cache-Control", "No-cache");
@@ -52,7 +51,6 @@ public class CheckCodeController {
             System.out.println("输出验证码失败！");
         }
         model.addAttribute("codeString",codeString);
-        return "checkCodeBack";
     }
 
 
