@@ -1,30 +1,36 @@
-.content {
-    background-color: white;
+.select_text {
+    color: black;
+    font-size: larger;
 }
 
-#select_div {
-    width: 80%;
-    height: auto;
-    align: center;
-    color: darkblue;
+.select_title {
+    color: black;
+    font-size: x-large;
+}
+
+#select_option_div {
+    margin-left: 5%;
+}
+
+#select_title_div {
 
 }
 
-li:link {
-    color: #FF0000
+#select_detail_div {
 }
 
-a:visited {
-    color: #00FF00
+#select_content_div {
+
 }
 
-/* 已访问的链接 */
-a:hover {
-    color: #FF00FF
+#body {
+
 }
 
-/* 鼠标移动到链接上 */
-a:active {
-    color: #0000FF
+#header {
+
 }
 
+#footer {
+
+}

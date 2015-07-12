@@ -11,6 +11,7 @@ import us.match.website.dao.daoImpl.UserDaoImpl;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import org.junit.Ignore;
+import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
@@ -31,17 +32,16 @@ public class UserTest {
     public void setUp(){
         try {
 //            InputStream in = new FileInputStream("C:\\Users/Public/Pictures/Sample Pictures/1.jpg");
-            byte[] photo = new byte[10];
 //            in.read(photo);
 //            in.close();
-            u.setUsername("gjp");
+            u.setUsername("zzz");
             u.setPassword("123");
-            u.setNickname("gjp");
+            u.setNickname("zy");
             u.setInstruction("aaa");
-            u.setRealname("gjp");
+            u.setRealname("zy");
             u.setSex("male");
             u.setBirthday("1");
-            u.setFace(photo);
+            u.setFace(Identicon.creat(Identicon.tohash(u.getUsername()),200));
             u.setUniversity("nju");
             u.setMajor("software");
             u.setProinstruction("many works");
@@ -54,7 +54,7 @@ public class UserTest {
    @Test
     public void testAdd(){
        u.setPassword(MD5.toMD5(u.getPassword()));
-       assertEquals(true, ud.addUser(u));
+       assertEquals(u.getUsername(), ud.addUser(u).getUsername());
     }
 //    @Test
 //    public void testfinduser(){
@@ -66,10 +66,10 @@ public class UserTest {
 //        boolean m =user.getPassword().equals(answer.getPassword());
 //        assertEquals(true, m);
 //    }
-//  @Test
-//    public void testDelete(){
-//       assertEquals(true,ud.deleteUser(u));
-//    }
+  @Test
+    public void testDelete(){
+       assertEquals(true,ud.deleteUser(u));
+    }
 
 //    @Ignore("Update() Not yet implemented")
 //    @Test(timeout=1000)
