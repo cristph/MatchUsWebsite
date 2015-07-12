@@ -2,10 +2,8 @@ package us.match.website.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
 import javax.annotation.Resource;
@@ -28,7 +26,25 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login() {
-        return "success";
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password") String password) {
+        User u=userService.login(username,password);
+        if(u==null){
+            return "failed";
+        }else
+            return "success";
+    }
+
+    @RequestMapping(value = "/reg", method = RequestMethod.POST)
+    public String Register(@ModelAttribute User newUser, Model model){
+        User u=userService.register(newUser);
+        if(u==null){
+            model.addAttribute("registerResult","regFailed");
+            return "reg";
+        }else{
+            model.addAttribute("user",u);
+            model.addAttribute("registerResult","regSuccess");
+            return "redirect:user";
+        }
     }
 }
