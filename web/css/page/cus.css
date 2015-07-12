@@ -271,7 +271,7 @@ body {
 
 /*********topbanner**********/
 .topbanner{
-    margin-top: 50px;
+    *margin-top: 50px;
     position: relative;
     height: 600px;
     overflow: hidden;

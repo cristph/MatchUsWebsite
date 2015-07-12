@@ -66,7 +66,7 @@
                 <form class='form-signin' method="post" action="/login">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
-                        <input type='email' id='inputEmail'  name="username" class='form-control' placeholder='Email address' required autofocus>
+                        <input type='text' id='inputEmail'  name="username" class='form-control' placeholder='Email address' required autofocus>
                     </div>
                     <div class="form-group">
                         <label class="control-label">密码：</label>
@@ -77,11 +77,12 @@
                             <input type='checkbox' value='remember-me'> 记住我
                         </label>
                     </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">确认</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" type="submit">确认</button>
-            </div>
+
         </div>
     </div>
 </div>
@@ -95,7 +96,7 @@
                 <h4 class="modal-title" id="signin_title">注册</h4>
             </div>
             <div class="modal-body">
-                <form class='form-signin'>
+                <form class='form-signin' method="post" action="/">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
                         <input type='email' id='inEmail' class='form-control' placeholder='Email address' required autofocus>
@@ -116,11 +117,12 @@
                         <label class="control-label">验证码</label>
                         <input type="text" id="sureCode" class="form-control" placeholder="SureCode" required>
                     </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">确认</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" type="submit">确认</button>
-            </div>
+
         </div>
     </div>
 </div>
