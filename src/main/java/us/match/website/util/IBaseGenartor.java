@@ -18,11 +18,11 @@ public class IBaseGenartor {
 
         this.hash = hash;
 
-        boolean[][] array = new boolean[6][5];
+        boolean[][] array = new boolean[18][9];
 
         //初始化字符串
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 18; i++) {
+            for (int j = 0; j < 9; j++) {
                 array[i][j] = false;
             }
         }
@@ -30,14 +30,21 @@ public class IBaseGenartor {
             int s = i / 2; //只取hash字符串偶数编号（从0开始）的字符
             boolean v =
                     DoubleMath.roundToInt(Integer.parseInt(hash.charAt(i) + "", 16) / 10.0, RoundingMode.HALF_UP) > 0 ? true : false;
-            if (s % 3 == 0) {
-                array[s / 3][0] = v;
-                array[s / 3][4] = v;
-            } else if (s % 3 == 1) {
-                array[s / 3][1] = v;
-                array[s / 3][3] = v;
-            } else {
-                array[s / 3][2] = v;
+            if (s % 5 == 0) {
+                array[s][0] = v;
+                array[s][8] = v;
+            } else if (s % 5 == 1) {
+                array[s][2] = v;
+                array[s][6] = v;
+            } else if (s % 5 == 2) {
+                array[s][3] = v;
+                array[s][5] = v;
+            }
+            else if (s % 5 == 3) {
+                array[s][4] = v;
+            }
+            else{
+                array[s][4] = v;
             }
         }
         this.booleanValueArray = array;

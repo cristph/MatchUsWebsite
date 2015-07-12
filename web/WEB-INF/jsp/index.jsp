@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">utf-8
+    <meta name="description" content="">
+    utf-8
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
@@ -34,13 +35,18 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Match Us</a>
+            <a class="navbar-brand" href="../../view/page/project.html">找项目</a>
+            <a class="navbar-brand" href="../../view/page/team.html">找团队</a>
+            <a class="navbar-brand" href="../../view/page/talent.html">找人才</a>
+            <a class="navbar-brand" href="../../view/page/user.html">个人中心</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -59,18 +65,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel">登陆</h4>
             </div>
             <div class="modal-body">
                 <form class='form-signin' method="post" action="/login">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
-                        <input type='text' id='inputEmail'  name="username" class='form-control' placeholder='Email address' required autofocus>
+                        <input type='text' id='inputEmail' name="username" class='form-control'
+                               placeholder='Email address' required autofocus>
                     </div>
                     <div class="form-group">
                         <label class="control-label">密码：</label>
-                        <input type='password' id='inputPassword' name="password" class='form-control' placeholder='Password' required>
+                        <input type='password' id='inputPassword' name="password" class='form-control'
+                               placeholder='Password' required>
                     </div>
                     <div class='checkbox'>
                         <label>
@@ -92,14 +101,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="signin_title">注册</h4>
             </div>
             <div class="modal-body">
                 <form class='form-signin' method="post" action="/">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
-                        <input type='email' id='inEmail' class='form-control' placeholder='Email address' required autofocus>
+                        <input type='email' id='inEmail' class='form-control' placeholder='Email address' required
+                               autofocus>
                     </div>
                     <div class="form-group">
                         <label class="control-label">密码：</label>
@@ -107,7 +118,8 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">确认密码：</label>
-                        <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword' required>
+                        <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword'
+                               required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">昵称</label>
@@ -128,8 +140,6 @@
 </div>
 
 
-
-
 <div class="topbanner">
     <div class="topbanner_content">
         <div class="topbanner_img" style="background-image: url(../../image/ini/banner1.jpg)">
@@ -143,11 +153,16 @@
 
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <h2 class="featurette-heading">First featurette heading. <span
+                    class="text-muted">It'll blow your mind.</span></h2>
+
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
+                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                commodo.</p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg"
+                 data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
 
@@ -155,11 +170,16 @@
 
     <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
+            </h2>
+
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
+                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                commodo.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg"
+                 data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
 
@@ -168,10 +188,14 @@
     <div class="row featurette">
         <div class="col-md-7">
             <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
+                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
+                commodo.</p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg"
+                 data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
 
@@ -179,6 +203,7 @@
 
     <div class="projects-header page-header">
         <h2>优质项目推荐</h2>
+
         <p>这些项目好牛逼啊！！！！</p>
     </div>
 
@@ -337,47 +362,228 @@
 
     <div class="projects-header page-header">
         <h2>结交牛人</h2>
+
         <p>看看底下的牛人->_-></p>
     </div>
 
     <section class="pe-container">
         <ul id="pe-thumbs" class="pe-thumbs">
-            <li><a href="#"><img src="../../image/ini/thumbs/1.jpg" /><div class="pe-description"><h3>time</h3><p>Since time, and his predestinated end</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/2.jpg" /><div class="pe-description"><h3>hopeful</h3><p>Abridged the circuit of his hopeful days</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/3.jpg" /><div class="pe-description"><h3>virtue</h3><p>Whiles both his youth and virtue did intend</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/4.jpg" /><div class="pe-description"><h3>endeavors</h3><p>The good endeavors of deserving praise</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/5.jpg" /><div class="pe-description"><h3>monument</h3><p>What memorable monument can last</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/6.jpg" /><div class="pe-description"><h3>name</h3><p>Whereon to build his never-blemished name</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/7.jpg" /><div class="pe-description"><h3>life was graced</h3><p>But his own worth, wherein his life was graced</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/8.jpg" /><div class="pe-description"><h3>the same</h3><p>Sith as that ever he maintained the same?</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/9.jpg" /><div class="pe-description"><h3>oblivion</h3><p>Oblivion in the darkest day to come</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/10.jpg" /><div class="pe-description"><h3>sin shall tread</h3><p>When sin shall tread on merit in the dust</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/11.jpg" /><div class="pe-description"><h3>lamentable tomb</h3><p>Cannot rase out the lamentable tomb</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/12.jpg" /><div class="pe-description"><h3>short-lived deserts</h3><p>Of his short-lived deserts; but still they must</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/13.jpg" /><div class="pe-description"><h3>hearts and memories</h3><p>Even in the hearts and memories of men</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/14.jpg" /><div class="pe-description"><h3>respect</h3><p>Claim fit respect, that they, in every limb</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/15.jpg" /><div class="pe-description"><h3>comfort</h3><p>Remembering what he was, with comfort then</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/16.jpg" /><div class="pe-description"><h3>pattern</h3><p>May pattern out one truly good, by him</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/17.jpg" /><div class="pe-description"><h3>truly good</h3><p>For he was truly good, if honest care</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/18.jpg" /><div class="pe-description"><h3>harmless conversation</h3><p>Of harmless conversation may commend</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/19.jpg" /><div class="pe-description"><h3>recompensed</h3><p>Ill recompensed only in his end</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/20.jpg" /><div class="pe-description"><h3>tongue</h3><p>Nor can the tongue of him who loved him least</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/21.jpg" /><div class="pe-description"><h3>superlative</h3><p>To one superlative above the rest</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/22.jpg" /><div class="pe-description"><h3>steady faith</h3><p>Of many men in steady faith reprove</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/23.jpg" /><div class="pe-description"><h3>constant temper</h3><p>His constant temper, in the equal weight</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/24.jpg" /><div class="pe-description"><h3>thankfulness</h3><p>Of thankfulness and kindness: Truth doth leave</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/25.jpg" /><div class="pe-description"><h3>proof</h3><p>Sufficient proof, he was in every right</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/26.jpg" /><div class="pe-description"><h3>thankful</h3><p>As kind to give, as thankful to receive.</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/27.jpg" /><div class="pe-description"><h3>curious eye</h3><p>The curious eye of a quick-brained survey</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/28.jpg" /><div class="pe-description"><h3>scantly find</h3><p>Could scantly find a mote amidst the sun</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/29.jpg" /><div class="pe-description"><h3>too-shortened days</h3><p>Of his too-shortened days, or make a prey</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/30.jpg" /><div class="pe-description"><h3>faulty errors</h3><p>Of any faulty errors he had done</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/31.jpg" /><div class="pe-description"><h3>spleenful sense</h3><p>Not that he was above the spleenful sense</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/32.jpg" /><div class="pe-description"><h3>spite of malice</h3><p>And spite of malice, but for that he had</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/33.jpg" /><div class="pe-description"><h3>innocence</h3><p>Warrant enough in his own innocence</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/34.jpg" /><div class="pe-description"><h3>nature</h3><p>Against the sting of some in nature bad</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/35.jpg" /><div class="pe-description"><h3>absolutely blest</h3><p>Yet who is he so absolutely blest</p></div></a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/36.jpg" /><div class="pe-description"><h3>mortal frame</h3><p>That lives encompassed in a mortal frame</p></div></a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/1.jpg"/>
+
+                <div class="pe-description"><h3>time</h3>
+
+                    <p>Since time, and his predestinated end</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/2.jpg"/>
+
+                <div class="pe-description"><h3>hopeful</h3>
+
+                    <p>Abridged the circuit of his hopeful days</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/3.jpg"/>
+
+                <div class="pe-description"><h3>virtue</h3>
+
+                    <p>Whiles both his youth and virtue did intend</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/4.jpg"/>
+
+                <div class="pe-description"><h3>endeavors</h3>
+
+                    <p>The good endeavors of deserving praise</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/5.jpg"/>
+
+                <div class="pe-description"><h3>monument</h3>
+
+                    <p>What memorable monument can last</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/6.jpg"/>
+
+                <div class="pe-description"><h3>name</h3>
+
+                    <p>Whereon to build his never-blemished name</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/7.jpg"/>
+
+                <div class="pe-description"><h3>life was graced</h3>
+
+                    <p>But his own worth, wherein his life was graced</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/8.jpg"/>
+
+                <div class="pe-description"><h3>the same</h3>
+
+                    <p>Sith as that ever he maintained the same?</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/9.jpg"/>
+
+                <div class="pe-description"><h3>oblivion</h3>
+
+                    <p>Oblivion in the darkest day to come</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/10.jpg"/>
+
+                <div class="pe-description"><h3>sin shall tread</h3>
+
+                    <p>When sin shall tread on merit in the dust</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/11.jpg"/>
+
+                <div class="pe-description"><h3>lamentable tomb</h3>
+
+                    <p>Cannot rase out the lamentable tomb</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/12.jpg"/>
+
+                <div class="pe-description"><h3>short-lived deserts</h3>
+
+                    <p>Of his short-lived deserts; but still they must</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/13.jpg"/>
+
+                <div class="pe-description"><h3>hearts and memories</h3>
+
+                    <p>Even in the hearts and memories of men</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/14.jpg"/>
+
+                <div class="pe-description"><h3>respect</h3>
+
+                    <p>Claim fit respect, that they, in every limb</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/15.jpg"/>
+
+                <div class="pe-description"><h3>comfort</h3>
+
+                    <p>Remembering what he was, with comfort then</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/16.jpg"/>
+
+                <div class="pe-description"><h3>pattern</h3>
+
+                    <p>May pattern out one truly good, by him</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/17.jpg"/>
+
+                <div class="pe-description"><h3>truly good</h3>
+
+                    <p>For he was truly good, if honest care</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/18.jpg"/>
+
+                <div class="pe-description"><h3>harmless conversation</h3>
+
+                    <p>Of harmless conversation may commend</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/19.jpg"/>
+
+                <div class="pe-description"><h3>recompensed</h3>
+
+                    <p>Ill recompensed only in his end</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/20.jpg"/>
+
+                <div class="pe-description"><h3>tongue</h3>
+
+                    <p>Nor can the tongue of him who loved him least</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/21.jpg"/>
+
+                <div class="pe-description"><h3>superlative</h3>
+
+                    <p>To one superlative above the rest</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/22.jpg"/>
+
+                <div class="pe-description"><h3>steady faith</h3>
+
+                    <p>Of many men in steady faith reprove</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/23.jpg"/>
+
+                <div class="pe-description"><h3>constant temper</h3>
+
+                    <p>His constant temper, in the equal weight</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/24.jpg"/>
+
+                <div class="pe-description"><h3>thankfulness</h3>
+
+                    <p>Of thankfulness and kindness: Truth doth leave</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/25.jpg"/>
+
+                <div class="pe-description"><h3>proof</h3>
+
+                    <p>Sufficient proof, he was in every right</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/26.jpg"/>
+
+                <div class="pe-description"><h3>thankful</h3>
+
+                    <p>As kind to give, as thankful to receive.</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/27.jpg"/>
+
+                <div class="pe-description"><h3>curious eye</h3>
+
+                    <p>The curious eye of a quick-brained survey</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/28.jpg"/>
+
+                <div class="pe-description"><h3>scantly find</h3>
+
+                    <p>Could scantly find a mote amidst the sun</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/29.jpg"/>
+
+                <div class="pe-description"><h3>too-shortened days</h3>
+
+                    <p>Of his too-shortened days, or make a prey</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/30.jpg"/>
+
+                <div class="pe-description"><h3>faulty errors</h3>
+
+                    <p>Of any faulty errors he had done</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/31.jpg"/>
+
+                <div class="pe-description"><h3>spleenful sense</h3>
+
+                    <p>Not that he was above the spleenful sense</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/32.jpg"/>
+
+                <div class="pe-description"><h3>spite of malice</h3>
+
+                    <p>And spite of malice, but for that he had</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/33.jpg"/>
+
+                <div class="pe-description"><h3>innocence</h3>
+
+                    <p>Warrant enough in his own innocence</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/34.jpg"/>
+
+                <div class="pe-description"><h3>nature</h3>
+
+                    <p>Against the sting of some in nature bad</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/35.jpg"/>
+
+                <div class="pe-description"><h3>absolutely blest</h3>
+
+                    <p>Yet who is he so absolutely blest</p></div>
+            </a></li>
+            <li><a href="#"><img src="../../image/ini/thumbs/36.jpg"/>
+
+                <div class="pe-description"><h3>mortal frame</h3>
+
+                    <p>That lives encompassed in a mortal frame</p></div>
+            </a></li>
         </ul>
     </section>
 
@@ -385,7 +591,10 @@
 
     <div class="jumbotron">
         <h1>Marketing stuff!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
+            commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+
         <p><a class="btn btn-lg btn-success" href="#" role="button">加入我们吧</a></p>
     </div>
     <!-- /END THE FEATURETTES -->
@@ -394,14 +603,12 @@
 
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
+
         <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
 
-</div><!-- /.container -->
-
-
-
-
+</div>
+<!-- /.container -->
 
 
 <!-- Bootstrap core JavaScript
@@ -412,33 +619,33 @@
 <script type="text/javascript" src="../../js/page/jquery.proximity.js"></script>
 
 <script type="text/javascript">
-    $(function() {
+    $(function () {
 
-        var Photo	= (function() {
+        var Photo = (function () {
 
             // list of thumbs
-            var $list		= $('#pe-thumbs'),
+            var $list = $('#pe-thumbs'),
             // list's width and offset left.
             // this will be used to know the position of the description container
-                    listW		= $list.width(),
-                    listL		= $list.offset().left,
+                    listW = $list.width(),
+                    listL = $list.offset().left,
             // the images
-                    $elems		= $list.find('img'),
+                    $elems = $list.find('img'),
             // the description containers
-                    $descrp		= $list.find('div.pe-description'),
+                    $descrp = $list.find('div.pe-description'),
             // maxScale : maximum scale value the image will have
             // minOpacity / maxOpacity : minimum (set in the CSS) and maximum values for the image's opacity
-                    settings	= {
-                        maxScale	: 1.3,
-                        maxOpacity	: 0.9,
-                        minOpacity	: Number( $elems.css('opacity') )
+                    settings = {
+                        maxScale: 1.3,
+                        maxOpacity: 0.9,
+                        minOpacity: Number($elems.css('opacity'))
                     },
-                    init		= function() {
+                    init = function () {
 
                         // minScale will be set in the CSS
                         settings.minScale = _getScaleVal() || 1;
                         // preload the images (thumbs)
-                        _loadImages( function() {
+                        _loadImages(function () {
 
                             _calcDescrp();
                             _initEvents();
@@ -448,7 +655,7 @@
                     },
             // Get Value of CSS Scale through JavaScript:
             // http://css-tricks.com/get-value-of-css-rotation-through-javascript/
-                    _getScaleVal= function() {
+                    _getScaleVal = function () {
 
                         var st = window.getComputedStyle($elems.get(0), null),
                                 tr = st.getPropertyValue("-webkit-transform") ||
@@ -458,7 +665,7 @@
                                         st.getPropertyValue("transform") ||
                                         "fail...";
 
-                        if( tr !== 'none' ) {
+                        if (tr !== 'none') {
 
                             var values = tr.split('(')[1].split(')')[0].split(','),
                                     a = values[0],
@@ -466,103 +673,107 @@
                                     c = values[2],
                                     d = values[3];
 
-                            return Math.sqrt( a * a + b * b );
+                            return Math.sqrt(a * a + b * b);
 
                         }
 
                     },
             // calculates the style values for the description containers,
             // based on the settings variable
-                    _calcDescrp	= function() {
+                    _calcDescrp = function () {
 
-                        $descrp.each( function(i) {
+                        $descrp.each(function (i) {
 
-                            var $el		= $(this),
-                                    $img	= $el.prev(),
-                                    img_w	= $img.width(),
-                                    img_h	= $img.height(),
-                                    img_n_w	= settings.maxScale * img_w,
-                                    img_n_h	= settings.maxScale * img_h,
+                            var $el = $(this),
+                                    $img = $el.prev(),
+                                    img_w = $img.width(),
+                                    img_h = $img.height(),
+                                    img_n_w = settings.maxScale * img_w,
+                                    img_n_h = settings.maxScale * img_h,
                                     space_t = ( img_n_h - img_h ) / 2,
                                     space_l = ( img_n_w - img_w ) / 2;
 
-                            $el.data( 'space_l', space_l ).css({
-                                height	: settings.maxScale * $el.height(),
-                                top		: -space_t,
-                                left	: img_n_w - space_l
+                            $el.data('space_l', space_l).css({
+                                height: settings.maxScale * $el.height(),
+                                top: -space_t,
+                                left: img_n_w - space_l
                             });
 
                         });
 
                     },
-                    _initEvents	= function() {
+                    _initEvents = function () {
 
-                        $elems.on('proximity.Photo', { max: 80, throttle: 10, fireOutOfBounds : true }, function(event, proximity, distance) {
+                        $elems.on('proximity.Photo', {
+                            max: 80,
+                            throttle: 10,
+                            fireOutOfBounds: true
+                        }, function (event, proximity, distance) {
 
-                            var $el			= $(this),
-                                    $li			= $el.closest('li'),
-                                    $desc		= $el.next(),
-                                    scaleVal	= proximity * ( settings.maxScale - settings.minScale ) + settings.minScale,
-                                    scaleExp	= 'scale(' + scaleVal + ')';
+                            var $el = $(this),
+                                    $li = $el.closest('li'),
+                                    $desc = $el.next(),
+                                    scaleVal = proximity * ( settings.maxScale - settings.minScale ) + settings.minScale,
+                                    scaleExp = 'scale(' + scaleVal + ')';
 
                             // change the z-index of the element once it reaches the maximum scale value
                             // also, show the description container
-                            if( scaleVal === settings.maxScale ) {
+                            if (scaleVal === settings.maxScale) {
 
-                                $li.css( 'z-index', 1000 );
+                                $li.css('z-index', 1000);
 
-                                if( $desc.offset().left + $desc.width() > listL + listW ) {
+                                if ($desc.offset().left + $desc.width() > listL + listW) {
 
-                                    $desc.css( 'left', -$desc.width() - $desc.data( 'space_l' ) );
+                                    $desc.css('left', -$desc.width() - $desc.data('space_l'));
 
                                 }
 
-                                $desc.fadeIn( 800 );
+                                $desc.fadeIn(800);
 
                             }
                             else {
 
-                                $li.css( 'z-index', 1 );
+                                $li.css('z-index', 1);
 
-                                $desc.stop(true,true).hide();
+                                $desc.stop(true, true).hide();
 
                             }
 
                             $el.css({
-                                '-webkit-transform'	: scaleExp,
-                                '-moz-transform'	: scaleExp,
-                                '-o-transform'		: scaleExp,
-                                '-ms-transform'		: scaleExp,
-                                'transform'			: scaleExp,
-                                'opacity'			: ( proximity * ( settings.maxOpacity - settings.minOpacity ) + settings.minOpacity )
+                                '-webkit-transform': scaleExp,
+                                '-moz-transform': scaleExp,
+                                '-o-transform': scaleExp,
+                                '-ms-transform': scaleExp,
+                                'transform': scaleExp,
+                                'opacity': ( proximity * ( settings.maxOpacity - settings.minOpacity ) + settings.minOpacity )
                             });
 
                         });
 
                     },
-                    _loadImages	= function( callback ) {
+                    _loadImages = function (callback) {
 
-                        var loaded 	= 0,
-                                total	= $elems.length;
+                        var loaded = 0,
+                                total = $elems.length;
 
-                        $elems.each( function(i) {
+                        $elems.each(function (i) {
 
                             var $el = $(this);
 
-                            $('<img/>').load( function() {
+                            $('<img/>').load(function () {
 
                                 ++loaded;
-                                if( loaded === total )
+                                if (loaded === total)
                                     callback.call();
 
-                            }).attr( 'src', $el.attr('src') );
+                            }).attr('src', $el.attr('src'));
 
                         });
 
                     };
 
             return {
-                init	: init
+                init: init
             };
 
         })();
