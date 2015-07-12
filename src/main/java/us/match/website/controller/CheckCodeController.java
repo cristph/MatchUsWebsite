@@ -32,7 +32,7 @@ public class CheckCodeController {
         BufferedImage image =new BufferedImage(idCode.getWidth() , idCode.getHeight() , BufferedImage.TYPE_INT_BGR) ;
         Graphics2D g = image.createGraphics() ;
         //定义字体样式
-        Font myFont = new Font("黑体" , Font.BOLD , 16) ;
+        Font myFont = new Font("黑体" , Font.BOLD , 20) ;
         //设置字体
         g.setFont(myFont) ;
 

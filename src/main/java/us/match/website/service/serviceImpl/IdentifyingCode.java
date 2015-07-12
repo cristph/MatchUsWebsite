@@ -125,7 +125,7 @@ public class IdentifyingCode {
                 scaleSize = 1f ;
             trans.scale(scaleSize, scaleSize) ;
             g.setTransform(trans) ;
-            g.drawString(temp, 15*i+18, 14) ;
+            g.drawString(temp, 15*i+18, 18) ;
 
             strbuf.append(temp) ;
         }
