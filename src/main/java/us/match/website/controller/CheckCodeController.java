@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @Controller
 public class CheckCodeController {
-    @RequestMapping(value="/checkCode.jpg",method = RequestMethod.POST)
+    @RequestMapping(value="/checkCode.jpg")
     public void getCheckCode(HttpServletResponse response,Model model){
         //设置不缓存图片
         response.setHeader("Pragma", "No-cache");
