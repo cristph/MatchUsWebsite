@@ -73,9 +73,12 @@ public class IdentifyingCode {
                     temp = String.valueOf((char)itmp);
                     break;
                 case 2:
-                    itmp = random.nextInt(26) + 97 ;
+                    itmp = random.nextInt(20) + 97 ;
                     temp = String.valueOf((char)itmp);
-                case 3:     //生成汉字
+                case 3:
+                    itmp = random.nextInt(13) + 97 ;
+                    temp = String.valueOf((char)itmp);
+                /*case 3:     //生成汉字
                     String[] rBase = {"0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" ,
                             "8" , "9" , "a" , "b" , "c" , "d" , "e" , "f" };
                     int r1 = random.nextInt(3)+11 ;     //生成第1位的区码
@@ -105,7 +108,7 @@ public class IdentifyingCode {
                     int tempHigh = Integer.parseInt(strR34, 16) ;
                     bytes[1] = (byte)tempHigh;
                     temp = new String(bytes);           //根据字节数组生成汉字
-                    break;
+                    break;*/
                 default:
                     itmp = random.nextInt(10) + 48 ;
                     temp = String.valueOf((char)itmp) ;
