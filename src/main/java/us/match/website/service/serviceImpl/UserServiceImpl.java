@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
+import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
@@ -46,6 +47,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
+        user.setFace(Identicon.creat(Identicon.tohash(user.getUsername()),200));
         User u=userDao.addUser(user);
         if(u!=null){
             return u;

@@ -59,7 +59,7 @@ public class CheckCodeController {
     }
 
     @ResponseBody
-    @RequestMapping(value="/validate")
+    @RequestMapping(value="/validate.do")
     public boolean validate(@RequestParam("userCheckCode") String code,
                             HttpServletRequest request){
         HttpSession session=request.getSession(false);
