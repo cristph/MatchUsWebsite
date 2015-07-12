@@ -56,20 +56,20 @@ public class UserTest {
        u.setPassword(MD5.toMD5(u.getPassword()));
        assertEquals(true, ud.addUser(u));
     }
-    @Test
-    public void testfinduser(){
-        User user=ud.findUser("gjp");
-        User answer=new User();
-        answer.setPassword(MD5.toMD5("123"));
-        System.out.println("ggg" + user.getPassword());
-        System.out.println("fff"+answer.getPassword());
-        boolean m =user.getPassword().equals(answer.getPassword());
-        assertEquals(true, m);
-    }
-  @Test
-    public void testDelete(){
-       assertEquals(true,ud.deleteUser(u));
-    }
+//    @Test
+//    public void testfinduser(){
+//        User user=ud.findUser("gjp");
+//        User answer=new User();
+//        answer.setPassword(MD5.toMD5("123"));
+//        System.out.println("ggg" + user.getPassword());
+//        System.out.println("fff"+answer.getPassword());
+//        boolean m =user.getPassword().equals(answer.getPassword());
+//        assertEquals(true, m);
+//    }
+//  @Test
+//    public void testDelete(){
+//       assertEquals(true,ud.deleteUser(u));
+//    }
 
 //    @Ignore("Update() Not yet implemented")
 //    @Test(timeout=1000)
