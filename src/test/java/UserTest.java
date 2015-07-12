@@ -34,14 +34,14 @@ public class UserTest {
 //            InputStream in = new FileInputStream("C:\\Users/Public/Pictures/Sample Pictures/1.jpg");
 //            in.read(photo);
 //            in.close();
-            u.setUsername("zy");
+            u.setUsername("wh");
             u.setPassword("123");
-            u.setNickname("zy");
+            u.setNickname("wh");
             u.setInstruction("aaa");
-            u.setRealname("zy");
+            u.setRealname("wh");
             u.setSex("male");
             u.setBirthday("1");
-            u.setFace(Identicon.creat(Identicon.tohash("zy"),200));
+            u.setFace(Identicon.creat(Identicon.tohash("wh"),200));
             u.setUniversity("nju");
             u.setMajor("software");
             u.setProinstruction("many works");
@@ -54,7 +54,7 @@ public class UserTest {
    @Test
     public void testAdd(){
        u.setPassword(MD5.toMD5(u.getPassword()));
-       assertEquals(true, ud.addUser(u));
+       assertEquals(u.getUsername(), ud.addUser(u).getUsername());
     }
 //    @Test
 //    public void testfinduser(){

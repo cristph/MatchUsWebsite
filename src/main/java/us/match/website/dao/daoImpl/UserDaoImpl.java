@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
         try {
             session.beginTransaction();
             session.save(user);
-            User u =(User)session.get(User.class,user.getUsername());
+            result =(User)session.get(User.class,user.getUsername());
         } catch (Exception e) {
            result=null;
            e.printStackTrace();

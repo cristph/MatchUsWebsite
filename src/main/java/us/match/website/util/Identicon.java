@@ -18,7 +18,7 @@ public class Identicon {
     public static String tohash(String hash){
         String result="";
         Hasher hasher = Hashing.md5().newHasher();
-        hasher.putString("test", Charsets.UTF_8);
+        hasher.putString(hash, Charsets.UTF_8);
         String md5 = hasher.hash().toString();
         return md5;
     }
