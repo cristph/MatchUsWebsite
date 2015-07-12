@@ -115,7 +115,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">验证码</label>
-                        <input type="text" id="sureCode" class="form-control" placeholder="SureCode" required>
+                        <p style="float: right"><input type="text" id="sureCode" class="form-control" placeholder="SureCode" required></p>
+                        <img src="" alt="hahha">
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">确认</button>
