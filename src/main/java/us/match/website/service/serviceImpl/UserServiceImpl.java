@@ -9,6 +9,7 @@ import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 
 /**
@@ -53,6 +54,11 @@ public class UserServiceImpl implements UserService {
             return u;
         }else
             return null;
+    }
+
+    @Override
+    public Map getBasicInfo(String userId) {
+        return null;
     }
 
 
