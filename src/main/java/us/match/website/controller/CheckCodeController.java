@@ -59,18 +59,18 @@ public class CheckCodeController {
 
     @ResponseBody
     @RequestMapping(value="/validate.do")
-    public boolean validate(@RequestParam("userCheckCode") String code,
+    public String validate(@RequestParam("userCheckCode") String code,
                             HttpServletRequest request){
         HttpSession session=request.getSession(false);
         if(session == null){
-            return false;
+            return "false";
         }
         String checkCode=(String) session.getAttribute("checkCode");
         session.removeAttribute("checkCode");
         if(code!=null && code.length()>0 && code.toUpperCase().equals(checkCode) ){
-            return true;
+            return "true";
         }else
-            return false;
+            return "false";
     }
 
 
