@@ -7,6 +7,7 @@ import us.match.website.dao.ProjectDao;
 import us.match.website.model.Project;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 /**
  * Created by Seven on 15/7/10.
@@ -63,7 +64,16 @@ public class ProjectDaoImpl implements ProjectDao {
         }
     }
 
-    public Project find() {
+    public ArrayList<Project> QueryProject(ArrayList<String> Subjects, ArrayList<String> moduel,
+                                           ArrayList<String> skill, ArrayList<String> reward) {
+
+
+
+
+
+
         return null;
     }
+
+
 }

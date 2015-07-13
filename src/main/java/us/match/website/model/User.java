@@ -9,29 +9,34 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.security.MessageDigest;
+import java.util.Set;
+
 /**
  * Created by apple on 2015/7/8.
  */
 @Entity
 public class User {
-        private String username="";
-        private String password="";
-        private String nickname="";
-        private String instruction="";
-        private String realname="";
-        private String sex="";
-        private String birthday="";
+        private int uid;
+        private String username;
+        private String password;
+        private String nickname;
+        private String instruction;
+        private String realname;
+        private String sex;
+        private String birthday;
         private byte[] face;
-        private String email="";
-        private String mobilephone="";
-        private String telephone="";
-        private String qq="";
-        private String address="";
-        private String university="";
-        private String major="";
-        private String proinstruction="";
-        private String goodat="";
-        private String friends="";
+        private String email;
+        private String mobilephone;
+        private String telephone;
+        private String qq;
+        private String address;
+        private String university;
+        private String major;
+        private String proinstruction;
+        private String goodat;
+        private String friends;
+        private Set<Project> publishingprojects;
+        private Set<Project> workingprojects;
         private HashMap<String,Integer> friendsmap=new HashMap<String, Integer>();
     public String getInstruction() {
         return instruction;
@@ -50,8 +55,6 @@ public class User {
         this.nickname = nickname;
     }
 
-
-
     public String getPassword() {
         return password;
     }
@@ -62,7 +65,6 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-    @Id
     public String getUsername() {
         return username;
     }
@@ -142,7 +144,6 @@ public class User {
     public String getMajor() {
         return major;
     }
-
     public void setMajor(String major) {
         this.major = major;
     }
@@ -198,4 +199,31 @@ public class User {
     }
 
 
+
+
+    @Id
+    @GeneratedValue
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+    @OneToMany(mappedBy = "publisher")
+    public Set<Project> getPublishingprojects() {
+        return publishingprojects;
+    }
+
+    public void setPublishingprojects(Set<Project> publishingprojects) {
+        this.publishingprojects = publishingprojects;
+    }
+    @ManyToMany(mappedBy = "workers",cascade = CascadeType.ALL)
+    public Set<Project> getWorkingprojects() {
+        return workingprojects;
+    }
+
+    public void setWorkingprojects(Set<Project> workingprojects) {
+        this.workingprojects = workingprojects;
+    }
 }

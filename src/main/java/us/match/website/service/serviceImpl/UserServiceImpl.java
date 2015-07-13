@@ -9,6 +9,7 @@ import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 
 /**
@@ -49,10 +50,16 @@ public class UserServiceImpl implements UserService {
     public User register(User user) {
         user.setFace(Identicon.creat(Identicon.tohash(user.getUsername()),200));
         User u=userDao.addUser(user);
+
         if(u!=null){
             return u;
         }else
             return null;
+    }
+
+    @Override
+    public Map getBasicInfo(String userId) {
+        return null;
     }
 
 

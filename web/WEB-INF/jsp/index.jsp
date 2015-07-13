@@ -106,7 +106,7 @@
                 <h4 class="modal-title" id="signin_title">注册</h4>
             </div>
             <div class="modal-body">
-                <form method="post" action="/">
+                <form method="post">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
                         <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
