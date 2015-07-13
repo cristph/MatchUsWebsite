@@ -25,21 +25,25 @@ function chkPswd(){
 
 }
 
-
+/**
 $(function() {
     $("#submit_sign").click(
         function() {
-            $.post("/validate.do?userCheckCode=" + $("#checkCode").value
-                +"validate.do?sign_pswd="+$("#inPassword").value
-                +"validate.do?sign_email"+$("#inEmail").value
-                +"validate.do?sign_name"+$("#inName").value,
+            $.post("/validate.do",{"userCheckCode" : $("#checkCode").value
+                ,"sign_pswd":$("#inPassword").value
+                ,"sign_email":$("#inEmail").value
+                ,"sign_name":$("#inName")}.value,
                 function(data) {
                     if (data=="true") {
                         window.top.location.href="http://www.baidu.com";
-                    } else {
+                    } else if(data=="RegisterFalse"){
+                        alert("注册失败！");
+                    }
+                    else {
                         myReload();
                         alert("验证码错误！");
                     }
             });
         });
 });
+ */
