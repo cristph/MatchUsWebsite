@@ -9,9 +9,9 @@ import java.util.Set;
  */
 @Entity
 public class Project {
-    private String pid="";
-    private String pinstruction="";
-    private String pname="";
+    private String pid;
+    private String pinstruction;
+    private String pname;
     private byte[] picture;
     private boolean state;
     private String subject;

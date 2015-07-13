@@ -38,10 +38,9 @@ public class ProjectController {
                              @RequestParam("reward")String reward)
     {
         Project pro=new Project();
-        pro.setId(id);
+        pro.setPid(id);
         pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setPublisherid(publisherid);
         pro.setPicture(picture);
         pro.setState(state);
         pro.setSubject(subject);
@@ -56,7 +55,7 @@ public class ProjectController {
     @RequestMapping(value = "/delete_Project", method = RequestMethod.POST)
     public String deleteProject(@RequestParam("id") String id){
         Project pro=new Project();
-        pro.setId(id);
+        pro.setPid(id);
         String result=projectService.deleteProject(pro);
         return result;
     }
@@ -74,10 +73,9 @@ public class ProjectController {
                                 @RequestParam("reward")String reward)
     {
         Project pro=new Project();
-        pro.setId(id);
+        pro.setPid(id);
         pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setPublisherid(publisherid);
         pro.setPicture(picture);
         pro.setState(state);
         pro.setSubject(subject);
