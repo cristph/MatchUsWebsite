@@ -67,7 +67,7 @@
                 <span class="select_text">类目：</span>
 
                 <div class="btn-group project-kind">
-                    <button type="button" class="btn btn-primary both">全部</button>
+                    <button type="button" id="both-kind" class="btn btn-default">全部</button>
                     <button type="button" class="btn btn-default">移动开发</button>
                     <button type="button" class="btn btn-default">网站建设</button>
                     <button type="button" class="btn btn-default">企业软件</button>
@@ -82,9 +82,9 @@
                 <span class="select_text">模式：</span>
 
                 <div class="btn-group project-mode">
-                    <button type="button" class="btn btn-default">全部</button>
+                    <button type="button" id="both-mode" class="btn btn-default">全部</button>
                     <button type="button" class="btn btn-default">外包</button>
-                    <button type="button" class="btn btn-primary">比赛</button>
+                    <button type="button" class="btn btn-default">比赛</button>
                     <button type="button" class="btn btn-default">其他</button>
                 </div>
             </div>
@@ -94,9 +94,9 @@
                 <span class="select_text">技术：</span>
 
                 <div class="btn-group project-skills">
-                    <button type="button" class="btn btn-default">全部</button>
+                    <button type="button" id="both-skills" class="btn btn-default">全部</button>
                     <button type="button" class="btn btn-default">Java</button>
-                    <button type="button" class="btn btn-primary">C/C++</button>
+                    <button type="button" class="btn btn-default">C/C++</button>
                     <button type="button" class="btn btn-default">Html/Css/Js</button>
                     <button type="button" class="btn btn-default">python</button>
                     <button type="button" class="btn btn-default">PHP</button>
@@ -113,10 +113,10 @@
                 <span class="select_text">报酬：</span>
 
                 <div class="btn-group project-pay">
-                    <button type="button" class="btn btn-default">全部</button>
+                    <button type="button" id="both-pay" class="btn btn-default">全部</button>
                     <button type="button" class="btn btn-default">0-100</button>
                     <button type="button" class="btn btn-default">100-200</button>
-                    <button type="button" class="btn btn-primary">200-500</button>
+                    <button type="button" class="btn btn-default">200-500</button>
                     <button type="button" class="btn btn-default">500-1000</button>
                     <button type="button" class="btn btn-default">1000-5000</button>
                     <button type="button" class="btn btn-default">5000-10000</button>
@@ -287,10 +287,9 @@
     for (var i = 0; i < btn.length; i++) {
         btn[i].addEventListener('click', changeColor, false);
     }
-    var btn_p = document.getElementsByClassName("btn btn-primary");
-    for (var j = 0; j < btn_p.length; j++) {
-        btn_p[j].addEventListener('click', changeColor, false);
-    }
+    //
+    var both_btn = document.getElementById("both-kind");
+    both_btn.addEventListener('click', changeToAll, false);
 </script>
 </body>
 </html>

@@ -64,12 +64,13 @@ public class UserTest {
         boolean m =user.getPassword().equals(answer.getPassword());
         assertEquals(true, m);
     }
-//    @Test
-//    public void testUpdate(){
-//        u.setGoodat("c++");
-//        ud.updateUser(u);
-//        assertEquals("c++",ud.findUser("").getGoodat());
-//    }
+   @Test
+   public void testUpdate(){
+       User un=ud.findUser("465033064@qq.com");
+       un.setGoodat("c++,java");
+       ud.updateUser(un);
+       assertEquals("c++,java",ud.findUser("465033064@qq.com").getGoodat());
+   }
 
 
 

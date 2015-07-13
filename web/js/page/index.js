@@ -1,0 +1,45 @@
+/**
+ * Created by cristph on 2015/7/13.
+ */
+
+function myReload(){
+    document.getElementById("img_code").src=document.getElementById("img_code").src + "?nocache="+new Date().getTime();
+}
+
+
+/**document.getElementById("submit_sign").onclick=chkPswd();**/
+function chkPswd(){
+    var fir=document.getElementById("inPassword");
+    var sec=document.getElementById("sureinPassword");
+
+    if(fir.value==""||sec.value==""){
+        alert("密码不能为空！");
+        return false;
+    }
+    if(fir.value!=sec.value()){
+        alert("两次输入的密码不同！");
+        return false;
+    }else{
+        return true;
+    }
+
+}
+
+
+$(function() {
+    $("#submit_sign").click(
+        function() {
+            $.post("/validate.do?userCheckCode=" + $("#checkCode").value
+                +"validate.do?sign_pswd="+$("#inPassword").value
+                +"validate.do?sign_email"+$("#inEmail").value
+                +"validate.do?sign_name"+$("#inName").value,
+                function(data) {
+                    if (data=="true") {
+                        window.top.location.href="http://www.baidu.com";
+                    } else {
+                        myReload();
+                        alert("验证码错误！");
+                    }
+            });
+        });
+});
