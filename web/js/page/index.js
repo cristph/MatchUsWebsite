@@ -22,14 +22,27 @@ function chkPswd(){
 }
 
 $(function(){
-
-        $("#submit_sign").click(
-
-
-        )
-
-    }
-);
+    $("#submit_sign").click(
+        function(){
+            $.post("/validate.do",
+                {"userCheckCode":$("#checkcode"),
+                    "sign_email":$("#inEmail").value,
+                    "sign_pswd":$("#inPassword").value,
+                    "sign_name":$("inName").value
+                },
+                function(data){
+                    if (data=="true") {
+                        window.top.location.href="http://www.baidu.com";
+                    } else if(data=="RegisterFalse"){
+                        alert("注册失败！");
+                    }
+                    else {
+                        myReload();
+                        alert("验证码错误！");
+                    }
+            });
+        });
+});
 
 
 
