@@ -49,7 +49,7 @@
             <props>
                 <!-- 指定数据库方言 -->
                 <prop key="hibernate.dialect">
-                    org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                    org.hibernate.dialect.MySQLDialect</prop>
                 <!-- 是否根据需要每次自动创建数据库 -->
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <!-- 显示Hibernate持久化操作所生成的SQL -->

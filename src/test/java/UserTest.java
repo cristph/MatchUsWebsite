@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
 import us.match.website.dao.daoImpl.UserDaoImpl;
 import us.match.website.model.Project;
@@ -51,14 +52,14 @@ public class UserTest {
         }
     }
 
-//   @Test
-//    public void testAdd(){
-//       u.setPassword(MD5.toMD5(u.getPassword()));
-//       assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-//    }
+//  @Test
+//   public void testAdd(){
+//      u.setPassword(MD5.toMD5(u.getPassword()));
+//      assertEquals(u.getUsername(), ud.addUser(u).getUsername());
+//   }
    @Test
    public void testfinduser(){
-        User user=ud.findUser("zzz");
+        User user=ud.findUser("gjp");
         User answer=new User();
        answer.setPassword(MD5.toMD5("123"));
        boolean m =user.getPassword().equals(answer.getPassword());
@@ -66,9 +67,9 @@ public class UserTest {
     }
   @Test
   public void testUpdate(){
-      User un=ud.findUser("zzz");
+      User un=ud.findUser("gjp");
       un.setGoodat("c++,java");
       ud.updateUser(un);
-      assertEquals("c++,java",ud.findUser("zzz").getGoodat());
+      assertEquals("c++,java",ud.findUser("gjp").getGoodat());
   }
 }

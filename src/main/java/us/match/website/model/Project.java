@@ -2,6 +2,7 @@ package us.match.website.model;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Set;
 
 /**
@@ -13,15 +14,14 @@ public class Project {
     private String pinstruction;
     private String pname;
     private byte[] picture;
-    private boolean state;
+    private String state;
     private String subject;
     private String moduel;
     private String skill;
     private String reward;
     private User publisher;
     private Set<User> workers;
-
-
+    private Timestamp updatetime;
     public String getPinstruction() {
         return pinstruction;
     }
@@ -46,11 +46,11 @@ public class Project {
         this.picture = picture;
     }
 
-    public boolean isState() {
+    public String isState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(String state) {
         this.state = state;
     }
 
@@ -117,5 +117,14 @@ public class Project {
 
     public void setWorkers(Set<User> workers) {
         this.workers = workers;
+    }
+
+
+    public Timestamp getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Timestamp updatetime) {
+        this.updatetime = updatetime;
     }
 }
