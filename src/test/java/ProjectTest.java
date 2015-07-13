@@ -34,7 +34,7 @@ public class ProjectTest {
 //       assertEquals(true,pd.addProject(pro));
 //  }
     @Test
-    public void Testupdate(){assertEquals();}
+    public void Testupdate(){}
     @Test
     public void Testfindbyid(){
         assertEquals(1, pd.getbyid(1).getPid());
