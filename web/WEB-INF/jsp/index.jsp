@@ -51,7 +51,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" id="login" data-toggle="modal" data-target="#userlogin">登陆</a></li>
-                <li><a href="#" id="sign_in" data-toggle="modal" data-target="#usersignin">注册</a></li>
+                <li><a href="#" id="sign_in" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
                 <li><a href="#" id="help">帮助</a></li>
             </ul>
             <form class="navbar-form navbar-right">
@@ -62,7 +62,7 @@
 </nav>
 
 <div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" style="width:400px" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -98,7 +98,7 @@
 
 
 <div class="modal fade" id="usersignin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" style="width:400px" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -106,15 +106,15 @@
                 <h4 class="modal-title" id="signin_title">注册</h4>
             </div>
             <div class="modal-body">
-                <form class='form-signin' method="post" action="/">
+                <form method="post" action="/">
                     <div class="form-group">
                         <label class="control-label">注册邮箱：</label>
-                        <input type='email' id='inEmail' class='form-control' placeholder='Email address' required
+                        <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
                                autofocus>
                     </div>
                     <div class="form-group">
                         <label class="control-label">密码：</label>
-                        <input type='password' id='inPassword' class='form-control' placeholder='Password' required>
+                        <input type='password' id='inPassword' name="sign_pswd" class='form-control' placeholder='Password' required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">确认密码：</label>
@@ -123,14 +123,25 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">昵称</label>
-                        <input type="text" id="inName" class="form-control" placeholder="Name" required>
+                        <input type="text" id="inName" name="sign_name" class="form-control" placeholder="Name" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">验证码</label>
-                        <input type="text" id="sureCode" class="form-control" placeholder="SureCode" required>
+                        <div class="container-fluid">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" id="checkCode" name="userCheckCode"  class="form-control" placeholder="SureCode" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="checkCode.jpg" id="img_code" alt="hahha">
+                                    <a href="#" onClick="myReload()">换一个</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">确认</button>
+                        <button type="button" id="submit_sign" class="btn btn-primary">确认</button>
                     </div>
                 </form>
             </div>
@@ -211,7 +222,7 @@
     <div class="projects">
         <ul class="projects-index clearfix">
             <li>
-                <a href="/view/282">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="">
                     </div>
@@ -229,7 +240,7 @@
             </li>
 
             <li>
-                <a href="/view/387">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/5549b15d0001661f06000338-280-160.jpg" alt="">
                     </div>
@@ -247,7 +258,7 @@
             </li>
 
             <li>
-                <a href="/view/438">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/55909e3d0001af6506000338-280-160.jpg" alt="">
                     </div>
@@ -265,7 +276,7 @@
             </li>
 
             <li>
-                <a href="/view/445">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/559b904a0001a9ed06000338-280-160.jpg" alt="">
                     </div>
@@ -283,7 +294,7 @@
             </li>
 
             <li>
-                <a href="/view/443">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/559636e3000168b006000338-280-160.jpg" alt="">
                     </div>
@@ -301,7 +312,7 @@
             </li>
 
             <li>
-                <a href="/view/437">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/558d15990001ea1106000338-280-160.jpg" alt="">
                     </div>
@@ -319,7 +330,7 @@
             </li>
 
             <li>
-                <a href="/view/441">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/5594a8e50001332006000338-280-160.jpg" alt="">
                     </div>
@@ -337,7 +348,7 @@
             </li>
 
             <li>
-                <a href="/view/444">
+                <a href="/view/page/projectInfo.html">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/5598b22f0001ed0e06000338-280-160.jpg" alt="">
                     </div>
@@ -368,217 +379,217 @@
 
     <section class="pe-container">
         <ul id="pe-thumbs" class="pe-thumbs">
-            <li><a href="#"><img src="../../image/ini/thumbs/1.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/1.jpg"/>
 
                 <div class="pe-description"><h3>time</h3>
 
                     <p>Since time, and his predestinated end</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/2.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/2.jpg"/>
 
                 <div class="pe-description"><h3>hopeful</h3>
 
                     <p>Abridged the circuit of his hopeful days</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/3.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/3.jpg"/>
 
                 <div class="pe-description"><h3>virtue</h3>
 
                     <p>Whiles both his youth and virtue did intend</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/4.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/4.jpg"/>
 
                 <div class="pe-description"><h3>endeavors</h3>
 
                     <p>The good endeavors of deserving praise</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/5.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/5.jpg"/>
 
                 <div class="pe-description"><h3>monument</h3>
 
                     <p>What memorable monument can last</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/6.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/6.jpg"/>
 
                 <div class="pe-description"><h3>name</h3>
 
                     <p>Whereon to build his never-blemished name</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/7.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/7.jpg"/>
 
                 <div class="pe-description"><h3>life was graced</h3>
 
                     <p>But his own worth, wherein his life was graced</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/8.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/8.jpg"/>
 
                 <div class="pe-description"><h3>the same</h3>
 
                     <p>Sith as that ever he maintained the same?</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/9.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/9.jpg"/>
 
                 <div class="pe-description"><h3>oblivion</h3>
 
                     <p>Oblivion in the darkest day to come</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/10.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/10.jpg"/>
 
                 <div class="pe-description"><h3>sin shall tread</h3>
 
                     <p>When sin shall tread on merit in the dust</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/11.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/11.jpg"/>
 
                 <div class="pe-description"><h3>lamentable tomb</h3>
 
                     <p>Cannot rase out the lamentable tomb</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/12.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/12.jpg"/>
 
                 <div class="pe-description"><h3>short-lived deserts</h3>
 
                     <p>Of his short-lived deserts; but still they must</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/13.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/13.jpg"/>
 
                 <div class="pe-description"><h3>hearts and memories</h3>
 
                     <p>Even in the hearts and memories of men</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/14.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/14.jpg"/>
 
                 <div class="pe-description"><h3>respect</h3>
 
                     <p>Claim fit respect, that they, in every limb</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/15.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/15.jpg"/>
 
                 <div class="pe-description"><h3>comfort</h3>
 
                     <p>Remembering what he was, with comfort then</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/16.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/16.jpg"/>
 
                 <div class="pe-description"><h3>pattern</h3>
 
                     <p>May pattern out one truly good, by him</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/17.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/17.jpg"/>
 
                 <div class="pe-description"><h3>truly good</h3>
 
                     <p>For he was truly good, if honest care</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/18.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/18.jpg"/>
 
                 <div class="pe-description"><h3>harmless conversation</h3>
 
                     <p>Of harmless conversation may commend</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/19.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/19.jpg"/>
 
                 <div class="pe-description"><h3>recompensed</h3>
 
                     <p>Ill recompensed only in his end</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/20.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/20.jpg"/>
 
                 <div class="pe-description"><h3>tongue</h3>
 
                     <p>Nor can the tongue of him who loved him least</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/21.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/21.jpg"/>
 
                 <div class="pe-description"><h3>superlative</h3>
 
                     <p>To one superlative above the rest</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/22.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/22.jpg"/>
 
                 <div class="pe-description"><h3>steady faith</h3>
 
                     <p>Of many men in steady faith reprove</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/23.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/23.jpg"/>
 
                 <div class="pe-description"><h3>constant temper</h3>
 
                     <p>His constant temper, in the equal weight</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/24.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/24.jpg"/>
 
                 <div class="pe-description"><h3>thankfulness</h3>
 
                     <p>Of thankfulness and kindness: Truth doth leave</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/25.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/25.jpg"/>
 
                 <div class="pe-description"><h3>proof</h3>
 
                     <p>Sufficient proof, he was in every right</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/26.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/26.jpg"/>
 
                 <div class="pe-description"><h3>thankful</h3>
 
                     <p>As kind to give, as thankful to receive.</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/27.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/27.jpg"/>
 
                 <div class="pe-description"><h3>curious eye</h3>
 
                     <p>The curious eye of a quick-brained survey</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/28.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/28.jpg"/>
 
                 <div class="pe-description"><h3>scantly find</h3>
 
                     <p>Could scantly find a mote amidst the sun</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/29.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/29.jpg"/>
 
                 <div class="pe-description"><h3>too-shortened days</h3>
 
                     <p>Of his too-shortened days, or make a prey</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/30.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/30.jpg"/>
 
                 <div class="pe-description"><h3>faulty errors</h3>
 
                     <p>Of any faulty errors he had done</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/31.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/31.jpg"/>
 
                 <div class="pe-description"><h3>spleenful sense</h3>
 
                     <p>Not that he was above the spleenful sense</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/32.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/32.jpg"/>
 
                 <div class="pe-description"><h3>spite of malice</h3>
 
                     <p>And spite of malice, but for that he had</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/33.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/33.jpg"/>
 
                 <div class="pe-description"><h3>innocence</h3>
 
                     <p>Warrant enough in his own innocence</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/34.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/34.jpg"/>
 
                 <div class="pe-description"><h3>nature</h3>
 
                     <p>Against the sting of some in nature bad</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/35.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/35.jpg"/>
 
                 <div class="pe-description"><h3>absolutely blest</h3>
 
                     <p>Yet who is he so absolutely blest</p></div>
             </a></li>
-            <li><a href="#"><img src="../../image/ini/thumbs/36.jpg"/>
+            <li><a href="../../view/page/user.html"><img src="../../image/ini/thumbs/36.jpg"/>
 
                 <div class="pe-description"><h3>mortal frame</h3>
 
@@ -595,7 +606,7 @@
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
             commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
 
-        <p><a class="btn btn-lg btn-success" href="#" role="button">加入我们吧</a></p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们吧</a></p>
     </div>
     <!-- /END THE FEATURETTES -->
 
@@ -780,6 +791,45 @@
 
         Photo.init();
 
+    });
+</script>
+
+<script type="text/javascript">
+    function myReload(){
+        document.getElementById("img_code").src=document.getElementById("img_code").src + "?nocache="+new Date().getTime();
+    }
+</script>
+
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        $("#image_code").click(function() {
+            refreshCheckCode();
+        });
+
+        $("#submit_sign").click(
+                function() {
+                    alert("dd");
+                    $.post("/validate.do?userCheckCode="
+                            + $("#checkCode").val(), function(data) {
+                        if (data) {
+                            window.top.location.href="需要重定向的页面地址";
+                        } else {
+                            refreshCheckCode();
+                            $.messager.show({
+                                title:"警告",
+                            msg:"校验码输入不正确。",
+                            timeout:5000,
+                                    showType:"slide"
+                        });
+                    }
+                });
+    });
+
+    function refreshCheckCode() {
+        var append = "?clearCache=" + new Date().getTime() + "a"
+                        + Math.random();
+        $("#image_code").attr("src", $("#image_code").attr("src") + append);
+    }
     });
 </script>
 
