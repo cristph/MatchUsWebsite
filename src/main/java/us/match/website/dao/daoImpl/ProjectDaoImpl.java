@@ -62,7 +62,7 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createQuery("select pid from Project where subject like %'"+subject+"'"+"%");
+            Query query =session.createQuery("select pid from Project where subject like '%"+subject+"%'");
             result=query.list();
         }catch(Exception e){
             e.printStackTrace();
@@ -79,7 +79,7 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createQuery("select pid from Project where moduel like %'"+module+"'"+"%");
+            Query query =session.createQuery("select pid from Project where moduel like '%"+module+"%'");
             result=query.list();
         }catch(Exception e){
             e.printStackTrace();
@@ -96,7 +96,7 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createQuery("select pid from Project where skill like %'"+skill+"'"+"%");
+            Query query =session.createQuery("select pid from Project where skill like '%"+skill+"%'");
             result=query.list();
         }catch(Exception e){
             e.printStackTrace();
