@@ -109,7 +109,20 @@ public class ProjectDaoImpl implements ProjectDao {
 
     @Override
     public List<Integer> getbyreward(int maxmoney, int minmoney) {
-        return null;
+        List<Integer> result=new ArrayList<Integer>();
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            Query query =session.createQuery("select pid from Project where reward between "+maxmoney
+            +" and "+minmoney);
+            result=query.list();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
     }
 
 

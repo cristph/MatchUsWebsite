@@ -45,4 +45,6 @@ public class ProjectTest {
     public void Testgetbysubjectt(){
         assertEquals(1,pd.getbysubject("移动应用").size());
     }
+    @Test
+    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(0,2000).size());}
 }
