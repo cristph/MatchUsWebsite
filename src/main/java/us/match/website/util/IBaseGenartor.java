@@ -15,7 +15,6 @@ public class IBaseGenartor {
     public boolean[][] getBooleanValueArray(String hash) {
         Preconditions.checkArgument(StringUtils.isNotBlank(hash) && hash.length() >= 16,
                 "illegal argument hash:not null and size >= 16");
-
         this.hash = hash;
 
         boolean[][] array = new boolean[18][9];
