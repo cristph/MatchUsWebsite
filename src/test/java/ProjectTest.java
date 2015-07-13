@@ -23,10 +23,26 @@ public class ProjectTest {
     @Before
     public void Setup(){
         pro.setPname("first project");
-        pro.setState("Not ok");
+        pro.setState(Project.states[0]);
+        pro.setSubject("移动应用");
+        pro.setModuel("比赛");
+        pro.setReward(1000);
+        pro.setSkill("java");
+    }
+//  @Test
+//   public void TestAdd(){
+//       assertEquals(true,pd.addProject(pro));
+//  }
+    @Test
+    public void Testfindbyid(){
+        assertEquals(1,pd.getbyid(1).getPid());
     }
     @Test
-    public void TestAdd(){
-        assertEquals(true,pd.addProject(pro));
+    public void  Testfindbyname(){
+        assertEquals("first project",pd.getbyname("first project").getPname());
+    }
+    @Test
+    public void Testgetbysubjectt(){
+        assertEquals(1,pd.getbysubject("移动应用").size());
     }
 }

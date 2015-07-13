@@ -10,7 +10,8 @@ import java.util.Set;
  */
 @Entity
 public class Project {
-    private String pid;
+    public static String[] states={"past","now","will"};
+    private int pid;
     private String pinstruction;
     private String pname;
     private byte[] picture;
@@ -18,10 +19,14 @@ public class Project {
     private String subject;
     private String moduel;
     private String skill;
-    private String reward;
+    private int reward;
     private User publisher;
     private Set<User> workers;
     private Timestamp updatetime;
+    private Timestamp starttime;
+    private String location;
+    private String email;
+    private String phonenumber;
     public String getPinstruction() {
         return pinstruction;
     }
@@ -79,21 +84,21 @@ public class Project {
         this.skill = skill;
     }
 
-    public String getReward() {
+    public int getReward() {
         return reward;
     }
 
-    public void setReward(String reward) {
+    public void setReward(int reward) {
         this.reward = reward;
     }
 
     @Id
     @GeneratedValue
-    public String getPid() {
+    public int getPid() {
         return pid;
     }
 
-    public void setPid(String pid) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 
@@ -119,12 +124,46 @@ public class Project {
         this.workers = workers;
     }
 
-
+    @PrePersist
+    @PreUpdate
     public Timestamp getUpdatetime() {
         return updatetime;
     }
 
     public void setUpdatetime(Timestamp updatetime) {
         this.updatetime = updatetime;
+    }
+
+    @PrePersist
+    public Timestamp getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Timestamp starttime) {
+        this.starttime = starttime;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 }
