@@ -97,7 +97,7 @@ public class FilterServiceImpl implements FilterService {
     static ArrayList<String> Mode=new ArrayList<String>();/*模式*/
     static ArrayList<String> Technology=new ArrayList<String>();/*技术*/
     static {/*初始化*/
-        ClassNames.add("移动开发");
+        ClassNames.add("移动应用");
         ClassNames.add("网站建设");
         ClassNames.add("企业软件");
         ClassNames.add("视觉设计");

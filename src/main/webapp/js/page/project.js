@@ -8,8 +8,8 @@ function applySelect() {
     for (var i = 0; i < primary_btn_list.length; i++) {
         dataContent[i] = primary_btn_list[i].name;
     }
-    $.post("", dataContent, function (data) {
-
+    $.post("/Category", dataContent, function (data) {
+        alert(data);
     });
 }
 function changeColor(btn) {
