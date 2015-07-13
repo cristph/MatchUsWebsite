@@ -27,7 +27,7 @@ public class ProjectController {
 
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addProject(@RequestParam("id") String id,
+    public String addProject(@RequestParam("id") int id,
                              @RequestParam("pinstruction")String pinstruction,
                              @RequestParam("pname")String pname,
                              @RequestParam("publisherid")String publisherid,
@@ -36,7 +36,7 @@ public class ProjectController {
                              @RequestParam("subject")String subject,
                              @RequestParam("moduel")String moduel,
                              @RequestParam("skill")String skill,
-                             @RequestParam("reward")String reward)
+                             @RequestParam("reward")int reward)
     {
         Project pro=new Project();
         pro.setPid(id);
@@ -54,7 +54,7 @@ public class ProjectController {
     }
     @ResponseBody
     @RequestMapping(value = "/delete_Project", method = RequestMethod.POST)
-    public String deleteProject(@RequestParam("id") String id){
+    public String deleteProject(@RequestParam("id") int id){
         Project pro=new Project();
         pro.setPid(id);
         String result=projectService.deleteProject(pro);
@@ -62,7 +62,7 @@ public class ProjectController {
     }
     @ResponseBody
     @RequestMapping(value = "/update_Project",method = RequestMethod.POST)
-    public String updateProject(@RequestParam("id") String id,
+    public String updateProject(@RequestParam("id") int id,
                                 @RequestParam("pinstruction")String pinstruction,
                                 @RequestParam("pname")String pname,
                                 @RequestParam("publisherid")String publisherid,
@@ -71,7 +71,7 @@ public class ProjectController {
                                 @RequestParam("subject")String subject,
                                 @RequestParam("moduel")String moduel,
                                 @RequestParam("skill")String skill,
-                                @RequestParam("reward")String reward)
+                                @RequestParam("reward")int reward)
     {
         Project pro=new Project();
         pro.setPid(id);

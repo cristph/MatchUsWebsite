@@ -1,24 +1,11 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
-import us.match.website.dao.daoImpl.UserDaoImpl;
-import us.match.website.model.Project;
 import us.match.website.model.User;
-import org.junit.Ignore;
 import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
-
-import javax.annotation.Resource;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -37,26 +24,26 @@ public class UserTest {
 //            in.close();
             u.setUsername("gjp");
             u.setPassword("123");
-            u.setNickname("zy");
             u.setInstruction("aaa");
-            u.setRealname("zy");
+            u.setRealname("gjp");
             u.setSex("male");
             u.setBirthday("1");
-            u.setFace(Identicon.creat(Identicon.tohash(u.getUsername()),200));
+            u.setFace(Identicon.creat(Identicon.tohash(u.getUsername()), 200));
             u.setUniversity("nju");
             u.setMajor("software");
             u.setProinstruction("many works");
             u.setGoodat("java");
+            u.setEmail("123456@qq.com");
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
-//  @Test
-//   public void testAdd(){
-//      u.setPassword(MD5.toMD5(u.getPassword()));
-//      assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-//   }
+  @Test
+  public void testAdd(){
+      u.setPassword(MD5.toMD5(u.getPassword()));
+     assertEquals(u.getUsername(), ud.addUser(u).getUsername());
+  }
    @Test
    public void testfinduser(){
         User user=ud.findUser("gjp");
