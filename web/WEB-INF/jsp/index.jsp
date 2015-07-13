@@ -628,6 +628,7 @@
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/page/jquery.proximity.js"></script>
+<script type="text/javascript"src="../../js/page/index.js"></script>
 
 <script type="text/javascript">
     $(function () {
@@ -794,29 +795,7 @@
     });
 </script>
 
-<script type="text/javascript">
-    function myReload(){
-        document.getElementById("img_code").src=document.getElementById("img_code").src + "?nocache="+new Date().getTime();
-    }
-</script>
 
-<script type="text/javascript" charset="utf-8">
-    $(function() {
-
-        $("#submit_sign").click(
-                function() {
-                    $.post("/validate.do?userCheckCode="
-                            + $("#checkCode").val(), function(data) {
-                        if (data=="true") {
-                            window.top.location.href="http://www.baidu.com";
-                        } else {
-                            myReload();
-                            alert("验证码错误！");
-                    }
-                });
-    });
-    });
-</script>
 
 </body>
 </html>
