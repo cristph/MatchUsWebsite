@@ -3,7 +3,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    padding-bottom: 40px;
+    *padding-bottom: 40px;
     color: #5a5a5a;
 }
 
@@ -285,4 +285,18 @@ body {
     bottom: 0;
     background-repeat: no-repeat;
     background-position: center 0;
+}
+
+
+.co-footer {
+    position: relative;
+    bottom: 0;
+    padding: 20px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
+.co-footer p:last-child {
+    margin-bottom: 0;
 }
