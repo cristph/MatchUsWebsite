@@ -57,23 +57,20 @@
 <hr>
 <div class="container marketing">
     <div id="select_option_div">
-        <div id="select_title_div">
-            <span class="select_title">筛选：</span>
-        </div>
         <hr style="margin-right: 5%">
-
         <div id="select_detail_div">
             <div class="#">
                 <span class="select_text">类目：</span>
 
                 <div class="btn-group project-kind">
-                    <button type="button" id="both-kind" class="btn btn-default">全部</button>
-                    <button type="button" class="btn btn-default">移动开发</button>
-                    <button type="button" class="btn btn-default">网站建设</button>
-                    <button type="button" class="btn btn-default">企业软件</button>
-                    <button type="button" class="btn btn-default">视觉设计</button>
-                    <button type="button" class="btn btn-default">文案设计</button>
-                    <button type="button" class="btn btn-default">嵌入式开发</button>
+                    <button type="button" id="all-kind" value="全部类目" class="btn btn-primary all-btn">全部类目</button>
+                    <button type="button" value="移动开发" class="btn btn-default">移动开发</button>
+                    <button type="button" value="网站建设" class="btn btn-default">网站建设</button>
+                    <button type="button" value="企业软件" class="btn btn-default">企业软件</button>
+                    <button type="button" value="嵌入式开发" class="btn btn-default">嵌入式开发</button>
+                    <button type="button" value="视觉设计" class="btn btn-default">视觉设计</button>
+                    <button type="button" value="文案设计" class="btn btn-default">文案设计</button>
+                    <button type="button" value="其他类目" class="btn btn-default">其他类目</button>
                 </div>
             </div>
             <br>
@@ -82,10 +79,10 @@
                 <span class="select_text">模式：</span>
 
                 <div class="btn-group project-mode">
-                    <button type="button" id="both-mode" class="btn btn-default">全部</button>
-                    <button type="button" class="btn btn-default">外包</button>
-                    <button type="button" class="btn btn-default">比赛</button>
-                    <button type="button" class="btn btn-default">其他</button>
+                    <button type="submit" id="all-mode" value="全部模式" class="btn btn-primary all-btn">全部模式</button>
+                    <button type="button" value="外包" class="btn btn-default">外包</button>
+                    <button type="button" value="比赛" class="btn btn-default">比赛</button>
+                    <button type="button" value="其他模式" class="btn btn-default">其他模式</button>
                 </div>
             </div>
             <br>
@@ -94,17 +91,18 @@
                 <span class="select_text">技术：</span>
 
                 <div class="btn-group project-skills">
-                    <button type="button" id="both-skills" class="btn btn-default">全部</button>
-                    <button type="button" class="btn btn-default">Java</button>
-                    <button type="button" class="btn btn-default">C/C++</button>
-                    <button type="button" class="btn btn-default">Html/Css/Js</button>
-                    <button type="button" class="btn btn-default">python</button>
-                    <button type="button" class="btn btn-default">PHP</button>
-                    <button type="button" class="btn btn-default">Ruby</button>
-                    <button type="button" class="btn btn-default">Linux</button>
-                    <button type="button" class="btn btn-default">MySql</button>
-                    <button type="button" class="btn btn-default">C#</button>
-                    <button type="button" class="btn btn-default">iOS</button>
+                    <button type="button" id="all-skills" value="全部技术" class="btn btn-primary all-btn">全部技术</button>
+                    <button type="button" value="Java" class="btn btn-default">Java</button>
+                    <button type="button" value="C/C++" class="btn btn-default">C/C++</button>
+                    <button type="button" value="Html/Css/Js" class="btn btn-default">Html/Css/Js</button>
+                    <button type="button" value="python" class="btn btn-default">python</button>
+                    <button type="button" value="PHP" class="btn btn-default">PHP</button>
+                    <button type="button" value="Ruby" class="btn btn-default">Ruby</button>
+                    <button type="button" value="Linux" class="btn btn-default">Linux</button>
+                    <button type="button" value="MySql" class="btn btn-default">MySql</button>
+                    <button type="button" value="C#" class="btn btn-default">C#</button>
+                    <button type="button" value="iOS" class="btn btn-default">iOS</button>
+                    <button type="button" value="其他技术" class="btn btn-default">其他技术</button>
                 </div>
             </div>
             <br>
@@ -113,13 +111,14 @@
                 <span class="select_text">报酬：</span>
 
                 <div class="btn-group project-pay">
-                    <button type="button" id="both-pay" class="btn btn-default">全部</button>
-                    <button type="button" class="btn btn-default">0-100</button>
-                    <button type="button" class="btn btn-default">100-200</button>
-                    <button type="button" class="btn btn-default">200-500</button>
-                    <button type="button" class="btn btn-default">500-1000</button>
-                    <button type="button" class="btn btn-default">1000-5000</button>
-                    <button type="button" class="btn btn-default">5000-10000</button>
+                    <button type="button" id="all-pay" vaule="全部报酬" class="btn btn-primary all-btn">全部报酬</button>
+                    <button type="button" value="0-100" class="btn btn-default">0-100</button>
+                    <button type="button" value="100-200" class="btn btn-default">100-200</button>
+                    <button type="button" value="200-500" class="btn btn-default">200-500</button>
+                    <button type="button" value="500-1000" class="btn btn-default">500-1000</button>
+                    <button type="button" value="1000-5000" class="btn btn-default">1000-5000</button>
+                    <button type="button" value="5000-10000" class="btn btn-default">5000-10000</button>
+                    <button type="button" value="其他报酬" class="btn btn-default">其他报酬</button>
                 </div>
             </div>
         </div>
@@ -283,13 +282,10 @@
     </footer>
 </div>
 <script type="text/javascript" defer="defer">
-    var btn = document.getElementsByClassName("btn btn-default");
+    var btn = document.getElementsByClassName("btn");
     for (var i = 0; i < btn.length; i++) {
-        btn[i].addEventListener('click', changeColor, false);
+        btn[i].addEventListener('click', select, false);
     }
-    //
-    var both_btn = document.getElementById("both-kind");
-    both_btn.addEventListener('click', changeToAll, false);
 </script>
 </body>
 </html>
