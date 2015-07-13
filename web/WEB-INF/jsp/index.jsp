@@ -802,34 +802,19 @@
 
 <script type="text/javascript" charset="utf-8">
     $(function() {
-        $("#image_code").click(function() {
-            refreshCheckCode();
-        });
 
         $("#submit_sign").click(
                 function() {
-                    alert("dd");
                     $.post("/validate.do?userCheckCode="
                             + $("#checkCode").val(), function(data) {
-                        if (data) {
-                            window.top.location.href="需要重定向的页面地址";
+                        if (data=="true") {
+                            window.top.location.href="http://www.baidu.com";
                         } else {
-                            refreshCheckCode();
-                            $.messager.show({
-                                title:"警告",
-                            msg:"校验码输入不正确。",
-                            timeout:5000,
-                                    showType:"slide"
-                        });
+                            myReload();
+                            alert("验证码错误！");
                     }
                 });
     });
-
-    function refreshCheckCode() {
-        var append = "?clearCache=" + new Date().getTime() + "a"
-                        + Math.random();
-        $("#image_code").attr("src", $("#image_code").attr("src") + append);
-    }
     });
 </script>
 

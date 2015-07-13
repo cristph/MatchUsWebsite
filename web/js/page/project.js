@@ -1,13 +1,13 @@
 /**
  * Created by �Ų��� on 2015/7/9.
  */
-function changeColor(btn) {
-    if (btn.classList.contains("btn-default")) {
-        btn.classList.remove("btn-default");
-        btn.classList.add("btn-primary")
+var changeColor = function () {
+    if (this.classList.contains("btn-default")) {
+        this.classList.remove("btn-default");
+        this.classList.add("btn-primary")
     }
-    else if (btn.classList.contains("btn-primary")) {
-        btn.classList.remove("btn-primary");
-        btn.classList.add("btn-default")
+    else if (this.classList.contains("btn-primary")) {
+        this.classList.remove("btn-primary");
+        this.classList.add("btn-default")
     }
 }
