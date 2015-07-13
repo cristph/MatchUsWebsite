@@ -19,9 +19,9 @@ public class FilterServiceImpl implements FilterService {
 
     @Override
     public ArrayList<Project> filter(ArrayList<String> keyWords) {
-        String[] classNames =(String [])this.getClassNames(keyWords).toArray();
-        String[] modeNames=(String [])this.getModeName(keyWords).toArray();
-        String[] techNames=(String []) this.getTechName(keyWords).toArray();
+        String[] classNames =this.getClassNames(keyWords).toArray(new String[1]);
+        String[] modeNames=this.getModeName(keyWords).toArray(new String[1]);
+        String[] techNames=this.getTechName(keyWords).toArray(new String[1]);
 
         ArrayList<List<Integer>> arrList1=new ArrayList<List<Integer>>();
         for(int i=0;i<classNames.length;i++){

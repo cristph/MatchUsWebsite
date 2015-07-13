@@ -8,9 +8,10 @@ function applySelect() {
     for (var i = 0; i < primary_btn_list.length; i++) {
         dataContent[i] = primary_btn_list[i].name;
     }
-    $.post("/Category", dataContent, function (data) {
-        alert(data);
+    $.post("../../Category", {"dataContent":dataContent}, function (data) {
+        alert(JSON.stringify(data));
     });
+
 }
 function changeColor(btn) {
     var parent_element = btn.parentElement;//父元素

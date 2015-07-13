@@ -25,9 +25,17 @@ public class CategoryController {
 
     @RequestMapping(value="/Category",method= RequestMethod.POST)
     @ResponseBody
-    public List<Project> CategoryFilter(@RequestParam(value="dataContent") String[] dataContent){
-        ArrayList<String> chooseItem=new ArrayList<String>( Arrays.asList(dataContent));
+    public List<Project> CategoryFilter(@RequestParam(value="dataContent[]") Object[] dataContent){
+            String [] strings=new String[dataContent.length];
+          for(int i=0;i<dataContent.length;i++)
+            strings[i]=dataContent[i].toString();
+        ArrayList<String> chooseItem=new ArrayList<String>( Arrays.asList(strings));
         List<Project> list=filterService.filter(chooseItem);
+        Project p=new Project();
+        p.setPid(20);
+        p.setPname("abc");
+        list.add(p);
+        System.out.println(list.get(0).getPname()+list.size()+"-----------");
         return list;
     }
 
