@@ -17,8 +17,9 @@ public class Project {
     private byte[] picture;
     private boolean state;
     private String subject;
-    private String subsubject;
     private String moduel;
+    private String skill;
+    private String reward;
     @Id
     @GeneratedValue
     public String getId() {
@@ -78,13 +79,6 @@ public class Project {
         this.subject = subject;
     }
 
-    public String getSubsubject() {
-        return subsubject;
-    }
-
-    public void setSubsubject(String subsubject) {
-        this.subsubject = subsubject;
-    }
 
     public String getModuel() {
         return moduel;
@@ -92,5 +86,21 @@ public class Project {
 
     public void setModuel(String moduel) {
         this.moduel = moduel;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public String getReward() {
+        return reward;
+    }
+
+    public void setReward(String reward) {
+        this.reward = reward;
     }
 }
