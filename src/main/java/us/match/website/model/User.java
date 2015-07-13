@@ -19,7 +19,6 @@ public class User {
         private int uid;
         private String username;
         private String password;
-        private String nickname;
         private String instruction;
         private String realname;
         private String sex;
@@ -45,16 +44,6 @@ public class User {
     public void setInstruction(String instruction) {
         this.instruction = instruction;
     }
-
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getPassword() {
         return password;
     }
