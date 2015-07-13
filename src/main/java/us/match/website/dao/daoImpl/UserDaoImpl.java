@@ -1,5 +1,6 @@
 package us.match.website.dao.daoImpl;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Source;
@@ -12,6 +13,7 @@ import us.match.website.model.User;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -21,7 +23,6 @@ import javax.annotation.Resource;
 public class UserDaoImpl implements UserDao {
     @Resource
     SessionFactory sessionFactory;
-
     public User addUser(User user) {
         User result=new User();
         Session session = sessionFactory.openSession();
@@ -73,13 +74,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findUser(String uid) {
+    public User findUser(String username) {
         User result=new User();
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            result = (User) session.get(User.class, uid);
-
+            Query query=session.createQuery("from User WHERE username='"+username+"'");
+            List<User> list= query.list();
+            if(list.size()!=0){
+                result=list.get(0);
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
