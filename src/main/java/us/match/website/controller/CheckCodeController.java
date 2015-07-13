@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import us.match.website.service.serviceImpl.IdentifyingCode;
-
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,18 +59,18 @@ public class CheckCodeController {
 
     @ResponseBody
     @RequestMapping(value="/validate.do")
-    public boolean validate(@RequestParam("userCheckCode") String code,
+    public String validate(@RequestParam("userCheckCode") String code,
                             HttpServletRequest request){
         HttpSession session=request.getSession(false);
         if(session == null){
-            return false;
+            return "false";
         }
         String checkCode=(String) session.getAttribute("checkCode");
         session.removeAttribute("checkCode");
         if(code!=null && code.length()>0 && code.toUpperCase().equals(checkCode) ){
-            return true;
+            return "true";
         }else
-            return false;
+            return "false";
     }
 
 
