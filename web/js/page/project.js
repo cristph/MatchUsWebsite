@@ -11,3 +11,7 @@ var changeColor = function () {
         this.classList.add("btn-default")
     }
 }
+
+var changeToAll = function () {
+
+}
