@@ -7,16 +7,12 @@ function myReload(){
 }
 
 
-/**document.getElementById("submit_sign").onclick=chkPswd();**/
+/*document.getElementById("submit_sign").onclick=chkPswd();*/
 function chkPswd(){
     var fir=document.getElementById("inPassword");
     var sec=document.getElementById("sureinPassword");
 
-    if(fir.value==""||sec.value==""){
-        alert("密码不能为空！");
-        return false;
-    }
-    if(fir.value!=sec.value()){
+    if(fir.value!=sec.value){
         alert("两次输入的密码不同！");
         return false;
     }else{
@@ -25,21 +21,50 @@ function chkPswd(){
 
 }
 
-
-$(function() {
+$(function(){
     $("#submit_sign").click(
-        function() {
-            $.post("/validate.do?userCheckCode=" + $("#checkCode").value
-                +"validate.do?sign_pswd="+$("#inPassword").value
-                +"validate.do?sign_email"+$("#inEmail").value
-                +"validate.do?sign_name"+$("#inName").value,
-                function(data) {
+        function(){
+            $.post("/validate.do",
+                {"userCheckCode":$("#checkcode"),
+                    "sign_email":$("#inEmail").value,
+                    "sign_pswd":$("#inPassword").value,
+                    "sign_name":$("inName").value
+                },
+                function(data){
                     if (data=="true") {
                         window.top.location.href="http://www.baidu.com";
-                    } else {
+                    } else if(data=="RegisterFalse"){
+                        alert("注册失败！");
+                    }
+                    else {
                         myReload();
                         alert("验证码错误！");
                     }
             });
         });
 });
+
+
+
+/**
+$(function() {
+    $("#submit_sign").click(
+        function() {
+            $.post("/validate.do",{"userCheckCode" : $("#checkCode").value
+                ,"sign_pswd":$("#inPassword").value
+                ,"sign_email":$("#inEmail").value
+                ,"sign_name":$("#inName")}.value,
+                function(data) {
+                    if (data=="true") {
+                        window.top.location.href="http://www.baidu.com";
+                    } else if(data=="RegisterFalse"){
+                        alert("注册失败！");
+                    }
+                    else {
+                        myReload();
+                        alert("验证码错误！");
+                    }
+            });
+        });
+});
+ */

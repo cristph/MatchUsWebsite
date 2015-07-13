@@ -69,6 +69,7 @@ public class CheckCodeController {
             user.setEmail(email);
             user.setNickname(name);
             user.setPassword(MD5.toMD5(password));
+            System.out.println(email+name+password+"-----------------");
             User u=userService.register(user);
             if(u==null){
                 return "RegisterFalse";
