@@ -42,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Match Us</a>
+            <a class="navbar-brand" href="#"><img src="/image/base/logov1.jpg" style="max-height: 38px;  max-width: 120px"></a>
             <a class="navbar-brand" href="../../view/page/project.html">找项目</a>
             <a class="navbar-brand" href="../../view/page/team.html">找团队</a>
             <a class="navbar-brand" href="../../view/page/talent.html">找人才</a>
@@ -609,18 +609,13 @@
         <p><a class="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们吧</a></p>
     </div>
     <!-- /END THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
-
 </div>
-<!-- /.container -->
 
+<!-- /.container -->
+<footer class="co-footer">
+    <p>@ company <a href="http://getbootstrap.com">Math Us</a></p>
+    <p><a href="#">Back to top</a></p>
+</footer>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

@@ -4,6 +4,13 @@ var select = function () {
 }
 function applySelect() {
     var primary_btn_list = document.getElementsByClassName("btn-primary");
+    var dataContent = new Array();
+    for (var i = 0; i < primary_btn_list.length; i++) {
+        dataContent[i] = primary_btn_list[i].name;
+    }
+    $.post("", dataContent, function (data) {
+
+    });
 }
 function changeColor(btn) {
     var parent_element = btn.parentElement;//父元素

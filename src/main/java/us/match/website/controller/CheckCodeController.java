@@ -65,9 +65,8 @@ public class CheckCodeController {
         session.removeAttribute("checkCode");
         if(code!=null && code.length()>0 && code.toUpperCase().equals(checkCode) ){
             User user=new User();
-            user.setUsername(email);
+            user.setUsername(name);
             user.setEmail(email);
-            user.setNickname(name);
             user.setPassword(MD5.toMD5(password));
             System.out.println(email+name+password+"-----------------");
             User u=userService.register(user);

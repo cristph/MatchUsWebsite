@@ -34,8 +34,10 @@ public class ProjectTest {
 //       assertEquals(true,pd.addProject(pro));
 //  }
     @Test
+    public void Testupdate(){assertEquals();}
+    @Test
     public void Testfindbyid(){
-        assertEquals(1,pd.getbyid(1).getPid());
+        assertEquals(1, pd.getbyid(1).getPid());
     }
     @Test
     public void  Testfindbyname(){
@@ -45,4 +47,6 @@ public class ProjectTest {
     public void Testgetbysubjectt(){
         assertEquals(1,pd.getbysubject("移动应用").size());
     }
+    @Test
+    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(0,2000).size());}
 }
