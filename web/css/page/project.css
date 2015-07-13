@@ -1,11 +1,11 @@
 .select_text {
     color: black;
-    font-size: larger;
+    font-size: x-large;
 }
 
 .select_title {
     color: black;
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 #select_option_div {
@@ -23,14 +23,38 @@
 
 }
 
-#body {
+#project_body {
 
 }
 
-#header {
+.project-kind {
 
 }
 
-#footer {
+.project-mode {
+
+}
+
+.project-skills {
+
+}
+
+.project-pay {
+
+}
+
+.both-kind {
+
+}
+
+.both-mode {
+
+}
+
+.both-skills {
+
+}
+
+.both-pay {
 
 }
