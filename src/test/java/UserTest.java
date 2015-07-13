@@ -34,8 +34,7 @@ public class UserTest {
 //            InputStream in = new FileInputStream("C:\\Users/Public/Pictures/Sample Pictures/1.jpg");
 //            in.read(photo);
 //            in.close();
-            u.setUid(1);
-            u.setUsername("zzz");
+            u.setUsername("gjp");
             u.setPassword("123");
             u.setNickname("zy");
             u.setInstruction("aaa");
@@ -52,34 +51,24 @@ public class UserTest {
         }
     }
 
-   @Test
-    public void testAdd(){
-       u.setPassword(MD5.toMD5(u.getPassword()));
-       assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-    }
 //   @Test
-//    public void testfinduser(){
-//        User user=ud.findUser("465033064@qq.com");
-//        User answer=new User();
-//        answer.setPassword(MD5.toMD5("123"));
-//        boolean m =user.getPassword().equals(answer.getPassword());
-//        assertEquals(true, m);
+//    public void testAdd(){
+//       u.setPassword(MD5.toMD5(u.getPassword()));
+//       assertEquals(u.getUsername(), ud.addUser(u).getUsername());
 //    }
-//   @Test
-//   public void testUpdate(){
-//       User un=ud.findUser("465033064@qq.com");
-//       un.setGoodat("c++,java");
-//       ud.updateUser(un);
-//       assertEquals("c++,java",ud.findUser("465033064@qq.com").getGoodat());
-//   }
-
-
-
-
-  @Test
-    public void testDelete(){
-       assertEquals(true,ud.deleteUser(u));
+   @Test
+   public void testfinduser(){
+        User user=ud.findUser("zzz");
+        User answer=new User();
+       answer.setPassword(MD5.toMD5("123"));
+       boolean m =user.getPassword().equals(answer.getPassword());
+       assertEquals(true, m);
     }
-
-
+  @Test
+  public void testUpdate(){
+      User un=ud.findUser("zzz");
+      un.setGoodat("c++,java");
+      ud.updateUser(un);
+      assertEquals("c++,java",ud.findUser("zzz").getGoodat());
+  }
 }
