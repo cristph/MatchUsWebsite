@@ -1,5 +1,7 @@
 package us.match.website.service;
 
+import us.match.website.model.Project;
+
 import java.util.ArrayList;
 
 /**
@@ -7,5 +9,5 @@ import java.util.ArrayList;
  */
 public interface FilterService {
     /*过滤接口*/
-
+    public ArrayList<Project> filter(ArrayList<String> keyWords);
 }

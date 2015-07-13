@@ -11,5 +11,5 @@ public interface UserService {
     public User login(String username,String password);
     public User logout(String username);
     public User register(User user);
-    public Map getBasicInfo(String userId);
+    public Map getBasicInfo(String username);
 }

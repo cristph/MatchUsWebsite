@@ -9,6 +9,7 @@ import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -58,7 +59,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map getBasicInfo(String userId) {
+    public Map getBasicInfo(String username) {
+        User user=userDao.findUser(username);
+        Map map=new HashMap<String,String>();
+        map.put("nickName",user.getNickname());
+        map.put("address",user.getAddress());
+        map.put("birthday",user.getBirthday());
+
         return null;
     }
 
