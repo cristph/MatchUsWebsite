@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 
 @Controller
+@RequestMapping("/project")
 public class ProjectController {
     @Resource
     ProjectService projectService;
@@ -25,7 +26,7 @@ public class ProjectController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/add_Project", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addProject(@RequestParam("id") String id,
                              @RequestParam("pinstruction")String pinstruction,
                              @RequestParam("pname")String pname,

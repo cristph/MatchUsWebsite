@@ -11,7 +11,6 @@ import us.match.website.service.UserService;
 import us.match.website.service.serviceImpl.IdentifyingCode;
 import us.match.website.util.CheckCodeImage;
 import us.match.website.util.MD5;
-
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -59,13 +58,14 @@ public class CheckCodeController {
                            @RequestParam("userCheckCode") String code,
                             HttpServletRequest request){
         HttpSession session=request.getSession(false);
-        if(session == null){
+        if(session == null ){
             return "false";
         }
         String checkCode=(String) session.getAttribute("checkCode");
         session.removeAttribute("checkCode");
         if(code!=null && code.length()>0 && code.toUpperCase().equals(checkCode) ){
             User user=new User();
+            user.setUsername(email);
             user.setEmail(email);
             user.setNickname(name);
             user.setPassword(MD5.toMD5(password));
