@@ -34,6 +34,7 @@ public class UserTest {
 //            InputStream in = new FileInputStream("C:\\Users/Public/Pictures/Sample Pictures/1.jpg");
 //            in.read(photo);
 //            in.close();
+            u.setUid(1);
             u.setUsername("zzz");
             u.setPassword("123");
             u.setNickname("zy");

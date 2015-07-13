@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
         try {
             session.beginTransaction();
             session.save(user);
-            result =(User)session.get(User.class,user.getUsername());
+            result =(User)session.get(User.class,user.getUid());
         } catch (Exception e) {
            result=null;
            e.printStackTrace();
@@ -73,12 +73,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findUser(String username) {
+    public User findUser(String uid) {
         User result=new User();
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            result = (User) session.get(User.class, username);
+            result = (User) session.get(User.class, uid);
 
         }catch(Exception e) {
             e.printStackTrace();
