@@ -42,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Match Us</a>
+            <a class="navbar-brand" href="#"><img src="/image/base/logov1.jpg" style="max-height: 38px;  max-width: 120px"></a>
             <a class="navbar-brand" href="../../view/page/project.html">找项目</a>
             <a class="navbar-brand" href="../../view/page/team.html">找团队</a>
             <a class="navbar-brand" href="../../view/page/talent.html">找人才</a>
