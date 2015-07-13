@@ -393,3 +393,8 @@ a:active {
     left: -4px;
     bottom: 0;
 }
+
+.course-one-title {
+    font-size: 25px;
+    text-decoration: none;
+}
