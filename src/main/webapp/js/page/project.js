@@ -9,8 +9,9 @@ function applySelect() {
         dataContent[i] = primary_btn_list[i].name;
     }
     $.post("../../Category", {"dataContent": dataContent}, function (data) {
-        var projects = eval(data);
-        alert(projects[0].id);
+        var projectsJ = JSON.stringify(data);
+        //var projects=eval(projectsJ);
+        alert(projectsJ);
     });
 
 }
