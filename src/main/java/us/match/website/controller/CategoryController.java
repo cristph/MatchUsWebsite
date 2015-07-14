@@ -35,7 +35,7 @@ public class CategoryController {
 //        p.setPid(20);
 //        p.setPname("abc");
 //        list.add(p);
-        System.out.println(list.get(0).getPname()+list.size()+"listSize-----------");
+  //      System.out.println(list.get(0).getPname()+list.size()+"listSize-----------");
         if(list.size()==0)
         {
             Project p=new Project();
