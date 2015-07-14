@@ -30,39 +30,34 @@
 <body id="body">
 <!-- Carousel
 ================================================== -->
-<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 60px">
-    <div class="container-fluid" style="height:60px; padding: 0">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#"  style="position: relative;left: 15px">
+                <img src="/image/base/logov1.png" style="max-height: 60px;  max-width: 180px">
+            </a>
+        </div>
 
-
-
-        <div id="navbar" class="navbar-collapse collapse" style="position: relative; top: 8%">
-            <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <a href="#" style="padding: 2px;position: relative;left: 15px">
-                        <img src="/image/base/logov1.png" style="max-height: 60px;  max-width: 180px">
-                    </a>
-                </li>
-                <li>
-                    <a class="navbar-brand" style="position: relative; left:30px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/project.html">找项目</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" style="position: relative; left:50px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/team.html">找团队</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" style="position: relative; left:70px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/talent.html">找人才</a>
-                </li>
-                <li>
-                    <a class="navbar-brand" style="position: relative; left:90px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/user.html">个人中心</a>
-                </li>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left" style="position: relative;left: 2%;">
+                <li><a href="../../view/page/project.html">找项目</a></li>
+                <li><a href="../../view/page/team.html">找团队</a></li>
+                <li><a href="../../view/page/talent.html">找人才</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right" style="position: relative; right: 3%">
-                <li><a href="#" id="login" data-toggle="modal" data-target="#userlogin">登陆</a></li>
-                <li><a href="#" id="sign_in" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
-                <li><a href="#" id="help">帮助</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
+                <li><a href="../../view/page/user.html">个人中心</a></li>
             </ul>
-            <form class="navbar-form navbar-right" style="position: relative; right: 3%">
-                <input type="text" class="form-control" placeholder="大牛，项目...">
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="项目，大牛...">
             </form>
         </div>
     </div>
