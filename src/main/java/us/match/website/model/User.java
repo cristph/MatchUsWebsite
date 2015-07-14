@@ -5,11 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.security.MessageDigest;
-import java.util.Set;
 
 /**
  * Created by apple on 2015/7/8.
@@ -32,9 +29,9 @@ public class User {
         private String university;
         private String major;
         private String friends;
-        private Set<UserSkill> Skills;
-        private Set<Project> publishingprojects;
-        private Set<Project> workingprojects;
+        private List<UserSkill> Skills;
+        private List<Project> publishingprojects;
+        private List<Project> workingprojects;
         private HashMap<String,Integer> friendsmap=new HashMap<String, Integer>();
     public String getInstruction() {
         return instruction;
@@ -185,27 +182,27 @@ public class User {
         this.uid = uid;
     }
     @OneToMany(mappedBy = "publisher")
-    public Set<Project> getPublishingprojects() {
+    public List<Project> getPublishingprojects() {
         return publishingprojects;
     }
 
-    public void setPublishingprojects(Set<Project> publishingprojects) {
+    public void setPublishingprojects(List<Project> publishingprojects) {
         this.publishingprojects = publishingprojects;
     }
     @ManyToMany(mappedBy = "workers",cascade = CascadeType.ALL)
-    public Set<Project> getWorkingprojects() {
+    public List<Project> getWorkingprojects() {
         return workingprojects;
     }
 
-    public void setWorkingprojects(Set<Project> workingprojects) {
+    public void setWorkingprojects(List<Project> workingprojects) {
         this.workingprojects = workingprojects;
     }
     @OneToMany(mappedBy = "user")
-    public Set<UserSkill> getSkills() {
+    public List<UserSkill> getSkills() {
         return Skills;
     }
 
-    public void setSkills(Set<UserSkill> skills) {
+    public void setSkills(List<UserSkill> skills) {
         Skills = skills;
     }
 }
