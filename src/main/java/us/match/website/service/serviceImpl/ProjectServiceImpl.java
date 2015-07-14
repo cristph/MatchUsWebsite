@@ -51,4 +51,10 @@ public class ProjectServiceImpl implements ProjectService{
     public ArrayList<Project> QueryProject(ArrayList<String> Subjects, ArrayList<String> moduel, ArrayList<String> skill, ArrayList<String> reward) {
         return null;
     }
+
+    @Override
+    public ArrayList<Project> getAllProject() {
+
+        return null;
+    }
 }

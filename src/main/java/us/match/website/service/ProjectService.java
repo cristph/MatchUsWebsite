@@ -12,4 +12,6 @@ public interface ProjectService {
     public String deleteProject(Project pro);
     public String updateProject(Project pro);
     public ArrayList<Project> QueryProject(ArrayList<String> Subjects,ArrayList<String> moduel,ArrayList<String> skill,ArrayList<String> reward);
+    public ArrayList<Project> getAllProject();
+
 }
