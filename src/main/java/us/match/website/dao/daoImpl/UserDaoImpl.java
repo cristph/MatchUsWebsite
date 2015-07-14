@@ -138,7 +138,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean addProject(Project project,User user) {
         boolean result=true;
-        Set<Project> temp= user.getWorkingprojects();
+        List<Project> temp= user.getWorkingprojects();
         temp.add(project);
         user.setWorkingprojects(temp);
         Session session = sessionFactory.openSession();
