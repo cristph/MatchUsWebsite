@@ -8,9 +8,16 @@ function applySelect() {
     for (var i = 0; i < primary_btn_list.length; i++) {
         dataContent[i] = primary_btn_list[i].name;
     }
-    $.post("../../Category", {"dataContent":dataContent}, function (data) {
-        alert(JSON.stringify(data));
+    $.post("../../Category", {"dataContent": dataContent}, function (data) {
+        var projectsJ = JSON.stringify(data);
+        //var projects=eval(projectsJ);
+        alert(projectsJ);
+
     });
+
+}
+
+function refreshView() {
 
 }
 function changeColor(btn) {

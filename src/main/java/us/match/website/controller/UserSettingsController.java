@@ -3,13 +3,14 @@ package us.match.website.controller;
 import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import us.match.website.dao.UserDao;
 import us.match.website.model.User;
 import us.match.website.model.UserSkill;
+import us.match.website.service.UserService;
 
+import javax.annotation.Resource;
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,30 +20,48 @@ import java.util.Map;
 @Controller
 @RequestMapping("/user/settings")
 public class UserSettingsController {
+    @Resource
+    private UserService userService;
+    @Resource
+    private UserDao userDao;
 
     @RequestMapping("")
     public String settings(Model model) {
-        User user = new User();
-        user.setUsername("姓名");
-        user.setUniversity("NJU");
-        user.setMajor("SE");
-        user.setAddress("XianLin");
-        user.setBirthday("19950101");
-        user.setMobilephone("no mobilephone");
-        user.setTelephone("no telphone");
-        user.setQq("no qq");
-        model.addAttribute("user", user);
-        model.addAttribute("current_setting", "basic");
         return "user/settings/index";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/basic", method = RequestMethod.POST)
-    public Map<String, Boolean> setBasic(@ModelAttribute User user) {
-        return ImmutableMap.of("success", true);
+    @RequestMapping(value = "/basic", method = RequestMethod.GET)
+    public User getBasic(@RequestParam("username") String username) {
+        User user = userDao.findUser(username);
+        user.setFace(null);
+        user.setSkills(null);
+        user.setPublishingprojects(null);
+        user.setWorkingprojects(null);
+        return user;
     }
-
-
+    @ResponseBody
+    @RequestMapping(value = "/basic", method = RequestMethod.POST)
+    public Map<String, Object> setBasic(
+            @RequestParam("username") String username,
+            @RequestParam("university") String university,
+            @RequestParam("major") String major,
+            @RequestParam("address") String address,
+            @RequestParam("skills") String[] skills,
+            @RequestParam("birthday") String brithday,
+            @RequestParam("introduction") String introduction
+    ) {
+//        System.out.println(username);
+//        System.out.println(university);
+        System.out.println(major);
+//        System.out.println(address);
+//        System.out.println(skills);
+//        System.out.println(brithday);
+//        System.out.println(introduction);
+        User user = new User();
+        user.setUsername("new name");
+        return ImmutableMap.of("success",true, "user", user);
+    }
 
 
 }

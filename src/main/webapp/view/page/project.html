@@ -59,7 +59,7 @@
                 <span class="select_line_text">类目：</span>
 
                 <div class="btn-group project-kind">
-                    <button type="button" id="all-kind" name="全部类目" class="btn btn-primary all-btn">全部类目</button>
+                    <button type="button" id="全部类目" name="全部类目" class="btn btn-primary all-btn">全部类目</button>
                     <button type="button" name="移动应用" class="btn btn-default">移动应用</button>
                     <button type="button" name="网站建设" class="btn btn-default">网站建设</button>
                     <button type="button" name="企业软件" class="btn btn-default">企业软件</button>
@@ -75,7 +75,7 @@
                 <span class="select_line_text">模式：</span>
 
                 <div class="btn-group project-mode">
-                    <button type="submit" id="all-mode" name="全部模式" class="btn btn-primary all-btn">全部模式</button>
+                    <button type="submit" id="全部模式" name="全部模式" class="btn btn-primary all-btn">全部模式</button>
                     <button type="button" name="外包" class="btn btn-default">外包</button>
                     <button type="button" name="比赛" class="btn btn-default">比赛</button>
                     <button type="button" name="其他模式" class="btn btn-default">其他模式</button>
@@ -87,7 +87,7 @@
                 <span class="select_line_text">技术：</span>
 
                 <div class="btn-group project-skills">
-                    <button type="button" id="all-skills" name="全部技术" class="btn btn-primary all-btn">全部技术</button>
+                    <button type="button" id="全部技术" name="全部技术" class="btn btn-primary all-btn">全部技术</button>
                     <button type="button" name="Java" class="btn btn-default">Java</button>
                     <button type="button" name="C/C++" class="btn btn-default">C/C++</button>
                     <button type="button" name="Html/Css/Js" class="btn btn-default">Html/Css/Js</button>
@@ -108,7 +108,7 @@
                 <span class="select_line_text">报酬：</span>
 
                 <div class="btn-group project-pay">
-                    <button type="button" id="all-pay" name="全部报酬" class="btn btn-primary all-btn">全部报酬</button>
+                    <button type="button" id="全部报酬" name="全部报酬" class="btn btn-primary all-btn">全部报酬</button>
                     <button type="button" name="0-100" class="btn btn-default">0-100</button>
                     <button type="button" name="100-200" class="btn btn-default">100-200</button>
                     <button type="button" name="200-500" class="btn btn-default">200-500</button>
@@ -278,10 +278,10 @@
         <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
 </div>
-<script type="text/javascript" defer="defer">
+<script type="text/javascript">
     var btn = document.getElementsByClassName("btn");
     for (var i = 0; i < btn.length; i++) {
-        btn[i].addEventListener('click', select, false);
+        btn[i].onclick = select;
     }
 </script>
 </body>

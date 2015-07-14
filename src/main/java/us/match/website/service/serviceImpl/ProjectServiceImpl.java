@@ -2,7 +2,10 @@ package us.match.website.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
 import us.match.website.dao.ProjectDao;
+import us.match.website.dao.UserDao;
+import us.match.website.dao.daoImpl.UserDaoImpl;
 import us.match.website.model.Project;
+import us.match.website.model.User;
 import us.match.website.service.ProjectService;
 
 import javax.annotation.Resource;
@@ -16,9 +19,14 @@ public class ProjectServiceImpl implements ProjectService{
 
     @Resource
     ProjectDao projectDao;
+    @Resource
+    UserDao userDao;
 
     @Override
     public String addProject(Project pro) {
+        String publisherName=pro.getPublisher().getUsername();
+        User user=userDao.findUser(publisherName);
+
         boolean b=projectDao.addProject(pro);
         String result="failed";
         if(b)

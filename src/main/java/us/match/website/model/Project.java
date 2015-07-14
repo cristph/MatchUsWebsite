@@ -3,6 +3,7 @@ package us.match.website.model;
 import javax.annotation.Generated;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,7 +22,7 @@ public class Project {
     private String skill;
     private int reward;
     private User publisher;
-    private Set<User> workers;
+    private List<User> workers;
     private Timestamp updatetime;
     private Timestamp starttime;
     private String location;
@@ -116,11 +117,11 @@ public class Project {
             joinColumns= @JoinColumn(name="project_id"),
             inverseJoinColumns=@JoinColumn(name="user_id")
     )
-    public Set<User> getWorkers() {
+    public List<User> getWorkers() {
         return workers;
     }
 
-    public void setWorkers(Set<User> workers) {
+    public void setWorkers(List<User> workers) {
         this.workers = workers;
     }
 

@@ -12,6 +12,7 @@ import us.match.website.util.MD5;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -59,7 +60,7 @@ public class UserTest {
         @Test
         public void testUpdate(){
             User un=ud.findUser("gjp");
-            Set<UserSkill> s=new HashSet<UserSkill>();
+            List<UserSkill> s=new ArrayList<UserSkill>();
             UserSkill u=new UserSkill();
             u.setSkillname("java");
             u.setLevel(0);

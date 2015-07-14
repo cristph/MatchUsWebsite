@@ -24,36 +24,46 @@ public class ProjectController {
     public String project(){
         return "project";
     }
-
+///////////////////////////////////////////////////////////////////////////////////
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addProject(@RequestParam("id") int id,
-                             @RequestParam("pinstruction")String pinstruction,
+    public String addProject(@RequestParam("pid") int pid,
+                             @RequestParam("pinstruction") String pinstruction,
                              @RequestParam("pname")String pname,
-                             @RequestParam("publisherid")String publisherid,
-                             @RequestParam("picture")byte[] picture,
                              @RequestParam("state")String state,
                              @RequestParam("subject")String subject,
                              @RequestParam("moduel")String moduel,
                              @RequestParam("skill")String skill,
-                             @RequestParam("reward")int reward)
+                             @RequestParam("reward")int reward,
+                             @RequestParam("userName")String userName,
+                             @RequestParam("location")String location,
+                             @RequestParam("email")String email,
+                             @RequestParam("phonenumber")String phoneNumber
+                             )
     {
         Project pro=new Project();
-        pro.setPid(id);
+        pro.setPid(pid);
         pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setPicture(picture);
         pro.setState(state);
         pro.setSubject(subject);
         pro.setModuel(moduel);
         pro.setSkill(skill);
         pro.setReward(reward);
+        pro.getPublisher().setUsername(userName);
+        pro.setLocation(location);
+        pro.setEmail(email);
+        pro.setPhonenumber(phoneNumber);
+
 
         String result=projectService.addProject(pro);
         return result;
     }
+
+    ///////////////////////////////////////////////////////////////////////////////
+
     @ResponseBody
-    @RequestMapping(value = "/delete_Project", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String deleteProject(@RequestParam("id") int id){
         Project pro=new Project();
         pro.setPid(id);
@@ -62,39 +72,44 @@ public class ProjectController {
     }
     @ResponseBody
     @RequestMapping(value = "/update_Project",method = RequestMethod.POST)
-    public String updateProject(@RequestParam("id") int id,
-                                @RequestParam("pinstruction")String pinstruction,
+    public String updateProject(@RequestParam("pid") int pid,
+                                @RequestParam("pinstruction") String pinstruction,
                                 @RequestParam("pname")String pname,
-                                @RequestParam("publisherid")String publisherid,
-                                @RequestParam("picture")byte[] picture,
                                 @RequestParam("state")String state,
                                 @RequestParam("subject")String subject,
                                 @RequestParam("moduel")String moduel,
                                 @RequestParam("skill")String skill,
-                                @RequestParam("reward")int reward)
+                                @RequestParam("reward")int reward,
+                                @RequestParam("userName")String userName,
+                                @RequestParam("location")String location,
+                                @RequestParam("email")String email,
+                                @RequestParam("phonenumber")String phoneNumber)
     {
         Project pro=new Project();
-        pro.setPid(id);
+        pro.setPid(pid);
         pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setPicture(picture);
         pro.setState(state);
         pro.setSubject(subject);
         pro.setModuel(moduel);
         pro.setSkill(skill);
         pro.setReward(reward);
+        pro.getPublisher().setUsername(userName);
+        pro.setLocation(location);
+        pro.setEmail(email);
+        pro.setPhonenumber(phoneNumber);
 
         String result=projectService.updateProject(pro);
         return result;
     }
-
+////////////////////////////////////////////////////////////////////////////////////
     @ResponseBody
     @RequestMapping(value = "/query_project",method = RequestMethod.POST)
     public ArrayList<Project> query_project(){
         return null;
     }
 
-
+//////////////////////////////////////////////////////////////////////////////////////
     @ResponseBody
     @RequestMapping(value="/getAllProject",method = RequestMethod.POST)
     public ArrayList<Project> getAllProject(){
