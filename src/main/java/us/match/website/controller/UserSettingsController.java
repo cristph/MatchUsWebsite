@@ -39,11 +39,9 @@ public class UserSettingsController {
     @ResponseBody
     @RequestMapping(value = "/basic", method = RequestMethod.POST)
     public Map<String, Boolean> setBasic(@ModelAttribute User user) {
-        return ImmutableMap.of("success", true, "user", User);
+        return ImmutableMap.of("success", true);
     }
-    @ResponseBody
-    @RequestMapping(value = "/portrait", method = RequestMethod.POST)
-    public
+
 
 
 
