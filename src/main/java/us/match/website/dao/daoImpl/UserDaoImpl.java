@@ -139,8 +139,11 @@ public class UserDaoImpl implements UserDao {
     public boolean addProject(Project project,User user) {
         boolean result=true;
         Set<Project> temp= user.getWorkingprojects();
+        Set<User> temp1=project.getWorkers();
+        temp1.add(user);
         temp.add(project);
         user.setWorkingprojects(temp);
+        project.setWorkers(temp1);
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();

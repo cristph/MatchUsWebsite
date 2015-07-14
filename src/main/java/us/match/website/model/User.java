@@ -192,7 +192,7 @@ public class User {
     public void setPublishingprojects(Set<Project> publishingprojects) {
         this.publishingprojects = publishingprojects;
     }
-    @ManyToMany(mappedBy = "workers",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "workers",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<Project> getWorkingprojects() {
         return workingprojects;
     }
