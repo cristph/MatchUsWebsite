@@ -37,11 +37,9 @@ public class UserTest {
         }
     }
 
-//  @Test
-//  public void testAdd(){
-//      u.setPassword(MD5.toMD5(u.getPassword()));
-//     assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-//  }
+  @Test
+ public void testAdd(){
+     u.setPassword(MD5.toMD5(u.getPassword()));assertEquals(u.getUsername(), ud.addUser(u).getUsername());}
         @Test
         public void testfinduser(){
             User user=ud.findUser("gjp");
