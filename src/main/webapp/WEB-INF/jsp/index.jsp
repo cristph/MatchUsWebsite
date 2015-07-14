@@ -7,12 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
-    utf-8
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Match Us</title>
-
     <!-- Bootstrap core CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,6 +22,8 @@
     <link href="/css/page/cus.css" rel="stylesheet" type="text/css"/>
     <link href="/css/page/reset.css" rel="stylesheet" type="text/css"/>
     <link href="/css/page/style2.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
+    <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
 
 </head>
 <!-- NAVBAR
@@ -32,132 +31,14 @@
 <body id="body">
 <!-- Carousel
 ================================================== -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="/image/base/logov1.jpg" style="max-height: 38px;  max-width: 120px"></a>
-            <a class="navbar-brand" href="../../view/page/project.html">找项目</a>
-            <a class="navbar-brand" href="../../view/page/team.html">找团队</a>
-            <a class="navbar-brand" href="../../view/page/talent.html">找人才</a>
-            <a class="navbar-brand" href="../../view/page/user.html">个人中心</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" id="login" data-toggle="modal" data-target="#userlogin">登陆</a></li>
-                <li><a href="#" id="sign_in" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
-                <li><a href="#" id="help">帮助</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="大牛，项目...">
-            </form>
-        </div>
-    </div>
-</nav>
-
-<div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" style="width:400px" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">登陆</h4>
-            </div>
-            <div class="modal-body">
-                <form class='form-signin' method="post" action="/login">
-                    <div class="form-group">
-                        <label class="control-label">注册邮箱：</label>
-                        <input type='text' id='inputEmail' name="username" class='form-control'
-                               placeholder='Email address' required autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">密码：</label>
-                        <input type='password' id='inputPassword' name="password" class='form-control'
-                               placeholder='Password' required>
-                    </div>
-                    <div class='checkbox'>
-                        <label>
-                            <input type='checkbox' value='remember-me'> 记住我
-                        </label>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">确认</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="usersignin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" style="width:400px" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="signin_title">注册</h4>
-            </div>
-            <div class="modal-body">
-                <form method="post">
-                    <div class="form-group">
-                        <label class="control-label">注册邮箱：</label>
-                        <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
-                               autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">密码：</label>
-                        <input type='password' id='inPassword' name="sign_pswd" class='form-control' placeholder='Password' required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">确认密码：</label>
-                        <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword'
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">昵称</label>
-                        <input type="text" id="inName" name="sign_name" class="form-control" placeholder="Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">验证码</label>
-                        <div class="container-fluid">
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" id="checkCode" name="userCheckCode"  class="form-control" placeholder="SureCode" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="checkCode.jpg" id="img_code" alt="hahha">
-                                    <a href="#" onClick="myReload()">换一个</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="submit_sign" class="btn btn-primary">确认</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
-
+<jsp:include page="commonHeader.jsp"/>
 
 <div class="topbanner">
     <div class="topbanner_content">
-        <div class="topbanner_img" style="background-image: url(../../image/ini/banner1.jpg)">
+        <div class="topbanner_img" style="background-image: url(../../image/ini/banner.jpg)">
         </div>
     </div>
 </div>
-
 
 <div class="container marketing">
     <!-- START THE FEATURETTES -->
@@ -612,10 +493,7 @@
 </div>
 
 <!-- /.container -->
-<footer class="co-footer">
-    <p>@ company <a href="http://getbootstrap.com">Math Us</a></p>
-    <p><a href="#">Back to top</a></p>
-</footer>
+<jsp:include page="commonFooter.jsp"/>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

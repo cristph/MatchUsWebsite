@@ -4,8 +4,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
+import us.match.website.model.UserSkill;
 import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,32 +36,36 @@ public class UserTest {
             u.setFace(Identicon.creat(Identicon.tohash(u.getUsername()), 200));
             u.setUniversity("nju");
             u.setMajor("software");
-            u.setProinstruction("many works");
-            u.setGoodat("java");
             u.setEmail("123456@qq.com");
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
-  @Test
-  public void testAdd(){
-      u.setPassword(MD5.toMD5(u.getPassword()));
-     assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-  }
-   @Test
-   public void testfinduser(){
-        User user=ud.findUser("gjp");
-        User answer=new User();
-       answer.setPassword(MD5.toMD5("123"));
-       boolean m =user.getPassword().equals(answer.getPassword());
-       assertEquals(true, m);
-    }
-  @Test
-  public void testUpdate(){
-      User un=ud.findUser("gjp");
-      un.setGoodat("c++,java");
-      ud.updateUser(un);
-      assertEquals("c++,java",ud.findUser("gjp").getGoodat());
-  }
+//  @Test
+// public void testAdd(){
+//     u.setPassword(MD5.toMD5(u.getPassword()));assertEquals(u.getUsername(), ud.addUser(u).getUsername());}
+        @Test
+        public void testfinduser(){
+            User user=ud.findUser("gjp");
+            User answer=new User();
+           answer.setPassword(MD5.toMD5("123"));
+           boolean m =user.getPassword().equals(answer.getPassword());
+           assertEquals(true, m);
+        }
+        @Test
+        public void testUpdate(){
+            User un=ud.findUser("gjp");
+            Set<UserSkill> s=new HashSet<UserSkill>();
+            UserSkill u=new UserSkill();
+            u.setSkillname("java");
+            u.setLevel(0);
+            s.add(u);
+            un.setSkills(s);
+            assertEquals(true,ud.updateUser(un));
+      }
+        @Test
+        public void testgetidbyname(){assertEquals(13,ud.getidbyname("gjp"));}
+
+
 }

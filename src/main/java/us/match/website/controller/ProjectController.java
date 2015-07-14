@@ -26,29 +26,30 @@ public class ProjectController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/release", method = RequestMethod.POST)
-    public String addProject(@RequestParam("proName") String  proName,
-                             @RequestParam("proDetail")String proDetail,
-                             @RequestParam("proCategory")String proCategory,
-                             @RequestParam("proReward")int proReward,
-                             @RequestParam("proTag")String proTag,
-                             @RequestParam("proLoc")String proLoc,
-                             @RequestParam("proTel")String proTel,
-                             @RequestParam("proEmail")String proEmail
-                             )
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addProject(@RequestParam("id") int id,
+                             @RequestParam("pinstruction")String pinstruction,
+                             @RequestParam("pname")String pname,
+                             @RequestParam("publisherid")String publisherid,
+                             @RequestParam("picture")byte[] picture,
+                             @RequestParam("state")String state,
+                             @RequestParam("subject")String subject,
+                             @RequestParam("moduel")String moduel,
+                             @RequestParam("skill")String skill,
+                             @RequestParam("reward")int reward)
     {
-        System.out.println("到达ProjectControler了！！！！");
         Project pro=new Project();
-        pro.setPid(10000);
-        pro.setPname(proName);
-        pro.setReward(proReward);
-        pro.setEmail(proEmail);
-        pro.setState(Project.states[0]);
-       // System.out.println(pro.getPid()+";"+pro.getPname()+";"+pro.getReward());
-        System.out.println(proName+";"+proDetail+";"+proCategory+";"+proReward+";"+proTag+
-                ";"+proLoc+";"+proTel+";"+proEmail);
+        pro.setPid(id);
+        pro.setPinstruction(pinstruction);
+        pro.setPname(pname);
+        pro.setPicture(picture);
+        pro.setState(state);
+        pro.setSubject(subject);
+        pro.setModuel(moduel);
+        pro.setSkill(skill);
+        pro.setReward(reward);
+
         String result=projectService.addProject(pro);
-        System.out.println("添加完了");
         return result;
     }
     @ResponseBody
