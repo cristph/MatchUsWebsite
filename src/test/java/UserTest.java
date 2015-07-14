@@ -4,8 +4,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
+import us.match.website.model.UserSkill;
 import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -38,10 +43,8 @@ public class UserTest {
     }
 
 //  @Test
-//  public void testAdd(){
-//      u.setPassword(MD5.toMD5(u.getPassword()));
-//     assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-//  }
+// public void testAdd(){
+//     u.setPassword(MD5.toMD5(u.getPassword()));assertEquals(u.getUsername(), ud.addUser(u).getUsername());}
         @Test
         public void testfinduser(){
             User user=ud.findUser("gjp");
@@ -50,12 +53,19 @@ public class UserTest {
            boolean m =user.getPassword().equals(answer.getPassword());
            assertEquals(true, m);
         }
-//        @Test
+        @Test
         public void testUpdate(){
-          User un=ud.findUser("gjp");
-          ud.updateUser(un);
+            User un=ud.findUser("gjp");
+            Set<UserSkill> s=new HashSet<UserSkill>();
+            UserSkill u=new UserSkill();
+            u.setSkillname("java");
+            u.setLevel(0);
+            s.add(u);
+            un.setSkills(s);
+            assertEquals(true,ud.updateUser(un));
       }
         @Test
-        public void testgetidbyname(){assertEquals(12,ud.getidbyname("gjp"));}
+        public void testgetidbyname(){assertEquals(13,ud.getidbyname("gjp"));}
+
 
 }
