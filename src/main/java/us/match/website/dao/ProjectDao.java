@@ -20,4 +20,5 @@ public interface ProjectDao {
     public boolean addProject(Project project);
     public boolean deleteProject(Project projetc);
     public boolean updateProject(Project project);
+    public List<Project>  getallProject();
 }

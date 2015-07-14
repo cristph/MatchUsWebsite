@@ -49,7 +49,7 @@ public class ProjectTest {
     }
     @Test
     public void Testgetbysubjectt(){
-        assertEquals(1,pd.getbysubject("移动应用").size());
+        assertEquals(1,pd.getbysubject("网站建设").size());
     }
     @Test
     public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(0, 2000).size());}
@@ -57,4 +57,7 @@ public class ProjectTest {
     public void Testgetidbyname(){assertEquals(4,pd.getidbyname("first project"));}
     @Test
     public void Testgetbymoduel(){assertEquals(1,pd.getbymodule("比赛").size());}
+    @Test
+    public void Testfetall(){
+        assertEquals(1,pd.getallProject().size());}
 }
