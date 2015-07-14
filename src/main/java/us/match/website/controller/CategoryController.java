@@ -31,11 +31,11 @@ public class CategoryController {
             strings[i]=dataContent[i].toString();
         ArrayList<String> chooseItem=new ArrayList<String>( Arrays.asList(strings));
         List<Project> list=filterService.filter(chooseItem);
-        Project p=new Project();
-        p.setPid(20);
-        p.setPname("abc");
-        list.add(p);
-        System.out.println(list.get(0).getPname()+list.size()+"-----------");
+//        Project p=new Project();
+//        p.setPid(20);
+//        p.setPname("abc");
+//        list.add(p);
+        System.out.println(list.get(0).getPname()+list.size()+"listSize-----------");
         return list;
     }
 

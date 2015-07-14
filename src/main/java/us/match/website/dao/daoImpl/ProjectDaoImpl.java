@@ -84,7 +84,12 @@ public class ProjectDaoImpl implements ProjectDao {
             session.beginTransaction();
             Query query =session.createQuery("select pid from Project where subject like '%"+subject+"%'");
             result=query.list();
-            System.out.println("________________________________"+this.getbyid(result.get(0)).getSubject());
+            if(result.size()>0)
+                System.out.println("________________________________"+this.getbyid(result.get(0)).getSubject());
+            else
+                System.out.println("________________________________"+"resultSet为空");
+
+
         }catch(Exception e){
             e.printStackTrace();
         }finally{
