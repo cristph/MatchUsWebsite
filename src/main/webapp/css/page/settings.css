@@ -1,0 +1,34 @@
+body {
+  /*background-color: #edeff0;*/
+}
+
+.container {
+  margin: 70px auto;
+}
+
+.wrapped-boxes {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.settings-left a {
+  display: block;
+  border-bottom: 1px solid #e6e8e9;
+  text-decoration: none;
+  vertical-align: middle;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 45px;
+}
+
+.settings-left .active a {
+  border-left: 2px solid #be3948;
+}
+
+.settings-right {
+  padding: 50px 160px;
+}
+
+.settings-right .row {
+  height: 70px;
+}
