@@ -27,17 +27,19 @@ public class ProjectController {
         return "project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
-    @ResponseBody
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addProject(@RequestParam("pinstruction") String pinstruction,
-                             @RequestParam("pname")String pname,
-                             @RequestParam("subject")String subject,
-                             @RequestParam("skill")String skill,
-                             @RequestParam("reward")int reward,
-                             @RequestParam("userName")String userName,
-                             @RequestParam("location")String location,
-                             @RequestParam("email")String email,
-                             @RequestParam("phonenumber")String phoneNumber)
+    public String addProject(
+//            @RequestParam("pinstruction") String pinstruction,
+//                             @RequestParam("pname")String pname,
+//                             @RequestParam("subject")String subject,
+//                             @RequestParam("skill")String skill,
+//                             @RequestParam("reward")int reward,
+//                             @RequestParam("userName")String userName,
+//                             @RequestParam("location")String location,
+//                             @RequestParam("email")String email,
+//                             @RequestParam("phonenumber")String phoneNumber
+    )
     {
         Project pro=new Project();
 
