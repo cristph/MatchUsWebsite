@@ -13,6 +13,7 @@ import us.match.website.model.Project;
 import us.match.website.service.ProjectService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
@@ -28,27 +29,23 @@ public class ProjectController {
 ///////////////////////////////////////////////////////////////////////////////////
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addProject(@RequestParam("pid") int pid,
-                             @RequestParam("pinstruction") String pinstruction,
+    public String addProject(@RequestParam("pinstruction") String pinstruction,
                              @RequestParam("pname")String pname,
-                             @RequestParam("state")String state,
                              @RequestParam("subject")String subject,
-                             @RequestParam("moduel")String moduel,
                              @RequestParam("skill")String skill,
                              @RequestParam("reward")int reward,
                              @RequestParam("userName")String userName,
                              @RequestParam("location")String location,
                              @RequestParam("email")String email,
-                             @RequestParam("phonenumber")String phoneNumber
-                             )
+                             @RequestParam("phonenumber")String phoneNumber)
     {
         Project pro=new Project();
-        pro.setPid(pid);
-        pro.setPinstruction(pinstruction);
+
+        /*pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setState(state);
+        pro.setState("will");
         pro.setSubject(subject);
-        pro.setModuel(moduel);
+        pro.setModuel("比赛");
         pro.setSkill(skill);
         pro.setReward(reward);
         pro.getPublisher().setUsername(userName);
@@ -57,8 +54,9 @@ public class ProjectController {
         pro.setPhonenumber(phoneNumber);
 
 
-        String result=projectService.addProject(pro);
-        return result;
+        String result=projectService.addProject(pro);*/
+        System.out.println("dao da le PorjectContrller dsfdfsadf");
+        return "project/show/projectSelect";
     }
 
     ///////////////////////////////////////////////////////////////////////////////
