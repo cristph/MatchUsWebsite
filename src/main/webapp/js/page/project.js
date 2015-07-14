@@ -33,19 +33,19 @@ function refreshView(projects) {
 
 function getOneProjectView(project) {
     return "<li><a href=\"/project/getOneProject?pid='" + project.pid + "'>" +
-        //"<div class=\"projects-img\">" +
-        //"<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
-        //"</div>" +
-        //"<div class=\"projects-info\">" +
-        //"<p>" + project.pname + "</p> " +
-        //"<span class=\"l\">" + project.reward + "</span> " +
-        //"<span class=\"r\">" + project.location + "</span> " +
-        //"</div>" +
-        //"<div class=\"projects-subinfo\">" +
-        //"<h2 align='center'>" + project.skills + "</h2>" +
-        //"<span class =\"l\">" + project.publisher + "</span>" +
-        //"<span class =\"r\">" + project.phonenumber + "</span>" +
-        //"</div> " +
+        "<div class=\"projects-img\">" +
+        "<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
+        "</div>" +
+        "<div class=\"projects-info\">" +
+        "<p>" + project.pname + "</p> " +
+        "<span class=\"l\">" + project.reward + "</span> " +
+        "<span class=\"r\">" + project.location + "</span> " +
+        "</div>" +
+        "<div class=\"projects-subinfo\">" +
+        "<h2 align='center'>" + project.skills + "</h2>" +
+        "<span class =\"l\">" + project.publisher + "</span>" +
+        "<span class =\"r\">" + project.phonenumber + "</span>" +
+        "</div> " +
         "</a> " +
         "</li>";
 }
