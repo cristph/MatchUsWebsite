@@ -105,9 +105,9 @@ public class UserServiceImpl implements UserService {
                 && user.getMajor()!=null)
             OutdatedUser.setMajor(user.getMajor());
         /*更新擅长*/
-        if(!OutdatedUser.getGoodat().equals(user.getGoodat())
-                && user.getGoodat()!=null)
-            OutdatedUser.setGoodat(user.getGoodat());
+//        if(!OutdatedUser.getGoodat().equals(user.getGoodat())
+//                && user.getGoodat()!=null)
+//            OutdatedUser.setGoodat(user.getGoodat());
         boolean  res=userDao.updateUser(OutdatedUser);
         if(res)
             return OutdatedUser;
