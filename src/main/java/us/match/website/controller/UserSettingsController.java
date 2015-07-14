@@ -27,8 +27,6 @@ public class UserSettingsController {
         user.setUniversity("NJU");
         user.setMajor("SE");
         user.setAddress("XianLin");
-        UserSkill skill = new UserSkill();
-        user.setGoodat(skill);
         user.setBirthday("19950101");
         user.setMobilephone("no mobilephone");
         user.setTelephone("no telphone");
