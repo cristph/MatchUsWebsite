@@ -200,4 +200,21 @@ public class ProjectDaoImpl implements ProjectDao {
         }
     }
 
+    @Override
+    public List<Project> getallProject() {
+        List<Project> result=new ArrayList<Project>();
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            Query query =session.createQuery("from Project order by updatetime desc");
+            result=query.list();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
+    }
+
 }
