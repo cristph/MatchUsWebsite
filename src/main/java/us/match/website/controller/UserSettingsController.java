@@ -10,6 +10,7 @@ import us.match.website.model.UserSkill;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,8 +23,6 @@ import java.util.Map;
 public class UserSettingsController {
     @Resource
     private UserService userService;
-    @Resource
-    private UserDao userDao;
 
     @RequestMapping("")
     public String settings(Model model) {
@@ -32,8 +31,9 @@ public class UserSettingsController {
 
     @ResponseBody
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
-    public User getBasic(@RequestParam("username") String username) {
-        User user = userDao.findUser(username);
+    public User getBasic(HttpSession session) {
+        String username = session.getAttribute("username").toString();
+        User user = userService.getBasicInfo(username);
         user.setFace(null);
         user.setSkills(null);
         user.setPublishingprojects(null);
@@ -48,7 +48,7 @@ public class UserSettingsController {
             @RequestParam("major") String major,
             @RequestParam("address") String address,
             @RequestParam("skills") String[] skills,
-            @RequestParam("birthday") String brithday,
+            @RequestParam("birthday") String birthday,
             @RequestParam("introduction") String introduction
     ) {
 //        System.out.println(username);
@@ -56,7 +56,7 @@ public class UserSettingsController {
         System.out.println(major);
 //        System.out.println(address);
 //        System.out.println(skills);
-//        System.out.println(brithday);
+//        System.out.println(birthday);
 //        System.out.println(introduction);
         User user = new User();
         user.setUsername("new name");
