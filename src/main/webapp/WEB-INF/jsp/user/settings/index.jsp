@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ezio
@@ -53,7 +54,7 @@
   <!-- left side part -->
   <div class="settings-left col-md-3">
     <ul class="wrapped-boxes">
-      <li class="active">
+        <li class="active">
         <a href="#">个人资料</a>
       </li>
       <li>
