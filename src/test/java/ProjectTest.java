@@ -26,8 +26,8 @@ public class ProjectTest {
         pro.setState(Project.states[0]);
         pro.setSubject("移动应用");
         pro.setModuel("比赛");
-        pro.setReward(1000);
-        pro.setSkill("java");
+        pro.setReward(100);
+        pro.setSkill("j0ava");
     }
 //  @Test
 //  public void TestAdd(){
@@ -35,8 +35,10 @@ public class ProjectTest {
 //    }
     @Test
     public void Testupdate(){
-        pro.setSubject("移动应用,网站建设");
-        assertEquals(true, pd.updateProject(pro));}
+        pro.setPid(4);
+        pro.setSubject("网站建设");
+        assertEquals(true, pd.updateProject(pro));
+    }
     @Test
     public void Testfindbyid(){
         assertEquals(4, pd.getbyid(4).getPid());
