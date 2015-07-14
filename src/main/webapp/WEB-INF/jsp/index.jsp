@@ -35,7 +35,9 @@
 
 <div class="topbanner">
     <div class="topbanner_content">
-        <div class="topbanner_img" style="background-image: url(../../image/ini/banner.jpg)">
+        <div class="topbanner_img">
+            <img src="/image/base/bgv2.jpg" style="max-width: 1263px; max-height: 600px"/>
+        </div>
         </div>
     </div>
 </div>
