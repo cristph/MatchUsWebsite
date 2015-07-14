@@ -54,13 +54,8 @@
   <!-- left side part -->
   <div class="settings-left col-md-3">
     <ul class="wrapped-boxes">
-      <c:choose>
-      <c:when test="${current_setting.equals(\"basic\")}">
         <li class="active">
-      </c:when>
-
-      </c:choose>
-        <a href="/user/settings/basic">个人资料</a>
+        <a href="#">个人资料</a>
       </li>
       <li>
         <a href="#">头像设置</a>

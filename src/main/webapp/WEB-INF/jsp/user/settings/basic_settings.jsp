@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!-- right side part -->\
+<!-- right side part -->
 <form action="/user/settings/basic" method="post">
     <div class="settings-right col-md-9 wrapped-boxes">
         <div class="row">
@@ -56,8 +56,7 @@
                 <!-- <input type="text" name="name" id="name" class="form-control" required="required"> -->
             </div>
         </div>
-
-        <input class="btn btn-success" type="submit" value="确认修改">
+        <input id="submit" class="btn btn-success" type="submit" value="确认修改">
     </div>
 </form>
 
