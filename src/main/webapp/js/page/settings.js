@@ -19,7 +19,7 @@ $(function () {
         self.birthday = ko.observable();
         self.introduction = ko.observable();
 
-        $.get("/user/settings/basic", {'username': 'gjp'}, function (data) {
+        $.get("/user/settings/basic", null, function (data) {
             var new_user = data;
             self.username(new_user.username);
             self.university(new_user.university);

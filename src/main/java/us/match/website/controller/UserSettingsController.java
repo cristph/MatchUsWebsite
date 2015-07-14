@@ -10,6 +10,7 @@ import us.match.website.model.UserSkill;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,8 @@ public class UserSettingsController {
 
     @ResponseBody
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
-    public User getBasic(@RequestParam("username") String username) {
+    public User getBasic(HttpSession session) {
+        String username = session.getAttribute("username").toString();
         User user = userService.getBasicInfo(username);
         user.setFace(null);
         user.setSkills(null);
