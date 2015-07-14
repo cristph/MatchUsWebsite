@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import us.match.website.dao.UserDao;
 import us.match.website.model.Project;
 import us.match.website.model.User;
+import us.match.website.model.UserSkill;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
@@ -99,13 +100,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<Project> getUserProject(int uid) {
-            List<Project>  result =new ArrayList<Project>();
-            Session session = sessionFactory.openSession();
+        List<Project>  result =new ArrayList<Project>();
+        Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Query query = session.createQuery("from Project  where pid in (" +
-                    "select distinct pid from u_p  where  uid='"+uid+"'"+")");
-            result=query.list();
+            User temp=(User)session.get(User.class,uid);
+            result=temp.getWorkingprojects();
         }catch(Exception e){
             e.printStackTrace();
         }finally{
@@ -144,7 +144,7 @@ public class UserDaoImpl implements UserDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            session.save(user);
+            session.update(user);
         }catch(Exception e){
             result=false;
             e.printStackTrace();
@@ -154,4 +154,56 @@ public class UserDaoImpl implements UserDao {
             return result;
         }
     }
+
+    @Override
+    public User getUserbyid(int id) {
+        User result=new User();
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            result=(User)session.get(User.class,id);
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
+    }
+
+    @Override
+    public User addSkill(User user, List<UserSkill> userskills) {
+        user.setSkills(userskills);
+        User result=user;
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            session.update(user);
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
+    }
+
+    @Override
+    public List<UserSkill> getallskills(String id) {
+        List<UserSkill> result=new ArrayList<UserSkill>();
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            User temp=(User)session.get(User.class,id);
+            result=temp.getSkills();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
+    }
+
+
 }
