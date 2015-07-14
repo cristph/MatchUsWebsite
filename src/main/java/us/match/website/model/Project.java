@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by apple on 2015/7/9.
  */
 @Entity
-@JsonIgnoreProperties(value = { "workers"})
+@JsonIgnoreProperties(value = { "workers","publisher"})
 public class Project {
     public static String[] states={"past","now","will"};
     private int pid;
