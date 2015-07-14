@@ -43,16 +43,16 @@
                     </a>
                 </li>
                 <li>
-                    <a class="navbar-brand navbar-font" style="position: relative; left:30px;" href="../../view/page/project.html">找项目</a>
+                    <a class="navbar-brand" style="position: relative; left:30px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/project.html">找项目</a>
                 </li>
                 <li>
-                    <a class="navbar-brand navbar-font" style="position: relative; left:50px;" href="../../view/page/team.html">找团队</a>
+                    <a class="navbar-brand" style="position: relative; left:50px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/team.html">找团队</a>
                 </li>
                 <li>
-                    <a class="navbar-brand navbar-font" style="position: relative; left:70px;" href="../../view/page/talent.html">找人才</a>
+                    <a class="navbar-brand" style="position: relative; left:70px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/talent.html">找人才</a>
                 </li>
                 <li>
-                    <a class="navbar-brand navbar-font" style="position: relative; left:90px;" href="../../view/page/user.html">个人中心</a>
+                    <a class="navbar-brand" style="position: relative; left:90px;font-size: 100%;font-family: Microsoft YaHei;" href="../../view/page/user.html">个人中心</a>
                 </li>
             </ul>
 
