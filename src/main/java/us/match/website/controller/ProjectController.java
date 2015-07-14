@@ -30,7 +30,6 @@ public class ProjectController {
     public String addProject(@RequestParam("pid") int pid,
                              @RequestParam("pinstruction") String pinstruction,
                              @RequestParam("pname")String pname,
-                             @RequestParam(value = "datas[]") byte[] picture,
                              @RequestParam("state")String state,
                              @RequestParam("subject")String subject,
                              @RequestParam("moduel")String moduel,
@@ -46,7 +45,6 @@ public class ProjectController {
         pro.setPid(pid);
         pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setPicture(picture);
         pro.setState(state);
         pro.setSubject(subject);
         pro.setModuel(moduel);
@@ -77,7 +75,6 @@ public class ProjectController {
     public String updateProject(@RequestParam("pid") int pid,
                                 @RequestParam("pinstruction") String pinstruction,
                                 @RequestParam("pname")String pname,
-                                @RequestParam(value = "datas[]") byte[] picture,
                                 @RequestParam("state")String state,
                                 @RequestParam("subject")String subject,
                                 @RequestParam("moduel")String moduel,
@@ -86,13 +83,12 @@ public class ProjectController {
                                 @RequestParam("userName")String userName,
                                 @RequestParam("location")String location,
                                 @RequestParam("email")String email,
-                                @RequestParam("phonenumber")String phoneNumber
+                                @RequestParam("phonenumber")String phoneNumber)
     {
         Project pro=new Project();
         pro.setPid(pid);
         pro.setPinstruction(pinstruction);
         pro.setPname(pname);
-        pro.setPicture(picture);
         pro.setState(state);
         pro.setSubject(subject);
         pro.setModuel(moduel);
