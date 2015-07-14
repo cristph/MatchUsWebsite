@@ -22,6 +22,8 @@
     <link href="/css/page/cus.css" rel="stylesheet" type="text/css"/>
     <link href="/css/page/reset.css" rel="stylesheet" type="text/css"/>
     <link href="/css/page/style2.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
+    <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
 
 </head>
 <!-- NAVBAR
@@ -491,10 +493,7 @@
 </div>
 
 <!-- /.container -->
-<footer class="co-footer">
-    <p>@ company <a href="http://getbootstrap.com">Math Us</a></p>
-    <p><a href="#">Back to top</a></p>
-</footer>
+<jsp:include page="commonFooter.jsp"/>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

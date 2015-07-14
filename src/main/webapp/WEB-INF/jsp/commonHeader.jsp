@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" style="border: 0">
+<nav class="navbar navbar-inverse navbar-fixed-top" id="nav_top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -9,13 +9,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#"  style="position: relative;left: 15px">
-        <img src="/image/base/logov1.png" style="max-height: 60px;  max-width: 180px">
+      <a href="#" id="img_a">
+        <img src="/image/base/logov1.png" id="img_wh">
       </a>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-left" style="position: relative;left: 2%;">
+      <ul class="nav navbar-nav navbar-left" id="nav_left">
         <li><a href="../../view/page/project.html">找项目</a></li>
         <li><a href="../../view/page/team.html">找团队</a></li>
         <li><a href="../../view/page/talent.html">找人才</a></li>
@@ -34,7 +34,7 @@
 </nav>
 
 <div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" style="width:400px" role="document">
+  <div class="modal-dialog modal_width"role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -68,8 +68,9 @@
   </div>
 </div>
 
+
 <div class="modal fade" id="usersignin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" style="width:400px" role="document">
+  <div class="modal-dialog modal_width" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
