@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import us.match.website.dao.ProjectDao;
 import us.match.website.model.Project;
 import us.match.website.service.FilterService;
-
 import javax.annotation.Resource;
 import java.util.*;
 

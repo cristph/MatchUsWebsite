@@ -12,4 +12,5 @@ public interface UserService {
     public User logout(String username);
     public User register(User user);
     public Map getBasicInfo(String username);
+    public User editUserInfo(User user);
 }
