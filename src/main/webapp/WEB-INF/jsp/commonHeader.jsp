@@ -68,7 +68,6 @@
   </div>
 </div>
 
-
 <div class="modal fade" id="usersignin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog modal_width" role="document">
     <div class="modal-content">

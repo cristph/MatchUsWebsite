@@ -24,7 +24,7 @@
               <property name="properties">
                   <props>
                       <prop key="jdbc.driverClassName">com.mysql.jdbc.Driver</prop>
-                      <prop key="jdbc.url">jdbc:mysql://192.168.1.105:3306/DataStore</prop>
+                      <prop key="jdbc.url">jdbc:mysql://192.168.1.105:3306/DataStore?useUnicode=true&amp;characterEncoding=utf-8 </prop>
                       <prop key="jdbc.username">root</prop>
                       <prop key="jdbc.password">admin</prop>
                   </props>

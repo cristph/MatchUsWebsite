@@ -31,9 +31,8 @@ public class User {
         private String address;
         private String university;
         private String major;
-        private String proinstruction;
-        private UserSkill goodat;
         private String friends;
+        private Set<UserSkill> Skills;
         private Set<Project> publishingprojects;
         private Set<Project> workingprojects;
         private HashMap<String,Integer> friendsmap=new HashMap<String, Integer>();
@@ -139,13 +138,6 @@ public class User {
 
 
 
-    public UserSkill getGoodat() {
-        return goodat;
-    }
-    @ManyToMany
-    public void setGoodat(UserSkill goodat) {
-        this.goodat = goodat;
-    }
 
     public byte[] getFace() {
         return face;
@@ -155,13 +147,6 @@ public class User {
         this.face = face;
     }
 
-    public String getProinstruction() {
-        return proinstruction;
-    }
-
-    public void setProinstruction(String proinstruction) {
-        this.proinstruction = proinstruction;
-    }
 
 
     public String getFriends() {
@@ -214,5 +199,13 @@ public class User {
 
     public void setWorkingprojects(Set<Project> workingprojects) {
         this.workingprojects = workingprojects;
+    }
+    @OneToMany(mappedBy = "user")
+    public Set<UserSkill> getSkills() {
+        return Skills;
+    }
+
+    public void setSkills(Set<UserSkill> skills) {
+        Skills = skills;
     }
 }
