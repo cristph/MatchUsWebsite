@@ -27,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService{
         String publisherName=pro.getPublisher().getUsername();
         User user=userDao.findUser(publisherName);
 
-        boolean b=projectDao.addProject(pro);
+        boolean b=projectDao.addProject(pro,pro.getPublisher());
         String result="failed";
         if(b)
             result="success";
