@@ -18,9 +18,13 @@ public class FilterServiceImpl implements FilterService {
 
     @Override
     public ArrayList<Project> filter(ArrayList<String> keyWords) {
-        String[] classNames =this.getClassNames(keyWords).toArray(new String[1]);
-        String[] modeNames=this.getModeName(keyWords).toArray(new String[1]);
-        String[] techNames=this.getTechName(keyWords).toArray(new String[1]);
+        String[] classNames =this.getClassNames(keyWords);
+        String[] modeNames=this.getModeName(keyWords);
+        String[] techNames=this.getTechName(keyWords);
+
+        System.out.println("classNames"+classNames.length);
+        System.out.println("modeNames"+modeNames.length);
+        System.out.println("techNames"+techNames.length);
 
         ArrayList<List<Integer>> arrList1=new ArrayList<List<Integer>>();
         for(int i=0;i<classNames.length;i++){
@@ -43,6 +47,7 @@ public class FilterServiceImpl implements FilterService {
             arrList3.add(tempList);
         }
 
+
         for(int i=1;i<arrList1.size();i++){
             arrList1.get(0).retainAll(arrList1.get(i));
         }
@@ -52,8 +57,21 @@ public class FilterServiceImpl implements FilterService {
         for(int i=1;i<arrList3.size();i++){
             arrList3.get(0).retainAll(arrList3.get(i));
         }
-        arrList1.get(0).retainAll(arrList2.get(0));
-        arrList1.get(0).retainAll(arrList3.get(0));
+        int list1NotNull,list2NotNull,list3NotNull;
+        if(arrList1.size()>0
+                && arrList2.size()>0) {
+            arrList1.get(0).retainAll(arrList2.get(0));
+
+        }
+        if(arrList1.size()>0
+                && arrList3.size()>0){
+            arrList1.get(0).retainAll(arrList3.get(0));
+        }
+        if(arrList2.size()>0
+                && arrList3.size()>0){
+            arrList2.get(0).retainAll(arrList3.get(0));
+        }
+
 
         ArrayList<Project> resultSet=new ArrayList<Project>();
         for(int i=0;i<arrList1.get(0).size();i++){
@@ -61,34 +79,45 @@ public class FilterServiceImpl implements FilterService {
             Project p=projectDao.getbyid(projectId);
             resultSet.add(p);
         }
+        System.out.println(resultSet.size()+"kkkkkkk");
         return resultSet;
     }
 
-    public ArrayList<String> getClassNames(ArrayList<String> keywords) {
+
+    public String[] getClassNames(ArrayList<String> keywords) {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < keywords.size(); i++) {
             if(ClassNames.indexOf(keywords.get(i))!=-1)
                 result.add(keywords.get(i));
         }
-        return result;
+        String [] array=new String[result.size()];
+        for(int i=0;i<result.size();i++)
+            array[i]=result.get(i);
+        return array;
     }
 
-    public ArrayList<String> getModeName(ArrayList<String> keywords) {
+    public String[] getModeName(ArrayList<String> keywords) {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < keywords.size(); i++) {
             if(Mode.indexOf(keywords.get(i))!=-1)
                 result.add(keywords.get(i));
         }
-        return result;
+        String [] array=new String[result.size()];
+        for(int i=0;i<result.size();i++)
+            array[i]=result.get(i);
+        return array;
     }
 
-    public ArrayList<String> getTechName(ArrayList<String> keywords) {
+    public String[] getTechName(ArrayList<String> keywords) {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < keywords.size(); i++) {
             if(Technology.indexOf(keywords.get(i))!=-1)
                 result.add(keywords.get(i));
         }
-        return result;
+        String [] array=new String[result.size()];
+        for(int i=0;i<result.size();i++)
+            array[i]=result.get(i);
+        return array;
     }
 
 
