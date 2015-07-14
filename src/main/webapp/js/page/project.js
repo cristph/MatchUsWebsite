@@ -12,7 +12,12 @@ function applySelect() {
         var projectsJ = JSON.stringify(data);
         //var projects=eval(projectsJ);
         alert(projectsJ);
+
     });
+
+}
+
+function refreshView() {
 
 }
 function changeColor(btn) {
