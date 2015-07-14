@@ -2,7 +2,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
+import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.model.UserSkill;
 import us.match.website.util.Identicon;
@@ -21,6 +23,7 @@ import static org.junit.Assert.assertEquals;
 public class UserTest {
     ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     UserDao ud=(UserDao)context.getBean("userDaoImpl");
+    ProjectDao pd=(ProjectDao)context.getBean("projectDaoImpl");
     User u=new User();
     @Before
     public void setUp(){
@@ -57,7 +60,7 @@ public class UserTest {
         @Test
         public void testUpdate(){
             User un=ud.findUser("gjp");
-            List<UserSkill> s=new ArrayList<UserSkill>();
+            List<UserSkill> s=new ArrayList<>();
             UserSkill u=new UserSkill();
             u.setSkillname("java");
             u.setLevel(0);
@@ -68,6 +71,11 @@ public class UserTest {
       }
         @Test
         public void testgetidbyname(){assertEquals(13,ud.getidbyname("gjp"));}
-
+        @Test
+        public void testaddproject(){
+            User user=ud.findUser("gjp");
+            Project p=pd.getbyid(4);
+            assertEquals(true,ud.addProject(p,user));
+        }
 
 }

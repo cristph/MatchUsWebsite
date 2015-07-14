@@ -1,5 +1,6 @@
 package us.match.website.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.annotation.Generated;
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -10,6 +11,7 @@ import java.util.Set;
  * Created by apple on 2015/7/9.
  */
 @Entity
+@JsonIgnoreProperties(value = { "workers"})
 public class Project {
     public static String[] states={"past","now","will"};
     private int pid;
@@ -28,6 +30,7 @@ public class Project {
     private String location;
     private String email;
     private String phonenumber;
+
     public String getPinstruction() {
         return pinstruction;
     }
@@ -112,7 +115,7 @@ public class Project {
     public void setPublisher(User publisher) {
         this.publisher = publisher;
     }
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name="u_p",
             joinColumns= @JoinColumn(name="project_id"),
             inverseJoinColumns=@JoinColumn(name="user_id")

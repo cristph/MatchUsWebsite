@@ -41,7 +41,7 @@ public class UserSkillDaoImpl implements UserSkillDao {
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Query query=session.createQuery("select skillname from UserSkill WHERE uid='"+userid+"'");
+            Query query = session.createQuery("select skillname from UserSkill WHERE uid='"+userid+"'");
             result= query.list();
         }catch(Exception e) {
             e.printStackTrace();
