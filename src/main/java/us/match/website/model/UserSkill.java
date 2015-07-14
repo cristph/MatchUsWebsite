@@ -1,12 +1,10 @@
 package us.match.website.model;
 
 
+
 import org.hibernate.annotations.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by apple on 2015/7/14.
@@ -32,7 +30,7 @@ public class UserSkill {
         public void setLevel(int level) {
                 this.level = level;
         }
-        @ManyToOne
+        @ManyToOne()
         @JoinColumn(name="uid")
         public User getUser() {
                 return user;
