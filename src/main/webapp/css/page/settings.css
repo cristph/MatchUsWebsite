@@ -1,7 +1,3 @@
-body {
-  /*background-color: #edeff0;*/
-}
-
 .container {
   margin: 70px auto;
 }
@@ -11,7 +7,7 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.settings-left a {
+.settings-left div {
   display: block;
   border-bottom: 1px solid #e6e8e9;
   text-decoration: none;
@@ -21,7 +17,7 @@ body {
   padding-left: 45px;
 }
 
-.settings-left .active a {
+.settings-left .active div {
   border-left: 2px solid #be3948;
 }
 
@@ -32,3 +28,4 @@ body {
 .settings-right .row {
   height: 70px;
 }
+
