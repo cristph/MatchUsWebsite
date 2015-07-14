@@ -32,31 +32,34 @@ public class UserTest {
             u.setUniversity("nju");
             u.setMajor("software");
             u.setProinstruction("many works");
-            u.setGoodat("java");
+            u.setGoodat(null);
             u.setEmail("123456@qq.com");
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
-  @Test
-  public void testAdd(){
-      u.setPassword(MD5.toMD5(u.getPassword()));
-     assertEquals(u.getUsername(), ud.addUser(u).getUsername());
-  }
-   @Test
-   public void testfinduser(){
-        User user=ud.findUser("gjp");
-        User answer=new User();
-       answer.setPassword(MD5.toMD5("123"));
-       boolean m =user.getPassword().equals(answer.getPassword());
-       assertEquals(true, m);
-    }
-  @Test
-  public void testUpdate(){
-      User un=ud.findUser("gjp");
-      un.setGoodat("c++,java");
-      ud.updateUser(un);
-      assertEquals("c++,java",ud.findUser("gjp").getGoodat());
-  }
+//  @Test
+//  public void testAdd(){
+//      u.setPassword(MD5.toMD5(u.getPassword()));
+//     assertEquals(u.getUsername(), ud.addUser(u).getUsername());
+//  }
+        @Test
+        public void testfinduser(){
+            User user=ud.findUser("gjp");
+            User answer=new User();
+           answer.setPassword(MD5.toMD5("123"));
+           boolean m =user.getPassword().equals(answer.getPassword());
+           assertEquals(true, m);
+        }
+        @Test
+        public void testUpdate(){
+          User un=ud.findUser("gjp");
+          un.setGoodat(null);
+          ud.updateUser(un);
+          assertEquals("c++,java",ud.findUser("gjp").getGoodat());
+      }
+        @Test
+        public void testgetidbyname(){assertEquals(12,ud.getidbyname("gjp"));}
+
 }

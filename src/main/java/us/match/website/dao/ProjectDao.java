@@ -12,6 +12,7 @@ import java.util.List;
 public interface ProjectDao {
     public Project getbyid(int id);
     public Project getbyname(String pname);
+    public int     getidbyname(String name);
     public List<Integer> getbysubject(String subject);
     public List<Integer>  getbymodule(String module);
     public List<Integer>  getbyskill(String skill);
