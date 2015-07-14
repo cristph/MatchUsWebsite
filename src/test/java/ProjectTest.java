@@ -19,45 +19,47 @@ import static org.junit.Assert.assertEquals;
 public class ProjectTest {
     ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     ProjectDao pd=(ProjectDao)context.getBean("projectDaoImpl");
+    UserDao ud=(UserDao)context.getBean("userDaoImpl");
     Project pro =new Project();
     @Before
     public void Setup(){
-        pro.setPname("first project");
-        pro.setState(Project.states[0]);
-        pro.setSubject("移动应用");
+        pro.setPname("第三届青岛啤酒大学生微营销创意大赛");
+        pro.setState(Project.states[2]);
+        pro.setSubject("文案设计");
         pro.setModuel("比赛");
-        pro.setReward(100);
-        pro.setSkill("j0ava");
+        pro.setReward(30000);
+        pro.setSkill("");
     }
 //  @Test
 //  public void TestAdd(){
-//        assertEquals(true,pd.addProject(pro));
+//        User user =ud.findUser("gjp");
+//        assertEquals(true,pd.addProject(pro,user));
+//    }
+//    @Test
+//    public void Testupdate(){
+//        pro.setPid(5);
+//        pro.setSubject("网站建设");
+//        assertEquals(true, pd.updateProject(pro));
 //    }
     @Test
-    public void Testupdate(){
-        pro.setPid(4);
-        pro.setSubject("网站建设");
-        assertEquals(true, pd.updateProject(pro));
-    }
-    @Test
     public void Testfindbyid(){
-        assertEquals(4, pd.getbyid(4).getPid());
+        assertEquals(5, pd.getbyid(5).getPid());
     }
     @Test
     public void  Testfindbyname(){
-        assertEquals("first project",pd.getbyname("first project").getPname());
+        assertEquals("第三届青岛啤酒大学生微营销创意大赛",pd.getbyname("第三届青岛啤酒大学生微营销创意大赛").getPname());
     }
     @Test
     public void Testgetbysubjectt(){
-        assertEquals(1,pd.getbysubject("网站建设").size());
+        assertEquals(1,pd.getbysubject("移动应用").size());
     }
     @Test
-    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(0, 2000).size());}
+    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(10000, 25000).size());}
     @Test
-    public void Testgetidbyname(){assertEquals(4,pd.getidbyname("first project"));}
+    public void Testgetidbyname(){assertEquals(5,pd.getidbyname("第三届青岛啤酒大学生微营销创意大赛"));}
     @Test
-    public void Testgetbymoduel(){assertEquals(1,pd.getbymodule("比赛").size());}
+    public void Testgetbymoduel(){assertEquals(4,pd.getbymodule("比赛").size());}
     @Test
     public void Testfetall(){
-        assertEquals(1,pd.getallProject().size());}
+        assertEquals(4,pd.getallProject().size());}
 }
