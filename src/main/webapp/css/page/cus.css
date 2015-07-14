@@ -2,6 +2,11 @@
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
+.marketing{
+    position: relative;
+    top: 50px;
+}
+
 .marketing .col-lg-4 {
     margin-bottom: 20px;
     text-align: center;
@@ -183,8 +188,8 @@
 
 /*********topbanner**********/
 .topbanner{
-    *margin-top: 50px;
     position: relative;
+    top: 50px;
     height: 600px;
     overflow: hidden;
 }
