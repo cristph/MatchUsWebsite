@@ -10,15 +10,45 @@ function applySelect() {
     }
     $.post("../../Category", {"dataContent": dataContent}, function (data) {
         var projectsJ = JSON.stringify(data);
-        //var projects=eval(projectsJ);
+        //var projects = eval(projectsJ);
         alert(projectsJ);
-
+        //var projects = [{id: 0}];
+        //refreshView(projects);
     });
 
 }
 
-function refreshView() {
+function refreshView(projects) {
+    var project_div = document.getElementById("projects");
+    if (projects[0].id == -1) {
+        project_div.innerHTML = "<h1>此类目下暂无项目，敬请期待~~~</h1>";
+    } else {
+        var content = "<ul class=\"projects-index\">";
+        for (var i = 0; i < projects.length; i++) {
+            content += getOneProjectView(projects[i]);
+        }
+        content += "</ul>";
+        project_div.innerHTML = content;
+    }
+}
 
+function getOneProjectView(project) {
+    return "<li><a href=\"../../view/page/projectInfo.html\">" +
+        "<div class=\"projects-img\">" +
+        "<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
+        "</div>" +
+        "<div class=\"projects-info\">" +
+        "<p>手把手教你用 Unity3D 开发一款休闲游戏</p> " +
+        "<span class=\"l\">更新至7-1</span> " +
+        "<span class=\"r\">课程时长： 1小时58分</span> " +
+        "</div>" +
+        "<div class=\"projects-subinfo\">" +
+        "<h2>《小十传奇》 Unity3D休闲游戏开发 </h2>" +
+        "<span class =\"l\">5小时前更新</span>" +
+        "<span class =\"r\">296人学习</span>" +
+        "</div> " +
+        "</a> " +
+        "</li>";
 }
 function changeColor(btn) {
     var parent_element = btn.parentElement;//父元素

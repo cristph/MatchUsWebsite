@@ -1,5 +1,7 @@
 package us.match.website.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +27,7 @@ public class CategoryController {
 
     @RequestMapping(value="/Category",method= RequestMethod.POST)
     @ResponseBody
-    public List<Project> CategoryFilter(@RequestParam(value="dataContent[]") Object[] dataContent){
+    public String CategoryFilter(@RequestParam(value="dataContent[]") Object[] dataContent) throws JsonProcessingException {
             String [] strings=new String[dataContent.length];
           for(int i=0;i<dataContent.length;i++)
             strings[i]=dataContent[i].toString();
@@ -42,7 +44,9 @@ public class CategoryController {
             p.setPid(-1);
             list.add(p);
         }
-        return list;
+        ObjectMapper mapper= new ObjectMapper();
+        String Json=mapper.writeValueAsString(list);
+        return Json;
     }
 
 }

@@ -49,13 +49,13 @@ public class FilterServiceImpl implements FilterService {
 
 
         for(int i=1;i<arrList1.size();i++){
-            arrList1.get(0).retainAll(arrList1.get(i));
+            arrList1.get(0).addAll(arrList1.get(i));
         }
         for(int i=1;i<arrList2.size();i++){
-            arrList2.get(0).retainAll(arrList2.get(i));
+            arrList2.get(0).addAll(arrList2.get(i));
         }
         for(int i=1;i<arrList3.size();i++){
-            arrList3.get(0).retainAll(arrList3.get(i));
+            arrList3.get(0).addAll(arrList3.get(i));
         }
         if(arrList1.size()>0) {
             if(arrList2.size()>0)
