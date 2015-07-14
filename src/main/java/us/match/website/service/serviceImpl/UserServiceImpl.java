@@ -2,6 +2,7 @@ package us.match.website.service.serviceImpl;
 
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 import us.match.website.dao.UserDao;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
@@ -59,14 +60,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map getBasicInfo(String username) {
+    public User getBasicInfo(String username) {
         User user=userDao.findUser(username);
-        Map map=new HashMap<String,String>();
-//        map.put("nickName",user.getNickname());
-        map.put("address",user.getAddress());
-        map.put("birthday",user.getBirthday());
-
-        return null;
+        return user;
     }
 
     @Override

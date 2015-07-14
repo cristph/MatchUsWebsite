@@ -10,6 +10,7 @@ import us.match.website.service.UserService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by WH on 2015/7/10.
@@ -20,13 +21,11 @@ public class UserInfoController extends MultiActionController{
     @Resource
     UserService userService;
 
-    public ModelAndView getBasicInfo(HttpServletRequest req,
+    public User getBasicInfo(HttpServletRequest req,
                                      HttpServletResponse res){
         String name=req.getParameter("UserName");
         String pass=req.getParameter("Password");
         User user=userService.login(name,pass);
-        ModelMap model = null;
-        model.addAttribute("sysUser",user);
-        return new ModelAndView("path:handleok");
+        return user;
     }
 }
