@@ -152,7 +152,7 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
 
-    public boolean addProject(Project project) {
+    public boolean addProject(Project project,String userid) {
         boolean result=true;
         Session session = sessionFactory.openSession();
         try{

@@ -103,7 +103,7 @@ public class Project {
         this.pid = pid;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="uid")
     public User getPublisher() {
         return publisher;
@@ -112,11 +112,7 @@ public class Project {
     public void setPublisher(User publisher) {
         this.publisher = publisher;
     }
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name="u_p",
-            joinColumns= @JoinColumn(name="project_id"),
-            inverseJoinColumns=@JoinColumn(name="user_id")
-    )
+    @ManyToMany(mappedBy = "workingprojects",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<User> getWorkers() {
         return workers;
     }
