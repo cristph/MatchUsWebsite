@@ -70,3 +70,30 @@
     margin-bottom: 20px;
     color: #999;
 }
+
+.lab:hover{
+    background-color: #5bc0de;
+}
+
+.lab >a{
+    color: #fff;
+    text-decoration:none;
+}
+
+.category:hover{
+    background-color: limegreen;
+}
+
+.category >a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.name_popover >a{
+    color: #ac2925;
+    text-decoration: none;
+}
+
+.name_popover >a:hover{
+    color: #f01400;
+}
