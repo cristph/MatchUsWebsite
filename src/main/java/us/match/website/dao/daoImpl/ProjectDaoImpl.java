@@ -156,6 +156,9 @@ public class ProjectDaoImpl implements ProjectDao {
     public boolean addProject(Project project,User user) {
         boolean result=true;
         Session session = sessionFactory.openSession();
+        user.getPublishingprojects().add(project);
+        project.setPublisher(user);
+        session.save(project);
         try{
             session.beginTransaction();
             session.save(project);
