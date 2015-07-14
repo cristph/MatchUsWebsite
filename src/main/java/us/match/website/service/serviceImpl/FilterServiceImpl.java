@@ -57,30 +57,43 @@ public class FilterServiceImpl implements FilterService {
         for(int i=1;i<arrList3.size();i++){
             arrList3.get(0).retainAll(arrList3.get(i));
         }
-        int list1NotNull,list2NotNull,list3NotNull;
-        if(arrList1.size()>0
-                && arrList2.size()>0) {
-            arrList1.get(0).retainAll(arrList2.get(0));
-
+        if(arrList1.size()>0) {
+            if(arrList2.size()>0)
+                arrList1.get(0).retainAll(arrList2.get(0));
+            if(arrList3.size()>0)
+                arrList1.get(0).retainAll(arrList3.get(0));
+            ArrayList<Project> resultSet=new ArrayList<Project>();
+            for(int i=0;i<arrList1.get(0).size();i++){
+                int projectId=arrList1.get(0).get(i);
+                Project p=projectDao.getbyid(projectId);
+                resultSet.add(p);
+            }
+            System.out.println(resultSet.size()+"ResultSetSize");
+            return resultSet;
         }
-        if(arrList1.size()>0
-                && arrList3.size()>0){
-            arrList1.get(0).retainAll(arrList3.get(0));
+        if(arrList2.size()>0){
+            if(arrList3.size()>0)
+                arrList2.get(0).retainAll(arrList3.get(0));
+            ArrayList<Project> resultSet=new ArrayList<Project>();
+            for(int i=0;i<arrList2.get(0).size();i++){
+                int projectId=arrList2.get(0).get(i);
+                Project p=projectDao.getbyid(projectId);
+                resultSet.add(p);
+            }
+            System.out.println(resultSet.size() + "ResultSetSize");
+            return resultSet;
         }
-        if(arrList2.size()>0
-                && arrList3.size()>0){
-            arrList2.get(0).retainAll(arrList3.get(0));
+        else if(arrList3.size()>0){
+            ArrayList<Project> resultSet=new ArrayList<Project>();
+            for(int i=0;i<arrList3.get(0).size();i++){
+                int projectId=arrList3.get(0).get(i);
+                Project p=projectDao.getbyid(projectId);
+                resultSet.add(p);
+            }
+            System.out.println(resultSet.size() + "ResultSetSize");
+            return resultSet;
         }
-
-
-        ArrayList<Project> resultSet=new ArrayList<Project>();
-        for(int i=0;i<arrList1.get(0).size();i++){
-            int projectId=arrList1.get(0).get(i);
-            Project p=projectDao.getbyid(projectId);
-            resultSet.add(p);
-        }
-        System.out.println(resultSet.size()+"kkkkkkk");
-        return resultSet;
+        return new ArrayList<Project>();
     }
 
 
