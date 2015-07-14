@@ -32,7 +32,7 @@ public class User {
         private String university;
         private String major;
         private String proinstruction;
-        private String goodat;
+        private UserSkill goodat;
         private String friends;
         private Set<Project> publishingprojects;
         private Set<Project> workingprojects;
@@ -139,11 +139,11 @@ public class User {
 
 
 
-    public String getGoodat() {
+    public UserSkill getGoodat() {
         return goodat;
     }
-
-    public void setGoodat(String goodat) {
+    @ManyToMany
+    public void setGoodat(UserSkill goodat) {
         this.goodat = goodat;
     }
 

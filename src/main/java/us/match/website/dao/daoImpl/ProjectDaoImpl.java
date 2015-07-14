@@ -57,6 +57,26 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
+    public int getidbyname(String name) {
+        int result=0;
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            Query query =session.createQuery("select pid from Project where pname='"+name+"'");
+            List<Integer> temp=query.list();
+            if(temp.size()!=0){
+                result=temp.get(0);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
+    }
+
+    @Override
     public List<Integer> getbysubject(String subject) {
         List<Integer> result=new ArrayList<Integer>();
         Session session = sessionFactory.openSession();
@@ -64,6 +84,7 @@ public class ProjectDaoImpl implements ProjectDao {
             session.beginTransaction();
             Query query =session.createQuery("select pid from Project where subject like '%"+subject+"%'");
             result=query.list();
+            System.out.println("________________________________"+this.getbyid(result.get(0)).getSubject());
         }catch(Exception e){
             e.printStackTrace();
         }finally{
