@@ -9,10 +9,8 @@
     <meta name="description" content="">
     utf-8
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Match Us</title>
-
     <!-- Bootstrap core CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,29 +30,38 @@
 <body id="body">
 <!-- Carousel
 ================================================== -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="/image/base/logov1.jpg" style="max-height: 38px;  max-width: 120px"></a>
-            <a class="navbar-brand" href="../../view/page/project.html">找项目</a>
-            <a class="navbar-brand" href="../../view/page/team.html">找团队</a>
-            <a class="navbar-brand" href="../../view/page/talent.html">找人才</a>
-            <a class="navbar-brand" href="../../view/page/user.html">个人中心</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 60px">
+    <div class="container-fluid" style="height:60px; padding: 0">
+
+
+
+        <div id="navbar" class="navbar-collapse collapse" style="position: relative; top: 8%">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a href="#" style="padding: 2px;position: relative;left: 15px">
+                        <img src="/image/base/logov1.png" style="max-height: 60px;  max-width: 180px">
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-brand navbar-font" style="position: relative; left:30px;" href="../../view/page/project.html">找项目</a>
+                </li>
+                <li>
+                    <a class="navbar-brand navbar-font" style="position: relative; left:50px;" href="../../view/page/team.html">找团队</a>
+                </li>
+                <li>
+                    <a class="navbar-brand navbar-font" style="position: relative; left:70px;" href="../../view/page/talent.html">找人才</a>
+                </li>
+                <li>
+                    <a class="navbar-brand navbar-font" style="position: relative; left:90px;" href="../../view/page/user.html">个人中心</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right" style="position: relative; right: 3%">
                 <li><a href="#" id="login" data-toggle="modal" data-target="#userlogin">登陆</a></li>
                 <li><a href="#" id="sign_in" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
                 <li><a href="#" id="help">帮助</a></li>
             </ul>
-            <form class="navbar-form navbar-right">
+            <form class="navbar-form navbar-right" style="position: relative; right: 3%">
                 <input type="text" class="form-control" placeholder="大牛，项目...">
             </form>
         </div>
@@ -153,7 +160,7 @@
 
 <div class="topbanner">
     <div class="topbanner_content">
-        <div class="topbanner_img" style="background-image: url(../../image/ini/banner1.jpg)">
+        <div class="topbanner_img" style="background-image: url(../../image/ini/banner.jpg)">
         </div>
     </div>
 </div>
