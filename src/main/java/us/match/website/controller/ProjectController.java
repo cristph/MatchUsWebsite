@@ -94,6 +94,11 @@ public class ProjectController {
     }
 
 
+    @ResponseBody
+    @RequestMapping(value="/getAllProject",method = RequestMethod.POST)
+    public ArrayList<Project> getAllProject(){
+       return  projectService.getAllProject();
+    }
 
 
 
