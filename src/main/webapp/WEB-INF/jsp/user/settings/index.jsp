@@ -70,41 +70,7 @@
       </li>
     </ul>
   </div>
-  <!-- right side part -->
-  <div class="settings-right col-md-9 wrapped-boxes">
-    <form action="#" class="form-horizontal">
-      <div class="row">
-        <label for="name" class="col-md-2 text-right">昵称</label>
-        <div class="col-md-8">
-          <input type="text" name="name" id="name" class="form-control" required="required">
-        </div>
-      </div>
-      <div class="row">
-        <label for="name" class="col-md-2 text-right">昵称</label>
-        <div class="col-md-8">
-          <input type="text" name="name" id="name" class="form-control" required="required">
-        </div>
-      </div>
-      <div class="row">
-        <label for="name" class="col-md-2 text-right">昵称</label>
-        <div class="col-md-8">
-          <input type="text" name="name" id="name" class="form-control" required="required">
-        </div>
-      </div>
-      <div class="row">
-        <label for="name" class="col-md-2 text-right">昵称</label>
-        <div class="col-md-8">
-          <input type="text" name="name" id="name" class="form-control" required="required">
-        </div>
-      </div>
-      <div class="row">
-        <label for="name" class="col-md-2 text-right">昵称</label>
-        <div class="col-md-8">
-          <input type="text" name="name" id="name" class="form-control" required="required">
-        </div>
-      </div>
-    </form>
-  </div>
+  <jsp:include page="basic_settings.jsp"/>
 </section>
 </body>
 
