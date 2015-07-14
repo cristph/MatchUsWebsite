@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <input type="submit" class="form-control" >
+        <input class="btn btn-success" type="submit" value="确认修改">
     </div>
 </form>
 

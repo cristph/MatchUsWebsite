@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ezio
@@ -53,8 +54,13 @@
   <!-- left side part -->
   <div class="settings-left col-md-3">
     <ul class="wrapped-boxes">
-      <li class="active">
-        <a href="#">个人资料</a>
+      <c:choose>
+      <c:when test="${current_setting.equals(\"basic\")}">
+        <li class="active">
+      </c:when>
+
+      </c:choose>
+        <a href="/user/settings/basic">个人资料</a>
       </li>
       <li>
         <a href="#">头像设置</a>
