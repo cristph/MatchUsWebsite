@@ -29,9 +29,11 @@ public class LoginController {
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password) {
         User u=userService.login(username,password);
-        if(u==null){
+        if(u==null)
+        {
             return "failed";
-        }else
+        }
+        else
             return "success";
     }
 

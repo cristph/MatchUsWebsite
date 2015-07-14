@@ -181,7 +181,7 @@ public class User {
     public void setUid(int uid) {
         this.uid = uid;
     }
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "publisher",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<Project> getPublishingprojects() {
         return publishingprojects;
     }
@@ -189,7 +189,11 @@ public class User {
     public void setPublishingprojects(List<Project> publishingprojects) {
         this.publishingprojects = publishingprojects;
     }
-    @ManyToMany(mappedBy = "workers",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name="u_p",
+            joinColumns= @JoinColumn(name="user_id"),
+            inverseJoinColumns=@JoinColumn(name="project_id")
+    )
     public List<Project> getWorkingprojects() {
         return workingprojects;
     }
@@ -197,7 +201,7 @@ public class User {
     public void setWorkingprojects(List<Project> workingprojects) {
         this.workingprojects = workingprojects;
     }
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<UserSkill> getSkills() {
         return Skills;
     }

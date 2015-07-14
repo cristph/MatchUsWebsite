@@ -60,22 +60,36 @@ public class UserTest {
         @Test
         public void testUpdate(){
             User un=ud.findUser("gjp");
-            List<UserSkill> s=new ArrayList<>();
-            UserSkill u=new UserSkill();
-            u.setSkillname("java");
-            u.setLevel(0);
-            u.setUser(un);
-            s.add(u);
-            un.setSkills(s);
-            assertEquals(true,ud.updateUser(un));
+            un.setAddress("nju");
+            assertEquals(true, ud.updateUser(un));
       }
         @Test
         public void testgetidbyname(){assertEquals(13,ud.getidbyname("gjp"));}
         @Test
-        public void testaddproject(){
-            User user=ud.findUser("gjp");
-            Project p=pd.getbyid(4);
-            assertEquals(true,ud.addProject(p,user));
+        public void testgetallproject(){
+            assertEquals(1,ud.getUserProject(13).size());
         }
+        @Test
+        public void testsetskill(){
+                User user =ud.findUser("gjp");
+                List<UserSkill> u=new ArrayList<UserSkill>();
+                UserSkill m= new UserSkill();
+                m.setUser(user);
+                m.setSkillname("java");
+                m.setLevel(0);
+                UserSkill n= new UserSkill();
+                n.setUser(user);
+                n.setSkillname("c++");
+                n.setLevel(0);
+                u.add(m);
+                u.add(n);
+                assertEquals(2,ud.addSkill(user,u).getSkills().size());
+        }
+//        @Test
+//        public void testaddproject(){
+//            User user =ud.getUserbyid(13);
+//            Project p=pd.getbyid(4);
+//            assertEquals(true,ud.addProject(p,user));
+//        }
 
 }

@@ -30,7 +30,7 @@ public class UserSkill {
         public void setLevel(int level) {
                 this.level = level;
         }
-        @ManyToOne()
+        @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
         @JoinColumn(name="uid")
         public User getUser() {
                 return user;
