@@ -16,7 +16,6 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/page/reset.css" rel="stylesheet" type="text/css">
-    <link href="/css/page/cus.css" rel="stylesheet" type="text/css">
     <link href="/css/page/projectInfo.css" rel="stylesheet" type="text/css">
     <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
     <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
@@ -158,20 +157,30 @@
 
 <div class="container">
 
-    <div class="blog-header">
+    <div class="project-header">
         <div class="row">
-            <h1 class="blog-title">Java项目<span class="blog-description">January 1, 2014 posted by <a href="#" style="color: darkred">Mark</a></span></h1>
+            <h1 class="project-title">Java项目
+                <span class="project-description">January 1, 2014 posted by
+
+                    <a data-content="github是一个强大的项目，非常非常强大喔！很强大喔！"
+                       data-trigger="hover"
+                       rel="popover"
+                       href="http:\\Github.com"
+                       data-original-title="GitHub"
+                       id="name_popover">Mark</a>
+                </span>
+            </h1>
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class="featurette-divider" style=" margin: 80px 0">
 
     <div class="row">
 
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-8 project-main">
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">项目描述：</h2>
+            <div class="project-post">
+                <h2 class="project-post-title">项目描述：</h2>
                 <hr>
                 <p>在这一部分中，你要对项目的收益群体做一个更加详细的描述。
                     有必要时，你还可以把收益群体分为直接受益和间接收益群体。
@@ -186,18 +195,18 @@
                 <br>
                 <br>
                 <br>
-                <h2 class="blog-post-title">项目报酬：</h2>
+                <h2 class="project-post-title">项目报酬：</h2>
                 <hr>
                 <p>面议，提供午餐，好处多多</p>
                 <br>
                 <br>
                 <br>
-                <h2 class="blog-post-title">联系方式：</h2>
+                <h2 class="project-post-title">联系方式：</h2>
                 <hr>
                 <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="http://cristph@foxmail.com">cristph@foxmail.com</a></p>
                 <br>
                 <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 13306237695</p>
-            </div><!-- /.blog-post -->
+            </div><!-- /.project-post -->
 
             <nav>
                 <ul class="pager">
@@ -206,9 +215,9 @@
                 </ul>
             </nav>
 
-        </div><!-- /.blog-main -->
+        </div><!-- /.project-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="col-sm-3 col-sm-offset-1 project-sidebar">
             <div class="sidebar-module sidebar-module-inset">
                 <h4>项目分类：</h4>
                 <span class="label label-success">Web</span>
@@ -220,11 +229,15 @@
                 <span class="label label-primary">Spring</span>
                 <span class="label label-primary">JavaScript</span>
             </div>
-        </div><!-- /.blog-sidebar -->
+        </div><!-- /.project-sidebar -->
 
     </div><!-- /.row -->
 
 </div><!-- /.container -->
+
+<a data-content="他来自山东，是一名残疾人，因思想独立、指谪政弊而被政府迫害。地方政府和当权政要派专人看管他，调拨专款作为对他的看管费用，他每天都活在别人的监视和囚禁中，其遭遇只能用令人发指来形容。历尽万难，他终于成功逃离了当地，在外国使节的帮助和护送下去到了国外。他，就是孙膑。" rel="popover" class="btn btn-danger" href="#" data-original-title="他是谁" id="pop_demo">鼠标经过弹出提示</a>
+
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">点我弹出/隐藏弹出框</button>
 
 <footer class="co-footer">
     <p>@ company <a href="http://getbootstrap.com">Math Us</a></p>
@@ -237,7 +250,19 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/js/page/bootstrap-popover.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script type="javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
 </body>
 </html>

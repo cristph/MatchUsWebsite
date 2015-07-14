@@ -26,8 +26,8 @@ public class ProjectTest {
         pro.setState(Project.states[0]);
         pro.setSubject("移动应用");
         pro.setModuel("比赛");
-        pro.setReward(1000);
-        pro.setSkill("java");
+        pro.setReward(100);
+        pro.setSkill("j0ava");
     }
 //  @Test
 //  public void TestAdd(){
@@ -35,8 +35,10 @@ public class ProjectTest {
 //    }
     @Test
     public void Testupdate(){
-        pro.setSubject("移动应用,网站建设");
-        assertEquals(true, pd.updateProject(pro));}
+        pro.setPid(4);
+        pro.setSubject("网站建设");
+        assertEquals(true, pd.updateProject(pro));
+    }
     @Test
     public void Testfindbyid(){
         assertEquals(4, pd.getbyid(4).getPid());
@@ -47,7 +49,7 @@ public class ProjectTest {
     }
     @Test
     public void Testgetbysubjectt(){
-        assertEquals(1,pd.getbysubject("移动应用").size());
+        assertEquals(1,pd.getbysubject("网站建设").size());
     }
     @Test
     public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(0, 2000).size());}
@@ -55,4 +57,7 @@ public class ProjectTest {
     public void Testgetidbyname(){assertEquals(4,pd.getidbyname("first project"));}
     @Test
     public void Testgetbymoduel(){assertEquals(1,pd.getbymodule("比赛").size());}
+    @Test
+    public void Testfetall(){
+        assertEquals(1,pd.getallProject().size());}
 }
