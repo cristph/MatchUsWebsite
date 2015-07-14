@@ -60,6 +60,7 @@ public class UserTest {
             UserSkill u=new UserSkill();
             u.setSkillname("java");
             u.setLevel(0);
+            u.setUser(un);
             s.add(u);
             un.setSkills(s);
             assertEquals(true,ud.updateUser(un));
