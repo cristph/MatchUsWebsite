@@ -44,9 +44,9 @@
       </div>
       <div class="modal-body">
         <form class='form-signin' method="post" action="/login">
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
-            <input type='text' id='inputEmail' name="username" class='form-control'
+            <input type='email' id='inputEmail' name="username" class='form-control'
                    placeholder='Email address' required autofocus>
           </div>
           <div class="form-group">
@@ -79,7 +79,7 @@
       </div>
       <div class="modal-body">
         <form method="post">
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
             <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
                    autofocus>
