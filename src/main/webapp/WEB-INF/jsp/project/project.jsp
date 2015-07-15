@@ -100,10 +100,17 @@
     </div>
     <hr>
     <div id="projects">
-
         <ul id="projects-index">
             <c:forEach var="project" items="${projects}">
                 <li>
+                    <%--<p>${project.pid}</p>--%>
+                    <%--<p>${project.pname}</p>--%>
+                    <%--<p>${project.reward}</p>--%>
+                    <%--<p>${project.location}</p>--%>
+                    <%--<p>${project.skill}</p>--%>
+                    <%--<p>${project.publisher.username}</p>--%>
+                    <%--<p>${project.phonenumber}</p>--%>
+                    <%--<br>--%>
                     <a href="/project/getOneProject/${project.pid}">
                         <div class="projects-img">
                             <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
@@ -115,7 +122,7 @@
                         </div>
                         <div class="projects-subinfo">
                             <h2>${project.skill}</h2>
-                            <%--<span class="left">${project.publisher.name}</span>--%>
+                            <%--<span class="left">${project.publisher.username}</span>--%>
                             <span class="right">${project.phonenumber}</span>
                         </div>
                     </a>
