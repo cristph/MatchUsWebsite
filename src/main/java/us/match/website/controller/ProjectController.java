@@ -135,7 +135,7 @@ public class ProjectController {
         model.addAttribute("location","beijing");
         model.addAttribute("email","will");
         model.addAttribute("phoneNumber","10000");
-        model.addAttribute("time","2000-01-01")
+        model.addAttribute("time","2000-01-01");
 
         return "project/show/projectInfo";
     }
