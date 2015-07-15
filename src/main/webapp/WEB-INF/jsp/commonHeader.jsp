@@ -131,7 +131,7 @@
         <h4 class="modal-title" id="releasepro_title">发布项目</h4>
       </div>
       <div class="modal-body">
-        <form method="post">
+        <form method="post"  action="/project/add">
           <div class="form-group">
             <label class="control-label">项目名称：</label>
             <input type='text' id='rp_name' name="rp_name" class='form-control' required
@@ -173,7 +173,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="submit_pro" class="btn btn-primary">确认发布</button>
+            <button type="submit" id="submit_pro" class="btn btn-primary">确认发布</button>
           </div>
         </form>
       </div>
