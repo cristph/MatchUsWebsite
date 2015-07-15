@@ -118,7 +118,7 @@ public class ProjectController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/getOneProject",method = RequestMethod.POST)
+    @RequestMapping(value = "/getOneProject")
     public String getOneProject(Model model)
     {
         model.addAttribute("pname","dddd");

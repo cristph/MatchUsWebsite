@@ -105,7 +105,7 @@
     <div class="projects">
         <ul class="projects-index clearfix">
             <li>
-                <a href="/view/page/projectInfo.html">
+                <a href="/project/getOneProject">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="">
                     </div>
@@ -123,7 +123,7 @@
             </li>
 
             <li>
-                <a href="/view/page/projectInfo.html">
+                <a href="/project/getOneProject">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/5549b15d0001661f06000338-280-160.jpg" alt="">
                     </div>
