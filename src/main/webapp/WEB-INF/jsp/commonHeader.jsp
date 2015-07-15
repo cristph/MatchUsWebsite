@@ -133,30 +133,29 @@
         <form method="post"  action="/project/add">
           <div class="form-group">
             <label class="control-label">项目名称：</label>
-            <input type='text' id='rp_name' name="rp_name" class='form-control' required
+            <input type='text' id='pname' name="pname" class='form-control' required
                    autofocus>
           </div>
           <div class="form-group">
             <label class="control-label">项目描述：</label>
-            <textarea class="form-control"  id='rp_detail' name="rp_detail" required></textarea>
+            <textarea class="form-control"  id='pinstruction' name="pinstruction" required></textarea>
           </div>
           <div class="form-group">
             <label class="control-label">项目分类：</label>
-            <input type='text' id='rp_category'  name='rp_category' class='form-control' required>
+            <input type='text' id='subject'  name='subject' class='form-control' required>
           </div>
           <div class="form-group">
             <label class="control-label">项目报酬：</label>
-            <input type="text" id="rp_reward" name="rp_reward" class="form-control"required>
+            <input type="text" id="reward" name="reward" class="form-control"required>
           </div>
           <div class="form-group">
             <label class="control-label">电话：</label>
-            <input type="text" id="rp_tel" name="rp_tel" class="form-control" required>
+            <input type="text" id="phonenumber" name="phonenumber" class="form-control" required>
           </div>
           <div class="form-group">
             <label class="control-label">邮箱：</label>
-            <input type="text" id="rp_email" name="rp_email" class="form-control"required>
+            <input type="text" id="email" name="email" class="form-control"required>
           </div>
-
           <div class="form-group">
             <div class="container-fluid">
               <label class="control-label">验证码</label>
