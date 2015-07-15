@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import us.match.website.model.Project;
+import us.match.website.model.User;
 import us.match.website.service.ProjectService;
+import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -21,6 +23,8 @@ import java.util.List;
 public class ProjectController {
     @Resource
     ProjectService projectService;
+    @Resource
+    UserService userService;
 
     @RequestMapping("")
     public String project(Model model){
@@ -33,35 +37,38 @@ public class ProjectController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addProject(
-            @RequestParam("pinstruction") String pinstruction,
+                            @RequestParam("pinstruction") String pinstruction,
                              @RequestParam("pname")String pname,
                              @RequestParam("subject")String subject,
-                             @RequestParam("skill")String skill,
-                             @RequestParam("reward")int reward,
-                             @RequestParam("userName")String userName
-//                             @RequestParam("location")String location,
-//                             @RequestParam("email")String email,
-//                             @RequestParam("phonenumber")String phoneNumber
+                            @RequestParam("reward")int reward,
+                            @RequestParam("phonenumber")String phoneNumber,
+                            @RequestParam("email")String email
+                             //@RequestParam("userName")String userName
     )
     {
         Project pro=new Project();
+        pro.setLocation("1111");
+        pro.setPname("First Project injected");
 
-        /*pro.setPinstruction(pinstruction);
+        /*User user=userService.getBasicInfo(userName);
+        String location=user.getAddress();
+        String email=user.getEmail();
+        String phoneNum=user.getMobilephone();
+
         pro.setPname(pname);
-        pro.setState("will");
+        pro.setPinstruction(pinstruction);
         pro.setSubject(subject);
-        pro.setModuel("比赛");
-        pro.setSkill(skill);
+        pro.setState("will");
+        pro.setPublisher(user);
         pro.setReward(reward);
-        pro.getPublisher().setUsername(userName);
+        //pro.setSkill(skill);
         pro.setLocation(location);
         pro.setEmail(email);
-        pro.setPhonenumber(phoneNumber);
+        pro.setPhonenumber(phoneNum);*/
 
+        projectService.addProject(pro);
 
-        String result=projectService.addProject(pro);*/
-        System.out.println("dao da le PorjectContrller dsfdfsadf");
-        return "project/show/projectSelect";
+        return "/project/project";
     }
 
     ///////////////////////////////////////////////////////////////////////////////
