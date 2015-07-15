@@ -44,19 +44,45 @@ function chkEmail() {
 function chkPswd(){
     var fir=document.getElementById("inPassword");
     var sec=document.getElementById("sureinPassword");
-    if(fir.value!=sec.value){
+
+    var help_span=document.getElementById('helpBlock');
+    if(fir.value.length<6) {
+        if(help_span!=null){
+            help_span.innerText="密码长度不能少于6";
+        }else{
+            help_span=document.createElement('span');
+            help_span.id='helpBlock';
+            help_span.classList.add("help-block");
+            help_span.innerText="密码长度不能少于6";
+            fir.parentNode.appendChild(help_span);
+        }
+
+        fir.parentNode.classList.add('has-error');
         var pswd_span1=document.getElementById('pswd_span1');
-        var pswd_span2=document.getElementById('pswd_span2');
         if(pswd_span1!=null){
             pswd_span1.parentNode.removeChild(pswd_span1);
         }
-        if(pswd_span2!=null){
-            pswd_span2.parentNode.removeChild(pswd_span2);
+
+    }else if(fir.value.length>18){
+        if(help_span!=null){
+            help_span.innerText="密码长度不能超过18";
+        }else{
+            help_span=document.createElement('span');
+            help_span.id='helpBlock';
+            help_span.classList.add("help-block");
+            help_span.innerText="密码长度不能超过18";
+            fir.parentNode.appendChild(help_span);
         }
+
         fir.parentNode.classList.add('has-error');
-        sec.parentNode.classList.add('has-error');
-        return false;
+        var pswd_span1=document.getElementById('pswd_span1');
+        if(pswd_span1!=null){
+            pswd_span1.parentNode.removeChild(pswd_span1);
+        }
     }else{
+        if(help_span!=null){
+            help_span.parentNode.removeChild(help_span);
+        }
         sp1=document.createElement('span');
         sp1.id='pswd_span1';
         sp1.classList.add('glyphicon');
@@ -65,6 +91,21 @@ function chkPswd(){
         sp1.setAttribute("aria-hidden",'true');
         sp1.setAttribute("style",'top: 33px');
 
+        var pswd1=fir.parentNode;
+        pswd1.classList.remove('has-error');
+        pswd1.classList.add('has-success');
+        pswd1.appendChild(sp1);
+    }
+
+
+    if(fir.value!=sec.value||fir.value.length<6||fir.value.length>18){
+        var pswd_span2=document.getElementById('pswd_span2');
+        if(pswd_span2!=null){
+            pswd_span2.parentNode.removeChild(pswd_span2);
+        }
+        sec.parentNode.classList.add('has-error');
+        return false;
+    }else{
         sp2=document.createElement('span');
         sp2.id='pswd_span2';
         sp2.classList.add('glyphicon');
@@ -73,19 +114,31 @@ function chkPswd(){
         sp2.setAttribute("aria-hidden",'true');
         sp2.setAttribute("style",'top: 33px');
 
-        var pswd1=fir.parentNode;
         var pswd2=sec.parentNode;
-
-        pswd1.classList.remove('has-error');
         pswd2.classList.remove('has-error');
-        pswd1.classList.add('has-success');
         pswd2.classList.add('has-success');
-
-        pswd1.appendChild(sp1);
         pswd2.appendChild(sp2);
         return true;
     }
 
+}
+
+function chkName(){
+    var name=document.getElementById('inName').value;
+    if(name.length==0){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function chkCode(){
+    var code=document.getElementById('checkCode').value;
+    if(code.length==0){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 $(function(){
@@ -94,7 +147,7 @@ $(function(){
     $('#inPassword').keyup(chkPswd);
     $("#submit_sign").click(
         function(){
-            if(chkEmail()&chkPswd()){
+            if(chkEmail()&chkPswd()&chkName()&chkCode()){
                 $.post("/validate.do",
                     {"userCheckCode":document.getElementById('checkCode').value,
                         "sign_email":document.getElementById('inEmail').value,
@@ -106,7 +159,7 @@ $(function(){
                         if (data=="true") {
                             window.top.location.href="http://www.baidu.com";
                         } else if(data=="RegisterFalse"){
-                            alert('注册失败！');
+                            alert('用户名已存在，注册失败！');
                         }
                         else {
                             myReload();
@@ -117,6 +170,10 @@ $(function(){
                 alert('请输入正确的邮箱地址！');
             }else if(!chkPswd()){
                 alert('请输入正确的密码！');
+            }else if(!chkName()){
+                alert('昵称不能为空！');
+            }else if(!chkCode()){
+                alert('验证码不能为空！');
             }
         }
     );
