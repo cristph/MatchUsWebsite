@@ -11,22 +11,30 @@ function chkEmail() {
     var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
     flag = pattern.test(email.value);
     if(flag) {
-        email.setAttribute("aria-describedby",'inputSuccess2Status');
-        var sp=document.createElement('span');
-        sp.classList.add('glyphicon');
-        sp.classList.add('glyphicon-ok');
-        sp.classList.add('form-control-feedback');
-        sp.setAttribute("aria-hidden",'true');
-        sp.setAttribute("style",'top: 33px');
+        //email.setAttribute("aria-describedby",'inputSuccess2Status');
         var em=email.parentNode;
-        em.appendChild(sp);
+        var test=document.getElementById("email_span");
+        if(test==null){
+            var sp=document.createElement('span');
+            sp.id="email_span";
+            sp.classList.add('glyphicon');
+            sp.classList.add('glyphicon-ok');
+            sp.classList.add('form-control-feedback');
+            sp.setAttribute("aria-hidden",'true');
+            sp.setAttribute("style",'top: 33px');
+            em.appendChild(sp);
+        }
         em.classList.remove('has-error');
         em.classList.add('has-success');
         return true;
     }
     else {
         //email.parentNode.classList.add('has-feedback');
-        email.setAttribute("aria-describedby",'inputWarning2Status');
+        var emailNode=document.getElementById("email_span");
+        if(emailNode!=null){
+            emailNode.parentNode.removeChild(emailNode);
+        }
+        //email.setAttribute("aria-describedby",'inputWarning2Status');
         email.parentNode.classList.add('has-error');
         return false;
     }
@@ -37,27 +45,44 @@ function chkPswd(){
     var fir=document.getElementById("inPassword");
     var sec=document.getElementById("sureinPassword");
     if(fir.value!=sec.value){
+        var pswd_span1=document.getElementById('pswd_span1');
+        var pswd_span2=document.getElementById('pswd_span2');
+        if(pswd_span1!=null){
+            pswd_span1.parentNode.removeChild(pswd_span1);
+        }
+        if(pswd_span2!=null){
+            pswd_span2.parentNode.removeChild(pswd_span2);
+        }
         fir.parentNode.classList.add('has-error');
         sec.parentNode.classList.add('has-error');
         return false;
     }else{
-        fir.parentNode.classList.remove('has-error');
-        sec.parentNode.classList.remove('has-error');
-        fir.parentNode.classList.add('has-success');
-        sec.parentNode.classList.add('has-success');
+        sp1=document.createElement('span');
+        sp1.id='pswd_span1';
+        sp1.classList.add('glyphicon');
+        sp1.classList.add('glyphicon-ok');
+        sp1.classList.add('form-control-feedback');
+        sp1.setAttribute("aria-hidden",'true');
+        sp1.setAttribute("style",'top: 33px');
 
-        sp=document.createElement('span');
-        sp.classList.add('glyphicon');
-        sp.classList.add('glyphicon-ok');
-        sp.classList.add('form-control-feedback');
-        sp.setAttribute("aria-hidden",'true');
-        sp.setAttribute("style",'top: 33px');
+        sp2=document.createElement('span');
+        sp2.id='pswd_span2';
+        sp2.classList.add('glyphicon');
+        sp2.classList.add('glyphicon-ok');
+        sp2.classList.add('form-control-feedback');
+        sp2.setAttribute("aria-hidden",'true');
+        sp2.setAttribute("style",'top: 33px');
 
         var pswd1=fir.parentNode;
         var pswd2=sec.parentNode;
-        pswd1.appendChild(sp);
-        pswd2.appendChild(sp);
 
+        pswd1.classList.remove('has-error');
+        pswd2.classList.remove('has-error');
+        pswd1.classList.add('has-success');
+        pswd2.classList.add('has-success');
+
+        pswd1.appendChild(sp1);
+        pswd2.appendChild(sp2);
         return true;
     }
 

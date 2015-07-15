@@ -27,7 +27,7 @@ public class ProjectController {
         List<Project> projects = projectService.getAllProject();
         model.addAttribute("projects", projects);
         System.out.println(projects.size());
-        return "project";
+        return "project/project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -116,7 +116,7 @@ public class ProjectController {
 //////////////////////////////////////////////////////////////////////////////////////
     @ResponseBody
     @RequestMapping(value="/getAllProject",method = RequestMethod.POST)
-    public ArrayList<Project> getAllProject(){
+    public List<Project> getAllProject(){
        return  projectService.getAllProject();
     }
 
