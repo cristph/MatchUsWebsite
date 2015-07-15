@@ -27,7 +27,7 @@ public class ProjectController {
     public String project(Model model){
         List<Project> projects = projectService.getAllProject();
         model.addAttribute("projects", projects);
-        return "project";
+        return "project/project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
 
