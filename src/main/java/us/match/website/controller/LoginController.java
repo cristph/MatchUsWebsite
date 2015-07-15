@@ -1,5 +1,6 @@
 package us.match.website.controller;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
@@ -28,15 +30,16 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
-                        @RequestParam("remember") String remember,
-                        HttpSession session) {
+                        HttpServletRequest request) {
         User u=userService.login(username,password);
         if(u==null) {
             return "failed";
         }
         else {
-            System.out.println(remember);
-            session.setAttribute("user", u);
+            if (request.getParameter("remember").equals("on")) {
+                System.out.println("remember me is checked");
+            }
+            request.getSession().setAttribute("user", u);
             System.out.println(u.getUsername()+ " "+ u.getPassword());
             return "success";
         }
