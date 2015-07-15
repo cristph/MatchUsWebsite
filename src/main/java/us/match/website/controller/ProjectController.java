@@ -117,7 +117,7 @@ public class ProjectController {
        return  projectService.getAllProject();
     }
 
-    @ResponseBody
+    //@ResponseBody
     @RequestMapping(value = "/getOneProject")
     public String getOneProject(Model model)
     {
