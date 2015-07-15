@@ -21,8 +21,13 @@ public class LoginController {
     @Resource
     UserService userService;
 
-    @RequestMapping("/")
-    public String index(){
+    @RequestMapping("")
+    public String index(Model model, HttpSession session){
+        User userInSession = (User)session.getAttribute("user");
+        if (userInSession != null) {
+            // 呈现已登陆状态
+            model.addAttribute("user", userInSession);
+        }
         return "index";
     }
 
@@ -36,11 +41,12 @@ public class LoginController {
             return "failed";
         }
         else {
-            if (request.getParameter("remember").equals("on")) {
+            if (request.getParameter("remember") != null) {
                 System.out.println("remember me is checked");
+                // cookies 中保存用户名， 登陆序列，登陆token， 参考以下网址
+                // http://justjavac.com/web/2012/04/13/can-you-do-the-login-function-on-the-web.html
             }
             request.getSession().setAttribute("user", u);
-            System.out.println(u.getUsername()+ " "+ u.getPassword());
             return "success";
         }
     }
