@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by apple on 2015/7/9.
  */
 @Entity
-@JsonIgnoreProperties(value = { "workers"})
+@JsonIgnoreProperties(value = { "workers","publisher"})
 public class Project {
     public static String[] states={"past","now","will"};
     private int pid;
@@ -106,7 +106,7 @@ public class Project {
         this.pid = pid;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="uid")
     public User getPublisher() {
         return publisher;
@@ -115,11 +115,7 @@ public class Project {
     public void setPublisher(User publisher) {
         this.publisher = publisher;
     }
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name="u_p",
-            joinColumns= @JoinColumn(name="project_id"),
-            inverseJoinColumns=@JoinColumn(name="user_id")
-    )
+    @ManyToMany(mappedBy = "workingprojects",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<User> getWorkers() {
         return workers;
     }

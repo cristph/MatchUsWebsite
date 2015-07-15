@@ -12,6 +12,7 @@ import us.match.website.service.FilterService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,10 @@ public class CategoryController {
 
     @RequestMapping(value="/Category",method= RequestMethod.POST)
     @ResponseBody
-    public String CategoryFilter(@RequestParam(value="dataContent[]") Object[] dataContent) throws JsonProcessingException {
+    public String CategoryFilter(@RequestParam(value="dataContent[]") Object[] dataContent,
+                                 HttpServletResponse response)
+            throws JsonProcessingException {
+        response.setHeader("charset","utf-8");
             String [] strings=new String[dataContent.length];
           for(int i=0;i<dataContent.length;i++)
             strings[i]=dataContent[i].toString();

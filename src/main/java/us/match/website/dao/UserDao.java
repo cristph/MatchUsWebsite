@@ -3,8 +3,10 @@ package us.match.website.dao;
 import org.springframework.stereotype.Service;
 import us.match.website.model.Project;
 import us.match.website.model.User;
+import us.match.website.model.UserSkill;
 
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -19,4 +21,7 @@ public interface UserDao {
     public List<Project> getUserProject(int uid);
     public int getidbyname(String username);
     public boolean addProject(Project project,User user);
+    public User getUserbyid(int id);
+    public User addSkill(User user,List<UserSkill> userskills);
+    public List<UserSkill> getallskills(String id);
 }

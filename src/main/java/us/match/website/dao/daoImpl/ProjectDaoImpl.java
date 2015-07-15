@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import us.match.website.dao.ProjectDao;
 import us.match.website.model.Project;
+import us.match.website.model.User;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -152,9 +153,12 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
 
-    public boolean addProject(Project project) {
+    public boolean addProject(Project project,User user) {
         boolean result=true;
         Session session = sessionFactory.openSession();
+        user.getPublishingprojects().add(project);
+        project.setPublisher(user);
+        session.save(project);
         try{
             session.beginTransaction();
             session.save(project);

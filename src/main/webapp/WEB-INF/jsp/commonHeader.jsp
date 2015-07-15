@@ -24,6 +24,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
         <li><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
         <li><a href="../../view/page/user.html">个人中心</a></li>
       </ul>
       <form class="navbar-form navbar-right">
@@ -113,6 +114,66 @@
           </div>
           <div class="modal-footer">
             <button type="button" id="submit_sign" class="btn btn-primary">确认</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="releasepro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog releasepro_width" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="releasepro_title">发布项目</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post"  action="/project/add">
+          <div class="form-group">
+            <label class="control-label">项目名称：</label>
+            <input type='text' id='rp_name' name="rp_name" class='form-control' required
+                   autofocus>
+          </div>
+          <div class="form-group">
+            <label class="control-label">项目描述：</label>
+            <textarea class="form-control"  id='rp_detail' name="rp_detail" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="control-label">项目分类：</label>
+            <input type='text' id='rp_category'  name='rp_category' class='form-control' required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">项目报酬：</label>
+            <input type="text" id="rp_reward" name="rp_reward" class="form-control"required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">电话：</label>
+            <input type="text" id="rp_tel" name="rp_tel" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">邮箱：</label>
+            <input type="text" id="rp_email" name="rp_email" class="form-control"required>
+          </div>
+
+          <div class="form-group">
+            <div class="container-fluid">
+              <label class="control-label">验证码</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" id="rp_checkCode" name="rp_userCheckCode"  class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <img src="checkCode.jpg" id="rp_img_code" alt="hahha">
+                  <a href="#" onClick="myReload()">换一个</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" id="submit_pro" class="btn btn-primary">确认发布</button>
           </div>
         </form>
       </div>
