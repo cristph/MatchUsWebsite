@@ -4,15 +4,11 @@ import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import us.match.website.dao.UserDao;
 import us.match.website.model.User;
-import us.match.website.model.UserSkill;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
-import java.util.BitSet;
-import java.util.HashMap;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -23,6 +19,8 @@ import java.util.Map;
 public class UserSettingsController {
     @Resource
     private UserService userService;
+    @Resource
+    private HttpServletRequest servletRequest;
 
     @RequestMapping("")
     public String settings(Model model) {
@@ -31,9 +29,9 @@ public class UserSettingsController {
 
     @ResponseBody
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
-    public User getBasic(HttpSession session) {
-        String username = session.getAttribute("username").toString();
-        User user = userService.getBasicInfo(username);
+    public User getBasic() {
+//        String username = servletRequest.getSession().getAttribute("username").toString();
+        User user = userService.getBasicInfo("gjp");
         user.setFace(null);
         user.setSkills(null);
         user.setPublishingprojects(null);
