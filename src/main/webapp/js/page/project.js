@@ -32,7 +32,8 @@ function refreshView(projects) {
 }
 
 function getOneProjectView(project) {
-    return "<li><a href=\"/project/getOneProject?pid='" + project.pid + "'>" +
+    var projectHTML = "<li>" +
+        "<a href=\"/project/getOneProject?pid='" + project.pid + "'>" +
         "<div class=\"projects-img\">" +
         "<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
         "</div>" +
@@ -48,6 +49,8 @@ function getOneProjectView(project) {
         "</div> " +
         "</a> " +
         "</li>";
+    alert(projectHTML);
+    return projectHTML;
 }
 function changeColor(btn) {
     var parent_element = btn.parentElement;//父元素

@@ -11,11 +11,21 @@ function chkEmail() {
     var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
     flag = pattern.test(email.value);
     if(flag) {
-        email.parentNode.classList.remove('has-error');
-        email.parentNode.classList.add('has-success');
+        email.setAttribute("aria-describedby",'inputSuccess2Status');
+        var sp=document.createElement('span');
+        sp.classList.add('glyphicon');
+        sp.classList.add('glyphicon-ok');
+        sp.classList.add('form-control-feedback');
+        sp.setAttribute("aria-hidden",'true');
+        var em=email.parentNode;
+        em.appendChild(sp);
+        em.classList.remove('has-error');
+        em.classList.add('has-success');
         return true;
     }
     else {
+        //email.parentNode.classList.add('has-feedback');
+        email.setAttribute("aria-describedby",'inputWarning2Status');
         email.parentNode.classList.add('has-error');
         return false;
     }

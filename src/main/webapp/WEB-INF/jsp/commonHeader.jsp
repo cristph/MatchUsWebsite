@@ -16,7 +16,7 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left" id="nav_left">
-        <li><a href="../../view/page/project.html">找项目</a></li>
+        <li><a href="/project">找项目</a></li>
         <li><a href="../../view/page/team.html">找团队</a></li>
         <li><a href="../../view/page/talent.html">找人才</a></li>
       </ul>
@@ -44,9 +44,9 @@
       </div>
       <div class="modal-body">
         <form class='form-signin' method="post" action="/login">
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
-            <input type='text' id='inputEmail' name="username" class='form-control'
+            <input type='email' id='inputEmail' name="username" class='form-control'
                    placeholder='Email address' required autofocus>
           </div>
           <div class="form-group">
@@ -79,7 +79,7 @@
       </div>
       <div class="modal-body">
         <form method="post">
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
             <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
                    autofocus>

@@ -15,6 +15,7 @@ import us.match.website.service.ProjectService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/project")
@@ -22,9 +23,11 @@ public class ProjectController {
     @Resource
     ProjectService projectService;
 
-    @RequestMapping("/")
-    public String project(){
-        return "project";
+    @RequestMapping("")
+    public String project(Model model){
+        List<Project> projects = projectService.getAllProject();
+        model.addAttribute("projects", projects);
+        return "project/project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -117,21 +120,22 @@ public class ProjectController {
        return  projectService.getAllProject();
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/getOneProject",method = RequestMethod.POST)
+    //@ResponseBody
+    @RequestMapping(value = "/getOneProject")
     public String getOneProject(Model model)
     {
         model.addAttribute("pname","dddd");
         model.addAttribute("pid",100101);
         model.addAttribute("state","will");
         model.addAttribute("pinstruction","sdfsdfdf");
-        model.addAttribute("pname","sfdsdifj");
+        model.addAttribute("publisher","sfdsdifj");
         model.addAttribute("subject","will");
         model.addAttribute("moduel","will");
         model.addAttribute("reward",2000);
         model.addAttribute("location","beijing");
         model.addAttribute("email","will");
         model.addAttribute("phoneNumber","10000");
+        model.addAttribute("time","2000-01-01");
 
         return "project/show/projectInfo";
     }
