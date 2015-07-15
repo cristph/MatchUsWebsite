@@ -46,18 +46,25 @@ function chkPswd(){
         fir.parentNode.classList.add('has-success');
         sec.parentNode.classList.add('has-success');
 
-        sp=document.createElement('span');
-        sp.classList.add('glyphicon');
-        sp.classList.add('glyphicon-ok');
-        sp.classList.add('form-control-feedback');
-        sp.setAttribute("aria-hidden",'true');
-        sp.setAttribute("style",'top: 33px');
+        sp1=document.createElement('span');
+        sp1.classList.add('glyphicon');
+        sp1.classList.add('glyphicon-ok');
+        sp1.classList.add('form-control-feedback');
+        sp1.setAttribute("aria-hidden",'true');
+        sp1.setAttribute("style",'top: 33px');
+
+        sp2=document.createElement('span');
+        sp2.classList.add('glyphicon');
+        sp2.classList.add('glyphicon-ok');
+        sp2.classList.add('form-control-feedback');
+        sp2.setAttribute("aria-hidden",'true');
+        sp2.setAttribute("style",'top: 33px');
 
         var pswd1=fir.parentNode;
         var pswd2=sec.parentNode;
-        pswd1.appendChild(sp);
-        pswd2.appendChild(sp);
 
+        pswd1.appendChild(sp1);
+        pswd2.appendChild(sp2);
         return true;
     }
 
