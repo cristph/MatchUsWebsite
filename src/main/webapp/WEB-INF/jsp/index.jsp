@@ -33,20 +33,13 @@
 ================================================== -->
 <jsp:include page="commonHeader.jsp"/>
 
-<div class="topbanner">
-    <div class="topbanner_content">
-        <div class="topbanner_img">
-            <img src="/image/base/bgv2.jpg" style="max-width: 1263px; max-height: 600px"/>
-        </div>
-        </div>
-    </div>
-</div>
+<div class="topbanner"></div>
 
 <div class="container marketing">
     <!-- START THE FEATURETTES -->
 
     <div class="row featurette">
-        <div class="col-md-7">
+        <div class="col-md-7"  style="margin-top: 80px">
             <h2 class="featurette-heading">First featurette heading. <span
                     class="text-muted">It'll blow your mind.</span></h2>
 
@@ -54,8 +47,8 @@
                 semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
                 commodo.</p>
         </div>
-        <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg"
+        <div class="col-md-5" style="margin-top: 80px">
+            <img class="featurette-image img-responsive center-block" src="../../image/ini/ban1.png"
                  data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
@@ -72,7 +65,7 @@
                 commodo.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg"
+            <img class="featurette-image img-responsive center-block" src="../../image/ini/ban2.png"
                  data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
@@ -88,7 +81,7 @@
                 commodo.</p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="../../image/ini/kk.jpg"
+            <img class="featurette-image img-responsive center-block" src="../../image/ini/ban3.png"
                  data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
     </div>
@@ -105,7 +98,7 @@
     <div class="projects">
         <ul class="projects-index clearfix">
             <li>
-                <a href="/view/page/projectInfo.html">
+                <a href="/project/getOneProject">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="">
                     </div>
@@ -123,7 +116,7 @@
             </li>
 
             <li>
-                <a href="/view/page/projectInfo.html">
+                <a href="/project/getOneProject">
                     <div class="projects-img">
                         <img src="http://img.mukewang.com/5549b15d0001661f06000338-280-160.jpg" alt="">
                     </div>

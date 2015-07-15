@@ -15,6 +15,7 @@ import us.match.website.service.ProjectService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/project")
@@ -22,22 +23,26 @@ public class ProjectController {
     @Resource
     ProjectService projectService;
 
-    @RequestMapping("/")
-    public String project(){
+    @RequestMapping("")
+    public String project(Model model){
+        List<Project> projects = projectService.getAllProject();
+        model.addAttribute("projects", projects);
         return "project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
-    @ResponseBody
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addProject(@RequestParam("pinstruction") String pinstruction,
-                             @RequestParam("pname")String pname,
-                             @RequestParam("subject")String subject,
-                             @RequestParam("skill")String skill,
-                             @RequestParam("reward")int reward,
-                             @RequestParam("userName")String userName,
-                             @RequestParam("location")String location,
-                             @RequestParam("email")String email,
-                             @RequestParam("phonenumber")String phoneNumber)
+    public String addProject(
+//            @RequestParam("pinstruction") String pinstruction,
+//                             @RequestParam("pname")String pname,
+//                             @RequestParam("subject")String subject,
+//                             @RequestParam("skill")String skill,
+//                             @RequestParam("reward")int reward,
+//                             @RequestParam("userName")String userName,
+//                             @RequestParam("location")String location,
+//                             @RequestParam("email")String email,
+//                             @RequestParam("phonenumber")String phoneNumber
+    )
     {
         Project pro=new Project();
 
@@ -115,8 +120,8 @@ public class ProjectController {
        return  projectService.getAllProject();
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/getOneProject",method = RequestMethod.POST)
+    //@ResponseBody
+    @RequestMapping(value = "/getOneProject")
     public String getOneProject(Model model)
     {
         model.addAttribute("pname","dddd");
@@ -130,6 +135,7 @@ public class ProjectController {
         model.addAttribute("location","beijing");
         model.addAttribute("email","will");
         model.addAttribute("phoneNumber","10000");
+        model.addAttribute("time","2000-01-01");
 
         return "project/show/projectInfo";
     }

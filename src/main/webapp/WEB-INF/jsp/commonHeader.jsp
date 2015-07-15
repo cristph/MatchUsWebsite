@@ -44,9 +44,9 @@
       </div>
       <div class="modal-body">
         <form class='form-signin' method="post" action="/login">
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
-            <input type='text' id='inputEmail' name="username" class='form-control'
+            <input type='email' id='inputEmail' name="username" class='form-control'
                    placeholder='Email address' required autofocus>
           </div>
           <div class="form-group">
@@ -79,7 +79,7 @@
       </div>
       <div class="modal-body">
         <form method="post">
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
             <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
                    autofocus>
@@ -131,7 +131,7 @@
         <h4 class="modal-title" id="releasepro_title">发布项目</h4>
       </div>
       <div class="modal-body">
-        <form method="post">
+        <form method="post"  action="/project/add">
           <div class="form-group">
             <label class="control-label">项目名称：</label>
             <input type='text' id='rp_name' name="rp_name" class='form-control' required
@@ -173,7 +173,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="submit_pro" class="btn btn-primary">确认发布</button>
+            <button type="submit" id="submit_pro" class="btn btn-primary">确认发布</button>
           </div>
         </form>
       </div>

@@ -16,7 +16,6 @@
 
   <!-- Custom styles for this template -->
   <link href="/css/page/reset.css" rel="stylesheet" type="text/css">
-  <link href="/css/page/cus.css" rel="stylesheet" type="text/css">
   <link href="/css/page/projectInfo.css" rel="stylesheet" type="text/css">
   <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
   <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
@@ -31,26 +30,151 @@
   <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
+
 <body>
 
-<jsp:include page="../../commonHeader.jsp"/>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="nav_top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" id="img_a">
+        <img src="/image/base/logov1.png" id="img_wh">
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left" id="nav_left">
+        <li><a href="../../view/page/project.html">找项目</a></li>
+        <li><a href="../../view/page/team.html">找团队</a></li>
+        <li><a href="../../view/page/talent.html">找人才</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
+        <li><a href="../../view/page/user.html">个人中心</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="项目，大牛...">
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal_width"role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">登陆</h4>
+      </div>
+      <div class="modal-body">
+        <form class='form-signin' method="post" action="/login">
+          <div class="form-group">
+            <label class="control-label">注册邮箱：</label>
+            <input type='text' id='inputEmail' name="username" class='form-control'
+                   placeholder='Email address' required autofocus>
+          </div>
+          <div class="form-group">
+            <label class="control-label">密码：</label>
+            <input type='password' id='inputPassword' name="password" class='form-control'
+                   placeholder='Password' required>
+          </div>
+          <div class='checkbox'>
+            <label>
+              <input type='checkbox' value='remember-me'> 记住我
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">确认</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="usersignin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal_width" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="signin_title">注册</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          <div class="form-group">
+            <label class="control-label">注册邮箱：</label>
+            <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
+                   autofocus>
+          </div>
+          <div class="form-group">
+            <label class="control-label">密码：</label>
+            <input type='password' id='inPassword' name="sign_pswd" class='form-control' placeholder='Password' required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">确认密码：</label>
+            <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword'
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">昵称</label>
+            <input type="text" id="inName" name="sign_name" class="form-control" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">验证码</label>
+            <div class="container-fluid">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" id="checkCode" name="userCheckCode"  class="form-control" placeholder="SureCode" required>
+                </div>
+                <div class="col-md-6">
+                  <img src="checkCode.jpg" id="img_code" alt="hahha">
+                  <a href="#" onClick="myReload()">换一个</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="submit_sign" class="btn btn-primary">确认</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
 
-  <div class="blog-header">
+  <div class="project-header">
     <div class="row">
-      <h1 class="blog-title">Java项目<span class="blog-description">January 1, 2014 posted by <a href="#" style="color: darkred">Mark</a></span></h1>
+      <h1 class="project-title">Java项目
+                <span class="project-description name_popover">January 1, 2014 posted by
+                    <a href="http:\\Github.com">Mark</a>
+                </span>
+      </h1>
     </div>
   </div>
 
-  <hr class="featurette-divider">
+  <hr class="featurette-divider" style=" margin: 80px 0">
 
   <div class="row">
 
-    <div class="col-sm-8 blog-main">
+    <div class="col-sm-8 project-main">
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">项目描述：</h2>
+      <div class="project-post">
+        <h2 class="project-post-title">项目描述：</h2>
         <hr>
         <p>在这一部分中，你要对项目的收益群体做一个更加详细的描述。
           有必要时，你还可以把收益群体分为直接受益和间接收益群体。
@@ -65,18 +189,18 @@
         <br>
         <br>
         <br>
-        <h2 class="blog-post-title">项目报酬：</h2>
+        <h2 class="project-post-title">项目报酬：</h2>
         <hr>
         <p>面议，提供午餐，好处多多</p>
         <br>
         <br>
         <br>
-        <h2 class="blog-post-title">联系方式：</h2>
+        <h2 class="project-post-title">联系方式：</h2>
         <hr>
         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="http://cristph@foxmail.com">cristph@foxmail.com</a></p>
         <br>
         <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 13306237695</p>
-      </div><!-- /.blog-post -->
+      </div><!-- /.project-post -->
 
       <nav>
         <ul class="pager">
@@ -85,34 +209,50 @@
         </ul>
       </nav>
 
-    </div><!-- /.blog-main -->
+    </div><!-- /.project-main -->
 
-    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="col-sm-3 col-sm-offset-1 project-sidebar">
       <div class="sidebar-module sidebar-module-inset">
         <h4>项目分类：</h4>
-        <span class="label label-success">Web</span>
+        <span class="label label-success category"><a href="http:\\GitHub.com">Web</a></span>
       </div>
       <div class="sidebar-module sidebar-module-inset">
         <h4>项目标签：</h4>
-        <span class="label label-primary">Java</span>
-        <span class="label label-primary">Web</span>
-        <span class="label label-primary">Spring</span>
-        <span class="label label-primary">JavaScript</span>
+        <span class="label label-primary lab"><a href="http:\\GitHub.com">Java</a></span>
+        <span class="label label-primary lab"><a href="http:\\GitHub.com">Web</a></span>
+        <span class="label label-primary lab"><a href="http:\\GitHub.com">Spring</a></span>
+        <span class="label label-primary lab"><a href="http:\\GitHub.com">JavaScript</a></span>
       </div>
-    </div><!-- /.blog-sidebar -->
+    </div><!-- /.project-sidebar -->
 
   </div><!-- /.row -->
 
 </div><!-- /.container -->
 
-<jsp:include page="../../commonFooter.jsp"/>
+<footer class="co-footer">
+  <p>@ company <a href="http://getbootstrap.com">Math Us</a></p>
+  <p><a href="#">Back to top</a></p>
+</footer>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/js/page/bootstrap-popover.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script type="javascript">
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+
 </body>
 </html>

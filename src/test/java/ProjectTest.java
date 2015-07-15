@@ -23,15 +23,15 @@ public class ProjectTest {
     Project pro =new Project();
     @Before
     public void Setup(){
-        pro.setPname("第三届青岛啤酒大学生微营销创意大赛");
+        pro.setPname("test project");
         pro.setState(Project.states[2]);
-        pro.setSubject("文案设计");
-        pro.setModuel("比赛");
+        pro.setSubject("网站建设");
+        pro.setModuel("外包");
         pro.setReward(30000);
-        pro.setSkill("");
+        pro.setSkill("java");
     }
 //  @Test
-//  public void TestAdd(){
+// public void TestAdd(){
 //        User user =ud.findUser("gjp");
 //        assertEquals(true,pd.addProject(pro,user));
 //    }
@@ -61,5 +61,6 @@ public class ProjectTest {
     public void Testgetbymoduel(){assertEquals(4,pd.getbymodule("比赛").size());}
     @Test
     public void Testfetall(){
-        assertEquals(4,pd.getallProject().size());}
+        assertEquals(5,pd.getallProject().size());}
+
 }
