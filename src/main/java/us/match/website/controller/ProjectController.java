@@ -38,8 +38,8 @@ public class ProjectController {
                              @RequestParam("subject")String subject,
 //                             @RequestParam("skill")String skill,
                              @RequestParam("reward")int reward,
-                             @RequestParam("userName")String userName,
-                             @RequestParam("location")String location,
+//                             @RequestParam("userName")String userName,
+//                             @RequestParam("location")String location,
                              @RequestParam("email")String email,
                              @RequestParam("phonenumber")String phoneNumber
     )
@@ -53,8 +53,8 @@ public class ProjectController {
         pro.setModuel("比赛");
         pro.setSkill("Java");
         pro.setReward(reward);
-        pro.getPublisher().setUsername(userName);
-        pro.setLocation(location);
+        pro.getPublisher().setUsername("default name");
+        pro.setLocation("nanjing");
         pro.setEmail(email);
         pro.setPhonenumber(phoneNumber);
 
