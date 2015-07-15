@@ -17,6 +17,7 @@ function chkEmail() {
         sp.classList.add('glyphicon-ok');
         sp.classList.add('form-control-feedback');
         sp.setAttribute("aria-hidden",'true');
+        sp.setAttribute("style",'top: 33px');
         var em=email.parentNode;
         em.appendChild(sp);
         em.classList.remove('has-error');
@@ -44,6 +45,19 @@ function chkPswd(){
         sec.parentNode.classList.remove('has-error');
         fir.parentNode.classList.add('has-success');
         sec.parentNode.classList.add('has-success');
+
+        sp=document.createElement('span');
+        sp.classList.add('glyphicon');
+        sp.classList.add('glyphicon-ok');
+        sp.classList.add('form-control-feedback');
+        sp.setAttribute("aria-hidden",'true');
+        sp.setAttribute("style",'top: 33px');
+
+        var pswd1=fir.parentNode;
+        var pswd2=sec.parentNode;
+        pswd1.appendChild(sp);
+        pswd2.appendChild(sp);
+
         return true;
     }
 

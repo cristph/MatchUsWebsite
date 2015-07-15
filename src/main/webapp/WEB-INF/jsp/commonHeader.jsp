@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" id="img_a">
+      <a href="/" id="img_a">
         <img src="/image/base/logov1.png" id="img_wh">
       </a>
     </div>
