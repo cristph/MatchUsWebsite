@@ -26,8 +26,9 @@
 </head>
 <body id="body">
 <jsp:include page="../commonHeader.jsp"/>
-<hr>
-<hr>
+<%--<hr>--%>
+<%--<hr>--%>
+<div>something</div>
 <div class="container">
     <div id="select_option_div">
         <hr style="margin-right: 5%">
@@ -102,8 +103,8 @@
 
         <ul id="projects-index">
             <c:forEach var="project" items="${projects}">
-                <li>${project.name}
-                    <a href="/project/getOneProject?pid=${project.pid}">
+                <li>
+                    <a href="/project/getOneProject/${project.pid}">
                         <div class="projects-img">
                             <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
                         </div>
@@ -113,8 +114,8 @@
                             <span class="right">${project.location}</span>
                         </div>
                         <div class="projects-subinfo">
-                            <h2>${project.skills}</h2>
-                            <span class="left">${project.publisher}</span>
+                            <h2>${project.skill}</h2>
+                            <%--<span class="left">${project.publisher.name}</span>--%>
                             <span class="right">${project.phonenumber}</span>
                         </div>
                     </a>
