@@ -157,7 +157,7 @@ $(function(){
                     function(data){
                         alert(data);
                         if (data=="true") {
-                            window.top.location.href="http://www.baidu.com";
+                            window.top.location.href='/';
                         } else if(data=="RegisterFalse"){
                             alert('用户名已存在，注册失败！');
                         }
