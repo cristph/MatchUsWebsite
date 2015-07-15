@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" id="img_a">
+      <a href="/" id="img_a">
         <img src="/image/base/logov1.png" id="img_wh">
       </a>
     </div>
@@ -81,24 +81,22 @@
         <form method="post">
           <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
-            <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
-                   autofocus>
+            <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required autofocus>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">密码：</label>
             <input type='password' id='inPassword' name="sign_pswd" class='form-control' placeholder='Password' required>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">确认密码：</label>
-            <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword'
-                   required>
+            <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword' required>
           </div>
           <div class="form-group">
-            <label class="control-label">昵称</label>
+            <label class="control-label">昵称：</label>
             <input type="text" id="inName" name="sign_name" class="form-control" placeholder="Name" required>
           </div>
           <div class="form-group">
-            <label class="control-label">验证码</label>
+            <label class="control-label">验证码：</label>
             <div class="container-fluid">
 
               <div class="row">
