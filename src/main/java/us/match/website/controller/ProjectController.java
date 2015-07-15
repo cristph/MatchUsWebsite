@@ -36,22 +36,22 @@ public class ProjectController {
             @RequestParam("pinstruction") String pinstruction,
                              @RequestParam("pname")String pname,
                              @RequestParam("subject")String subject,
-//                             @RequestParam("skill")String skill,
+                             @RequestParam("skill")String skill,
                              @RequestParam("reward")int reward,
-                             @RequestParam("userName")String userName,
-                             @RequestParam("location")String location,
-                             @RequestParam("email")String email,
-                             @RequestParam("phonenumber")String phoneNumber
+                             @RequestParam("userName")String userName
+//                             @RequestParam("location")String location,
+//                             @RequestParam("email")String email,
+//                             @RequestParam("phonenumber")String phoneNumber
     )
     {
         Project pro=new Project();
 
-        pro.setPinstruction(pinstruction);
+        /*pro.setPinstruction(pinstruction);
         pro.setPname(pname);
         pro.setState("will");
         pro.setSubject(subject);
         pro.setModuel("比赛");
-        pro.setSkill("Java");
+        pro.setSkill(skill);
         pro.setReward(reward);
         pro.getPublisher().setUsername(userName);
         pro.setLocation(location);
@@ -59,7 +59,7 @@ public class ProjectController {
         pro.setPhonenumber(phoneNumber);
 
 
-        String result=projectService.addProject(pro);
+        String result=projectService.addProject(pro);*/
         System.out.println("dao da le PorjectContrller dsfdfsadf");
         return "project/show/projectSelect";
     }
