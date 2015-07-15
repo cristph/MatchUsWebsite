@@ -141,13 +141,15 @@ public class FilterServiceImpl implements FilterService {
         ClassNames.add("移动应用");
         ClassNames.add("网站建设");
         ClassNames.add("企业软件");
+        ClassNames.add("嵌入式开发");
         ClassNames.add("视觉设计");
         ClassNames.add("文案设计");
-        ClassNames.add("嵌入式开发");
+        ClassNames.add("其他类目");
+
 
         Mode.add("外包");
         Mode.add("比赛");
-        Mode.add("其他");
+        Mode.add("其他模式");
 
         Technology.add("Java");
         Technology.add("C/C++");
@@ -158,6 +160,7 @@ public class FilterServiceImpl implements FilterService {
         Technology.add("Linux");
         Technology.add("Mysql");
         Technology.add("C#");
+        Technology.add("android");
         Technology.add("iOS");
         Technology.add("其他技术");
     }

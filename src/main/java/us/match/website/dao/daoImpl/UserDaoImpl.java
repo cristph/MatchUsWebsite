@@ -89,6 +89,9 @@ public class UserDaoImpl implements UserDao {
             if(list.size()!=0){
                 result=list.get(0);
             }
+            else{
+                result=null;
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
