@@ -10,6 +10,7 @@ import us.match.website.service.ProjectService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Master on 2015/7/12.
@@ -61,8 +62,8 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
-    public ArrayList<Project> getAllProject() {
+    public List<Project> getAllProject() {
 
-        return null;
+        return projectDao.getallProject();
     }
 }

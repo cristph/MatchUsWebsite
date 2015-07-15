@@ -14,6 +14,8 @@
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/page/project.css">
+    <link rel="stylesheet" href="/css/page/commonHeader.css">
+    <link rel="stylesheet" href="/css/page/commonFooter.css">
 
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -24,8 +26,9 @@
 </head>
 <body id="body">
 <jsp:include page="../commonHeader.jsp"/>
-<hr>
-<hr>
+<%--<hr>--%>
+<%--<hr>--%>
+<div>something</div>
 <div class="container">
     <div id="select_option_div">
         <hr style="margin-right: 5%">
@@ -96,24 +99,24 @@
         </div>
     </div>
     <hr>
-    <div class="projects">
+    <div id="projects">
 
-        <ul class="projects-index">
+        <ul id="projects-index">
             <c:forEach var="project" items="${projects}">
-                <li>${project.name}
-                    <a href="/project/getOneProject?pid='${project.pid}'">
+                <li>
+                    <a href="/project/getOneProject/${project.pid}">
                         <div class="projects-img">
                             <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
                         </div>
                         <div class="projects-info">
                             <p>${project.pname}</p>
-                            <span class="l">${project.reward}</span>
-                            <span class="r">${project.location}</span>
+                            <span class="left">${project.reward}</span>
+                            <span class="right">${project.location}</span>
                         </div>
                         <div class="projects-subinfo">
-                            <h2>${project.skills}</h2>
-                            <span class="l">${project.publisher}</span>
-                            <span class="r">${project.phonenumber}</span>
+                            <h2>${project.skill}</h2>
+                            <%--<span class="left">${project.publisher.name}</span>--%>
+                            <span class="right">${project.phonenumber}</span>
                         </div>
                     </a>
                 </li>
@@ -125,7 +128,7 @@
 <script type="text/javascript" defer="defer">
     var btn = document.getElementsByClassName("btn");
     for (var i = 0; i < btn.length; i++) {
-        btn[i].addEventListener('click', select, false);
+        btn[i].onclick = select;
     }
 </script>
 </body>

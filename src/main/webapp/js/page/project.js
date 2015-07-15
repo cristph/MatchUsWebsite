@@ -33,19 +33,19 @@ function refreshView(projects) {
 
 function getOneProjectView(project) {
     var projectHTML = "<li>" +
-        "<a href=\"/project/getOneProject?pid='" + project.pid + "'>" +
+        "<a href=\"/project/getOneProject?pid=" + project.pid + "\">" +
         "<div class=\"projects-img\">" +
         "<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
         "</div>" +
         "<div class=\"projects-info\">" +
         "<p>" + project.pname + "</p> " +
-        "<span class=\"l\">" + project.reward + "</span> " +
-        "<span class=\"r\">" + project.location + "</span> " +
+        "<span class=\"left\">" + project.reward + "</span> " +
+        "<span class=\"right\">" + project.location + "</span> " +
         "</div>" +
         "<div class=\"projects-subinfo\">" +
         "<h2 align='center'>" + project.skills + "</h2>" +
-        "<span class =\"l\">" + project.publisher + "</span>" +
-        "<span class =\"r\">" + project.phonenumber + "</span>" +
+        "<span class =\"left\">" + project.publisher + "</span>" +
+        "<span class =\"right\">" + project.phonenumber + "</span>" +
         "</div> " +
         "</a> " +
         "</li>";
