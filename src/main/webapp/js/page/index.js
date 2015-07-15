@@ -11,7 +11,7 @@ function chkEmail() {
     var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
     flag = pattern.test(email.value);
     if(flag) {
-        email.setAttribute("aria-describedby",'inputSuccess2Status');
+        //email.setAttribute("aria-describedby",'inputSuccess2Status');
         var em=email.parentNode;
         var test=document.getElementById("email_span");
         if(test==null){
@@ -34,7 +34,7 @@ function chkEmail() {
         if(emailNode!=null){
             emailNode.parentNode.removeChild(emailNode);
         }
-        email.setAttribute("aria-describedby",'inputWarning2Status');
+        //email.setAttribute("aria-describedby",'inputWarning2Status');
         email.parentNode.classList.add('has-error');
         return false;
     }
