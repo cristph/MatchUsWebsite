@@ -90,6 +90,7 @@ public class UserDaoImpl implements UserDao {
                 result=list.get(0);
             }
         }catch(Exception e) {
+            result=null;
             e.printStackTrace();
         }finally{
             session.getTransaction().commit();
