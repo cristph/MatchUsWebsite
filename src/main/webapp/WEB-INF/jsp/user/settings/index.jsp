@@ -49,15 +49,15 @@
         </ul>
     </div>
     <div class="col-md-9">
-        <div data-bind="visible: active_part()==='basic'">
+        <%--<div data-bind="visible: active_part()==='basic'">--%>
             <%@include file="basic_settings.jsp"%>
-        </div>
-        <div data-bind="visible: active_part()==='portrait'">
-            <%@include file="portrait_settings.jsp"%>
-        </div>
-        <div data-bind="visible: active_part()==='email">
-            <%@include file="mail_settings.jsp"%>
-        </div>
+        <%--</div>--%>
+        <%--<div data-bind="visible: active_part()==='portrait'">--%>
+            <%--<%@include file="portrait_settings.jsp"%>--%>
+        <%--</div>--%>
+        <%--<div data-bind="visible: active_part()==='email">--%>
+            <%--<%@include file="mail_settings.jsp"%>--%>
+        <%--</div>--%>
     </div>
 </section>
 </body>

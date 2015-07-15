@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" id="nav_top">
@@ -22,10 +23,16 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
-        <li><a href="../../view/page/user.html">个人中心</a></li>
+        <c:choose>
+          <c:when test="${user == null}">
+            <li><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
+          </c:when>
+          <c:otherwise>
+            <li><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
+            <li><a href="../../view/page/user.html">${user.username}</a></li>
+          </c:otherwise>
+        </c:choose>
       </ul>
       <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="项目，大牛...">
@@ -45,18 +52,18 @@
       <div class="modal-body">
         <form class='form-signin' method="post" action="/login">
           <div class="form-group has-feedback">
-            <label class="control-label">注册邮箱：</label>
-            <input type='email' id='inputEmail' name="username" class='form-control'
-                   placeholder='Email address' required autofocus>
+            <label class="control-label">用户名或注册邮箱：</label>
+            <input type='text' id='username' name="username" class='form-control'
+                   placeholder='Use Name or Email...' required autofocus>
           </div>
           <div class="form-group">
-            <label class="control-label">密码：</label>
-            <input type='password' id='inputPassword' name="password" class='form-control'
+            <label class="control-label">登陆密码：</label>
+            <input type='password' id="password" name="password" class='form-control'
                    placeholder='Password' required>
           </div>
           <div class='checkbox'>
             <label>
-              <input type='checkbox' value='remember-me'> 记住我
+              <input type='checkbox' name="remember"> 记住我
             </label>
           </div>
           <div class="modal-footer">
