@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" id="img_a">
+      <a href="/" id="img_a">
         <img src="/image/base/logov1.png" id="img_wh">
       </a>
     </div>
@@ -81,29 +81,28 @@
         <form method="post">
           <div class="form-group has-feedback">
             <label class="control-label">注册邮箱：</label>
-            <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='Email address' required
-                   autofocus>
+            <input type='email' id='inEmail' name="sign_email" class='form-control' placeholder='邮箱地址' required autofocus>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback">
             <label class="control-label">密码：</label>
-            <input type='password' id='inPassword' name="sign_pswd" class='form-control' placeholder='Password' required>
+            <input type='password' id='inPassword' name="sign_pswd" class='form-control' placeholder='密码' required>
+          </div>
+          <div class="form-group has-feedback">
+            <label class="control-label">请确认密码：</label>
+            <input type='password' id='sureinPassword' class='form-control' placeholder='确认密码' required>
+            <!--<input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword' required>-->
           </div>
           <div class="form-group">
-            <label class="control-label">确认密码：</label>
-            <input type='password' id='sureinPassword' class='form-control' placeholder='SurePassword'
-                   required>
+            <label class="control-label">昵称：</label>
+            <input type="text" id="inName" name="sign_name" class="form-control" placeholder="昵称" required>
           </div>
           <div class="form-group">
-            <label class="control-label">昵称</label>
-            <input type="text" id="inName" name="sign_name" class="form-control" placeholder="Name" required>
-          </div>
-          <div class="form-group">
-            <label class="control-label">验证码</label>
+            <label class="control-label">验证码：</label>
             <div class="container-fluid">
 
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" id="checkCode" name="userCheckCode"  class="form-control" placeholder="SureCode" required>
+                  <input type="text" id="checkCode" name="userCheckCode"  class="form-control" placeholder="验证码" required>
                 </div>
                 <div class="col-md-6">
                   <img src="checkCode.jpg" id="img_code" alt="hahha">

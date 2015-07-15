@@ -13,7 +13,6 @@ import us.match.website.model.Project;
 import us.match.website.service.ProjectService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +26,7 @@ public class ProjectController {
     public String project(Model model){
         List<Project> projects = projectService.getAllProject();
         model.addAttribute("projects", projects);
+        System.out.println(projects.size());
         return "project/project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
@@ -116,7 +116,7 @@ public class ProjectController {
 //////////////////////////////////////////////////////////////////////////////////////
     @ResponseBody
     @RequestMapping(value="/getAllProject",method = RequestMethod.POST)
-    public ArrayList<Project> getAllProject(){
+    public List<Project> getAllProject(){
        return  projectService.getAllProject();
     }
 
