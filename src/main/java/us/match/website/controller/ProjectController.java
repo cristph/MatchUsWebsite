@@ -128,7 +128,7 @@ public class ProjectController {
         model.addAttribute("pid",100101);
         model.addAttribute("state","will");
         model.addAttribute("pinstruction","sdfsdfdf");
-        model.addAttribute("pname","sfdsdifj");
+        model.addAttribute("publisher","sfdsdifj");
         model.addAttribute("subject","will");
         model.addAttribute("moduel","will");
         model.addAttribute("reward",2000);
