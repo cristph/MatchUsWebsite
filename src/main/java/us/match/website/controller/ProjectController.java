@@ -15,6 +15,7 @@ import us.match.website.service.ProjectService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/project")
@@ -22,8 +23,10 @@ public class ProjectController {
     @Resource
     ProjectService projectService;
 
-    @RequestMapping("/")
-    public String project(){
+    @RequestMapping("")
+    public String project(Model model){
+        List<Project> projects = projectService.getAllProject();
+        model.addAttribute("projects", projects);
         return "project";
     }
 ///////////////////////////////////////////////////////////////////////////////////
@@ -132,6 +135,7 @@ public class ProjectController {
         model.addAttribute("location","beijing");
         model.addAttribute("email","will");
         model.addAttribute("phoneNumber","10000");
+        model.addAttribute("time","2000-01-01")
 
         return "project/show/projectInfo";
     }
