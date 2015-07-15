@@ -45,18 +45,18 @@
       <div class="modal-body">
         <form class='form-signin' method="post" action="/login">
           <div class="form-group has-feedback">
-            <label class="control-label">注册邮箱：</label>
-            <input type='email' id='inputEmail' name="username" class='form-control'
-                   placeholder='Email address' required autofocus>
+            <label class="control-label">用户名或注册邮箱：</label>
+            <input type='text' id='username' name="username" class='form-control'
+                   placeholder='Use Name or Email...' required autofocus>
           </div>
           <div class="form-group">
-            <label class="control-label">密码：</label>
-            <input type='password' id='inputPassword' name="password" class='form-control'
+            <label class="control-label">登陆密码：</label>
+            <input type='password' id="password" name="password" class='form-control'
                    placeholder='Password' required>
           </div>
           <div class='checkbox'>
             <label>
-              <input type='checkbox' value='remember-me'> 记住我
+              <input type='checkbox' name="remember"> 记住我
             </label>
           </div>
           <div class="modal-footer">

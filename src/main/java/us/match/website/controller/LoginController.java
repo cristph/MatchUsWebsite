@@ -27,14 +27,19 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("username") String username,
-                        @RequestParam("password") String password) {
+                        @RequestParam("password") String password,
+                        @RequestParam("remember") String remember,
+                        HttpSession session) {
         User u=userService.login(username,password);
-        if(u==null)
-        {
+        if(u==null) {
             return "failed";
         }
-        else
+        else {
+            System.out.println(remember);
+            session.setAttribute("user", u);
+            System.out.println(u.getUsername()+ " "+ u.getPassword());
             return "success";
+        }
     }
 
     @RequestMapping(value = "/reg", method = RequestMethod.POST)
