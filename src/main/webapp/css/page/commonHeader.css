@@ -16,7 +16,13 @@
     position: relative;
     left: 2%;
 }
-
+ul.navbar-right li {
+    width: 6em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .modal_width{
     width: 400px;
 }

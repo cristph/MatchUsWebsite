@@ -89,6 +89,9 @@ public class UserDaoImpl implements UserDao {
             if(list.size()!=0){
                 result=list.get(0);
             }
+            else{
+                result=null;
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
@@ -203,6 +206,26 @@ public class UserDaoImpl implements UserDao {
             session.close();
         }
         return result;
+    }
+
+    @Override
+    public User getuserbyemail(String email) {
+        User result=new User();
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            Query query=session.createQuery("from User WHERE email='"+email+"'");
+            List<User> list= query.list();
+            if(list.size()!=0){
+                result=list.get(0);
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
     }
 
 
