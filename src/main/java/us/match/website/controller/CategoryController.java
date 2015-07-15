@@ -31,6 +31,7 @@ public class CategoryController {
     public String CategoryFilter(@RequestParam(value="dataContent[]") Object[] dataContent,
                                  HttpServletResponse response)
             throws JsonProcessingException {
+        response.setCharacterEncoding("utf-8");
         response.setHeader("charset","utf-8");
             String [] strings=new String[dataContent.length];
           for(int i=0;i<dataContent.length;i++)

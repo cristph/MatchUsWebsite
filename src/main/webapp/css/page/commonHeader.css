@@ -30,3 +30,12 @@ ul.navbar-right li {
 .releasepro_width{
     width: 800px;
 }
+
+
+.searchArea{
+    border-radius: 2px;
+}
+
+.searchButton{
+    border-radius: 2px;
+}

@@ -35,7 +35,12 @@
         </c:choose>
       </ul>
       <form class="navbar-form navbar-right">
-        <input type="text" class="form-control" placeholder="项目，大牛...">
+        <div class="input-group">
+          <input type="text" class="form-control searchArea" placeholder="项目，大牛……">
+          <span class="input-group-btn">
+            <button class="btn btn-default searchButton" type="button">GO</button>
+          </span>
+        </div><!-- /input-group -->
       </form>
     </div>
   </div>
