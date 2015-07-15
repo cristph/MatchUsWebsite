@@ -24,4 +24,5 @@ public interface UserDao {
     public User getUserbyid(int id);
     public User addSkill(User user,List<UserSkill> userskills);
     public List<UserSkill> getallskills(String id);
+    public User getuserbyemail(String email);
 }
