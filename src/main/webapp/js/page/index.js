@@ -20,7 +20,7 @@ function chkEmail() {
         var em=email.parentNode;
         em.appendChild(sp);
         em.classList.remove('has-error');
-        em.parentNode.classList.add('has-success');
+        em.classList.add('has-success');
         return true;
     }
     else {
