@@ -60,8 +60,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getBasicInfo(String username) {
-        User user=userDao.findUser(username);
+    public User getBasicInfo(int userId) {
+        User user=userDao.getUserbyid(userId);
         return user;
     }
 
