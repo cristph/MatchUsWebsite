@@ -19,7 +19,7 @@ import java.util.Map;
 public class UserSettingsController {
     @Resource
     private UserService userService;
-//    @Resource
+    @Resource
     private HttpServletRequest servletRequest;
 
     @RequestMapping("")
