@@ -17,31 +17,33 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left" id="nav_left">
-        <li><a href="/project">找项目</a></li>
-        <li><a href="../../view/page/team.html">找团队</a></li>
-        <li><a href="../../view/page/talent.html">找人才</a></li>
+        <li id="navli1"><a href="/project">找项目</a></li>
+        <li id="navli2"><a href="../../view/page/team.html">找团队</a></li>
+        <li id="navli3"><a href="../../view/page/talent.html">找人才</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <c:choose>
           <c:when test="${user == null}">
-            <li><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
+            <li id="navli4"><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
+            <li id="navli5"><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
           </c:when>
           <c:otherwise>
-            <li><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
-            <li><a href="/user">${user.username}</a></li>
+            <li id="navli6"><a href="../../view/page/projectInfo.html">发布项目</a></li>
+            <li id="navli7"><a href="/user">${user.username}</a></li>
           </c:otherwise>
         </c:choose>
       </ul>
-      <form class="navbar-form navbar-right">
+
+      <form class="navbar-form navbar-right searchWrapper">
         <div class="input-group">
-          <input type="text" class="form-control searchArea" placeholder="搜索项目，大牛">
+          <input type="text" class="form-control searchArea" id="searchArea" placeholder="搜索项目，大牛">
           <span class="input-group-btn">
-            <button class="btn btn-default searchButton" type="button">GO</button>
+            <button class="btn searchButton" id="searchButton" type="button">GO</button>
           </span>
         </div><!-- /input-group -->
       </form>
+
     </div>
   </div>
 </nav>

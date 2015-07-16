@@ -36,6 +36,8 @@ public class UserSettingsController {
         user.setSkills(null);
         user.setPublishingprojects(null);
         user.setWorkingprojects(null);
+        user.setFriends(null);
+        user.setFocused(null);
         return user;
     }
     @ResponseBody

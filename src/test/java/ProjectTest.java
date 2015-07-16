@@ -49,16 +49,16 @@ public class ProjectTest {
     public void  Testfindbyname(){
         assertEquals("第三届青岛啤酒大学生微营销创意大赛",pd.getbyname("第三届青岛啤酒大学生微营销创意大赛").getPname());
     }
-    @Test
-    public void Testgetbysubjectt(){
-        assertEquals(1,pd.getbysubject("移动应用").size());
-    }
-    @Test
-    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(10000, 25000).size());}
-    @Test
-    public void Testgetidbyname(){assertEquals(5,pd.getidbyname("第三届青岛啤酒大学生微营销创意大赛"));}
-    @Test
-    public void Testgetbymoduel(){assertEquals(4,pd.getbymodule("比赛").size());}
+//    @Test
+//    public void Testgetbysubjectt(){
+//        assertEquals(1,pd.getbysubject("移动应用").size());
+//    }
+//    @Test
+//    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(10000, 25000).size());}
+//    @Test
+//    public void Testgetidbyname(){assertEquals(5,pd.getidbyname("第三届青岛啤酒大学生微营销创意大赛"));}
+//    @Test
+//    public void Testgetbymoduel(){assertEquals(4,pd.getbymodule("比赛").size());}
     @Test
     public void Testfetall(){
         assertEquals(5,pd.getallProject().size());}
