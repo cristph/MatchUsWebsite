@@ -113,10 +113,10 @@
             <div class="container-fluid">
 
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 codeRowCss">
                   <input type="text" id="checkCode" name="userCheckCode"  class="form-control" placeholder="验证码" required>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 imgRowCss">
                   <img src="checkCode.jpg" id="img_code" alt="hahha">
                   <a href="#" onClick="myReload()">换一个</a>
                 </div>

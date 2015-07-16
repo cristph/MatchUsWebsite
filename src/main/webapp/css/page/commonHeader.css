@@ -39,3 +39,17 @@ ul.navbar-right li {
 .searchButton{
     border-radius: 2px;
 }
+
+.codeRowCss{
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.imgRowCss{
+    padding-left: 30px;
+    padding-right: 0;
+}
+
+.imgRowCss a{
+    margin-left: 10px;
+}
