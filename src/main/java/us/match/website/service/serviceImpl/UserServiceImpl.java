@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
-        user.setFace(Identicon.creat(Identicon.tohash(user.getUsername()),200));
+        user.setFace(Identicon.creat(Identicon.tohash(user.getUsername()), 200));
         User u=userDao.addUser(user);
 
         if(u!=null){
@@ -60,8 +60,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getBasicInfo(String username) {
-        User user=userDao.findUser(username);
+    public User getBasicInfo(int userId) {
+        User user=userDao.getUserbyid(userId);
+        return user;
+    }
+
+    @Override
+    public User getBasicInfo(String userName) {
+        User user=userDao.findUser(userName);
         return user;
     }
 
