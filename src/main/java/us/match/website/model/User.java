@@ -32,7 +32,7 @@ public class User {
         private List<UserSkill> Skills;
         private List<Project> publishingprojects;
         private List<Project> workingprojects;
-        private HashMap<String,Integer> friendsmap=new HashMap<String, Integer>();
+        private HashMap<Integer,Integer> friendsmap=new HashMap<Integer, Integer>();
     public String getInstruction() {
         return instruction;
     }
@@ -154,7 +154,7 @@ public class User {
         this.friends = friends;
     }
 
-    public void generatemap(String uname,Integer Intimacy){
+    public void generatemap(Integer uname,Integer Intimacy){
         this.friendsmap.put(uname,Intimacy);
     }
 
