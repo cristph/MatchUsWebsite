@@ -178,3 +178,6 @@ $(function(){
         }
     );
 });
+
+window.onload=function(){
+}

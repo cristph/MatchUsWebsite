@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <!DOCTYPE html>
 <html>
@@ -47,150 +48,25 @@
 
     <div class="projects">
         <ul class="projects-index clearfix">
-            <li>
-                <a href="/project/getOneProject">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>手把手教你用 Unity3D 开发一款休闲游戏</p>
-                        <span class="l">更新至7-1</span>
-                        <span class="r">课程时长： 1小时58分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>《小十传奇》 Unity3D 休闲游戏开发</h2>
-                        <span class="l">5小时前更新</span>
-                        <span class="r">296人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/project/getOneProject">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/5549b15d0001661f06000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>Hive是基于HDFS的数据仓库。</p>
-                        <span class="l">更新至7-1</span>
-                        <span class="r">课程时长： 2小时20分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>Hive旅程之初识印象</h2>
-                        <span class="l">1天前更新</span>
-                        <span class="r">745人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/view/page/projectInfo.html">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/55909e3d0001af6506000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>带你率先领略PHP7.0的风采。</p>
-                        <span class="l">更新至2-1</span>
-                        <span class="r">课程时长：30分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>PHP7.0新特性</h2>
-                        <span class="l">1天前更新</span>
-                        <span class="r">5760人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/view/page/projectInfo.html">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/559b904a0001a9ed06000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>使用HTML5与CSS3搭建超酷扁平化风格博客</p>
-                        <span class="l">更新至3-8</span>
-                        <span class="r">课程时长： 1小时51分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>CSS3扁平化风格博客</h2>
-                        <span class="l">2天前更新</span>
-                        <span class="r">2829人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/view/page/projectInfo.html">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/559636e3000168b006000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>使用maven来构建和管理Java项目!</p>
-                        <span class="l">更新至5-1</span>
-                        <span class="r">课程时长： 2小时 0分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>项目管理利器——maven</h2>
-                        <span class="l">2天前更新</span>
-                        <span class="r">3179人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/view/page/projectInfo.html">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/558d15990001ea1106000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>数据库开发中应用广泛的高级查询！</p>
-                        <span class="l">更新至5-5</span>
-                        <span class="r">课程时长： 3小时24分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>Oracle高级查询</h2>
-                        <span class="l">2天前更新</span>
-                        <span class="r">2148人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/view/page/projectInfo.html">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/5594a8e50001332006000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>想让你的界面跳舞吗？本次课程你值得拥有</p>
-                        <span class="l">更新至4-1</span>
-                        <span class="r">课程时长： 1小时25分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>iOS动画案例之会跳舞的界面(上)</h2>
-                        <span class="l">2天前更新</span>
-                        <span class="r">2977人学习</span>
-                    </div>
-                </a>
-            </li>
-
-            <li>
-                <a href="/view/page/projectInfo.html">
-                    <div class="projects-img">
-                        <img src="http://img.mukewang.com/5598b22f0001ed0e06000338-280-160.jpg" alt="">
-                    </div>
-                    <div class="projects-info clearfix">
-                        <p>本课将使用SurfaceView来实现抽奖转盘。</p>
-                        <span class="l">更新至5-1</span>
-                        <span class="r">课程时长： 1小时30分</span>
-                    </div>
-                    <div class="projects-subinfo clearfix">
-                        <h2>SurfaceView-实现抽奖转盘</h2>
-                        <span class="l">2天前更新</span>
-                        <span class="r">2194人学习</span>
-                    </div>
-                </a>
-            </li>
-
+            <c:forEach var="project" items="${projects}">
+                <li>
+                    <a href="/project/getOneProject">
+                        <div class="projects-img">
+                            <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+                        </div>
+                        <div class="projects-info clearfix">
+                            <p>${project.skill}</p>
+                            <span class="l">发布者:${project.publisher.username}</span>
+                            <span class="r">电话:${project.phonenumber}</span>
+                        </div>
+                        <div class="projects-subinfo clearfix">
+                            <h2>${project.pname}</h2>
+                            <span class="l">&#65509;≈${project.reward}</span>
+                            <span class="r">所在地:${project.location}</span>
+                        </div>
+                    </a>
+                </li>
+            </c:forEach>
         </ul>
     </div>
 
