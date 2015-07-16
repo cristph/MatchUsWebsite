@@ -50,8 +50,8 @@ public class IdentifyingCode {
         for(int i=0 ; i<nums ; i++){
             int x1 = random.nextInt(width) ;
             int y1 = random.nextInt(height);
-            int x2 = random.nextInt(12) ;
-            int y2 = random.nextInt(12) ;
+            int x2 = random.nextInt(width) ;
+            int y2 = random.nextInt(height) ;
             g.drawLine(x1, y1, x2, y2) ;
         }
     }

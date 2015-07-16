@@ -70,4 +70,9 @@ public class ProjectServiceImpl implements ProjectService{
 
         return projectDao.getallProject();
     }
+
+    @Override
+    public Project getOneProject(int pid) {
+        return projectDao.getbyid(pid);
+    }
 }

@@ -10,3 +10,13 @@
 .co-footer p:last-child {
     margin-bottom: 0;
 }
+
+p>a{
+    text-decoration: none;
+    color: #204d74;
+}
+
+p>a:hover{
+    text-decoration: none;
+    color: #ac2925;
+}
