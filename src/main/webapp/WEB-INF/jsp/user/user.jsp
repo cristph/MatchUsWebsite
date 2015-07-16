@@ -54,16 +54,24 @@
             <div>
                 <ul class="left_nav">
                     <li>
-                        <a id="publish" class="left_nav_bar active" href="#">发布<em class="got-num">7</em></a>
+                        <a id="publish" class="left_nav_bar active" onclick="changeBar(this,${user.uid})">
+                            发布<em class="got-num">7</em>
+                        </a>
                     </li>
                     <li>
-                        <a id="attend" class="left_nav_bar" href="#">参与<em class="got-num">0</em></a>
+                        <a id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
+                            参与<em class="got-num">0</em>
+                        </a>
                     </li>
                     <li>
-                        <a id="follow" class="left_nav_bar" href="#">关注<em class="got-num">0</em></a>
+                        <a id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
+                            关注<em class="got-num">0</em>
+                        </a>
                     </li>
                     <li>
-                        <a id="fans" class="left_nav_bar" href="#">粉丝<em class="got-num">0</em></a>
+                        <a id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">粉丝
+                            <em class="got-num">0</em>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -79,24 +87,11 @@
                 <div class="main-body">
                     <div class="project-list">
                         <ul class="">
-                            <li class="">
-                                1
-                            </li>
-                            <li class="">
-                                2
-                            </li>
-                            <li class="">
-                                3
-                            </li>
-                            <li class="">
-                                4
-                            </li>
-                            <li class="">
-                                5
-                            </li>
-                            <li class="">
-                                6
-                            </li>
+                            <c:forEach var="project" items="${projectList}">
+                                <li>
+                                    <p>project.pname</p>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -117,12 +112,5 @@
     </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
-<script type="text/javascript" defer="defer">
-    uid =${user.uid};
-    var va = document.getElementsByClassName("left_nav_bar");
-    for (var i = 0; i < va.length; i++) {
-        va[i].onclick = changeBar(uid);
-    }
-</script>
 </body>
 </html>
