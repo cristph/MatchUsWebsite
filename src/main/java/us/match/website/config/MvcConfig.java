@@ -21,7 +21,7 @@ import java.util.List;
  * Created by Ezio on 7/10/2015.
  */
 @Configuration
-//@EnableWebMvc
+@EnableWebMvc
 @ComponentScan(basePackages = "us.match.website.controller")
 public class MvcConfig extends WebMvcConfigurerAdapter {
     @Bean
@@ -38,13 +38,4 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-//    @Override
-//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//        StringHttpMessageConverter stringConverter = new StringHttpMessageConverter();
-//        stringConverter.setSupportedMediaTypes(
-//                Arrays.asList(
-//                        new MediaType("text", "html", Charset.forName("UTF-8")),
-//                        new MediaType("application", "json", Charset.forName("UTF-8"))));
-//        converters.add(stringConverter);
-//    }
 }

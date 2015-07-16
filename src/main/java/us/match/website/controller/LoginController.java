@@ -82,4 +82,5 @@ public class LoginController {
         model.addAttribute("hotUsers",users);
         return "hotUserReturned";
     }
+
 }

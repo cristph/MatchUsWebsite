@@ -40,7 +40,7 @@ a {
 
 .sider {
     float: left;
-    width: 220px;
+    width: 25%;
     overflow: auto;
     margin-top: 20px;
     padding-bottom: 100px;
@@ -56,11 +56,11 @@ a {
 
 .user-info .user-pic {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     left: 0;
     top: 0;
-    border-radius: 40px;
+    border-radius: 50%;
     overflow: hidden;
 }
 
@@ -73,39 +73,8 @@ a {
 .user-info .user-lay {
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.user-info .user-lay .user-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #14191e;
-    line-height: 24px;
-    display: block;
-    word-break: normal;
-    word-wrap: break-word;
-}
-
-.user-info .user-lay .user-site {
-    margin: 2px 0 10px;
-    color: #787d82;
-    display: inline-block;
-    font-size: 12px;
-}
-
-.user-info .user-lay .iron {
-    width: 12px;
-    height: 12px;
-    display: inline-block;
-    margin-right: 4px;
-}
-
-.user-info .user-lay .user-setting {
     color: black;
-    font-size: 12px;
-}
-
-.user-info .user-lay .user-setting:hover {
-    color: #f01400;
+    font-size: 14px;
 }
 
 .left_nav {
@@ -133,9 +102,28 @@ a {
     color: red;
 }
 
+.left_nav_bar {
+
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
 .left_nav .got-num {
     font-size: 12px;
-    padding-left: 5px;
+    padding-left: 10px;
+}
+
+#detail_body {
+    float: left;
+    width: 75%;
+    padding-left: 5%;
+    padding-top: 2%;
 }
 
 .project-list ul {
@@ -288,58 +276,4 @@ a {
 
 .main-bd {
     margin-top: 10px;
-}
-
-.family {
-    margin: 15px 0 17px;
-}
-
-.family .family-hd {
-    font-size: 18px;
-    color: #000;
-}
-
-.course-tool-bar {
-    position: relative;
-    margin-top: -1px;
-    padding-right: 15px;
-    height: 40px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #d0d6d9;
-    font-size: 12px;
-}
-
-.course-tool-bar .tool-left > a {
-    margin: 0 20px;
-    line-height: 40px;
-    color: #787d82;
-    position: relative;
-}
-
-.course-tool-bar .tool-left > a:hover {
-    color: #14191e;
-}
-
-.course-tool-bar .tool-left > a.active {
-    color: #14191e;
-}
-
-.course-tool-bar .tool-item {
-    display: inline-block;
-    line-height: 40px;
-    margin: 0 8px;
-    vertical-align: middle;
-}
-
-.course-tool-bar .total-num {
-    display: none;
-    color: #b4b9be;
-}
-
-.course-tool-bar .tool-chk:hover {
-    color: #f01400;
-}
-
-.course-tool-bar .tool-pager {
-    position: relative;
 }
