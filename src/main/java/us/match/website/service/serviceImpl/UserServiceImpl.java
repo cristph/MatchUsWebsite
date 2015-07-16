@@ -11,6 +11,7 @@ import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -115,6 +116,11 @@ public class UserServiceImpl implements UserService {
             return OutdatedUser;
         else
             return null;
+    }
+
+    @Override
+    public List<User> getHotUsers() {
+        return null;
     }
 
 

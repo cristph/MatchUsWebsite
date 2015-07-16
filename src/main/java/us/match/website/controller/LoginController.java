@@ -36,7 +36,7 @@ public class LoginController {
             model.addAttribute("user", userInSession);
         }
         List<Project> list=projectService.getAllProject();
-        list.subList(0,8);
+        list=list.subList(0,8);
         model.addAttribute("projects",list);
         return "index";
     }
@@ -69,8 +69,17 @@ public class LoginController {
             return "reg";
         }else{
             model.addAttribute("user",u);
-            model.addAttribute("registerResult","regSuccess");
+            model.addAttribute("registerResult", "regSuccess");
             return "redirect:user";
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/hotUsers")
+    public String getHotUsers(Model model){
+        List<User> users=null;
+        users=userService.getHotUsers();
+        model.addAttribute("hotUsers",users);
+        return "hotUserReturned";
     }
 }
