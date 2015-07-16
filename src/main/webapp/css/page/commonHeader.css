@@ -41,12 +41,29 @@ ul.navbar-right li {
 
 
 .searchArea{
-    border-radius: 0px;
+    border:0;
+    border-radius: 2px;
+    background-color: #363d40;
 }
 
+/*.searchArea:focus{*/
+    /*background-color: #fff;*/
+/*}*/
+
 .searchButton{
-    border-radius: 0px;
+    border:0;
+    border-radius: 2px;
+    height: 34px;
+    color: #999999;
+    background-color: #363d40;
 }
+
+/*.searchButton:focus{*/
+    /*background-color: #fff;*/
+    /*outline: none;*/
+    /*outline-width: 0;*/
+/*}*/
+
 
 
 .codeRowCss{
