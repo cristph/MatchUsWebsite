@@ -56,15 +56,3 @@ ul.navbar-right li {
     margin-left: 10px;
  }
 
-.jumbotronHead{
-    padding-top: 0;
-}
-
-.jumbotronHead h1{
-    padding-bottom: 20px;
-}
-
-.jumbotronHead .jumbotronBt{
-    padding-top: 10px;
-    padding-bottom: 30px;
-}
