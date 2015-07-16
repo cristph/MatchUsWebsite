@@ -19,10 +19,8 @@ function applySelect() {
     for (var i = 0; i < primary_btn_list.length; i++) {
         dataContent[i] = primary_btn_list[i].name;
     }
-    $.post("../../Category", {"dataContent": dataContent}, function (data) {
-        var projectsJ = JSON.stringify(data);
-        var projects = eval(projectsJ);
-        projects = eval(projects);
+    $.post("/Category", {"dataContent": dataContent}, function (data) {
+        var projects = data;
         refreshView(projects);
     });
 
