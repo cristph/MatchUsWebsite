@@ -17,10 +17,15 @@ public class FilterServiceImpl implements FilterService {
     ProjectDao projectDao;
 
     @Override
-    public ArrayList<Project> filter(ArrayList<String> keyWords) {
+    public List<Project> filter(ArrayList<String> keyWords) {
         String[] classNames =this.getClassNames(keyWords);
         String[] modeNames=this.getModeName(keyWords);
         String[] techNames=this.getTechName(keyWords);
+
+        if(classNames.length==ClassNames.size()
+                && modeNames.length== Mode.size()
+                && techNames.length==Technology.size())
+            return projectDao.getallProject();
 
         System.out.println("classNames"+classNames.length);
         System.out.println("modeNames"+modeNames.length);
