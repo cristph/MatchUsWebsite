@@ -18,87 +18,85 @@ public class FilterServiceImpl implements FilterService {
 
     @Override
     public List<Project> filter(ArrayList<String> keyWords) {
+        long up = System.currentTimeMillis();
+        long current = up, before = up;
+
         String[] classNames =this.getClassNames(keyWords);
         String[] modeNames=this.getModeName(keyWords);
         String[] techNames=this.getTechName(keyWords);
 
+        /*if select all ,return all*/
         if(classNames.length==ClassNames.size()
                 && modeNames.length== Mode.size()
                 && techNames.length==Technology.size())
             return projectDao.getallProject();
 
-        System.out.println("classNames"+classNames.length);
-        System.out.println("modeNames"+modeNames.length);
-        System.out.println("techNames"+techNames.length);
+        /*get project by class*/
+        List<Integer> arrList1=null;
+        if(classNames.length>0)
+            arrList1=projectDao.getbysubject(classNames);
+        else
+            arrList1=new ArrayList<Integer>();
+        /*get project by mode*/
+        List<Integer> arrList2=null;
+        if(modeNames.length>0)
+            arrList2=projectDao.getbymodule(modeNames);
+        else
+            arrList2=new ArrayList<Integer>();
+        /*get project by technology*/
+        List<Integer> arrList3=null;
+        if(techNames.length>0)
+            arrList3=projectDao.getbyskill(techNames);
+        else
+            arrList3=new ArrayList<Integer>();
 
-        ArrayList<List<Integer>> arrList1=new ArrayList<List<Integer>>();
-        for(int i=0;i<classNames.length;i++){
-            List<Integer> tempList=projectDao.getbysubject(classNames[i]);
-            tempList.sort(Comparator.<Integer>naturalOrder());
-            arrList1.add(tempList);
-        }
+        current = System.currentTimeMillis();
+        System.out.println(current-before+"----1");
+        before = current;
 
-        ArrayList<List<Integer>> arrList2=new ArrayList<List<Integer>>();
-        for(int i=0;i<modeNames.length;i++){
-            List<Integer> tempList=projectDao.getbymodule(modeNames[i]);
-            tempList.sort(Comparator.<Integer>naturalOrder());
-            arrList2.add(tempList);
-        }
-
-        ArrayList<List<Integer>> arrList3=new ArrayList<List<Integer>>();
-        for(int i=0;i<techNames.length;i++){
-            List<Integer> tempList=projectDao.getbyskill(techNames[i]);
-            tempList.sort(Comparator.<Integer>naturalOrder());
-            arrList3.add(tempList);
-        }
-
-
-        for(int i=1;i<arrList1.size();i++){
-            arrList1.get(0).addAll(arrList1.get(i));
-        }
-        for(int i=1;i<arrList2.size();i++){
-            arrList2.get(0).addAll(arrList2.get(i));
-        }
-        for(int i=1;i<arrList3.size();i++){
-            arrList3.get(0).addAll(arrList3.get(i));
-        }
         if(arrList1.size()>0) {
             if(arrList2.size()>0)
-                arrList1.get(0).retainAll(arrList2.get(0));
+                arrList1.retainAll(arrList2);
             if(arrList3.size()>0)
-                arrList1.get(0).retainAll(arrList3.get(0));
+                arrList1.retainAll(arrList3);
             ArrayList<Project> resultSet=new ArrayList<Project>();
-            for(int i=0;i<arrList1.get(0).size();i++){
-                int projectId=arrList1.get(0).get(i);
+            for(int i=0;i<arrList1.size();i++){
+                int projectId=arrList1.get(i);
                 Project p=projectDao.getbyid(projectId);
                 resultSet.add(p);
             }
-            System.out.println(resultSet.size()+"ResultSetSize");
+//            System.out.println(resultSet.size()+"ResultSetSize");
             return resultSet;
         }
+        current = System.currentTimeMillis();
+        System.out.println(current-before+"----2");
+        before = current;
         if(arrList2.size()>0){
             if(arrList3.size()>0)
-                arrList2.get(0).retainAll(arrList3.get(0));
+                arrList2.retainAll(arrList3);
             ArrayList<Project> resultSet=new ArrayList<Project>();
-            for(int i=0;i<arrList2.get(0).size();i++){
-                int projectId=arrList2.get(0).get(i);
+            for(int i=0;i<arrList2.size();i++){
+                int projectId=arrList2.get(i);
                 Project p=projectDao.getbyid(projectId);
                 resultSet.add(p);
             }
-            System.out.println(resultSet.size() + "ResultSetSize");
+//            System.out.println(resultSet.size() + "ResultSetSize");
             return resultSet;
         }
         else if(arrList3.size()>0){
             ArrayList<Project> resultSet=new ArrayList<Project>();
-            for(int i=0;i<arrList3.get(0).size();i++){
-                int projectId=arrList3.get(0).get(i);
+            for(int i=0;i<arrList3.size();i++){
+                int projectId=arrList3.get(i);
                 Project p=projectDao.getbyid(projectId);
                 p.userName=p.getPublisher().getUsername();
                 resultSet.add(p);
             }
-            System.out.println(resultSet.size() + "ResultSetSize");
+//            System.out.println(resultSet.size() + "ResultSetSize");
             return resultSet;
         }
+        current = System.currentTimeMillis();
+        System.out.println(current-before+"---3");
+        before = current;
         return new ArrayList<Project>();
     }
 

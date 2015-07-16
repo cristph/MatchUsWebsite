@@ -91,7 +91,7 @@ public class ProjectDaoImpl implements ProjectDao {
             Query query =session.createQuery(hql);
             result=query.list();
             if(result.size()>0)
-                System.out.println("________________________________"+this.getbyid(result.get(0)).getSubject());
+                System.out.println("________________________________"+hql);
             else
                 System.out.println("________________________________"+"resultSet为空");
 
@@ -108,6 +108,7 @@ public class ProjectDaoImpl implements ProjectDao {
     @Override
     public List<Integer> getbymodule(String[] module) {
         int len=module.length;
+        System.out.println(len+">");
         List<Integer> result=new ArrayList<Integer>();
         Session session = sessionFactory.openSession();
         try{
