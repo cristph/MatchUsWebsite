@@ -20,9 +20,6 @@
 
     <link rel="stylesheet" href="/css/page/settings.css">
     <link rel="stylesheet" href="/css/page/commonHeader.css"/>
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
-    <script type="text/javascript" src="/js/page/settings.js"></script>
 </head>
 
 <body>
@@ -31,35 +28,40 @@
     <!-- left side part -->
     <div class="settings-left col-md-3">
         <ul class="wrapped-boxes">
-            <li class="active">
-                <div class="basic">个人资料</div>
+            <li data-bind="css: {active: active_part() === 1}">
+                <div data-bind="click: function(){active_part(1)}">个人资料</div>
             </li>
-            <li>
-                <div class="">头像设置</div>
+            <li data-bind="css: {active: active_part() === 2}">
+                <div data-bind="click: function(){active_part(2)}">邮箱验证</div>
             </li>
-            <li>
-                <div class="">邮箱验证</div>
+            <li data-bind="css: {active: active_part() === 3}">
+                <div data-bind="click: function(){active_part(3)}">头像设置</div>
             </li>
-            <li>
-                <div class="">修改密码</div>
+            <li data-bind="css: {active: active_part() === 4}">
+                <div data-bind="click: function(){active_part(4)}">修改密码</div>
             </li>
-            <li>
-                <div class="">绑定账号</div>
+            <li data-bind="css: {active: active_part() === 5}">
+                <div data-bind="click: function(){active_part(5)}">绑定账号</div>
             </li>
         </ul>
     </div>
     <div class="col-md-9">
-        <%--<div data-bind="visible: active_part()==='basic'">--%>
+        <div data-bind="visible: active_part() === 1">
             <%@include file="basic_settings.jsp"%>
-        <%--</div>--%>
-        <%--<div data-bind="visible: active_part()==='portrait'">--%>
-            <%--<%@include file="portrait_settings.jsp"%>--%>
-        <%--</div>--%>
-        <%--<div data-bind="visible: active_part()==='email">--%>
-            <%--<%@include file="mail_settings.jsp"%>--%>
-        <%--</div>--%>
+        </div>
+        <div data-bind="visible: active_part() === 2">
+            <%@include file="portrait_settings.jsp"%>
+        </div>
+        <div data-bind="visible: active_part()=== 3">
+            <%@include file="mail_settings.jsp"%>
+        </div>
     </div>
 </section>
+
+
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+<script type="text/javascript" src="/js/page/settings.js"></script>
 </body>
 
 </html>
