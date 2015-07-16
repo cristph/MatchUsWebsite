@@ -86,8 +86,9 @@ public class ProjectDaoImpl implements ProjectDao {
             session.beginTransaction();
             String hql="select pid from Project where subject like";
             for(int i=0;i<len;i++){
-                hql+="'%"+subject[i]+"%'";
+                hql+="'%"+subject[i]+"%'"+" or like ";
             }
+            hql.substring(0,hql.length()-8);
             Query query =session.createQuery(hql);
             result=query.list();
             if(result.size()>0)
@@ -115,8 +116,9 @@ public class ProjectDaoImpl implements ProjectDao {
             session.beginTransaction();
             String hql="select pid from Project where moduel like";
             for(int i=0;i<len;i++){
-                hql+="'%"+module[i]+"%'";
+                hql+="'%"+module[i]+"%'"+" or like ";
             }
+            hql.substring(0,hql.length()-8);
             Query query =session.createQuery(hql);
             result=query.list();
         }catch(Exception e){
@@ -137,8 +139,9 @@ public class ProjectDaoImpl implements ProjectDao {
             session.beginTransaction();
             String hql="select pid from Project where skill like";
             for(int i=0;i<len;i++){
-                hql+="'%"+skill[i]+"%'";
+                hql+="'%"+skill[i]+"%'"+"or like ";
             }
+            hql.substring(0,hql.length()-8);
             Query query =session.createQuery(hql);
             result=query.list();
         }catch(Exception e){
