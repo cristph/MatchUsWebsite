@@ -22,10 +22,14 @@
 }
 
 .settings-right {
-  padding: 50px 160px;
+  padding: 50px 160px 100px;
+  margin-bottom: 100px;
 }
 
 .settings-right .row {
   height: 70px;
 }
 
+#submit {
+  margin-top: 50px;
+}

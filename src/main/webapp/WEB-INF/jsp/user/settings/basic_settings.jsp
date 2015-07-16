@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label for="adress" class="col-md-2 text-right">所在地</label>
 
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <input data-bind="value: address" type="text" name="address" id="adress" class="form-control">
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="good_at" class="col-md-2 text-right">擅长领域</label>
 
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <input data-bind="value: skills" type="text" name="good_at" id="good_at" class="form-control">
                 </div>
             </div>
@@ -54,11 +54,11 @@
             <label class="col-md-2 text-right">简介</label>
 
             <div class="col-md-10">
-                <textarea data-bind="value: introduction" class="form-control" rows="3"></textarea>
+                <textarea data-bind="value: introduction" class="form-control" rows="5"></textarea>
             </div>
         </div>
-        <div class="row">
-            <input id="submit" class="btn btn-success" type="submit" value="确认修改">
+        <div class="row form-group">
+            <input id="submit" class="btn btn-success pull-right" type="submit" value="确认修改">
         </div>
     </div>
 </form>
