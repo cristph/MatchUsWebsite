@@ -1,5 +1,6 @@
 #nav_top{
     border: 0
+
 }
 
 #img_a{
@@ -33,9 +34,9 @@ ul.navbar-right li {
 
 
 .searchArea{
-    border-radius: 2px;
+    border-radius: 0px;
 }
 
 .searchButton{
-    border-radius: 2px;
+    border-radius: 0px;
 }

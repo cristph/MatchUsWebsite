@@ -30,13 +30,13 @@
           </c:when>
           <c:otherwise>
             <li><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
-            <li><a href="/user">${user.username}</a></li>
+            <li><a href="../../view/page/user.html">${user.username}</a></li>
           </c:otherwise>
         </c:choose>
       </ul>
       <form class="navbar-form navbar-right">
         <div class="input-group">
-          <input type="text" class="form-control searchArea" placeholder="项目，大牛……">
+          <input type="text" class="form-control searchArea" placeholder="搜索项目，大牛">
           <span class="input-group-btn">
             <button class="btn btn-default searchButton" type="button">GO</button>
           </span>
