@@ -126,8 +126,8 @@ public class UserDaoImpl implements UserDao {
             session.beginTransaction();
             Query query=session.createQuery("select uid from User WHERE username='"+username+"'");
             List<Integer> list= query.list();
-            if(list.size()!=0){
-                result=list.get(0);
+            if(list.size()!=0) {
+                result = list.get(0);
             }
         }catch(Exception e) {
             e.printStackTrace();
@@ -219,6 +219,9 @@ public class UserDaoImpl implements UserDao {
             if(list.size()!=0){
                 result=list.get(0);
             }
+            else{
+                result=null;
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
@@ -227,6 +230,25 @@ public class UserDaoImpl implements UserDao {
             return result;
         }
     }
+
+    @Override
+    public boolean addfocuser(User focuser,User focused) {
+            boolean result=true;
+            focuser.getFocuser().add(focused);
+            focused.getFocused().add(focuser);
+            Session session = sessionFactory.openSession();
+            try{
+                session.beginTransaction();
+                session.update(focuser);
+            }catch(Exception e){
+                e.printStackTrace();
+            }finally{
+                session.getTransaction().commit();
+                session.close();
+                return result;
+            }
+    }
+
 
 
 }

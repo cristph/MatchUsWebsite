@@ -25,4 +25,5 @@ public interface UserDao {
     public User addSkill(User user,List<UserSkill> userskills);
     public List<UserSkill> getallskills(String id);
     public User getuserbyemail(String email);
+    public boolean addfocuser(User focuser,User focused);
 }
