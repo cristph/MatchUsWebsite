@@ -105,7 +105,7 @@
                         </div>
                         <div class="projects-info">
                             <p>${project.skill}</p>
-                            <span class="left">发布者:${project.userName}</span>
+                            <span class="left">发布者:${project.publisher.username}</span>
                             <span class="right">电话:${project.phonenumber}</span>
                         </div>
                         <div class="projects-subinfo">
