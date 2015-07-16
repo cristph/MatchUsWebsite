@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 //        System.out.println("______________"+username+" "+user.getPassword());
         if(userFromDao!=null && user.getPassword()!=null){
             if(userFromDao.getPassword().equals(user.getPassword())){
-                return user; //login success
+                return userFromDao; //login success
             }else{
                 return null; //login failed
             }
