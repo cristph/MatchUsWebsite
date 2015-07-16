@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
 import us.match.website.util.CheckCodeImage;
@@ -35,13 +36,16 @@ public class UserInfoController extends MultiActionController{
     @Resource
     UserService userService;
 
+    @ResponseBody
     @RequestMapping(value="/user")
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
-        System.out.println(u.getUid()+u.getUsername()+">>>>>>>");
+        List<Project> list=userService.getUserProject(u.getUid());
         model.addAttribute("user",u);
+        model.addAttribute("projectList",list);
         return "user/user";
     }
+
 
     @RequestMapping(value="/userPhoto.jpg")
     public  void getUserPhoto(@RequestParam("uid") int userId,

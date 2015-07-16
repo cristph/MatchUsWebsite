@@ -151,7 +151,6 @@ public class ProjectDaoImpl implements ProjectDao {
                 else
                     hql+="'%"+skill[i]+"%'";
             }
-            hql.substring(0,hql.length()-8);
             Query query =session.createQuery(hql);
             result=query.list();
         }catch(Exception e){
@@ -180,7 +179,6 @@ public class ProjectDaoImpl implements ProjectDao {
         }
         return result;
     }
-
 
     public boolean addProject(Project project,User user) {
         boolean result=true;
