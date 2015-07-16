@@ -50,7 +50,7 @@
         <ul class="projects-index clearfix">
             <c:forEach var="project" items="${projects}">
                 <li>
-                    <a href="/project/getOneProject">
+                    <a href="/project/getOneProject/?pid=${project.pid}">
                         <div class="projects-img">
                             <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
                         </div>
@@ -302,13 +302,12 @@
 
     <hr class="featurette-divider">
 
-    <div class="jumbotron">
-        <h1>Marketing stuff!</h1>
+    <div class="jumbotron jumbotronHead">
+        <h1>别再犹豫!</h1>
+        <p class="lead">方便快捷的项目发布平台，轻松招兵买马！</p>
+        <p class="lead">大量牛人，实践项目等你发现，交友&提升个人能力，一举两得！</p>
 
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
-            commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-
-        <p><a class="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们吧</a></p>
+        <p class="jumbotronBt"><a class="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们吧</a></p>
     </div>
     <!-- /END THE FEATURETTES -->
 </div>
