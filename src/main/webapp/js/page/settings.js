@@ -1,4 +1,5 @@
 $(function () {
+    "use strict";
     function User() {
         this.username = ko.observable();
         this.university = ko.observable();
@@ -9,9 +10,10 @@ $(function () {
         this.introduction = ko.observable();
     }
 
-    function UserSettingsBasicViewModel() {
+    function UserSettingsViewModel() {
         var self = this;
         self.user = ko.observable(new User());
+        self.active_part = ko.observable(1);
 
         $.get("/user/settings/basic", null, function (data) {
             var new_user = data;
@@ -51,11 +53,5 @@ $(function () {
         }
     }
 
-    ko.applyBindings(new UserSettingsBasicViewModel());
-
-    $('.settings-left li').click(function (e) {
-        $('.settings-left li').removeClass('active');
-        this.classList.add('active');
-    });
-
+    ko.applyBindings(new UserSettingsViewModel());
 });
