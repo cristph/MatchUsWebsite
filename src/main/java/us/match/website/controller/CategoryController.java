@@ -51,6 +51,7 @@ public class CategoryController {
         }
         ObjectMapper mapper= new ObjectMapper();
         String Json=mapper.writeValueAsString(list);
+        System.out.println(Json);
         return Json;
     }
 

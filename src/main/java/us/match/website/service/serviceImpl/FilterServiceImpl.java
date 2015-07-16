@@ -66,6 +66,7 @@ public class FilterServiceImpl implements FilterService {
             for(int i=0;i<arrList1.get(0).size();i++){
                 int projectId=arrList1.get(0).get(i);
                 Project p=projectDao.getbyid(projectId);
+                p.setUserName(p.getPublisher().getUsername());
                 resultSet.add(p);
             }
             System.out.println(resultSet.size()+"ResultSetSize");
@@ -78,6 +79,7 @@ public class FilterServiceImpl implements FilterService {
             for(int i=0;i<arrList2.get(0).size();i++){
                 int projectId=arrList2.get(0).get(i);
                 Project p=projectDao.getbyid(projectId);
+                p.setUserName(p.getPublisher().getUsername());
                 resultSet.add(p);
             }
             System.out.println(resultSet.size() + "ResultSetSize");
@@ -88,7 +90,8 @@ public class FilterServiceImpl implements FilterService {
             for(int i=0;i<arrList3.get(0).size();i++){
                 int projectId=arrList3.get(0).get(i);
                 Project p=projectDao.getbyid(projectId);
-                p.userName=p.getPublisher().getUsername();
+//                System.out.println((p.getPublisher()==null)+"is null?----kkk--");
+                p.setUserName(p.getPublisher().getUsername());
                 resultSet.add(p);
             }
             System.out.println(resultSet.size() + "ResultSetSize");
