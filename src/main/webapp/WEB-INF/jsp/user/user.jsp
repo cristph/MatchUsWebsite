@@ -89,7 +89,7 @@
                         <ul class="">
                             <c:forEach var="project" items="${projectList}">
                                 <li>
-                                    <p>project.pname</p>
+                                    <p>${project.pname}</p>
                                 </li>
                             </c:forEach>
                         </ul>

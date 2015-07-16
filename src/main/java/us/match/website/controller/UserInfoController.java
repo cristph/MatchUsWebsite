@@ -25,6 +25,8 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.Buffer;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -39,7 +41,8 @@ public class UserInfoController extends MultiActionController{
     @RequestMapping(value="/user")
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
-        List<Project> list=userService.getUserProject(u.getUid());
+        List<Project> list=userService.getPublishing(u.getUid());
+        System.out.println(">>>>"+list.size());
         model.addAttribute("user",u);
         model.addAttribute("projectList",list);
         return "user/user";
@@ -51,11 +54,21 @@ public class UserInfoController extends MultiActionController{
         if(projectState.equals("Done")){
             User u=(User)session.getAttribute("user");
             List<Project> list=userService.getPublishing(u.getUid());
-            model.addAttribute("projectList",list);
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(!list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+            model.addAttribute("projectList",newList);
         }else{
             User u=(User)session.getAttribute("user");
             List<Project> list=userService.getPublishing(u.getUid());
-            model.addAttribute("projectList", list);
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+            model.addAttribute("projectList",newList);
         }
     }
 
