@@ -129,9 +129,9 @@ public class ProjectController {
 
     //@ResponseBody
     @RequestMapping(value = "/getOneProject")
-    public String getOneProject(Model model)
+    public String getOneProject(Model model,@RequestParam("pid") int pid)
     {
-        model.addAttribute("pname","dddd");
+        /*model.addAttribute("pname","dddd");
         model.addAttribute("pid",100101);
         model.addAttribute("state","will");
         model.addAttribute("pinstruction","sdfsdfdf");
@@ -142,8 +142,11 @@ public class ProjectController {
         model.addAttribute("location","beijing");
         model.addAttribute("email","will");
         model.addAttribute("phoneNumber","10000");
-        model.addAttribute("time","2000-01-01");
+        model.addAttribute("time","2000-01-01");*/
 
+        Project pro=projectService.getOneProject(pid);
+        model.addAttribute("project",pro);
+        System.out.println("pid="+pid);
         return "project/show/projectInfo";
     }
 

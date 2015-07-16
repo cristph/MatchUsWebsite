@@ -14,5 +14,6 @@ public interface ProjectService {
     public String updateProject(Project pro);
     public ArrayList<Project> QueryProject(ArrayList<String> Subjects,ArrayList<String> moduel,ArrayList<String> skill,ArrayList<String> reward);
     public List<Project> getAllProject();
+    public Project getOneProject(int pid);
 
 }
