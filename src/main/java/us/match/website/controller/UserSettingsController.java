@@ -19,7 +19,7 @@ import java.util.Map;
 public class UserSettingsController {
     @Resource
     private UserService userService;
-//    @Resource
+    @Resource
     private HttpServletRequest servletRequest;
 
     @RequestMapping("")
@@ -36,6 +36,8 @@ public class UserSettingsController {
         user.setSkills(null);
         user.setPublishingprojects(null);
         user.setWorkingprojects(null);
+        user.setFriends(null);
+        user.setFocused(null);
         return user;
     }
     @ResponseBody

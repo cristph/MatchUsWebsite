@@ -120,7 +120,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getHotUsers() {
-        return null;
+        List<User> list=userDao.gettopuser();
+        return list;
     }
 
 
