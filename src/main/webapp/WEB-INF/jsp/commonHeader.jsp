@@ -35,7 +35,7 @@
         </c:choose>
       </ul>
 
-      <form class="navbar-form navbar-right searchWrapper">
+      <form class="navbar-form navbar-right">
         <div class="input-group">
           <input type="text" class="form-control searchArea" id="searchArea" placeholder="搜索项目，大牛">
           <span class="input-group-btn">
