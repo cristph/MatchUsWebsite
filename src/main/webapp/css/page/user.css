@@ -49,18 +49,6 @@ a:active {
     color: #666;
 }
 
-.clearfix:after {
-    content: '\0020';
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-
-.clearfix {
-    *zoom: 1;
-}
-
 .l {
     float: left;
 }
@@ -268,12 +256,12 @@ a:active {
     margin-right: 4px;
 }
 
-.user-info .user-lay .user-setup {
-    color: #b5b9bc;
+.user-info .user-lay .user-setting {
+    color: black;
     font-size: 12px;
 }
 
-.user-info .user-lay .user-setup:hover {
+.user-info .user-lay .user-setting:hover {
     color: #f01400;
 }
 
