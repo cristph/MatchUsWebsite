@@ -34,6 +34,7 @@ public class UserInfoController extends MultiActionController{
     @Resource
     UserService userService;
 
+    @RequestMapping(value="/user")
     public User getBasicInfo(HttpServletRequest req,
                                      HttpServletResponse res){
         String name=req.getParameter("UserName");
