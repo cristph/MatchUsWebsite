@@ -29,13 +29,13 @@
             <li id="navli5"><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a></li>
           </c:when>
           <c:otherwise>
-            <li id="navli6"><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
+            <li id="navli6"><a href="../../view/page/projectInfo.html" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
             <li id="navli7"><a href="/user">${user.username}</a></li>
           </c:otherwise>
         </c:choose>
       </ul>
 
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right searchWrapper">
         <div class="input-group">
           <input type="text" class="form-control searchArea" id="searchArea" placeholder="搜索项目，大牛">
           <span class="input-group-btn">
