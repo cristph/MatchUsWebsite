@@ -2,6 +2,7 @@ package us.match.website.service;
 
 import us.match.website.model.User;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,4 +15,5 @@ public interface UserService {
     public User getBasicInfo(int userId);
     public User getBasicInfo(String userName);
     public User editUserInfo(User user);
+    public List<User> getHotUsers();
 }
