@@ -32,7 +32,8 @@ public class User {
         private List<UserSkill> Skills;
         private List<Project> publishingprojects;
         private List<Project> workingprojects;
-        private HashMap<Integer,Integer> friendsmap=new HashMap<Integer, Integer>();
+        private List<User>  focuser;//关注用户的人
+        private List<User>  focused;//被用户关注的人
     public String getInstruction() {
         return instruction;
     }
@@ -154,24 +155,6 @@ public class User {
         this.friends = friends;
     }
 
-    public void generatemap(Integer uname,Integer Intimacy){
-        this.friendsmap.put(uname,Intimacy);
-    }
-
-    public void MaptoString(){
-        friends = "{";
-        for (Iterator it = friendsmap.entrySet().iterator(); it.hasNext();) {
-            Map.Entry e = (Map.Entry) it.next();
-            friends += "'" + e.getKey() + "':";
-            friends += "'" + e.getValue() + "',";
-        }
-        friends = friends.substring(0, friends.lastIndexOf(","));
-        friends += "}";
-    }
-
-
-
-
     @Id
     @GeneratedValue
     public int getUid() {
@@ -208,5 +191,25 @@ public class User {
 
     public void setSkills(List<UserSkill> skills) {
         Skills = skills;
+    }
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name="focuser_focused",
+            joinColumns= @JoinColumn(name="focuser_id"),
+            inverseJoinColumns=@JoinColumn(name="focused_id")
+    )
+    public List<User> getFocuser() {
+        return focuser;
+    }
+
+    public void setFocuser(List<User> focuser) {
+        this.focuser = focuser;
+    }
+    @ManyToMany(mappedBy = "focuser",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<User> getFocused() {
+        return focused;
+    }
+
+    public void setFocused(List<User> focused) {
+        this.focused = focused;
     }
 }
