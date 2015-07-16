@@ -1,31 +1,28 @@
 package us.match.website.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by WH on 2015/7/10.
  */
 @Controller
-public class UserInfoController extends MultiActionController{
+@RequestMapping("/user")
+public class UserInfoController {
     /*处理访问个人信息的请求*/
     @Resource
     UserService userService;
 
-    public User getBasicInfo(HttpServletRequest req,
-                                     HttpServletResponse res){
-        String name=req.getParameter("UserName");
-        String pass=req.getParameter("Password");
-        User user=userService.login(name,pass);
-        return user;
+    @RequestMapping("")
+    public String getBasicInfo(Model model, HttpSession session){
+        User usr = ((User) session.getAttribute("user"));
+        model.addAttribute("user", usr);
+        return "user/user";
     }
 }
