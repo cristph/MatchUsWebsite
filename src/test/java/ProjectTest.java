@@ -61,6 +61,6 @@ public class ProjectTest {
 //    public void Testgetbymoduel(){assertEquals(4,pd.getbymodule("比赛").size());}
     @Test
     public void Testfetall(){
-        assertEquals(5,pd.getallProject().size());}
+        assertEquals(9,pd.getallProject().size());}
 
 }
