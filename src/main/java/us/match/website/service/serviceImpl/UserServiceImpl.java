@@ -11,6 +11,7 @@ import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
 //        System.out.println("______________"+username+" "+user.getPassword());
         if(userFromDao!=null && user.getPassword()!=null){
             if(userFromDao.getPassword().equals(user.getPassword())){
-                return user; //login success
+                return userFromDao; //login success
             }else{
                 return null; //login failed
             }
@@ -115,6 +116,11 @@ public class UserServiceImpl implements UserService {
             return OutdatedUser;
         else
             return null;
+    }
+
+    @Override
+    public List<User> getHotUsers() {
+        return null;
     }
 
 

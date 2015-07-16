@@ -38,6 +38,7 @@ public class UserInfoController extends MultiActionController{
     @RequestMapping(value="/user")
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
+        System.out.println(u.getUid()+u.getUsername()+">>>>>>>");
         model.addAttribute("user",u);
         return "user/user";
     }
