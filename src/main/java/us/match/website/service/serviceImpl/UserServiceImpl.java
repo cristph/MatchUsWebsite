@@ -3,7 +3,9 @@ package us.match.website.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
+import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
 import us.match.website.util.Identicon;
@@ -122,6 +124,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getHotUsers() {
         List<User> list=userDao.gettopuser();
         return list;
+    }
+
+    public List<Project> getUserProject(int userId){
+        return userDao.getUserProject(userId);
     }
 
 
