@@ -29,130 +29,75 @@
                     <img src="userPhoto.jpg?uid=${user.uid}" alt="该用户暂无头像">
                 </span>
                 <ul class="user-lay">
-                    <li id="name">
-                        ${user.username}
-                        ${user.address}
-                        ${user.uid}
-                        ${user.email}
+                    <li id="user_name">
+                        昵称：<Strong>${user.username}</Strong>
                     </li>
-                    <li>
-                        <a href="/user/settings" class="user-setting">
-                            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>设置
-                        </a>
+                    <li id="user_sex">
+                        性别：<Strong>${user.sex}</Strong>
+                    </li>
+                    <li id="user_university">
+                        学校：<Strong>${user.university}</Strong>
+                    </li>
+                    <li id="user_email">
+                        地址：<Strong>${user.address}</Strong>
                     </li>
                 </ul>
             </div>
-            <ul class="left_nav">
-                <li>
-                    <a class="active" href="#">发布<em class="got-num">7</em></a>
+            <div>
+                <li style="list-style: none;text-align: center">
+                    <a class="#" href="/user/settings">设置</a>
                 </li>
-                <li>
-                    <a class="#" href="#">参与<em class="got-num">0</em></a>
-                </li>
-                <li>
-                    <a class="#" href="#">关注<em class="got-num">0</em></a>
-                </li>
-                <li>
-                    <a class="#" href="#">粉丝<em class="got-num">0</em></a>
-                </li>
-            </ul>
+                <p>${user.instruction}</p>
+            </div>
+            <div>
+                <ul class="left_nav">
+                    <li>
+                        <a class="left_nav_bar active" href="#">发布<em class="got-num">7</em></a>
+                    </li>
+                    <li>
+                        <a class="left_nav_bar" href="#">参与<em class="got-num">0</em></a>
+                    </li>
+                    <li>
+                        <a class="left_nav_bar" href="#">关注<em class="got-num">0</em></a>
+                    </li>
+                    <li>
+                        <a class="left_nav_bar" href="#">粉丝<em class="got-num">0</em></a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
 
-        <div class="l space-main">
-            <div class="family">
-                <h1 class="family-hd">我的项目</h1>
+        <div id="detail_body">
+            <div id="published_project content_div" class="show">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="#">未完成</a></li>
+                    <li role="presentation" class="active"><a href="#">已完成</a></li>
+                </ul>
+
             </div>
-
-            <div class="course-tool-bar clearfix">
-                <div class="tool-left l">
-                    <a href="#" class="#">已关注
-                    </a>
-                    <a href="#" class="active">已接受</a>
-                    <a href="#" class=" ">已完成</a>
-                </div>
+            <div id="attent_project content_div" class="hide">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="#">已参加</a></li>
+                    <li role="presentation" class="active"><a href="#">已完成</a></li>
+                </ul>
             </div>
-
-
-            <div class="main-bd clearfix">
-                <div class="my-space-course study-tl">
-                    <div class="clearfix tl-item  tl-item-first">
-                        <div class="project-list project-list-m">
-                            <ul class="clearfix">
-                                <li class="course-one">
-                                    <a href="#">
-                                        <h2>电商网站</h2>
-
-                                        <div class="tips">
-                                            <p class="text-ellipsis">
-                                                本课程从最基本的概念开始讲起，步步深入，带领
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="course-one">
-                                    <a href="#">
-                                        <h2>电商网站</h2>
-
-                                        <div class="tips">
-                                            <p class="text-ellipsis">
-                                                本课程从最基本的概念开始讲起，步步深入，带领
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="course-one">
-                                    <a href="#">
-                                        <h2>电商网站</h2>
-
-                                        <div class="tips">
-                                            <p class="text-ellipsis">
-                                                本课程从最基本的概念开始讲起，步步深入，带领
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="course-one">
-                                    <a href="#">
-                                        <h2>电商网站</h2>
-
-                                        <div class="tips">
-                                            <p class="text-ellipsis">
-                                                本课程从最基本的概念开始讲起，步步深入，带领
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="course-one">
-                                    <a href="#">
-                                        <h2>电商网站</h2>
-
-                                        <div class="tips">
-                                            <p class="text-ellipsis">
-                                                本课程从最基本的概念开始讲起，步步深入，带领
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="course-one">
-                                    <a href="#">
-                                        <h2>电商网站</h2>
-
-                                        <div class="tips">
-                                            <p class="text-ellipsis">
-                                                本课程从最基本的概念开始讲起，步步深入，带领
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div id="my_follow_people content_div" class="hide">
+                我关注的人
+            </div>
+            <div id="people_follow_me content_div" class="hide">
+                关注我的人
             </div>
         </div>
     </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
+
+<script type="text/javascript" defer="defer">
+    var va = document.getElementsByClassName("left_nav_bar");
+    for (var i = 0; i < va.length; i++) {
+        va[i].onclick = changeBar;
+    }
+</script>
 </body>
 </html>
