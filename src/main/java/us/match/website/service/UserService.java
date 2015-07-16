@@ -1,5 +1,6 @@
 package us.match.website.service;
 
+import us.match.website.model.Project;
 import us.match.website.model.User;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface UserService {
     public User getBasicInfo(String userName);
     public User editUserInfo(User user);
     public List<User> getHotUsers();
+    public List<Project> getUserProject(int userId);
+    public List<Project> getPublishing(int userId);
 }
