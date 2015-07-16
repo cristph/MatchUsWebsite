@@ -1,15 +1,19 @@
 package us.match.website.controller;
 
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import us.match.website.model.Project;
 import us.match.website.model.User;
+import us.match.website.service.ProjectService;
 import us.match.website.service.UserService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +25,9 @@ public class LoginController {
     @Resource
     UserService userService;
 
+    @Resource
+    ProjectService projectService;
+
     @RequestMapping("")
     public String index(Model model, HttpSession session){
         User userInSession = (User)session.getAttribute("user");
@@ -28,6 +35,9 @@ public class LoginController {
             // 呈现已登陆状态
             model.addAttribute("user", userInSession);
         }
+        List<Project> list=projectService.getAllProject();
+        list.subList(0,8);
+        model.addAttribute("projects",list);
         return "index";
     }
 
