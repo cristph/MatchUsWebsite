@@ -130,5 +130,11 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserProject(userId);
     }
 
+    @Override
+    public List<Project> getPublishing(int userId) {
+        User u=userDao.getUserbyid(userId);
+        return u.getPublishingprojects();
+    }
+
 
 }

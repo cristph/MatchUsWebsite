@@ -36,7 +36,6 @@ public class UserInfoController extends MultiActionController{
     @Resource
     UserService userService;
 
-    @ResponseBody
     @RequestMapping(value="/user")
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
@@ -44,6 +43,20 @@ public class UserInfoController extends MultiActionController{
         model.addAttribute("user",u);
         model.addAttribute("projectList",list);
         return "user/user";
+    }
+
+    @RequestMapping(value="/user/releasedProjects")
+    public void getReleased(HttpSession session,Model model,
+                              @RequestParam String projectState){
+        if(projectState.equals("Done")){
+            User u=(User)session.getAttribute("user");
+            List<Project> list=userService.getPublishing(u.getUid());
+            model.addAttribute("projectList",list);
+        }else{
+            User u=(User)session.getAttribute("user");
+            List<Project> list=userService.getPublishing(u.getUid());
+            model.addAttribute("projectList", list);
+        }
     }
 
 
