@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <!DOCTYPE html>
 <head>
@@ -39,9 +40,9 @@
 
   <div class="project-header">
     <div class="row">
-      <h1 class="project-title">${pname}
-                <span class="project-description name_popover">${time}
-                    by<a href="http:\\Github.com"> ${publisher}</a>
+      <h1 class="project-title">${project.pname}
+                <span class="project-description name_popover">${project.starttime}
+                    by<a href="http:\\Github.com"> ${project.publisher.username}</a>
                 </span>
       </h1>
     </div>
@@ -56,22 +57,21 @@
       <div class="project-post">
         <h2 class="project-post-title">项目描述：</h2>
         <hr>
-        <p>${pinstruction}
-        </p>
+        <p>${project.pinstruction}</p>
         <br>
         <br>
         <br>
         <h2 class="project-post-title">项目报酬：</h2>
         <hr>
-        <p>${reward}</p>
+        <p>${project.reward}</p>
         <br>
         <br>
         <br>
         <h2 class="project-post-title">联系方式：</h2>
         <hr>
-        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="http://cristph@foxmail.com"> ${email}</a></p>
+        <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="http://cristph@foxmail.com"> ${project.email}</a></p>
         <br>
-        <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> ${phoneNumber}</p>
+        <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> ${project.phonenumber}</p>
       </div><!-- /.project-post -->
 
       <nav>
