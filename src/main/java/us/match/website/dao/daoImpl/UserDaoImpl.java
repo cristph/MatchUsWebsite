@@ -236,6 +236,7 @@ public class UserDaoImpl implements UserDao {
             boolean result=true;
             focuser.getFocuser().add(focused);
             focused.getFocused().add(focuser);
+            focused.addfocused();
             Session session = sessionFactory.openSession();
             try{
                 session.beginTransaction();
@@ -249,6 +250,24 @@ public class UserDaoImpl implements UserDao {
             }
     }
 
+    @Override
+    public List<User> gettopuser() {
+        List<User> result=new ArrayList<User>();
+        Session session = sessionFactory.openSession();
+        try {
+            session.beginTransaction();
+            Query query=session.createQuery("from User order by focusednum desc ");
+            query.setFirstResult(0);
+            query.setMaxResults(36);
+            result= query.list();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
+    }
 
 
 }

@@ -34,6 +34,7 @@ public class User {
         private List<Project> workingprojects;
         private List<User>  focuser;//关注用户的人
         private List<User>  focused;//被用户关注的人
+        private int focusednum=0;
     public String getInstruction() {
         return instruction;
     }
@@ -211,5 +212,16 @@ public class User {
 
     public void setFocused(List<User> focused) {
         this.focused = focused;
+    }
+
+    public int getFocusednum() {
+        return focusednum;
+    }
+
+    public void setFocusednum(int focusednum) {
+        this.focusednum = focusednum;
+    }
+    public void addfocused(){
+        focusednum++;
     }
 }
