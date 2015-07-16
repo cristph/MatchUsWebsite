@@ -32,10 +32,10 @@
                 <div data-bind="click: function(){active_part(1)}">个人资料</div>
             </li>
             <li data-bind="css: {active: active_part() === 2}">
-                <div data-bind="click: function(){active_part(2)}">邮箱验证</div>
+                <div data-bind="click: function(){active_part(2)}">头像设置</div>
             </li>
             <li data-bind="css: {active: active_part() === 3}">
-                <div data-bind="click: function(){active_part(3)}">头像设置</div>
+                <div data-bind="click: function(){active_part(3)}">邮箱验证</div>
             </li>
             <li data-bind="css: {active: active_part() === 4}">
                 <div data-bind="click: function(){active_part(4)}">修改密码</div>
