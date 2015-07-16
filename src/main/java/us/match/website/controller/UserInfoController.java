@@ -36,6 +36,7 @@ public class UserInfoController extends MultiActionController{
     @Resource
     UserService userService;
 
+    @ResponseBody
     @RequestMapping(value="/user")
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
