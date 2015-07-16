@@ -41,7 +41,7 @@ function getPublish_unCompleted(uid) {
     var attent_projects = document.getElementById("attent_project");
     alert(uid);
     $.post("/user", uid, function (data) {
-
+        refreshView
     });
 }
 
