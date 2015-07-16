@@ -11,43 +11,37 @@ $(function () {
 
     function UserSettingsBasicViewModel() {
         var self = this;
-        self.username = ko.observable();
-        self.university = ko.observable();
-        self.major = ko.observable();
-        self.address = ko.observable();
-        self.skills = ko.observableArray([]);
-        self.birthday = ko.observable();
-        self.introduction = ko.observable();
+        self.user = ko.observable(new User());
 
         $.get("/user/settings/basic", null, function (data) {
             var new_user = data;
-            self.username(new_user.username);
-            self.university(new_user.university);
-            self.major(new_user.major);
-            self.address(new_user.address);
-            self.skills(new_user.skills);
-            self.birthday(new_user.birthday);
-            self.introduction(new_user.introduction);
+            self.user().username(new_user.username);
+            self.user().university(new_user.university);
+            self.user().major(new_user.major);
+            self.user().address(new_user.address);
+            self.user().skills(new_user.skills);
+            self.user().birthday(new_user.birthday);
+            self.user().introduction(new_user.introduction);
         })
         self.update = function () {
             $.post("/user/settings/basic", {
-                'username': self.username(),
-                'university': self.university(),
-                'major': self.major(),
-                'address': self.address(),
-                'skills': self.skills(),
-                'birthday': self.birthday(),
-                'introduction': self.introduction() || ''
+                'username': self.user().username(),
+                'university': self.user().university(),
+                'major': self.user().major(),
+                'address': self.user().address(),
+                'skills': self.user().skills(),
+                'birthday': self.user().birthday(),
+                'introduction': self.user().introduction() || ''
             }, function (data) {
                 if (data.success) {
                     var new_user = data.user;
-                    self.username(new_user.username);
-                    self.university(new_user.university);
-                    self.major(new_user.major);
-                    self.address(new_user.address);
-                    self.skills(new_user.skills);
-                    self.birthday(new_user.birthday);
-                    self.introduction(new_user.introduction);
+                    self.user().username(new_user.username);
+                    self.user().university(new_user.university);
+                    self.user().major(new_user.major);
+                    self.user().address(new_user.address);
+                    self.user().skills(new_user.skills);
+                    self.user().birthday(new_user.birthday);
+                    self.user().introduction(new_user.introduction);
                     alert('update success');
                 }
                 else {

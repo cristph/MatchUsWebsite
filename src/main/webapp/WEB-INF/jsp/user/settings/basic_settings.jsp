@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- right side part -->
 <form data-bind="submit: update">
-    <div class="settings-right wrapped-boxes active">
+    <div class="settings-right wrapped-boxes active" data-bind="with: user">
         <div class="row">
             <label for="name" class="col-md-2 text-right">昵称</label>
 
