@@ -49,8 +49,8 @@ function getOneProjectView(project) {
         "<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
         "</div>" +
         "<div class=\"projects-info\">" +
-        "<p>" + project.skills + "</p> " +
-        "<span class=\"left\">" + project.publisher + "</span> " +
+        "<p>" + project.skill + "</p> " +
+        "<span class=\"left\">" + project.userName + "</span> " +
         "<span class=\"right\">" + project.phonenumber + "</span> " +
         "</div>" +
         "<div class=\"projects-subinfo\">" +

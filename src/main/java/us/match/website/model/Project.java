@@ -31,6 +31,18 @@ public class Project {
     private String email;
     private String phonenumber;
 
+    @Transient
+    public String getUserName() {
+        return userName;
+    }
+
+    @Transient
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String userName;/*Add by wh*/
+
     public String getPinstruction() {
         return pinstruction;
     }

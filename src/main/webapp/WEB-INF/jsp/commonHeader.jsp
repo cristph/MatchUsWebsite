@@ -30,7 +30,7 @@
           </c:when>
           <c:otherwise>
             <li><a href="#" data-toggle="modal" data-target="#releasepro">发布项目</a></li>
-            <li><a href="../../view/page/user.html">${user.username}</a></li>
+            <li><a href="/user">${user.username}</a></li>
           </c:otherwise>
         </c:choose>
       </ul>
