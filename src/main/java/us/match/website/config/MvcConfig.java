@@ -21,7 +21,7 @@ import java.util.List;
  * Created by Ezio on 7/10/2015.
  */
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
 @ComponentScan(basePackages = "us.match.website.controller")
 public class MvcConfig extends WebMvcConfigurerAdapter {
     @Bean
