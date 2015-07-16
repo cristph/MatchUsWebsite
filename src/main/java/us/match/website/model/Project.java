@@ -31,6 +31,8 @@ public class Project {
     private String email;
     private String phonenumber;
 
+    public String userName;/*Add by wh*/
+
     public String getPinstruction() {
         return pinstruction;
     }

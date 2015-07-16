@@ -4,6 +4,17 @@ var select = function () {
 }
 function applySelect() {
     var primary_btn_list = document.getElementsByClassName("btn-primary");
+    var all_btn = document.getElementsByClassName("all-btn");
+    var isall = 1;//是否全部为全部
+    for (var i = 0; i < all_btn.length; i++) {
+        if (all_btn[i].classList.contains("btn-default")) {
+            isall = 0;
+            break;
+        }
+    }
+    if (isall == 1) {
+        primary_btn_list = document.getElementsByClassName("btn btn-default");
+    }//判断是否四个全部
     var dataContent = new Array();
     for (var i = 0; i < primary_btn_list.length; i++) {
         dataContent[i] = primary_btn_list[i].name;
@@ -19,8 +30,8 @@ function applySelect() {
 
 function refreshView(projects) {
     var project_div = document.getElementById("projects");
-    if (projects[0].id == -1) {
-        project_div.innerHTML = "<h1>此类目下暂无项目，敬请期待~~~</h1>";
+    if (projects[0].pid == -1) {
+        project_div.innerHTML = "<div style='height: 500px'><h1 style='height: 500px;text-align: center'>此类目下暂无项目，敬请期待~~~</h1></div>";
     } else {
         var content = "<ul class=\"projects-index\">";
         for (var i = 0; i < projects.length; i++) {
@@ -38,18 +49,17 @@ function getOneProjectView(project) {
         "<img src=\"http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg\"> " +
         "</div>" +
         "<div class=\"projects-info\">" +
-        "<p>" + project.pname + "</p> " +
-        "<span class=\"left\">" + project.reward + "</span> " +
-        "<span class=\"right\">" + project.location + "</span> " +
+        "<p>" + project.skill + "</p> " +
+        "<span class=\"left\">" + project.userName + "</span> " +
+        "<span class=\"right\">" + project.phonenumber + "</span> " +
         "</div>" +
         "<div class=\"projects-subinfo\">" +
-        "<h2 align='center'>" + project.skills + "</h2>" +
-        "<span class =\"left\">" + project.publisher + "</span>" +
-        "<span class =\"right\">" + project.phonenumber + "</span>" +
+        "<h2 align='center'>" + project.pname + "</h2>" +
+        "<span class =\"left\">" + project.reward + "</span>" +
+        "<span class =\"right\">" + project.location + "</span>" +
         "</div> " +
         "</a> " +
         "</li>";
-    alert(projectHTML);
     return projectHTML;
 }
 function changeColor(btn) {

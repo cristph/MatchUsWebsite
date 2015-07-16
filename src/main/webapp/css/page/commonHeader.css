@@ -1,5 +1,6 @@
 #nav_top{
     border: 0
+
 }
 
 #img_a{
@@ -16,11 +17,26 @@
     position: relative;
     left: 2%;
 }
-
+ul.navbar-right li {
+    width: 6em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .modal_width{
     width: 400px;
 }
 
 .releasepro_width{
     width: 800px;
+}
+
+
+.searchArea{
+    border-radius: 0px;
+}
+
+.searchButton{
+    border-radius: 0px;
 }
