@@ -15,6 +15,7 @@
   height: 60px;
   line-height: 60px;
   padding-left: 45px;
+  cursor: hand;
 }
 
 .settings-left .active div {

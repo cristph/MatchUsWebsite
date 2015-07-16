@@ -79,3 +79,6 @@ ul.navbar-right li {
     margin-left: 10px;
  }
 
+.modal-footer .checkbox {
+    float: left;
+}

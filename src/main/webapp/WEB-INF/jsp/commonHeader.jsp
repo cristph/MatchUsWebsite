@@ -57,23 +57,24 @@
         <h4 class="modal-title" id="exampleModalLabel">登陆</h4>
       </div>
       <div class="modal-body">
-        <form class='form-signin' method="post" action="/login">
+        <%--<form class='form-signin' method="post" action="/login">--%>
+        <form class='form-signin' data-bind="submit: login">
           <div class="form-group has-feedback">
             <label class="control-label">用户名或注册邮箱：</label>
-            <input type='text' id='username' name="username" class='form-control'
+            <input type='text' data-bind="value: username" id='username' name="username" class='form-control'
                    placeholder='Use Name or Email...' required autofocus>
           </div>
           <div class="form-group">
             <label class="control-label">登陆密码：</label>
-            <input type='password' id="password" name="password" class='form-control'
+            <input type='password' data-bind="value: password" id="password" name="password" class='form-control'
                    placeholder='Password' required>
           </div>
-          <div class='checkbox'>
-            <label>
-              <input type='checkbox' name="remember"> 记住我
-            </label>
-          </div>
           <div class="modal-footer">
+            <div class='checkbox'>
+              <label>
+                <input type='checkbox' data-bind="checked: remember" name="remember"> 记住我
+              </label>
+            </div>
             <button type="submit" class="btn btn-primary">确认</button>
           </div>
         </form>
@@ -193,3 +194,4 @@
     </div>
   </div>
 </div>
+<script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
