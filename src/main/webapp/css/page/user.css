@@ -122,96 +122,18 @@ a {
 #detail_body {
     float: left;
     width: 75%;
-    padding-left: 5%;
+    padding-left: 3%;
     padding-top: 2%;
 }
 
-.project-list ul {
-    margin: 0 -60px 0 -20px;
+.main-body {
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
-.main-bd .three-colum li {
-    margin: 0 -7px;
-}
-
-.myspace-courselist {
-    width: 860px;
-}
-
-.course-list-m ul {
-    margin-left: 10px;
-}
-
-.course-list-m li {
-    margin-left: -10px;
-}
-
-.course-list-m li:hover {
-    z-index: 220;
-}
-
-.study-tl {
-    padding: 12px 0 0 64px;
-}
-
-.study-tl .tl-item {
-    position: relative;
-    padding-left: 15px;
-    border-left: 1px solid #d0d6d9;
-}
-
-.study-tl .tl-item .time {
-    position: absolute;
-    left: 0;
-    top: 20px;
-    margin-left: -64px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #8a8c8f;
-}
-
-.study-tl .tl-item .time b {
-    font-size: 18px;
-    font-weight: normal;
-}
-
-.study-tl .tl-item .time em {
-    display: block;
-    margin-top: 1px;
-}
-
-.study-tl .tl-item .time::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 60px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #d0d6d9;
-}
-
-.study-tl .tl-item-first:before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 20px;
-    left: -1px;
-    top: 0;
-    background-color: white;
-}
-
-.study-tl .tl-item-last:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 60px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #d0d6d9;
-    left: -4px;
-    bottom: 0;
+.project-list {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .project-list li {
@@ -222,20 +144,15 @@ a {
     *border-bottom: 2px solid #f7faf9;
     border-radius: 0 0 1px 1px;
     float: left;
-    height: 250px;
+    height: 240px;
     padding: 20px 20px 0;
     position: relative;
     -moz-transition: box-shadow 0.3s;
     -webkit-transition: box-shadow 0.3s;
     -o-transition: box-shadow 0.3s;
     transition: box-shadow 0.3s;
-    width: 200px !important;
+    width: 250px !important;
     margin: 0 40px 8px 0px;
-}
-
-.project-list li .tips {
-    font-size: 12px;
-    color: #b4bbbf;
 }
 
 .project-list li:hover,
@@ -252,28 +169,6 @@ a {
     *display: block;
 }
 
-.project-list {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .project-list ul {
-    margin: 0 -20px 0 -60px;
-}
-
-.project-list li .tips {
-    margin: 0;
-    padding: 0;
-}
-
-.project-list .tips p {
-    margin: 8px 0;
-}
-
-.project-list .tips span {
-    color: #787d82;
-}
-
-.main-bd {
-    margin-top: 10px;
+    margin: 20px -20px 0 -60px;
 }

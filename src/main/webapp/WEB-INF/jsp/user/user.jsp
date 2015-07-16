@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: 张波波
@@ -14,7 +16,7 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/page/user.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../css/page/user.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonHeader.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonFooter.css" type="text/css">
     <script type="text/javascript" src="/js/page/user.js" charset="utf-8"></script>
@@ -52,16 +54,16 @@
             <div>
                 <ul class="left_nav">
                     <li>
-                        <a class="left_nav_bar active" href="#">发布<em class="got-num">7</em></a>
+                        <a id="publish" class="left_nav_bar active" href="#">发布<em class="got-num">7</em></a>
                     </li>
                     <li>
-                        <a class="left_nav_bar" href="#">参与<em class="got-num">0</em></a>
+                        <a id="attend" class="left_nav_bar" href="#">参与<em class="got-num">0</em></a>
                     </li>
                     <li>
-                        <a class="left_nav_bar" href="#">关注<em class="got-num">0</em></a>
+                        <a id="follow" class="left_nav_bar" href="#">关注<em class="got-num">0</em></a>
                     </li>
                     <li>
-                        <a class="left_nav_bar" href="#">粉丝<em class="got-num">0</em></a>
+                        <a id="fans" class="left_nav_bar" href="#">粉丝<em class="got-num">0</em></a>
                     </li>
                 </ul>
             </div>
@@ -69,34 +71,57 @@
 
 
         <div id="detail_body">
-            <div id="published_project content_div" class="show">
+            <div id="published_project" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation"><a href="#">未完成</a></li>
-                    <li role="presentation" class="active"><a href="#">已完成</a></li>
+                    <li role="presentation" class="active" onclick=""><a href="#">未完成</a></li>
+                    <li role="presentation" onclick=""><a href="#">已完成</a></li>
                 </ul>
-
+                <div class="main-body">
+                    <div class="project-list">
+                        <ul class="">
+                            <li class="">
+                                1
+                            </li>
+                            <li class="">
+                                2
+                            </li>
+                            <li class="">
+                                3
+                            </li>
+                            <li class="">
+                                4
+                            </li>
+                            <li class="">
+                                5
+                            </li>
+                            <li class="">
+                                6
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div id="attent_project content_div" class="hide">
+            <div id="attent_project" class="content_div hide">
                 <ul class="nav nav-tabs">
                     <li role="presentation"><a href="#">已参加</a></li>
                     <li role="presentation" class="active"><a href="#">已完成</a></li>
                 </ul>
             </div>
-            <div id="my_follow_people content_div" class="hide">
+            <div id="my_follow_people" class="content_div hide">
                 我关注的人
             </div>
-            <div id="people_follow_me content_div" class="hide">
+            <div id="people_follow_me" class="content_div hide">
                 关注我的人
             </div>
         </div>
     </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
-
 <script type="text/javascript" defer="defer">
+    uid =${user.uid};
     var va = document.getElementsByClassName("left_nav_bar");
     for (var i = 0; i < va.length; i++) {
-        va[i].onclick = changeBar;
+        va[i].onclick = changeBar(uid);
     }
 </script>
 </body>

@@ -28,9 +28,9 @@ public class FilterServiceImpl implements FilterService {
         /*if select all ,return all*/
         if(classNames.length==ClassNames.size()
                 && modeNames.length== Mode.size()
-                && techNames.length==Technology.size())
+                && techNames.length==Technology.size()) {
             return projectDao.getallProject();
-
+        }
         /*get project by class*/
         List<Integer> arrList1=null;
         if(classNames.length>0)

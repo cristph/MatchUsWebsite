@@ -72,7 +72,7 @@
                 <button type="button" name="Linux" class="btn btn-default">Linux</button>
                 <button type="button" name="MySql" class="btn btn-default">MySql</button>
                 <button type="button" name="C#" class="btn btn-default">C#</button>
-                <button type="button" name="iOS" class="btn btn-default">android</button>
+                <button type="button" name="android" class="btn btn-default">android</button>
                 <button type="button" name="iOS" class="btn btn-default">iOS</button>
                 <button type="button" name="其他技术" class="btn btn-default">其他技术</button>
             </div>
