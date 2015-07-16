@@ -99,7 +99,7 @@
         <ul class="projects-index">
             <c:forEach var="project" items="${projects}">
                 <li>
-                    <a href="/project/getOneProject/${project.pid}">
+                    <a href="/project/getOneProject?pid=${project.pid}">
                         <div class="projects-img">
                             <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
                         </div>

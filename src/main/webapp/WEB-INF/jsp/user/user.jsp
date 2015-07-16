@@ -31,15 +31,9 @@
                 <ul class="user-lay">
                     <li id="name">
                         ${user.username}
-                    </li>
-                    <li id="detail_info">
                         ${user.address}
                         ${user.uid}
                         ${user.email}
-
-                    </li>
-                    <li>
-
                     </li>
                     <li>
                         <a href="/user/settings" class="user-setting">
@@ -50,13 +44,16 @@
             </div>
             <ul class="left_nav">
                 <li>
-                    <a class="active" href="#">我的项目<em class="got-num">7</em></a>
+                    <a class="active" href="#">发布<em class="got-num">7</em></a>
                 </li>
                 <li>
-                    <a class="#" href="#">我关注的人<em class="got-num">0</em></a>
+                    <a class="#" href="#">参与<em class="got-num">0</em></a>
                 </li>
                 <li>
-                    <a class="#" href="#">我的团队<em class="got-num">0</em></a>
+                    <a class="#" href="#">关注<em class="got-num">0</em></a>
+                </li>
+                <li>
+                    <a class="#" href="#">粉丝<em class="got-num">0</em></a>
                 </li>
             </ul>
         </div>
