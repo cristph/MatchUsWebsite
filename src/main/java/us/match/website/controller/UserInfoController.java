@@ -54,6 +54,9 @@ public class UserInfoController extends MultiActionController{
             p.setPid(-1);
             newList.add(p);
         }
+        System.out.println(newList.size()+"newList");
+        System.out.println(newList.get(0).isState());
+        System.out.println(newList.get(0).getEmail());
         model.addAttribute("user", u);
         model.addAttribute("projectList",newList);
         return "user/user";
@@ -70,21 +73,6 @@ public class UserInfoController extends MultiActionController{
             List<Project> list=userService.getPublishing(u.getUid());
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
-                if(!list.get(i).isState().equals("past"))
-                    newList.add(list.get(i));
-            }
-//            model.addAttribute("projectList",newList);
-            if(newList.size()==0){
-                Project p=new Project();
-                p.setPid(-1);
-                newList.add(p);
-            }
-            return newList;
-        }else{
-            User u=(User)session.getAttribute("user");
-            List<Project> list=userService.getPublishing(u.getUid());
-            List<Project> newList=new LinkedList<Project>();
-            for(int i=0;i<list.size();i++){
                 if(list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
@@ -94,6 +82,23 @@ public class UserInfoController extends MultiActionController{
                 p.setPid(-1);
                 newList.add(p);
             }
+            System.out.println(newList+newList.get(0).isState()+"------------------1");
+            return newList;
+        }else{
+            User u=(User)session.getAttribute("user");
+            List<Project> list=userService.getPublishing(u.getUid());
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(!list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
+            System.out.println(newList+newList.get(0).isState()+"------------------2");
             return newList;
         }
 
@@ -111,7 +116,7 @@ public class UserInfoController extends MultiActionController{
             List<Project> list=u.getWorkingprojects();
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
-                if(!list.get(i).isState().equals("past"))
+                if(list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
 //            model.addAttribute("projectList",newList);
@@ -127,7 +132,7 @@ public class UserInfoController extends MultiActionController{
             List<Project> list=u.getWorkingprojects();
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
-                if(list.get(i).isState().equals("past"))
+                if(!list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
 //            model.addAttribute("projectList",newList);
