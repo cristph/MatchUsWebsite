@@ -254,10 +254,19 @@ public class UserDaoImpl implements UserDao {
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Query query=session.createQuery("from User order by focusednum desc ");
+            Query query=session.createSQLQuery("select uid,email,face,username from User order by focusednum desc");
             query.setFirstResult(0);
             query.setMaxResults(36);
-            result= query.list();
+            List<Object[]> object = query.list();
+            for(Object[] o:object)
+            {
+                User temp=new User();
+                temp.setUid((int)o[0]);
+                temp.setEmail((String)o[1]);
+                temp.setFace((byte[])o[2]);
+                temp.setUsername((String)o[3]);
+                result.add(temp);
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
