@@ -90,6 +90,48 @@ public class UserInfoController extends MultiActionController{
 
     }
 
+    @ResponseBody
+    @RequestMapping(value="/user/attendProjects",method = RequestMethod.POST)
+    public List<Project> getAttend(HttpSession session,Model model,
+                                     @RequestParam("projectState") String projectState){
+        System.out.println("function entered");
+        if(projectState.equals("Done")){
+            User u=(User)session.getAttribute("user");
+            System.out.println("function exed");
+            u=userService.getBasicInfo(u.getUid());
+            List<Project> list=u.getWorkingprojects();
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(!list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
+            return newList;
+        }else{
+            User u=(User)session.getAttribute("user");
+            u=userService.getBasicInfo(u.getUid());
+            List<Project> list=u.getWorkingprojects();
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
+            return newList;
+        }
+
+    }
+
 
     @RequestMapping(value="/userPhoto.jpg")
     public  void getUserPhoto(@RequestParam("uid") int userId,
