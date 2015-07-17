@@ -123,8 +123,13 @@
 <script type="text/javascript">
 
     $("img.lazy").lazyload({
-        effect : "fadeIn"
+        event: "sporty"
     });
+
+    $(window).bind("load", function() {
+        var timeout = setTimeout(function() {$("img").trigger("sporty")}, 100);
+    });
+
     $(function () {
 
         var Photo = (function () {
