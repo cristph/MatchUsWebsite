@@ -123,7 +123,7 @@ function changeToActive(bar) {
 
 function getProjetListHtmlStr(projects) {
     if (projects[0].pid == -1) {
-        return "<h2>没有项目，</h2>"
+        return "<h2>没有项目，快去参加吧~~~</h2>"
     } else {
         var htmlStr = "";
         for (var i = 0; i < projects.length; i++) {
