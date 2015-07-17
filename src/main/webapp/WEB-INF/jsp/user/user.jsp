@@ -15,11 +15,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/page/user.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonHeader.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonFooter.css" type="text/css">
-    <script type="text/javascript" src="/js/page/user.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/page/commonHeader.js"></script>
+    <script type="text/javascript" src="/js/page/user.js"></script>
 </head>
 <body>
 <jsp:include page="../commonHeader.jsp"/>
@@ -53,25 +56,17 @@
             </div>
             <div>
                 <ul class="left_nav">
-                    <li>
-                        <a id="publish" class="left_nav_bar active" onclick="changeBar(this)">
-                            发布<em class="got-num">7</em>
-                        </a>
+                    <li id="publish" class="left_nav_bar selected" onclick="changeBar(this)">
+                        发布
                     </li>
-                    <li>
-                        <a id="attend" class="left_nav_bar" href="#" onclick="changeBar(this)">
-                            参与<em class="got-num">0</em>
-                        </a>
+                    <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this)">
+                        参与
                     </li>
-                    <li>
-                        <a id="follow" class="left_nav_bar" href="#" onclick="changeBar(this)">
-                            关注<em class="got-num">0</em>
-                        </a>
+                    <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this)">
+                        关注
                     </li>
-                    <li>
-                        <a id="fans" class="left_nav_bar" href="#" onclick="changeBar(this)">粉丝
-                            <em class="got-num">0</em>
-                        </a>
+                    <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this)">
+                        粉丝
                     </li>
                 </ul>
             </div>
@@ -81,26 +76,33 @@
         <div id="detail_body">
             <div id="published_project" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active" onclick=""><a href="#">未完成</a></li>
-                    <li role="presentation" onclick=""><a href="#">已完成</a></li>
+                    <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this)">
+                        <a href="#">未完成</a>
+                    </li>
+                    <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this)">
+                        <a href="#">已完成</a>
+                    </li>
                 </ul>
-                <div class="main-body">
-                    <div class="project-list">
-                        <ul class="">
-                            <c:forEach var="project" items="${projectList}">
-                                <li>
-                                    <p>${project.pname}</p>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                    </div>
+                <div class="project-list">
+                    <ul class="">
+                        <c:forEach var="project" items="${projectList}">
+                            <li>
+                                <p>${project.pname}</p>
+                            </li>
+                        </c:forEach>
+                    </ul>
                 </div>
             </div>
-            <div id="attent_project" class="content_div hide">
+            <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
-                    <li role="presentation"><a href="#">已参加</a></li>
-                    <li role="presentation" class="active"><a href="#">已完成</a></li>
+                    <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this)">
+                        <a href="#">已参加</a>
+                    </li>
+                    <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this)">
+                        <a href="#">已完成</a>
+                    </li>
                 </ul>
+
             </div>
             <div id="my_follow_people" class="content_div hide">
                 我关注的人

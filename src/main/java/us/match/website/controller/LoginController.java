@@ -43,7 +43,7 @@ public class LoginController {
         model.addAttribute("projects",list);
 
         List<User> users=null;
-        users=userService.getHotUsers();
+//        users=userService.getHotUsers();
         model.addAttribute("hotUsers",users);
         model.addAttribute("hotUserReturn","True");
 
