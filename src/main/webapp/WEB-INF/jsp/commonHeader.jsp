@@ -153,6 +153,7 @@
             <label class="control-label">项目名称：</label>
             <input type='text' id='pname' name="pname" class='form-control' required
                    autofocus>
+
           </div>
           <div class="form-group">
             <label class="control-label">项目描述：</label>
