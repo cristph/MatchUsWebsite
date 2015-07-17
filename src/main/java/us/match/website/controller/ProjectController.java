@@ -15,6 +15,7 @@ import us.match.website.service.ProjectService;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,15 @@ public class ProjectController {
         System.out.println(projects.size());
         return "project/project";
     }
+
+    @RequestMapping("/releaseProject")
+    public void realeaseProject(Model model,HttpSession session)
+    {
+        User user=(User)session.getAttribute("user");
+        model.addAttribute("user",user);
+
+    }
+
 ///////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
