@@ -31,6 +31,8 @@ public class Project {
     private String email;
     private String phonenumber;
     private String qq;
+    private String telephone;
+    private String fax;
     public String userName;/*Add by wh*/
 
     public String getPinstruction() {
@@ -175,5 +177,21 @@ public class Project {
 
     public void setQq(String qq) {
         this.qq = qq;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
     }
 }
