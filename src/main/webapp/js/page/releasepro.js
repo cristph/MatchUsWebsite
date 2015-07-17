@@ -46,6 +46,8 @@ $(document).ready(function(){
 $(function(){
     $('#submit_btn').click(
         function(){
+            alert("clicked");
+
                 $.post("/project/add",
                     {"projectname":document.getElementById('projectname').value,
                         "projectdetail":document.getElementById('projectdetail').value,
@@ -59,7 +61,8 @@ $(function(){
                         "fax":document.getElementById('fax').value
                     },
                     function(data){
-                        //alert(data);
+                        alert("function is called");
+                        alert(data);
                         if (data=="true") {
                             window.top.location.href='/';
                         }

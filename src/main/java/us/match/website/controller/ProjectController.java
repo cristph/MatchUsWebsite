@@ -47,27 +47,30 @@ public class ProjectController {
 ///////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
+//    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addProject(
                             @RequestParam("projectname") String projectname,
                              @RequestParam("projectdetail")String projectdetail,
                              @RequestParam("projecttag")String projecttag,
-                            @RequestParam("protech")String protech,
-                            @RequestParam("proreward")int proreward,
+                            @RequestParam("protech")String protech,//
+                            @RequestParam("proreward")String proreward,
                             @RequestParam("mobilephone")String mobilephone,
                              @RequestParam("qq")String qq,
                             @RequestParam("email")String email,
                             @RequestParam("phone")String phone,
-                            @RequestParam("fax")String fax,HttpSession session
+                            @RequestParam("fax")String fax,
+                                HttpSession session,Model model
     )
     {
-        System.out.println("kai shi jia le");
+
         Project pro=new Project();
 
         pro.setPname(projectname);
         pro.setPinstruction(projectdetail);
         pro.setModuel(projecttag);
         pro.setSkill(protech);
-        pro.setReward(proreward);
+       // pro.setReward(proreward);
+
         pro.setPhonenumber(mobilephone);
         pro.setEmail(email);
         pro.setFax(fax);
@@ -79,8 +82,9 @@ public class ProjectController {
 
 
         projectService.addProject(pro);
-        System.out.println("jia wan le");
-        return "/project/project";
+        System.out.println("项目发布了！");
+        return  "true";
+
     }
 
     ///////////////////////////////////////////////////////////////////////////////
