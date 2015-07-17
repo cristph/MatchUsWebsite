@@ -84,23 +84,21 @@ public class UserTest {
                 u.add(n);
                 assertEquals(2,ud.addSkill(user,u).getSkills().size());
         }
-        @Test
-        public void testgetvyemail(){
-            assertEquals("gjp",ud.getuserbyemail("123456@qq.com").getUsername());
-        }
+//        @Test
+//        public void testgetvyemail(){
+//            assertEquals("gjp",ud.getuserbyemail("123456@qq.com").getUsername());
+//        }
 //       @Test
 //        public void testaddproject(){
 //           User user =ud.getUserbyid(14);
 //           Project p=pd.getbyid(5);
 //            assertEquals(true,ud.addProject(p,user));
 //        }
-//    @Test
-//    public void testaddfocuser(){
-//        User gjp=ud.getUserbyid(13);
-//        User ezio=ud.getUserbyid(26);
-//        gjp.getFocuser();
-//        assertEquals(true, ud.addfocuser(ezio,gjp));
-//    }
+    @Test
+    public void testaddfocuser(){
+        User gjp=ud.getUserbyid(13);
+        User ezio=ud.getUserbyid(57);
+        assertEquals(true, ud.addfocuser(gjp,ezio));}
     @Test
     public  void testgettopuser(){
         assertEquals(36,ud.gettopuser().size());

@@ -205,30 +205,6 @@ public class UserDaoImpl implements UserDao {
         }
         return result;
     }
-
-    @Override
-    public User getuserbyemail(String email) {
-        User result=new User();
-        Session session = sessionFactory.openSession();
-        try {
-            session.beginTransaction();
-            Query query=session.createQuery("from User WHERE email='"+email+"'");
-            List<User> list= query.list();
-            if(list.size()!=0){
-                result=list.get(0);
-            }
-            else{
-                result=null;
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }finally{
-            session.getTransaction().commit();
-            session.close();
-            return result;
-        }
-    }
-
     @Override
     public boolean addfocuser(User focuser,User focused) {
             boolean result=true;
@@ -276,5 +252,27 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    @Override
+    public String loginjudge(String user) {
+        Session session = sessionFactory.openSession();
+        String  result=null;
+        try {
+            session.beginTransaction();
+            Query query = session.createSQLQuery("select password from User WHERE username='" + user + "'"
+            +"or email = '"+user+"'");
+            List<Object[]> object=query.list();
+            if(object.size()!=0){
+                for(Object[] o:object){
+                    result=(String)o[0];
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
+    }
 
 }

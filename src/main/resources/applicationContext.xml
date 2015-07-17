@@ -14,30 +14,21 @@
         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 
-    <context:component-scan base-package="us.match.website" >
+    <context:component-scan base-package="us.match.website">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <bean id="mappings"
-             class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-              <!-- typed as a java.util.Properties -->
-              <property name="properties">
-                  <props>
-                      <prop key="jdbc.driverClassName">com.mysql.jdbc.Driver</prop>
-                      <prop key="jdbc.url">jdbc:mysql://192.168.1.105:3306/DataStore?useUnicode=true&amp;characterEncoding=utf-8 </prop>
-                      <prop key="jdbc.username">root</prop>
-                      <prop key="jdbc.password">admin</prop>
-                  </props>
-              </property>
-       </bean>
+    <bean id="mappings" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:db.properties"/>
+    </bean>
 
-       <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-             destroy-method="close">
-              <property name="driverClass" value="${jdbc.driverClassName}" />
-              <property name="jdbcUrl" value="${jdbc.url}" />
-              <property name="user" value="${jdbc.username}" />
-              <property name="password" value="${jdbc.password}" />
-       </bean>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
     <!-- 定义Hibernate的SessionFactory -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
