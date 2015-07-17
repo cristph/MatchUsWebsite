@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao {
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Query query=session.createSQLQuery("select from User WHERE username='"+username+"'");
+            Query query=session.createSQLQuery("from User WHERE username='"+username+"'");
             List<User> list= query.list();
             if(list.size()!=0){
                 result=list.get(0);
