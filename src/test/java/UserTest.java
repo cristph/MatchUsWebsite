@@ -84,10 +84,10 @@ public class UserTest {
                 u.add(n);
                 assertEquals(2,ud.addSkill(user,u).getSkills().size());
         }
-        @Test
-        public void testgetvyemail(){
-            assertEquals("gjp",ud.getuserbyemail("123456@qq.com").getUsername());
-        }
+//        @Test
+//        public void testgetvyemail(){
+//            assertEquals("gjp",ud.getuserbyemail("123456@qq.com").getUsername());
+//        }
 //       @Test
 //        public void testaddproject(){
 //           User user =ud.getUserbyid(14);
