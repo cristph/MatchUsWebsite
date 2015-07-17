@@ -107,11 +107,14 @@ function getAttend_completed() {
 function getFollow() {
     var body = document.getElementById("follow_people_body");
     body.innerHTML = "";
-    $.post("/user/focusPeople", null, function (people) {
-        var htmlStr = getPeopleListHtmlStr(people);
-        body.innerHTML = htmlStr;
+    $.post("/user/focus", null, function (people) {
+        if (people[0].uid == -1) {
+            body.innerHTML = "<h2>您还没有关注其他人，快快去寻找大牛吧~~~</h2>";
+        } else {
+            var htmlStr = getPeopleListHtmlStr(people);
+            body.innerHTML = htmlStr;
+        }
     });
-
     var divs = document.getElementById("my_follow_people");
     divs.className = "content_div show";
 }
@@ -119,14 +122,14 @@ function getFollow() {
 function getFans() {
     var body = document.getElementById("follow_me_body");
     body.innerHTML = "";
-    $.post("/user/focusPeople", null, function (people) {
-        var htmlStr = getPeopleListHtmlStr(people);
-        body.innerHTML = htmlStr;
+    $.post("/user/focused", null, function (people) {
+        if (people[0].uid == -1) {
+            body.innerHTML = "<h2>还没有人关注你哦= =</h2>";
+        } else {
+            var htmlStr = getPeopleListHtmlStr(people);
+            body.innerHTML = htmlStr;
+        }
     });
-    var body = document.getElementById("people_follow_me");
-    body.innerHTML = "";
-
-
     var divs = document.getElementById("people_follow_me");
     divs.className = "content_div show";
 }
@@ -153,6 +156,9 @@ function getProjetListHtmlStr(projects) {
     }
 }
 
-function getPeopleListHtmlStr() {
-
+function getPeopleListHtmlStr(people) {
+    var html = "";
+    for (var i = 0; i < people.length; i++) {
+        html += "<li>people</li>"
+    }
 }
