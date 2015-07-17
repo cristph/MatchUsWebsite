@@ -15,8 +15,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/page/user.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonHeader.css" type="text/css">
@@ -135,6 +133,9 @@
     </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
 <script type="text/javascript" src="/js/page/commonHeader.js"></script>
 </body>
 </html>

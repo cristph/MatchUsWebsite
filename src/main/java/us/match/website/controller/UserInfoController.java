@@ -150,15 +150,18 @@ public class UserInfoController extends MultiActionController{
 
     @ResponseBody
     @RequestMapping(value="/user/focus",method = RequestMethod.POST)
+//    @RequestMapping(value="/user/focus")
     public List<User> getFocus(HttpSession session){
         User u=(User)session.getAttribute("user");
         List<User> list=userService.getFocus(u.getUid());
+//        List<User> list=null;
         if(list==null || list.size()==0) {
             list = new ArrayList<User>();
             User temp=new User();
             temp.setUid(-1);
             list.add(temp);
         }
+        System.out.println(list.size());
         return  list;
     }
 
