@@ -116,15 +116,22 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/page/jquery.proximity.js"></script>
-<script type="text/javascript" src="../../js/page/commonHeader.js"></script>
-<script type="text/javascript" src="../../js/page/jquery.lazyload.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+<script type="text/javascript" src="/js/page/jquery.proximity.js"></script>
+<script type="text/javascript" src="/js/page/commonHeader.js"></script>
+<script type="text/javascript" src="/js/page/jquery.lazyload.min.js"></script>
+
 
 <script type="text/javascript">
 
     $("img.lazy").lazyload({
-        effect : "fadeIn"
+        event: "sporty"
     });
+
+    $(window).bind("load", function() {
+        var timeout = setTimeout(function() {$("img").trigger("sporty")}, 100);
+    });
+
     $(function () {
 
         var Photo = (function () {
