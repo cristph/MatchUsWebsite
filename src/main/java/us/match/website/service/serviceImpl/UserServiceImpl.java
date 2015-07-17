@@ -136,5 +136,19 @@ public class UserServiceImpl implements UserService {
         return u.getPublishingprojects();
     }
 
+    @Override
+    public List<User> getFocus(int userId) {
+        User u=userDao.getUserbyid(userId);
+        List<User> list=u.getFocused();
+        return list;
+    }
+
+    @Override
+    public List<User> getFocused(int userId) {
+        User u=userDao.getUserbyid(userId);
+        List<User> list=u.getFocuser();
+        return list;
+    }
+
 
 }
