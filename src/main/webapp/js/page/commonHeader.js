@@ -247,28 +247,32 @@ $(function(){
     );
 });
 
-var loginViewModel = function() {
-    "use strict";
-    var self = this;
-    self.username=ko.observable();
-    self.password = ko.observable();
-    self.remember = ko.observable(true);
-    self.warn = function() {
-        $('.form-sign').addClass('has-error').addClass('has-feedback')
+(function () {
+    var loginViewModel = function() {
+        "use strict";
+        var self = this;
+        self.username=ko.observable();
+        self.password = ko.observable();
+        self.remember = ko.observable(true);
+        self.fail = ko.observable(false);
+        self.warn = function() {
+            $('#userlogin .form-group').addClass('has-error')
+            self.fail(true);
+        }
+        this.login = function() {
+            $.post('/login', {
+                username: self.username(),
+                password: self.password(),
+                remember: self.remember()
+            }, function(data) {
+                if(data==="success") {
+                    location.href = '/project'
+                }
+                else {
+                    self.warn();
+                }
+            });
+        }
     }
-    this.login = function() {
-        $.post('/login', {
-            username: self.username(),
-            password: self.password(),
-            remember: self.remember()
-        }, function(data) {
-            if(data==="success") {
-                location.href = '/project'
-            }
-            else {
-                self.warn();
-            }
-        });
-    }
-}
-ko.applyBindings(new loginViewModel());
+    ko.applyBindings(new loginViewModel());
+})();
