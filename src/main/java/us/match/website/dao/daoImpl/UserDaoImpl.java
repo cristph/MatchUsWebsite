@@ -261,6 +261,7 @@ public class UserDaoImpl implements UserDao {
     public User loginjudge(String user) {
         Session session = sessionFactory.openSession();
         long startTime = System.currentTimeMillis();//获取当前时间
+        System.out.println(startTime+"________");
         User result =new User();
         try {
             session.beginTransaction();
@@ -269,10 +270,13 @@ public class UserDaoImpl implements UserDao {
             List<Object[]> object=query.list();
             if(object.size()!=0){
                 for(Object[] o:object){
-                    result.setUid((int)o[0]);
-                    result.setUsername((String)o[1]);
-                    result.setPassword((String)o[2]);
-                    result.setFace((byte[])o[3]);
+                    result.setUid((int) o[0]);
+                    result.setUsername((String) o[1]);
+                    result.setPassword((String) o[2]);
+                    result.setFace((byte[]) o[3]);
+//                    result.setSex((String)o[4]);
+//                    result.setAddress((String)o[5]);
+//                    result.setUniversity((String)o[6]);
                 }
             }
             else{
