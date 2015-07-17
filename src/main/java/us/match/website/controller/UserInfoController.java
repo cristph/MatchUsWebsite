@@ -44,9 +44,18 @@ public class UserInfoController extends MultiActionController{
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
         List<Project> list=userService.getPublishing(u.getUid());
-        System.out.println(">>>>"+list.size());
+        List<Project> newList=new LinkedList<Project>();
+        for(int i=0;i<list.size();i++){
+            if(!list.get(i).isState().equals("past"))
+                newList.add(list.get(i));
+        }
+        if(newList.size()==0){
+            Project p=new Project();
+            p.setPid(-1);
+            newList.add(p);
+        }
         model.addAttribute("user", u);
-        model.addAttribute("projectList",list);
+        model.addAttribute("projectList",newList);
         return "user/user";
     }
 
