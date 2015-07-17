@@ -240,7 +240,20 @@ public class ProjectDaoImpl implements ProjectDao {
 
     @Override
     public List<Project> findProject(String keyword) {
-        return null;
+        List<Project> result=new ArrayList<Project>();
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            String hql="from Project where skill like '%'"+keyword+"'%'";
+            Query query =session.createQuery(hql);
+            result=query.list();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
     }
 
 }
