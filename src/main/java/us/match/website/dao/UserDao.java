@@ -27,4 +27,5 @@ public interface UserDao {
     public User getuserbyemail(String email);
     public boolean addfocuser(User focuser,User focused);
     public List<User> gettopuser();
+
 }

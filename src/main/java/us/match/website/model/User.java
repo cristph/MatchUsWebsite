@@ -181,15 +181,13 @@ public class User {
     public List<Project> getWorkingprojects() {
         return workingprojects;
     }
-
     public void setWorkingprojects(List<Project> workingprojects) {
         this.workingprojects = workingprojects;
     }
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     public List<UserSkill> getSkills() {
         return Skills;
     }
-
     public void setSkills(List<UserSkill> skills) {
         Skills = skills;
     }
@@ -201,7 +199,6 @@ public class User {
     public List<User> getFocuser() {
         return focuser;
     }
-
     public void setFocuser(List<User> focuser) {
         this.focuser = focuser;
     }
@@ -209,15 +206,12 @@ public class User {
     public List<User> getFocused() {
         return focused;
     }
-
     public void setFocused(List<User> focused) {
         this.focused = focused;
     }
-
     public int getFocusednum() {
         return focusednum;
     }
-
     public void setFocusednum(int focusednum) {
         this.focusednum = focusednum;
     }

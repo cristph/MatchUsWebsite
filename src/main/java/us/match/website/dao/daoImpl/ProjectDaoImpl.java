@@ -78,30 +78,21 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public List<Integer> getbysubject(String[] subject) {
+    public List<Project> getbysubject(String[] subject) {
         int len=subject.length;
-        List<Integer> result=new ArrayList<Integer>();
+        List<Project> result=new ArrayList<Project>();
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            String hql="select pid from Project where subject like";
+            String hql="from Project where subject like";
             for(int i=0;i<len;i++){
                 if(i!=len-1)
                     hql+="'%"+subject[i]+"%'"+" or subject like";
                 else
                     hql+="'%"+subject[i]+"%'";
             }
-            System.out.println(">>>>"+hql);
-//            hql.substring(0,hql.length()-8);
-            System.out.println(">>>>"+hql);
             Query query =session.createQuery(hql);
             result=query.list();
-            if(result.size()>0)
-                System.out.println("________________________________"+hql);
-            else
-                System.out.println("________________________________"+"resultSet为空");
-
-
         }catch(Exception e){
             e.printStackTrace();
         }finally{
@@ -112,14 +103,13 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public List<Integer> getbymodule(String[] module) {
+    public List<Project> getbymodule(String[] module) {
         int len=module.length;
-        System.out.println(len+">");
-        List<Integer> result=new ArrayList<Integer>();
+        List<Project> result=new ArrayList<Project>();
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            String hql="select pid from Project where moduel like";
+            String hql="from Project where moduel like";
             for(int i=0;i<len;i++){
                 if(i!=len-1)
                     hql+="'%"+module[i]+"%'"+" or moduel like";
@@ -138,13 +128,13 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public List<Integer> getbyskill(String[] skill) {
-        List<Integer> result=new ArrayList<Integer>();
+    public List<Project> getbyskill(String[] skill) {
+        List<Project> result=new ArrayList<Project>();
         int len=skill.length;
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            String hql="select pid from Project where skill like";
+            String hql="from Project where skill like";
             for(int i=0;i<len;i++){
                 if(i!=len-1)
                     hql+="'%"+skill[i]+"%'"+" or skill like";
@@ -163,12 +153,12 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public List<Integer> getbyreward(int maxmoney, int minmoney) {
-        List<Integer> result=new ArrayList<Integer>();
+    public List<Project> getbyreward(int maxmoney, int minmoney) {
+        List<Project> result=new ArrayList<Project>();
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createQuery("select pid from Project where reward between "+maxmoney
+            Query query =session.createQuery("from Project where reward between "+maxmoney
             +"and "+minmoney);
             result=query.list();
         }catch(Exception e){
@@ -238,6 +228,24 @@ public class ProjectDaoImpl implements ProjectDao {
         try{
             session.beginTransaction();
             Query query =session.createQuery("from Project order by updatetime desc");
+            result=query.list();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
+    }
+
+    @Override
+    public List<Project> findProject(String keyword) {
+        List<Project> result=new ArrayList<Project>();
+        Session session = sessionFactory.openSession();
+        try{
+            session.beginTransaction();
+            String hql="from Project where skill like '%'"+keyword+"'%'";
+            Query query =session.createQuery(hql);
             result=query.list();
         }catch(Exception e){
             e.printStackTrace();

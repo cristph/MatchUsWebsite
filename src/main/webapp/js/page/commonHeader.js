@@ -77,8 +77,8 @@ function myReload(){
 
 function chkEmail() {
     var email = document.getElementById("inEmail");
-    var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
-    flag = pattern.test(email.value);
+    var par=/([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})/;
+    var flag = par.test(email.value);
     if(flag) {
         //email.setAttribute("aria-describedby",'inputSuccess2Status');
         var em=email.parentNode;
@@ -96,14 +96,11 @@ function chkEmail() {
         em.classList.remove('has-error');
         em.classList.add('has-success');
         return true;
-    }
-    else {
-        //email.parentNode.classList.add('has-feedback');
+    } else {
         var emailNode=document.getElementById("email_span");
         if(emailNode!=null){
             emailNode.parentNode.removeChild(emailNode);
         }
-        //email.setAttribute("aria-describedby",'inputWarning2Status');
         email.parentNode.classList.add('has-error');
         return false;
     }
@@ -113,13 +110,13 @@ function chkPswd(){
     var fir=document.getElementById("inPassword");
     var sec=document.getElementById("sureinPassword");
 
-    var help_span=document.getElementById('helpBlock');
+    var help_span=document.getElementById('pswdHelpBlock');
     if(fir.value.length<6) {
         if(help_span!=null){
             help_span.innerText="密码长度不能少于6";
         }else{
             help_span=document.createElement('span');
-            help_span.id='helpBlock';
+            help_span.id='pswdHelpBlock';
             help_span.classList.add("help-block");
             help_span.innerText="密码长度不能少于6";
             fir.parentNode.appendChild(help_span);
@@ -130,13 +127,13 @@ function chkPswd(){
         if(pswd_span1!=null){
             pswd_span1.parentNode.removeChild(pswd_span1);
         }
-
+        return false;
     }else if(fir.value.length>18){
         if(help_span!=null){
             help_span.innerText="密码长度不能超过18";
         }else{
             help_span=document.createElement('span');
-            help_span.id='helpBlock';
+            help_span.id='pswdHelpBlock';
             help_span.classList.add("help-block");
             help_span.innerText="密码长度不能超过18";
             fir.parentNode.appendChild(help_span);
@@ -147,6 +144,7 @@ function chkPswd(){
         if(pswd_span1!=null){
             pswd_span1.parentNode.removeChild(pswd_span1);
         }
+        return false;
     }else{
         if(help_span!=null){
             help_span.parentNode.removeChild(help_span);
@@ -165,13 +163,31 @@ function chkPswd(){
         pswd1.appendChild(sp1);
     }
 
-
-    if(fir.value!=sec.value||fir.value.length<6||fir.value.length>18){
+    var help_span2=document.getElementById('surepswdHelpBlock');
+    if(fir.value!=sec.value){
         var pswd_span2=document.getElementById('pswd_span2');
         if(pswd_span2!=null){
             pswd_span2.parentNode.removeChild(pswd_span2);
         }
         sec.parentNode.classList.add('has-error');
+
+        if(help_span2!=null){
+            if(sec.value.length==0){
+                help_span2.innerText="请输入确认密码";
+            }else{
+                help_span2.innerText="密码不一致";
+            }
+        }else{
+            help_span2=document.createElement('span');
+            help_span2.id='surepswdHelpBlock';
+            help_span2.classList.add("help-block");
+            if(sec.value.length==0){
+                help_span2.innerText="请输入确认密码";
+            }else{
+                help_span2.innerText="密码不一致";
+            }
+            sec.parentNode.appendChild(help_span2);
+        }
         return false;
     }else{
         sp2=document.createElement('span');
@@ -186,18 +202,60 @@ function chkPswd(){
         pswd2.classList.remove('has-error');
         pswd2.classList.add('has-success');
         pswd2.appendChild(sp2);
+        if(help_span2!=null){
+            help_span2.parentNode.removeChild(help_span2);
+        }
         return true;
     }
 
 }
 
 function chkName(){
-    var name=document.getElementById('inName').value;
+    var input=document.getElementById('inName');
+    var name=input.value;
+    var helpBlock=document.getElementById("nameHelpBlock");
     if(name.length==0){
+        input.parentNode.classList.remove('has-success');
+        input.parentNode.classList.add('has-error');
+        if(helpBlock==null){
+            helpBlock=document.createElement('span');
+            helpBlock.id='nameHelpBlock';
+            helpBlock.classList.add("help-block");
+            helpBlock.innerText="昵称不能为空";
+            input.parentNode.appendChild(helpBlock);
+        }
         return false;
     }else{
+        input.parentNode.classList.remove('has-error');
+        input.parentNode.classList.add('has-success');
+        if(helpBlock!=null){
+            helpBlock.parentNode.removeChild(helpBlock);
+        }
         return true;
     }
+
+
+    //$post("/",{"userName":name},function(data){
+    //    if(data=="true"){
+    //        input.parentNode.classList.remove('has_error');
+    //        input.parentNode.classList.add('has_success');
+    //        if(helpBlock!=null){
+    //            helpBlock.parentNode.removeChild(helpBlock);
+    //        }
+    //        return true;
+    //    }else{
+    //        input.parentNode.classList.remove('has_success');
+    //        input.parentNode.classList.add('has-error');
+    //        if(helpBlock==null){
+    //            helpBlock=document.createElement('span');
+    //            helpBlock.id='nameHelpBlock';
+    //            helpBlock.classList.add("help-block");
+    //            helpBlock.innerText="昵称已存在";
+    //            input.parentNode.appendChild(helpBlock);
+    //        }
+    //        return false;
+    //    }
+    //});
 }
 
 function chkCode(){
@@ -213,7 +271,8 @@ $(function(){
     $('#inEmail').keyup(chkEmail);
     $('#sureinPassword').keyup(chkPswd);
     $('#inPassword').keyup(chkPswd);
-    $("#submit_sign").click(
+    $('#inName').keyup(chkName);
+    $('#submit_sign').click(
         function(){
             if(chkEmail()&chkPswd()&chkName()&chkCode()){
                 $.post("/validate.do",
@@ -223,7 +282,7 @@ $(function(){
                         "sign_name":document.getElementById('inName').value
                     },
                     function(data){
-                        alert(data);
+                        //alert(data);
                         if (data=="true") {
                             window.top.location.href='/';
                         } else if(data=="RegisterFalse"){

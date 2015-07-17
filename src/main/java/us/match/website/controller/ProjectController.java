@@ -15,6 +15,7 @@ import us.match.website.service.ProjectService;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,38 +34,44 @@ public class ProjectController {
         System.out.println(projects.size());
         return "project/project";
     }
+
+    @RequestMapping("/releaseProject")
+    public String realeaseProject(Model model,HttpSession session)
+    {
+        User user=(User)session.getAttribute("user");
+        model.addAttribute("user",user);
+        return "project/releaseProject";
+    }
+
 ///////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addProject(
-                            @RequestParam("pinstruction") String pinstruction,
-                             @RequestParam("pname")String pname,
-                             @RequestParam("subject")String subject,
-                            @RequestParam("reward")int reward,
-                            @RequestParam("phonenumber")String phoneNumber,
-                            @RequestParam("email")String email
-                             //@RequestParam("userName")String userName
+                            @RequestParam("projectname") String projectname,
+                             @RequestParam("projectdetail")String projectdetail,
+                             @RequestParam("projecttag")String projecttag,
+                            @RequestParam("protech")String protech,
+                            @RequestParam("proreward")int proreward,
+                            @RequestParam("mobilephone")String mobilephone,
+                             @RequestParam("qq")String qq,
+                            @RequestParam("email")String email,
+                            @RequestParam("phone")String phone,
+                            @RequestParam("fax")String fax,HttpSession session
     )
     {
         Project pro=new Project();
-        pro.setLocation("1111");
-        pro.setPname("First Project injected");
 
-        /*User user=userService.getBasicInfo(userName);
-        String location=user.getAddress();
-        String email=user.getEmail();
-        String phoneNum=user.getMobilephone();
-
-        pro.setPname(pname);
-        pro.setPinstruction(pinstruction);
-        pro.setSubject(subject);
-        pro.setState("will");
-        pro.setPublisher(user);
-        pro.setReward(reward);
-        //pro.setSkill(skill);
-        pro.setLocation(location);
+        pro.setPname(projectname);
+        pro.setPinstruction(projectdetail);
+        pro.setModuel(projecttag);
+        pro.setSkill(protech);
+        pro.setReward(proreward);
+        pro.setPhonenumber(mobilephone);
         pro.setEmail(email);
-        pro.setPhonenumber(phoneNum);*/
+        
+
+        User user=(User)session.getAttribute("user");
+        pro.setPublisher(user);
 
         projectService.addProject(pro);
 

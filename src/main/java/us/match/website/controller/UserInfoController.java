@@ -1,9 +1,11 @@
 package us.match.website.controller;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +26,9 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.nio.Buffer;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -42,16 +46,47 @@ public class UserInfoController extends MultiActionController{
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
         List<Project> list=userService.getPublishing(u.getUid());
-        System.out.println(">>>>"+list.size());
-        model.addAttribute("user",u);
-        model.addAttribute("projectList",list);
+        List<Project> newList=new LinkedList<Project>();
+        for(int i=0;i<list.size();i++){
+            if(!list.get(i).isState().equals("past"))
+                newList.add(list.get(i));
+        }
+        if(newList.size()==0){
+            Project p=new Project();
+            p.setPid(-1);
+            newList.add(p);
+        }
+        System.out.println(newList.size()+"newList");
+        System.out.println(newList.get(0).isState());
+        System.out.println(newList.get(0).getEmail());
+        model.addAttribute("user", u);
+        model.addAttribute("projectList",newList);
         return "user/user";
     }
 
-    @RequestMapping(value="/user/releasedProjects")
+    @ResponseBody
+    @RequestMapping(value="/user/releasedProjects",method = RequestMethod.POST)
     public List<Project> getReleased(HttpSession session,Model model,
-                              @RequestParam String projectState){
+                              @RequestParam("projectState") String projectState){
+        System.out.println("function entered");
         if(projectState.equals("Done")){
+            User u=(User)session.getAttribute("user");
+            System.out.println("function exed");
+            List<Project> list=userService.getPublishing(u.getUid());
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
+            System.out.println(newList+newList.get(0).isState()+"------------------1");
+            return newList;
+        }else{
             User u=(User)session.getAttribute("user");
             List<Project> list=userService.getPublishing(u.getUid());
             List<Project> newList=new LinkedList<Project>();
@@ -59,20 +94,89 @@ public class UserInfoController extends MultiActionController{
                 if(!list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
-            model.addAttribute("projectList",newList);
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
+            System.out.println(newList+newList.get(0).isState()+"------------------2");
             return newList;
-        }else{
+        }
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/user/attendProjects",method = RequestMethod.POST)
+    public List<Project> getAttend(HttpSession session,
+                                     @RequestParam("projectState") String projectState){
+        System.out.println("function entered");
+        if(projectState.equals("Done")){
             User u=(User)session.getAttribute("user");
-            List<Project> list=userService.getPublishing(u.getUid());
+            System.out.println("function exed");
+            u=userService.getBasicInfo(u.getUid());
+            List<Project> list=u.getWorkingprojects();
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
-            model.addAttribute("projectList",newList);
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
+            return newList;
+        }else{
+            User u=(User)session.getAttribute("user");
+            u=userService.getBasicInfo(u.getUid());
+            List<Project> list=u.getWorkingprojects();
+            List<Project> newList=new LinkedList<Project>();
+            for(int i=0;i<list.size();i++){
+                if(!list.get(i).isState().equals("past"))
+                    newList.add(list.get(i));
+            }
+//            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
             return newList;
         }
+
     }
+
+    @ResponseBody
+    @RequestMapping(value="/user/focus",method = RequestMethod.POST)
+    public List<User> getFocus(HttpSession session){
+        User u=(User)session.getAttribute("user");
+        List<User> list=userService.getFocus(u.getUid());
+        if(list==null || list.size()==0) {
+            list = new ArrayList<User>();
+            User temp=new User();
+            temp.setUid(-1);
+            list.add(temp);
+        }
+        return  list;
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/user/focused",method = RequestMethod.POST)
+    public List<User> getFocused(HttpSession session){
+        User u=(User)session.getAttribute("user");
+        List<User> list=userService.getFocused(u.getUid());
+        if(list==null || list.size()==0) {
+            list = new ArrayList<User>();
+            User temp=new User();
+            temp.setUid(-1);
+            list.add(temp);
+        }
+        return  list;
+    }
+
+
 
 
     @RequestMapping(value="/userPhoto.jpg")

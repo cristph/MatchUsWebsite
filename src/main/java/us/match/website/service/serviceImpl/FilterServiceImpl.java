@@ -24,6 +24,8 @@ public class FilterServiceImpl implements FilterService {
         String[] classNames =this.getClassNames(keyWords);
         String[] modeNames=this.getModeName(keyWords);
         String[] techNames=this.getTechName(keyWords);
+        for(int i=0;i<techNames.length;i++)
+            System.out.println(i+" "+techNames[i]);
 
         /*if select all ,return all*/
         if(classNames.length==ClassNames.size()
@@ -31,24 +33,25 @@ public class FilterServiceImpl implements FilterService {
                 && techNames.length==Technology.size()) {
             return projectDao.getallProject();
         }
+        System.out.println(classNames.length+" "+modeNames.length+" "+techNames.length);
         /*get project by class*/
-        List<Integer> arrList1=null;
+        List<Project> arrList1=null;
         if(classNames.length>0)
             arrList1=projectDao.getbysubject(classNames);
         else
-            arrList1=new ArrayList<Integer>();
+            arrList1=new ArrayList<Project>();
         /*get project by mode*/
-        List<Integer> arrList2=null;
+        List<Project> arrList2=null;
         if(modeNames.length>0)
             arrList2=projectDao.getbymodule(modeNames);
         else
-            arrList2=new ArrayList<Integer>();
+            arrList2=new ArrayList<Project>();
         /*get project by technology*/
-        List<Integer> arrList3=null;
+        List<Project> arrList3=null;
         if(techNames.length>0)
             arrList3=projectDao.getbyskill(techNames);
         else
-            arrList3=new ArrayList<Integer>();
+            arrList3=new ArrayList<Project>();
 
         current = System.currentTimeMillis();
         System.out.println(current-before+"----1");
@@ -59,14 +62,8 @@ public class FilterServiceImpl implements FilterService {
                 arrList1.retainAll(arrList2);
             if(arrList3.size()>0)
                 arrList1.retainAll(arrList3);
-            ArrayList<Project> resultSet=new ArrayList<Project>();
-            for(int i=0;i<arrList1.size();i++){
-                int projectId=arrList1.get(i);
-                Project p=projectDao.getbyid(projectId);
-                resultSet.add(p);
-            }
 //            System.out.println(resultSet.size()+"ResultSetSize");
-            return resultSet;
+            return arrList1;
         }
         current = System.currentTimeMillis();
         System.out.println(current-before+"----2");
@@ -74,25 +71,11 @@ public class FilterServiceImpl implements FilterService {
         if(arrList2.size()>0){
             if(arrList3.size()>0)
                 arrList2.retainAll(arrList3);
-            ArrayList<Project> resultSet=new ArrayList<Project>();
-            for(int i=0;i<arrList2.size();i++){
-                int projectId=arrList2.get(i);
-                Project p=projectDao.getbyid(projectId);
-                resultSet.add(p);
-            }
 //            System.out.println(resultSet.size() + "ResultSetSize");
-            return resultSet;
+            return arrList2;
         }
         else if(arrList3.size()>0){
-            ArrayList<Project> resultSet=new ArrayList<Project>();
-            for(int i=0;i<arrList3.size();i++){
-                int projectId=arrList3.get(i);
-                Project p=projectDao.getbyid(projectId);
-                p.userName=p.getPublisher().getUsername();
-                resultSet.add(p);
-            }
-//            System.out.println(resultSet.size() + "ResultSetSize");
-            return resultSet;
+            return arrList3;
         }
         current = System.currentTimeMillis();
         System.out.println(current-before+"---3");
@@ -162,7 +145,7 @@ public class FilterServiceImpl implements FilterService {
         Technology.add("PHP");
         Technology.add("Ruby");
         Technology.add("Linux");
-        Technology.add("Mysql");
+        Technology.add("MySql");
         Technology.add("C#");
         Technology.add("android");
         Technology.add("iOS");

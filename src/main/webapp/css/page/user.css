@@ -27,9 +27,6 @@ a {
 
 .body_container {
     margin: 0 auto;
-}
-
-.body_container {
     width: 1200px;
 }
 
@@ -83,26 +80,18 @@ a {
 }
 
 .left_nav li {
+    cursor: hand;
     height: 60px;
     border-bottom: 1px solid #edf1f2;
     position: relative;
     padding-left: 31px;
-}
-
-.left_nav a {
-    line-height: 60px;
-    color: #14191e;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
 }
 
-.left_nav a:hover,
-.left_nav a.active {
+.left_nav .selected {
     color: red;
-}
-
-.left_nav_bar {
 
 }
 
@@ -112,11 +101,6 @@ a {
 
 .hide {
     display: none;
-}
-
-.left_nav .got-num {
-    font-size: 12px;
-    padding-left: 10px;
 }
 
 #detail_body {
@@ -151,7 +135,7 @@ a {
     -webkit-transition: box-shadow 0.3s;
     -o-transition: box-shadow 0.3s;
     transition: box-shadow 0.3s;
-    width: 250px !important;
+    width: 240px !important;
     margin: 0 40px 8px 0px;
 }
 
@@ -170,5 +154,5 @@ a {
 }
 
 .project-list ul {
-    margin: 20px -20px 0 -60px;
+    margin-left: -40px;
 }

@@ -21,6 +21,7 @@ public class ProjectTest {
     ProjectDao pd=(ProjectDao)context.getBean("projectDaoImpl");
     UserDao ud=(UserDao)context.getBean("userDaoImpl");
     Project pro =new Project();
+    String[] example={"移动应用"};
     @Before
     public void Setup(){
         pro.setPname("test project");
@@ -49,10 +50,10 @@ public class ProjectTest {
     public void  Testfindbyname(){
         assertEquals("第三届青岛啤酒大学生微营销创意大赛",pd.getbyname("第三届青岛啤酒大学生微营销创意大赛").getPname());
     }
-//    @Test
-//    public void Testgetbysubjectt(){
-//        assertEquals(1,pd.getbysubject("移动应用").size());
-//    }
+    @Test
+    public void Testgetbysubjectt(){
+        assertEquals(3,pd.getbysubject(example).size());
+   }
 //    @Test
 //    public void Testgetbyreward(){ assertEquals(1,pd.getbyreward(10000, 25000).size());}
 //    @Test
