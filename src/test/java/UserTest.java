@@ -94,13 +94,11 @@ public class UserTest {
 //           Project p=pd.getbyid(5);
 //            assertEquals(true,ud.addProject(p,user));
 //        }
-//    @Test
-//    public void testaddfocuser(){
-//        User gjp=ud.getUserbyid(13);
-//        User ezio=ud.getUserbyid(26);
-//        gjp.getFocuser();
-//        assertEquals(true, ud.addfocuser(ezio,gjp));
-//    }
+    @Test
+    public void testaddfocuser(){
+        User gjp=ud.getUserbyid(13);
+        User ezio=ud.getUserbyid(57);
+        assertEquals(true, ud.addfocuser(gjp,ezio));}
     @Test
     public  void testgettopuser(){
         assertEquals(36,ud.gettopuser().size());
