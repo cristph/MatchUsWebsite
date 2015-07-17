@@ -79,6 +79,10 @@ ul.navbar-right li {
     margin-left: 10px;
  }
 
+#suggestion-on-fail {
+    padding-left: 10px;
+    color: #a94442;
+}
 .modal-footer .checkbox {
     float: left;
 }

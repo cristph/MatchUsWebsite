@@ -59,7 +59,7 @@
       <div class="modal-body">
         <%--<form class='form-signin' method="post" action="/login">--%>
         <form class='form-signin' data-bind="submit: login">
-          <div class="form-group has-feedback">
+          <div class="form-group">
             <label class="control-label">用户名或注册邮箱：</label>
             <input type='text' data-bind="value: username" id='username' name="username" class='form-control'
                    placeholder='Use Name or Email...' required autofocus>
@@ -68,6 +68,9 @@
             <label class="control-label">登陆密码：</label>
             <input type='password' data-bind="value: password" id="password" name="password" class='form-control'
                    placeholder='Password' required>
+          </div>
+          <div class="form-group">
+            <p data-bind="visible: fail" id="suggestion-on-fail">抱歉，用户名或密码错误。</p>
           </div>
           <div class="modal-footer">
             <div class='checkbox'>
