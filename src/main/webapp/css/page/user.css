@@ -27,9 +27,6 @@ a {
 
 .body_container {
     margin: 0 auto;
-}
-
-.body_container {
     width: 1200px;
 }
 
@@ -138,7 +135,7 @@ a {
     -webkit-transition: box-shadow 0.3s;
     -o-transition: box-shadow 0.3s;
     transition: box-shadow 0.3s;
-    width: 250px !important;
+    width: 240px !important;
     margin: 0 40px 8px 0px;
 }
 
@@ -157,5 +154,5 @@ a {
 }
 
 .project-list ul {
-    margin: 20px -20px 0 -60px;
+    margin-left: -40px;
 }

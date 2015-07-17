@@ -54,9 +54,10 @@ function hideContents() {
 
 function getPublish_unCompleted() {
     var bar = document.getElementById("published_uncompleted");
+    var body = document.getElementById("published_project_body");
+    body.innerHTML = "";
     changeToActive(bar);
     $.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
-        var body = document.getElementById("published_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -66,9 +67,10 @@ function getPublish_unCompleted() {
 
 function getPublish_completed() {
     var bar = document.getElementById("published_completed");
+    var body = document.getElementById("published_project_body");
+    body.innerHTML = "";
     changeToActive(bar)
     $.post("/user/releasedProjects", {"projectState": "Done"}, function (projects) {
-        var body = document.getElementById("published_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -78,9 +80,10 @@ function getPublish_completed() {
 
 function getAttend_unCompleted() {
     var bar = document.getElementById("attend_uncompleted");
+    var body = document.getElementById("attend_project_body");
+    body.innerHTML = "";
     changeToActive(bar);
     $.post("/user/attendProjects", {"projectState": "will"}, function (projects) {
-        var body = document.getElementById("attend_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -90,9 +93,10 @@ function getAttend_unCompleted() {
 
 function getAttend_completed() {
     var bar = document.getElementById("attend_completed");
+    var body = document.getElementById("attend_project_body");
+    body.innerHTML = "";
     changeToActive(bar);
     $.post("/user/attendProjects", {"projectState": "Done"}, function (projects) {
-        var body = document.getElementById("attend_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -123,7 +127,7 @@ function changeToActive(bar) {
 
 function getProjetListHtmlStr(projects) {
     if (projects[0].pid == -1) {
-        return "<h2>没有项目，</h2>"
+        return "<h2>没有项目，快去参加吧~~~</h2>"
     } else {
         var htmlStr = "";
         for (var i = 0; i < projects.length; i++) {
