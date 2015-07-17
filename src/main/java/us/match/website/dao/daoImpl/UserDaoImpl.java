@@ -82,10 +82,14 @@ public class UserDaoImpl implements UserDao {
     public User findUser(String username) {
         User result=new User();
         Session session = sessionFactory.openSession();
+
         try {
             session.beginTransaction();
-            Query query=session.createQuery("from User WHERE username='"+username+"'");
+
+            Query query = session.createQuery("from User WHERE username='" + username + "'");
+
             List<User> list= query.list();
+
             if(list.size()!=0){
                 result=list.get(0);
             }
@@ -95,6 +99,7 @@ public class UserDaoImpl implements UserDao {
         }catch(Exception e) {
             e.printStackTrace();
         }finally{
+
             session.getTransaction().commit();
             session.close();
             return result;
@@ -253,19 +258,28 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public String loginjudge(String user) {
+    public User loginjudge(String user) {
         Session session = sessionFactory.openSession();
-        String  result=null;
+        long startTime = System.currentTimeMillis();//获取当前时间
+        User result =new User();
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("select password from User WHERE username='" + user + "'"
+            Query query = session.createSQLQuery("select uid,username,password,face from User WHERE username='" + user + "'"
             +"or email = '"+user+"'");
             List<Object[]> object=query.list();
             if(object.size()!=0){
                 for(Object[] o:object){
-                    result=(String)o[0];
+                    result.setUid((int)o[0]);
+                    result.setUsername((String)o[1]);
+                    result.setPassword((String)o[2]);
+                    result.setFace((byte[])o[3]);
                 }
             }
+            else{
+                result=null;
+            }
+            long endTime = System.currentTimeMillis();
+            System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
         }catch(Exception e){
             e.printStackTrace();
         }finally{
