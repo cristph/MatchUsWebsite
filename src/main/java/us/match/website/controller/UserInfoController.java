@@ -65,6 +65,11 @@ public class UserInfoController extends MultiActionController{
                     newList.add(list.get(i));
             }
 //            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
             return newList;
         }else{
             User u=(User)session.getAttribute("user");
@@ -75,6 +80,11 @@ public class UserInfoController extends MultiActionController{
                     newList.add(list.get(i));
             }
 //            model.addAttribute("projectList",newList);
+            if(newList.size()==0){
+                Project p=new Project();
+                p.setPid(-1);
+                newList.add(p);
+            }
             return newList;
         }
 
