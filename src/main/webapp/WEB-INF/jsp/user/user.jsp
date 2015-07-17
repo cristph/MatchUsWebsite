@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="../../../css/page/user.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonHeader.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonFooter.css" type="text/css">
-    <script type="text/javascript" src="/js/page/commonHeader.js"></script>
     <script type="text/javascript" src="/js/page/user.js"></script>
 </head>
 <body>
@@ -84,7 +83,7 @@
                     </li>
                 </ul>
                 <div class="project-list">
-                    <ul class="">
+                    <ul id="published_project_body">
                         <c:forEach var="project" items="${projectList}">
                             <li>
                                 <p>${project.pname}</p>
@@ -102,7 +101,11 @@
                         <a href="#">已完成</a>
                     </li>
                 </ul>
+                <div class="project-list">
+                    <ul id="attend_project_body">
 
+                    </ul>
+                </div>
             </div>
             <div id="my_follow_people" class="content_div hide">
                 我关注的人
@@ -114,5 +117,6 @@
     </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
+<script type="text/javascript" src="/js/page/commonHeader.js"></script>
 </body>
 </html>
