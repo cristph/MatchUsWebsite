@@ -41,6 +41,12 @@ public class LoginController {
         List<Project> list=projectService.getAllProject();
         list=list.subList(0,8);
         model.addAttribute("projects",list);
+
+        List<User> users=null;
+        users=userService.getHotUsers();
+        model.addAttribute("hotUsers",users);
+        model.addAttribute("hotUserReturn","True");
+        
         return "index";
     }
 
@@ -49,7 +55,7 @@ public class LoginController {
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         HttpServletRequest request) {
-        User u=userService.login(username,password);
+        User u=userService.login(username, password);
         if(u==null) {
             return "failed";
         }
@@ -75,14 +81,6 @@ public class LoginController {
             model.addAttribute("registerResult", "regSuccess");
             return "redirect:user";
         }
-    }
-
-    @RequestMapping(value="/hotUsers")
-    public void getHotUsers(Model model){
-        List<User> users=null;
-        users=userService.getHotUsers();
-        model.addAttribute("hotUsers",users);
-        model.addAttribute("hotUserReturn","True");
     }
 
     @RequestMapping(value="/hotUsers/userPhoto")
