@@ -24,6 +24,8 @@ public class FilterServiceImpl implements FilterService {
         String[] classNames =this.getClassNames(keyWords);
         String[] modeNames=this.getModeName(keyWords);
         String[] techNames=this.getTechName(keyWords);
+        for(int i=0;i<techNames.length;i++)
+            System.out.println(i+" "+techNames[i]);
 
         /*if select all ,return all*/
         if(classNames.length==ClassNames.size()
@@ -31,6 +33,7 @@ public class FilterServiceImpl implements FilterService {
                 && techNames.length==Technology.size()) {
             return projectDao.getallProject();
         }
+        System.out.println(classNames.length+" "+modeNames.length+" "+techNames.length);
         /*get project by class*/
         List<Project> arrList1=null;
         if(classNames.length>0)
@@ -142,7 +145,7 @@ public class FilterServiceImpl implements FilterService {
         Technology.add("PHP");
         Technology.add("Ruby");
         Technology.add("Linux");
-        Technology.add("Mysql");
+        Technology.add("MySql");
         Technology.add("C#");
         Technology.add("android");
         Technology.add("iOS");
