@@ -84,7 +84,7 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            String sql="select pid,picture,pname,reward,skill,location from Project where subject like";
+            String sql="select pid,picture,pname,reward,skill,location,phonenumber from Project where subject like";
             for(int i=0;i<len;i++){
                 if(i!=len-1)
                     sql+="'%"+subject[i]+"%'"+" or subject like";
@@ -101,7 +101,8 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPname((String) o[2]);
                 temp.setReward((int) o[3]);
                 temp.setSkill((String) o[4]);
-                temp.setLocation((String)o[5]);
+                temp.setLocation((String) o[5]);
+                temp.setPhonenumber((String) o[6]);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -120,14 +121,14 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            String hql="select pid,picture,pname,reward,skill,location from Project where moduel like";
+            String sql="select pid,picture,pname,reward,skill,location,phonenumber from Project where moduel like";
             for(int i=0;i<len;i++){
                 if(i!=len-1)
-                    hql+="'%"+module[i]+"%'"+" or moduel like";
+                    sql+="'%"+module[i]+"%'"+" or moduel like";
                 else
-                    hql+="'%"+module[i]+"%'";
+                    sql+="'%"+module[i]+"%'";
             }
-            Query query =session.createSQLQuery(hql);
+            Query query =session.createSQLQuery(sql);
             List<Object[]> object=query.list();
             for(Object[] o:object)
             {
@@ -156,14 +157,14 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            String hql="select pid,picture,pname,reward,skill,location from Project where skill like";
+            String sql="select pid,picture,pname,reward,skill,location,phonenumber from Project where skill like";
             for(int i=0;i<len;i++){
                 if(i!=len-1)
-                    hql+="'%"+skill[i]+"%'"+" or skill like";
+                    sql+="'%"+skill[i]+"%'"+" or skill like";
                 else
-                    hql+="'%"+skill[i]+"%'";
+                    sql+="'%"+skill[i]+"%'";
             }
-            Query query =session.createSQLQuery(hql);
+            Query query =session.createSQLQuery(sql);
             List<Object[]> object=query.list();
             for(Object[] o:object)
             {
@@ -173,7 +174,8 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPname((String) o[2]);
                 temp.setReward((int) o[3]);
                 temp.setSkill((String) o[4]);
-                temp.setLocation((String)o[5]);
+                temp.setLocation((String) o[5]);
+                temp.setPhonenumber((String)o[6]);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -191,7 +193,7 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location from Project where reward between "+maxmoney
+            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location,phonenumber from Project where reward between "+maxmoney
             +"and "+minmoney);
             List<Object[]> object=query.list();
             for(Object[] o:object)
@@ -202,7 +204,8 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPname((String) o[2]);
                 temp.setReward((int) o[3]);
                 temp.setSkill((String) o[4]);
-                temp.setLocation((String)o[5]);
+                temp.setLocation((String) o[5]);
+                temp.setPhonenumber((String) o[6]);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -271,8 +274,20 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createQuery("from Project order by updatetime desc");
-            result=query.list();
+            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location,phonenumber from Project order by updatetime desc");
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                Project temp=new Project();
+                temp.setPid((int) o[0]);
+                temp.setPicture((byte[]) o[1]);
+                temp.setPname((String) o[2]);
+                temp.setReward((int) o[3]);
+                temp.setSkill((String) o[4]);
+                temp.setLocation((String) o[5]);
+                temp.setPhonenumber((String) o[6]);
+                result.add(temp);
+            }
         }catch(Exception e){
             e.printStackTrace();
         }finally{
