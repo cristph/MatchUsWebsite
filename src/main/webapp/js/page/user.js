@@ -54,9 +54,10 @@ function hideContents() {
 
 function getPublish_unCompleted() {
     var bar = document.getElementById("published_uncompleted");
+    var body = document.getElementById("published_project_body");
+    body.innerHTML = "";
     changeToActive(bar);
     $.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
-        var body = document.getElementById("published_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -66,9 +67,10 @@ function getPublish_unCompleted() {
 
 function getPublish_completed() {
     var bar = document.getElementById("published_completed");
+    var body = document.getElementById("published_project_body");
+    body.innerHTML = "";
     changeToActive(bar)
     $.post("/user/releasedProjects", {"projectState": "Done"}, function (projects) {
-        var body = document.getElementById("published_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -79,8 +81,9 @@ function getPublish_completed() {
 function getAttend_unCompleted() {
     var bar = document.getElementById("attend_uncompleted");
     changeToActive(bar);
+    var body = document.getElementById("attend_project_body");
+    body.innerHTML = "";
     $.post("/user/attendProjects", {"projectState": "will"}, function (projects) {
-        var body = document.getElementById("attend_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -91,8 +94,9 @@ function getAttend_unCompleted() {
 function getAttend_completed() {
     var bar = document.getElementById("attend_completed");
     changeToActive(bar);
+    var body = document.getElementById("attend_project_body");
+    body.innerHTML = "";
     $.post("/user/attendProjects", {"projectState": "Done"}, function (projects) {
-        var body = document.getElementById("attend_project_body");
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -101,12 +105,28 @@ function getAttend_completed() {
 }//得到参加的已完成的项目
 
 function getFollow() {
+    var body = document.getElementById("follow_people_body");
+    body.innerHTML = "";
+    $.post("/user/focusPeople", null, function (people) {
+        var htmlStr = getPeopleListHtmlStr(people);
+        body.innerHTML = htmlStr;
+    });
+
     var divs = document.getElementById("my_follow_people");
     divs.className = "content_div show";
-
 }
 
 function getFans() {
+    var body = document.getElementById("follow_me_body");
+    body.innerHTML = "";
+    $.post("/user/focusPeople", null, function (people) {
+        var htmlStr = getPeopleListHtmlStr(people);
+        body.innerHTML = htmlStr;
+    });
+    var body = document.getElementById("people_follow_me");
+    body.innerHTML = "";
+
+
     var divs = document.getElementById("people_follow_me");
     divs.className = "content_div show";
 }
@@ -131,4 +151,8 @@ function getProjetListHtmlStr(projects) {
         }
         return htmlStr
     }
+}
+
+function getPeopleListHtmlStr() {
+
 }

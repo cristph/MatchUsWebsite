@@ -25,7 +25,7 @@
 </head>
 <body>
 <jsp:include page="../commonHeader.jsp"/>
-<div id="main">
+<div id="main" class="container">
     <div class="body_container">
         <div class="sider">
             <div class="user-info">
@@ -76,10 +76,10 @@
             <div id="published_project" class="content_div show">
                 <ul class="nav nav-tabs">
                     <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this)">
-                        <a href="#">未完成</a>
+                        <a href="#">未完成项目</a>
                     </li>
                     <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this)">
-                        <a href="#">已完成</a>
+                        <a href="#">已完成项目</a>
                     </li>
                 </ul>
                 <div class="project-list">
@@ -95,24 +95,42 @@
             <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
                     <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this)">
-                        <a href="#">已参加</a>
+                        <a href="#">已参加项目</a>
                     </li>
                     <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this)">
-                        <a href="#">已完成</a>
+                        <a href="#">已完成项目</a>
                     </li>
                 </ul>
                 <div class="project-list">
                     <ul id="attend_project_body">
-
                     </ul>
                 </div>
             </div>
             <div id="my_follow_people" class="content_div hide">
-                我关注的人
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active">
+                        <a href="#">我关注的人</a>
+                    </li>
+                </ul>
+                <div class="people-list">
+                    <ul id="follow_people_body">
+
+                    </ul>
+                </div>
             </div>
             <div id="people_follow_me" class="content_div hide">
-                关注我的人
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active">
+                        <a href="#">关注我的人</a>
+                    </li>
+                </ul>
+                <div class="people-list">
+                    <ul id="follow_me_body">
+
+                    </ul>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
