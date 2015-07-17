@@ -140,6 +140,12 @@ public class UserServiceImpl implements UserService {
     public List<User> getFocus(int userId) {
         User u=userDao.getUserbyid(userId);
         List<User> list=u.getFocused();
+        for (User user : list) {
+            user.setFocused(null);
+            user.setFocuser(null);
+            user.setPublishingprojects(null);
+            user.setSkills(null);
+        }
         return list;
     }
 
