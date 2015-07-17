@@ -1,8 +1,8 @@
 var changeBar = function (bar) {
-    changeBarClass(bar);
-    hideAllContents();
+    hideContents();
     switch (bar.id) {
         case "publish":
+            changeBarClass(bar);
             getPublish_unCompleted();
             break;
         case "published_uncompleted":
@@ -12,6 +12,7 @@ var changeBar = function (bar) {
             getPublish_completed();
             break;
         case "attend":
+            changeBarClass(bar);
             getAttend_unCompleted();
             break;
         case "attend_uncompleted":
@@ -19,10 +20,13 @@ var changeBar = function (bar) {
             break;
         case "attend_completed":
             getAttend_completed();
+            break;
         case "follow":
+            changeBarClass(bar);
             getFollow();
             break;
         case "fans":
+            changeBarClass(bar);
             getFans();
             break;
     }
@@ -31,14 +35,14 @@ var changeBar = function (bar) {
 function changeBarClass(bar) {
     var bars = document.getElementsByClassName("left_nav_bar");
     for (var i = 0; i < bars.length; i++) {
-        if (bars[i].classList.contains("active")) {
-            bars[i].classList.remove("active");
+        if (bars[i].classList.contains("selected")) {
+            bars[i].classList.remove("selected");
         }
     }
-    bar.classList.add("active");
+    bar.className = "left_nav_bar selected";
 }
 
-function hideAllContents() {
+function hideContents() {
     var divs = document.getElementsByClassName("content_div");
     for (var i = 0; i < divs.length; i++) {
         if (divs[i].classList.contains("show")) {
@@ -51,10 +55,9 @@ function hideAllContents() {
 function getPublish_unCompleted() {
     var bar = document.getElementById("published_uncompleted");
     changeToActive(bar);
-    //$.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
-    //    alert(projects);
-    //
-    //});
+    $.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
+        alert(projects);
+    });
     var div = document.getElementById("published_project");
     div.className = "content_div show";
 }//得到发布的未完成的项目
@@ -67,16 +70,15 @@ function getPublish_completed() {
 }//得到发布的完成的项目
 
 function getAttend_unCompleted() {
-    var bar = document.getElementById("attend_completed");
+    var bar = document.getElementById("attend_uncompleted");
     changeToActive(bar);
-
 
     var div = document.getElementById("attend_project");
     div.className = "content_div show";
 }//得到参加的未完成的项目
 
 function getAttend_completed() {
-    var bar = document.getElementById("attend_uncompleted");
+    var bar = document.getElementById("attend_completed");
     changeToActive(bar);
 
 

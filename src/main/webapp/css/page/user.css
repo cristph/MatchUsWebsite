@@ -83,26 +83,18 @@ a {
 }
 
 .left_nav li {
+    cursor: hand;
     height: 60px;
     border-bottom: 1px solid #edf1f2;
     position: relative;
     padding-left: 31px;
-}
-
-.left_nav a {
-    line-height: 60px;
-    color: #14191e;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
 }
 
-.left_nav a:hover,
-.left_nav a.active {
+.left_nav .selected {
     color: red;
-}
-
-.left_nav_bar {
 
 }
 
