@@ -112,6 +112,11 @@
                         <a href="#">我关注的人</a>
                     </li>
                 </ul>
+                <div class="people-list">
+                    <ul id="follow_people_body">
+
+                    </ul>
+                </div>
             </div>
             <div id="people_follow_me" class="content_div hide">
                 <ul class="nav nav-tabs">
@@ -119,7 +124,13 @@
                         <a href="#">关注我的人</a>
                     </li>
                 </ul>
+                <div class="people-list">
+                    <ul id="follow_me_body">
+
+                    </ul>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
