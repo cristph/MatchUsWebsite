@@ -144,6 +144,7 @@ public class UserServiceImpl implements UserService {
             user.setFocused(null);
             user.setFocuser(null);
             user.setPublishingprojects(null);
+            user.setFace(null);
             user.setSkills(null);
         }
         return list;
@@ -153,6 +154,13 @@ public class UserServiceImpl implements UserService {
     public List<User> getFocused(int userId) {
         User u=userDao.getUserbyid(userId);
         List<User> list=u.getFocuser();
+        for (User user : list) {
+            user.setFocused(null);
+            user.setFocuser(null);
+            user.setPublishingprojects(null);
+            user.setFace(null);
+            user.setSkills(null);
+        }
         return list;
     }
 

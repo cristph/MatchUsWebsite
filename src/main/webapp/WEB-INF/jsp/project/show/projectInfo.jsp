@@ -10,7 +10,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../favicon.ico">
 
-  <title>Blog Template for Bootstrap</title>
+  <title>${project.pname}</title>
 
   <!-- Bootstrap core CSS -->
   <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -40,11 +40,14 @@
 
   <div class="project-header">
     <div class="row">
-      <h1 class="project-title">${project.pname}
-                <span class="project-description name_popover">${project.starttime}
-                    by<a href="http:\\Github.com"> ${project.publisher.username}</a>
-                </span>
+      <h1 class="project-title">
+      ${project.pname}
+
       </h1>
+      <span class="project-description name_popover">
+        ${project.starttime} by
+          <a href="http:\\Github.com"> ${project.publisher.username}</a>
+      </span>
     </div>
   </div>
 
