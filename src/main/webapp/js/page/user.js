@@ -1,5 +1,5 @@
-var changeBar = function (uid) {
-    changeBarClass(this);
+var changeBar = function (bar, uid) {
+    changeBarClass(bar);
     hideAllContents();
     switch (this.id) {
         case "publish":
@@ -22,7 +22,6 @@ function changeBarClass(bar) {
     for (var i = 0; i < bars.length; i++) {
         if (bars[i].classList.contains("active")) {
             bars[i].classList.remove("active");
-            break;
         }
     }
     bar.classList.add("active");
@@ -41,9 +40,9 @@ function hideAllContents() {
 function getPublish_unCompleted(uid) {
     var attent_projects = document.getElementById("attent_project");
     alert(uid);
-    //$.post("url", uid, function (data) {
-    //
-    //});
+    $.post("/user", uid, function (data) {
+        refreshView
+    });
 }
 
 function getAttend_unCompleted(uid) {

@@ -39,14 +39,8 @@ ul.navbar-right li {
     width: 800px;
 }
 
-.searchWrapper{
-    margin-top: 12.5px;
-}
-
-
 .searchArea{
     border:0;
-    height: 25px;
     border-radius: 2px;
     background-color: #363d40;
 }
@@ -57,8 +51,8 @@ ul.navbar-right li {
 
 .searchButton{
     border:0;
+    height: 34px;
     border-radius: 2px;
-    height: 25px;
     color: #999999;
     background-color: #363d40;
 }
@@ -85,3 +79,6 @@ ul.navbar-right li {
     margin-left: 10px;
  }
 
+.modal-footer .checkbox {
+    float: left;
+}
