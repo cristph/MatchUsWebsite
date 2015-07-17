@@ -24,7 +24,7 @@
   </script>
 </head>
 <body>
-
+<jsp:include page="../commonHeader.jsp"/>
 <div class="container">
   <h2>发布项目</h2><br>
   <form role="form">
