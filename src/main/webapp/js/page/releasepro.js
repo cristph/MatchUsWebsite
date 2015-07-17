@@ -52,7 +52,6 @@ $(function(){
                         "projecttag":document.getElementById('projecttag').value,
                         "protech":document.getElementById('protech').value,
                         "proreward":document.getElementById('proreward').value,
-                        "protech":document.getElementById('protech').value,
                         "mobilephone":document.getElementById('mobilephone').value,
                         "qq":document.getElementById('qq').value,
                         "email":document.getElementById('email').value,
