@@ -1,18 +1,18 @@
-var changeBar = function (bar, uid) {
+var changeBar = function (bar) {
     changeBarClass(bar);
     hideAllContents();
     switch (this.id) {
         case "publish":
-            getPublish_unCompleted(uid);
+            getPublish_unCompleted();
             break;
         case "attend":
-            getAttend_unCompleted(uid);
+            getAttend_unCompleted();
             break;
         case "follow":
-            getFollow(uid);
+            getFollow();
             break;
         case "fans":
-            getFans(uid);
+            getFans();
             break;
     }
 }
@@ -40,8 +40,8 @@ function hideAllContents() {
 function getPublish_unCompleted(uid) {
     var attent_projects = document.getElementById("attent_project");
     alert(uid);
-    $.post("/user", uid, function (data) {
-        refreshView
+    $.post("/user", "will", function (projects) {
+        addWillProjects(projects);
     });
 }
 
@@ -55,4 +55,10 @@ function getFollow(uid) {
 
 function getFans(uid) {
     alert(uid);
+}
+
+function addWillProjects(projects) {
+    for (var i = 0; i < projects.length; i++) {
+
+    }
 }

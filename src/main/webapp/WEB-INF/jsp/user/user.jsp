@@ -54,22 +54,22 @@
             <div>
                 <ul class="left_nav">
                     <li>
-                        <a id="publish" class="left_nav_bar active" onclick="changeBar(this,${user.uid})">
+                        <a id="publish" class="left_nav_bar active" onclick="changeBar(this)">
                             发布<em class="got-num">7</em>
                         </a>
                     </li>
                     <li>
-                        <a id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
+                        <a id="attend" class="left_nav_bar" href="#" onclick="changeBar(this)">
                             参与<em class="got-num">0</em>
                         </a>
                     </li>
                     <li>
-                        <a id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
+                        <a id="follow" class="left_nav_bar" href="#" onclick="changeBar(this)">
                             关注<em class="got-num">0</em>
                         </a>
                     </li>
                     <li>
-                        <a id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">粉丝
+                        <a id="fans" class="left_nav_bar" href="#" onclick="changeBar(this)">粉丝
                             <em class="got-num">0</em>
                         </a>
                     </li>
