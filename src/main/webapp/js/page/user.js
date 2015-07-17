@@ -1,13 +1,24 @@
 var changeBar = function (bar) {
     changeBarClass(bar);
     hideAllContents();
-    switch (this.id) {
+    switch (bar.id) {
         case "publish":
             getPublish_unCompleted();
+            break;
+        case "published_uncompleted":
+            getPublish_unCompleted();
+            break;
+        case "published_completed":
+            getPublish_completed();
             break;
         case "attend":
             getAttend_unCompleted();
             break;
+        case "attend_uncompleted":
+            getAttend_unCompleted();
+            break;
+        case "attend_completed":
+            getAttend_completed();
         case "follow":
             getFollow();
             break;
@@ -37,28 +48,38 @@ function hideAllContents() {
     }
 }
 
-function getPublish_unCompleted(uid) {
-    var attent_projects = document.getElementById("attent_project");
-    alert(uid);
-    $.post("/user", "will", function (projects) {
-        addWillProjects(projects);
+function getPublish_unCompleted() {
+    var divs = document.getElementById("published_project");
+    divs.className = "content_div show";
+    $.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
+        alert(projects);
+
     });
 }
 
-function getAttend_unCompleted(uid) {
-    alert(uid);
+function getPublish_completed() {
+    var divs = document.getElementById("published_project");
+    divs.className = "content_div show";
 }
 
-function getFollow(uid) {
-    alert(uid);
+function getAttend_unCompleted() {
+    var divs = document.getElementById("attend_project");
+    divs.className = "content_div show";
 }
 
-function getFans(uid) {
-    alert(uid);
+function getAttend_completed() {
+    var divs = document.getElementById("attend_project");
+    divs.className = "content_div show";
+
 }
 
-function addWillProjects(projects) {
-    for (var i = 0; i < projects.length; i++) {
+function getFollow() {
+    var divs = document.getElementById("my_follow_people");
+    divs.className = "content_div show";
 
-    }
+}
+
+function getFans() {
+    var divs = document.getElementById("people_follow_me");
+    divs.className = "content_div show";
 }
