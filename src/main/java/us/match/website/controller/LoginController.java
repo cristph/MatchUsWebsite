@@ -1,6 +1,7 @@
 package us.match.website.controller;
 
 import org.aspectj.lang.annotation.Pointcut;
+import org.hibernate.Session;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +11,17 @@ import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.ProjectService;
 import us.match.website.service.UserService;
+import us.match.website.util.CheckCodeImage;
+
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -74,13 +83,42 @@ public class LoginController {
         }
     }
 
-    @ResponseBody
     @RequestMapping(value="/hotUsers")
-    public String getHotUsers(Model model){
+    public void getHotUsers(Model model){
         List<User> users=null;
         users=userService.getHotUsers();
         model.addAttribute("hotUsers",users);
-        return "hotUserReturned";
+        model.addAttribute("hotUserReturn","True");
+    }
+
+    @RequestMapping(value="/hotUsers/userPhoto")
+    public void getHotUserPhoto(HttpServletRequest request,
+                                HttpServletResponse response,@RequestParam int uid){
+        //获取指定的user
+        User u=userService.getBasicInfo(uid);
+        byte[] bytes=u.getFace();
+        InputStream is=new ByteArrayInputStream(bytes);
+        BufferedImage img=null;
+        try {
+            img= ImageIO.read(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("读取头像失败！");
+        }
+        //指定生成的相应图片
+        response.setContentType("image/jpeg") ;
+        try {
+            if(img!=null)
+                ImageIO.write(img, "JPEG", response.getOutputStream()) ;
+            else
+                throw new IOException();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("输出用户头像失败！");
+        }
     }
 
 }
+
+
+
