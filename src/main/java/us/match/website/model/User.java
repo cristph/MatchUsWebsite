@@ -165,7 +165,7 @@ public class User {
     public void setUid(int uid) {
         this.uid = uid;
     }
-    @OneToMany(mappedBy = "publisher",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "publisher",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<Project> getPublishingprojects() {
         return publishingprojects;
     }
