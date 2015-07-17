@@ -83,11 +83,13 @@
         <ul id="pe-thumbs" class="pe-thumbs">
             <c:forEach items="${hotUsers}" var="user">
                 <li>
-                    <a href="../../view/page/user.html"><img src="hotUsers/userPhoto?oneHotUserId=${user.uid}" alt="无头像"/>
-                    <div class="pe-description">
-                        <h3>${user.username}</h3>
-                        <p>${user.email}</p>
-                    </div>
+                    <a href="../../view/page/user.html">
+                        <img class="lazy" data-original="hotUsers/userPhoto?oneHotUserId=${user.uid}">
+                        <%--<img src="hotUsers/userPhoto?oneHotUserId=${user.uid}" alt="无头像"/>--%>
+                        <div class="pe-description">
+                            <h3>${user.username}</h3>
+                            <p>${user.email}</p>
+                        </div>
                     </a>
                 </li>
             </c:forEach>
@@ -116,8 +118,13 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/page/jquery.proximity.js"></script>
 <script type="text/javascript" src="../../js/page/commonHeader.js"></script>
+<script type="text/javascript" src="../../js/page/jquery.lazyload.min.js"></script>
 
 <script type="text/javascript">
+
+    $("img.lazy").lazyload({
+        effect : "fadeIn"
+    });
     $(function () {
 
         var Photo = (function () {
