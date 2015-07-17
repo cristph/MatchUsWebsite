@@ -30,7 +30,7 @@ public class Project {
     private String location;
     private String email;
     private String phonenumber;
-
+    private String qq;
     public String userName;/*Add by wh*/
 
     public String getPinstruction() {
@@ -167,5 +167,13 @@ public class Project {
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
     }
 }
