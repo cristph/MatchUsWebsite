@@ -46,7 +46,7 @@ public class LoginController {
         users=userService.getHotUsers();
         model.addAttribute("hotUsers",users);
         model.addAttribute("hotUserReturn","True");
-        
+
         return "index";
     }
 
