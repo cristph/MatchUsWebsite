@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/css/page/project.css">
     <link rel="stylesheet" href="/css/page/commonHeader.css">
     <link rel="stylesheet" href="/css/page/commonFooter.css">
-
+    <script src="/js/page/commonHeader.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
