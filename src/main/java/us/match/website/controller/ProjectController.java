@@ -40,7 +40,8 @@ public class ProjectController {
     {
         User user=(User)session.getAttribute("user");
         model.addAttribute("user",user);
-        return "project/releaseProject";
+
+        return "project/releaseproject";
     }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -59,6 +60,7 @@ public class ProjectController {
                             @RequestParam("fax")String fax,HttpSession session
     )
     {
+        System.out.println("kai shi jia le");
         Project pro=new Project();
 
         pro.setPname(projectname);
@@ -68,13 +70,16 @@ public class ProjectController {
         pro.setReward(proreward);
         pro.setPhonenumber(mobilephone);
         pro.setEmail(email);
-        
-
+        pro.setFax(fax);
+        pro.setTelephone(phone);
+        pro.setQq(qq);
         User user=(User)session.getAttribute("user");
         pro.setPublisher(user);
+        pro.setState("will");
+
 
         projectService.addProject(pro);
-
+        System.out.println("jia wan le");
         return "/project/project";
     }
 
