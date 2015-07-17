@@ -15,7 +15,7 @@
   <link href="//cdn.bootcss.com/jquery.tipsy/1.0.2/jquery.tipsy.css" rel="stylesheet">
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/page/releasepro.js"></script>
+  <script type="text/javascript" src="/js/page/releasepro.js"></script>
   <script src="./jquery-1.11.3.min.js"></script>
   <script type="text/javascript">
     $(function () {
@@ -156,7 +156,7 @@
   </form>
 
 </div>
-<script type="text/javascript">
+<script>
   flag= false;
   function addphone(){
 
@@ -196,6 +196,37 @@
       $(".hidefaxi").toggle("100");
     });
   });
+
+
+  $(function(){
+    $('#submit_btn').click(
+            function(){
+              $.post("/project/add",
+                      {"projectname":document.getElementById('projectname').value,
+                        "projectdetail":document.getElementById('projectdetail').value,
+                        "projecttag":document.getElementById('projecttag').value,
+                        "protech":document.getElementById('protech').value,
+                        "proreward":document.getElementById('proreward').value,
+                        "mobilephone":document.getElementById('mobilephone').value,
+                        "qq":document.getElementById('qq').value,
+                        "email":document.getElementById('email').value,
+                        "phone":document.getElementById('phone').value,
+                        "fax":document.getElementById('fax').value
+                      },
+                      function(data){
+                        //alert(data);
+                        if (data=="true") {
+                          window.top.location.href='/';
+                        }
+                        else {
+                          alert("no");
+                        }
+                      });
+
+            }
+    );
+  });
+
 </script>
 </body>
 </html>
