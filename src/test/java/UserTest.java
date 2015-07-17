@@ -104,6 +104,6 @@ public class UserTest {
 //    }
     @Test
     public  void testgettopuser(){
-        assertEquals(36,ud.gettopuser().size());
+        assertEquals("gjp",ud.gettopuser().get(0).getUsername());
     }
 }
