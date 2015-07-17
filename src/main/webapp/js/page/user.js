@@ -150,7 +150,14 @@ function getProjetListHtmlStr(projects) {
     } else {
         var htmlStr = "";
         for (var i = 0; i < projects.length; i++) {
-            htmlStr += "<li><p>" + projects[i].pname + "</p></li>"
+            htmlStr += "<li>" +
+                "<h2>" +
+                projects[i].pname +
+                "</h2>" +
+                "<p>" +
+                projects[i].pinstruction +
+                "</p>" +
+                "</li>"
         }
         return htmlStr
     }
@@ -159,6 +166,21 @@ function getProjetListHtmlStr(projects) {
 function getPeopleListHtmlStr(people) {
     var html = "";
     for (var i = 0; i < people.length; i++) {
-        html += "<li>people</li>"
+        html += "<li>" +
+            "<a href=\"#\" class=\"people-info\">" +
+            "<span class=\"people-pic\">" +
+            "<img src=\"userPhoto.jpg?uid=" + people[i].uid + "\" alt=\"该用户暂无头像\">" +
+            "</span>" +
+            "<ul class=\"people-lay\">" +
+            "<p>" +
+            people[i].username +
+            "</p>" +
+            "<p>" +
+            people[i].email +
+            "</p>" +
+            "</ul>" +
+            "</a>" +
+            "</li>"
     }
+    return html;
 }
