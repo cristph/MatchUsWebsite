@@ -1,5 +1,6 @@
 package us.match.website.controller;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.nio.Buffer;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -106,7 +108,7 @@ public class UserInfoController extends MultiActionController{
 
     @ResponseBody
     @RequestMapping(value="/user/attendProjects",method = RequestMethod.POST)
-    public List<Project> getAttend(HttpSession session,Model model,
+    public List<Project> getAttend(HttpSession session,
                                      @RequestParam("projectState") String projectState){
         System.out.println("function entered");
         if(projectState.equals("Done")){
@@ -145,6 +147,36 @@ public class UserInfoController extends MultiActionController{
         }
 
     }
+
+    @ResponseBody
+    @RequestMapping(value="/user/focus",method = RequestMethod.POST)
+    public List<User> getFocus(HttpSession session){
+        User u=(User)session.getAttribute("user");
+        List<User> list=userService.getFocus(u.getUid());
+        if(list==null || list.size()==0) {
+            list = new ArrayList<User>();
+            User temp=new User();
+            temp.setUid(-1);
+            list.add(temp);
+        }
+        return  list;
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/user/focused",method = RequestMethod.POST)
+    public List<User> getFocused(HttpSession session){
+        User u=(User)session.getAttribute("user");
+        List<User> list=userService.getFocused(u.getUid());
+        if(list==null || list.size()==0) {
+            list = new ArrayList<User>();
+            User temp=new User();
+            temp.setUid(-1);
+            list.add(temp);
+        }
+        return  list;
+    }
+
+
 
 
     @RequestMapping(value="/userPhoto.jpg")
