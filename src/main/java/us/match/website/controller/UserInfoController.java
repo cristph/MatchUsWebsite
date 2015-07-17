@@ -49,7 +49,7 @@ public class UserInfoController extends MultiActionController{
     }
 
     @RequestMapping(value="/user/releasedProjects")
-    public void getReleased(HttpSession session,Model model,
+    public List<Project> getReleased(HttpSession session,Model model,
                               @RequestParam String projectState){
         if(projectState.equals("Done")){
             User u=(User)session.getAttribute("user");
@@ -60,6 +60,7 @@ public class UserInfoController extends MultiActionController{
                     newList.add(list.get(i));
             }
             model.addAttribute("projectList",newList);
+            return newList;
         }else{
             User u=(User)session.getAttribute("user");
             List<Project> list=userService.getPublishing(u.getUid());
@@ -69,6 +70,7 @@ public class UserInfoController extends MultiActionController{
                     newList.add(list.get(i));
             }
             model.addAttribute("projectList",newList);
+            return newList;
         }
     }
 
