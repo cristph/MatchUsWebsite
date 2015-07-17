@@ -1,17 +1,12 @@
 package us.match.website.controller;
 
-import org.aspectj.lang.annotation.Pointcut;
-import org.hibernate.Session;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.ProjectService;
 import us.match.website.service.UserService;
-import us.match.website.util.CheckCodeImage;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -23,7 +18,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Master on 2015/7/11.
@@ -93,9 +87,9 @@ public class LoginController {
 
     @RequestMapping(value="/hotUsers/userPhoto")
     public void getHotUserPhoto(HttpServletRequest request,
-                                HttpServletResponse response,@RequestParam int uid){
+                                HttpServletResponse response,@RequestParam int oneHotUserId){
         //获取指定的user
-        User u=userService.getBasicInfo(uid);
+        User u=userService.getBasicInfo(oneHotUserId);
         byte[] bytes=u.getFace();
         InputStream is=new ByteArrayInputStream(bytes);
         BufferedImage img=null;
