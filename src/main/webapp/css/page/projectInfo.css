@@ -20,8 +20,10 @@
 }
 
 .project-description {
+    padding-top: 20px;
+    right: 3%;
     position: relative;
-    left: 6%;
+    float: right;
     font-size: 20px;
     color: #999;
 }
