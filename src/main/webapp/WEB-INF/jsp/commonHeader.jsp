@@ -197,4 +197,3 @@
     </div>
   </div>
 </div>
-<script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
