@@ -83,9 +83,11 @@
         <div id="detail_body">
             <div id="published_project" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" id="published_uncompleted" class="active" onclick="select(this)"><a
-                            href="#">未完成</a></li>
-                    <li role="presentation" id="published_completed" onclick="select(this)"><a href="#">已完成</a></li>
+                    <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this)">
+                        <a
+                                href="#">未完成</a></li>
+                    <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this)"><a
+                            href="#">已完成</a></li>
                 </ul>
                 <div class="main-body">
                     <div class="project-list">
@@ -101,8 +103,11 @@
             </div>
             <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" id="attend_uncompleted"><a href="#">已参加</a></li>
-                    <li role="presentation" id="attend_completed"><a href="#">已完成</a></li>
+                    <li role="presentation" id="attend_uncompleted" class="sub_bar" onclick="changeBar(this)">
+                        <a href="#">已参加</a></li>
+                    <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this)">
+                        <a href="#">已完成</a>
+                    </li>
                 </ul>
             </div>
             <div id="my_follow_people" class="content_div hide">

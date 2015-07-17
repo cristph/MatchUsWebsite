@@ -49,29 +49,40 @@ function hideAllContents() {
 }
 
 function getPublish_unCompleted() {
-    var divs = document.getElementById("published_project");
-    divs.className = "content_div show";
-    $.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
-        alert(projects);
-
-    });
-}
+    var bar = document.getElementById("published_uncompleted");
+    changeToActive(bar);
+    //$.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
+    //    alert(projects);
+    //
+    //});
+    var div = document.getElementById("published_project");
+    div.className = "content_div show";
+}//得到发布的未完成的项目
 
 function getPublish_completed() {
-    var divs = document.getElementById("published_project");
-    divs.className = "content_div show";
-}
+    var bar = document.getElementById("published_completed");
+    changeToActive(bar)
+    var div = document.getElementById("published_project");
+    div.className = "content_div show";
+}//得到发布的完成的项目
 
 function getAttend_unCompleted() {
-    var divs = document.getElementById("attend_project");
-    divs.className = "content_div show";
-}
+    var bar = document.getElementById("attend_completed");
+    changeToActive(bar);
+
+
+    var div = document.getElementById("attend_project");
+    div.className = "content_div show";
+}//得到参加的未完成的项目
 
 function getAttend_completed() {
-    var divs = document.getElementById("attend_project");
-    divs.className = "content_div show";
+    var bar = document.getElementById("attend_uncompleted");
+    changeToActive(bar);
 
-}
+
+    var div = document.getElementById("attend_project");
+    div.className = "content_div show";
+}//得到参加的已完成的项目
 
 function getFollow() {
     var divs = document.getElementById("my_follow_people");
@@ -83,3 +94,13 @@ function getFans() {
     var divs = document.getElementById("people_follow_me");
     divs.className = "content_div show";
 }
+
+function changeToActive(bar) {
+    var sub_bar = document.getElementsByClassName("sub_bar");
+    for (var i = 0; i < sub_bar.length; i++) {
+        if (sub_bar[i].classList.contains("active")) {
+            sub_bar[i].classList.remove("active");
+        }
+    }
+    bar.classList.add("active");
+}//将特定的分页项转化为选中
