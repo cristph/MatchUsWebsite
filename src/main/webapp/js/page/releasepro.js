@@ -46,7 +46,7 @@ $(document).ready(function(){
 $(function(){
     $('#submit_btn').click(
         function(){
-                $.post("/validate.do",
+                $.post("/project/add",
                     {"projectname":document.getElementById('projectname').value,
                         "projectdetail":document.getElementById('projectdetail').value,
                         "projecttag":document.getElementById('projecttag').value,
@@ -63,12 +63,9 @@ $(function(){
                         //alert(data);
                         if (data=="true") {
                             window.top.location.href='/';
-                        } else if(data=="RegisterFalse"){
-                            alert('用户名已存在，注册失败！');
                         }
                         else {
-                            myReload();
-                            alert('验证码错误！');
+                            alert("no");
                         }
                     });
 
