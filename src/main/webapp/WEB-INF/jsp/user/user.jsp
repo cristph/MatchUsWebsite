@@ -15,6 +15,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/page/user.css" type="text/css">
     <link rel="stylesheet" href="../../../css/page/commonHeader.css" type="text/css">
@@ -81,8 +83,11 @@
         <div id="detail_body">
             <div id="published_project" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active" onclick=""><a href="#">未完成</a></li>
-                    <li role="presentation" onclick=""><a href="#">已完成</a></li>
+                    <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this)">
+                        <a
+                                href="#">未完成</a></li>
+                    <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this)"><a
+                            href="#">已完成</a></li>
                 </ul>
                 <div class="main-body">
                     <div class="project-list">
@@ -96,10 +101,13 @@
                     </div>
                 </div>
             </div>
-            <div id="attent_project" class="content_div hide">
+            <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
-                    <li role="presentation"><a href="#">已参加</a></li>
-                    <li role="presentation" class="active"><a href="#">已完成</a></li>
+                    <li role="presentation" id="attend_uncompleted" class="sub_bar" onclick="changeBar(this)">
+                        <a href="#">已参加</a></li>
+                    <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this)">
+                        <a href="#">已完成</a>
+                    </li>
                 </ul>
             </div>
             <div id="my_follow_people" class="content_div hide">

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,6 +25,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.nio.Buffer;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -43,23 +45,26 @@ public class UserInfoController extends MultiActionController{
         User u=(User)session.getAttribute("user");
         List<Project> list=userService.getPublishing(u.getUid());
         System.out.println(">>>>"+list.size());
-        model.addAttribute("user",u);
+        model.addAttribute("user", u);
         model.addAttribute("projectList",list);
         return "user/user";
     }
 
-    @RequestMapping(value="/user/releasedProjects")
+    @ResponseBody
+    @RequestMapping(value="/user/releasedProjects",method = RequestMethod.POST)
     public List<Project> getReleased(HttpSession session,Model model,
-                              @RequestParam String projectState){
+                              @RequestParam("projectState") String projectState){
+        System.out.println("function entered");
         if(projectState.equals("Done")){
             User u=(User)session.getAttribute("user");
+            System.out.println("function exed");
             List<Project> list=userService.getPublishing(u.getUid());
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(!list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
-            model.addAttribute("projectList",newList);
+//            model.addAttribute("projectList",newList);
             return newList;
         }else{
             User u=(User)session.getAttribute("user");
@@ -69,9 +74,10 @@ public class UserInfoController extends MultiActionController{
                 if(list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
-            model.addAttribute("projectList",newList);
+//            model.addAttribute("projectList",newList);
             return newList;
         }
+
     }
 
 
