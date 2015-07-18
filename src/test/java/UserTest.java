@@ -66,7 +66,7 @@ public class UserTest {
         public void testgetidbyname(){assertEquals(13,ud.getidbyname("gjp"));}
         @Test
         public void testgetallproject(){
-            assertEquals(1,ud.getUserProject(13).size());
+            assertEquals(1,ud.getUserProject(14).size());
         }
 //        @Test
 //        public void testsetskill(){
@@ -88,17 +88,21 @@ public class UserTest {
 //        public void testgetvyemail(){
 //            assertEquals("gjp",ud.getuserbyemail("123456@qq.com").getUsername());
 //        }
-//       @Test
-//        public void testaddproject(){
-//           User user =ud.getUserbyid(14);
-//           Project p=pd.getbyid(5);
-//            assertEquals(true,ud.addProject(p,user));
-//        }
-//    @Test
-//    public void testaddfocuser(){
-//        User gjp=ud.getUserbyid(13);
-//        User ezio=ud.getUserbyid(57);
-//        assertEquals(true, ud.addfocuser(gjp,ezio));}
+       @Test
+        public void testaddproject(){
+           User user =new User();
+           user.setUid(70);
+          Project p=new Project();
+           p.setPid(10);
+           assertEquals(true,ud.focusProject(p,user));
+       }
+    @Test
+    public void testaddfocuser(){
+        User gjp=new User();
+        gjp.setUid(13);
+        User ezio=new User();
+        ezio.setUid(76);
+        assertEquals(true, ud.addfocuser(gjp,ezio));}
     @Test
     public  void testgettopuser(){
         assertEquals(36,ud.gettopuser().size());
@@ -106,5 +110,6 @@ public class UserTest {
     @Test
     public void testgetfocuser(){assertEquals(3,ud.getfocuser(13).size());}
     @Test
-    public void testgetfocused(){assertEquals(2,ud.getfocused(13).size());}
+    public void testgetfocused(){assertEquals(1,ud.getfocused(13).size());}
+
 }

@@ -36,7 +36,7 @@
 
 <jsp:include page="../../commonHeader.jsp"/>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="imgModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document" id="imgDialog">
     <div class="modal-content">
       <div class="showImg" id="showImg"></div>
@@ -100,7 +100,7 @@
         <h4>
           项目图片:
         </h4>
-        <div class="container-fluid">
+        <div class="container-fluid imgWall">
           <div class="box"><img src="/image/ini/banner.jpg" class="imgthumbs"/></div>
           <div class="box"><img src="/image/ini/thumbs/2.jpg" class="imgthumbs"/></div>
           <div class="box"><img src="/image/ini/thumbs/3.jpg" class="imgthumbs"/></div>

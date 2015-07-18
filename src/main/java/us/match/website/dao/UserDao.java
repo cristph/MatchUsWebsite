@@ -23,7 +23,7 @@ public interface UserDao {
     public User getUserbyid(int id);
     public User addSkill(User user,List<UserSkill> userskills);
     public List<UserSkill> getallskills(String id);
-    public boolean addfocuser(User focuser,User focused);
+    public boolean addfocuser(User focuser,User focused);//前面是fans，后面是被关注的人
     public List<User> gettopuser();
     public User getbasicinfobyname(String user);
     public List<User> getfocuser(int id);
