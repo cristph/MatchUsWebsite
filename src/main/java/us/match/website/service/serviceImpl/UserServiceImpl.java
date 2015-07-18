@@ -138,8 +138,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getFocus(int userId) {
-        User u=userDao.getUserbyid(userId);
-        List<User> list=u.getFocused();
+//        User u=userDao.getUserbyid(userId);
+        List<User> list=userDao.getfocuser(userId);
         for (User user : list) {
             user.setFocused(null);
             user.setFocuser(null);
@@ -152,8 +152,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getFocused(int userId) {
-        User u=userDao.getUserbyid(userId);
-        List<User> list=u.getFocuser();
+//        User u=userDao.getUserbyid(userId);
+        List<User> list=userDao.getfocused(userId);
         for (User user : list) {
             user.setFocused(null);
             user.setFocuser(null);

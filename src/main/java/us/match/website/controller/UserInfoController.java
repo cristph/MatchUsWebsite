@@ -211,7 +211,7 @@ public class UserInfoController extends MultiActionController{
         }
     }
 
-    @RequestMapping(value="/otherUser",method = RequestMethod.POST)
+    @RequestMapping(value="/otherUser")
     public String getOtherUser(Model model,@RequestParam int uid){
         User u=userService.getBasicInfo(uid);
         List<Project> newList=new LinkedList<Project>();
@@ -227,7 +227,7 @@ public class UserInfoController extends MultiActionController{
         u.setPublishingprojects(null);
         u.setFocuser(null);
         model.addAttribute("oneOtherUser", u);
-        return "user/otherUser";
+        return "/user/otherUser";
     }
 
 }
