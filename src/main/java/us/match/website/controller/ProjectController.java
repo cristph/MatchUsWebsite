@@ -109,7 +109,7 @@ public class ProjectController {
                                 @RequestParam("subject")String subject,
                                 @RequestParam("moduel")String moduel,
                                 @RequestParam("skill")String skill,
-                                @RequestParam("reward")int reward,
+                                @RequestParam("reward")String reward,
                                 @RequestParam("userName")String userName,
                                 @RequestParam("location")String location,
                                 @RequestParam("email")String email,
