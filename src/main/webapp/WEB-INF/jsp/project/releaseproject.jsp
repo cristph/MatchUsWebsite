@@ -16,6 +16,8 @@
   <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/js/page/releasepro.js"></script>
+  <script type="text/javascript" src="/js/page/commonHeader.js"></script>
+  <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
   <script type="text/javascript">
     $(function () {
       $('[data-toggle="popover"]').popover()
@@ -30,7 +32,10 @@
     <div class="row">
       <div class="form-group col-md-6">
         <label >项目名称</label>
-        <input type="text" class="form-control input-sm" id="projectname"
+        <input type="text" class="form-control input-sm" id="projectname" data-toggle="popover" title="项目标题参考模板" data-html="true" data-content="
+          基于XXX平台，用于XXX功能，类似于XXX的应用<br>
+(eg: 基于Android手机平台，用来实现手机数据的备份管理功能)
+          " data-placement="bottom"
                placeholder="请输入名称">
       </div>
     </div>

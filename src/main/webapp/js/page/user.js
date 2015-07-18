@@ -1,33 +1,33 @@
-var changeBar = function (bar) {
+var changeBar = function (bar,uid) {
     hideContents();
     switch (bar.id) {
         case "publish":
             changeBarClass(bar);
-            getPublish_unCompleted();
+            getPublish_unCompleted(uid);
             break;
         case "published_uncompleted":
-            getPublish_unCompleted();
+            getPublish_unCompleted(uid);
             break;
         case "published_completed":
-            getPublish_completed();
+            getPublish_completed(uid);
             break;
         case "attend":
             changeBarClass(bar);
-            getAttend_unCompleted();
+            getAttend_unCompleted(uid);
             break;
         case "attend_uncompleted":
-            getAttend_unCompleted();
+            getAttend_unCompleted(uid);
             break;
         case "attend_completed":
-            getAttend_completed();
+            getAttend_completed(uid);
             break;
         case "follow":
             changeBarClass(bar);
-            getFollow();
+            getFollow(uid);
             break;
         case "fans":
             changeBarClass(bar);
-            getFans();
+            getFans(uid);
             break;
     }
 }
@@ -52,12 +52,12 @@ function hideContents() {
     }
 }
 
-function getPublish_unCompleted() {
+function getPublish_unCompleted(uid) {
     var bar = document.getElementById("published_uncompleted");
     var body = document.getElementById("published_project_body");
     body.innerHTML = "";
     changeToActive(bar);
-    $.post("/user/releasedProjects", {"projectState": "will"}, function (projects) {
+    $.post("/user/releasedProjects", {"uid":uid,"projectState": "will"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -65,12 +65,12 @@ function getPublish_unCompleted() {
     div.className = "content_div show";
 }//得到发布的未完成的项目
 
-function getPublish_completed() {
+function getPublish_completed(uid) {
     var bar = document.getElementById("published_completed");
     var body = document.getElementById("published_project_body");
     body.innerHTML = "";
     changeToActive(bar)
-    $.post("/user/releasedProjects", {"projectState": "Done"}, function (projects) {
+    $.post("/user/releasedProjects", {"uid":uid,"projectState": "Done"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -78,12 +78,12 @@ function getPublish_completed() {
     div.className = "content_div show";
 }//得到发布的完成的项目
 
-function getAttend_unCompleted() {
+function getAttend_unCompleted(uid) {
     var bar = document.getElementById("attend_uncompleted");
     changeToActive(bar);
     var body = document.getElementById("attend_project_body");
     body.innerHTML = "";
-    $.post("/user/attendProjects", {"projectState": "will"}, function (projects) {
+    $.post("/user/attendProjects", {"uid":uid,"projectState": "will"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -91,12 +91,12 @@ function getAttend_unCompleted() {
     div.className = "content_div show";
 }//得到参加的未完成的项目
 
-function getAttend_completed() {
+function getAttend_completed(uid) {
     var bar = document.getElementById("attend_completed");
     changeToActive(bar);
     var body = document.getElementById("attend_project_body");
     body.innerHTML = "";
-    $.post("/user/attendProjects", {"projectState": "Done"}, function (projects) {
+    $.post("/user/attendProjects", {"uid":uid,"projectState": "Done"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -104,10 +104,10 @@ function getAttend_completed() {
     div.className = "content_div show";
 }//得到参加的已完成的项目
 
-function getFollow() {
+function getFollow(uid) {
     var body = document.getElementById("follow_people_body");
     body.innerHTML = "";
-    $.post("/user/focus", null, function (people) {
+    $.post("/user/focused", {"uid":uid,}, function (people) {
         if (people[0].uid == -1) {
             body.innerHTML = "<h2>您还没有关注其他人，快快去寻找大牛吧~~~</h2>";
         } else {
@@ -119,10 +119,10 @@ function getFollow() {
     divs.className = "content_div show";
 }
 
-function getFans() {
+function getFans(uid) {
     var body = document.getElementById("follow_me_body");
     body.innerHTML = "";
-    $.post("/user/focused", null, function (people) {
+    $.post("/user/focus", {"uid":uid,}, function (people) {
         if (people[0].uid == -1) {
             body.innerHTML = "<h2>还没有人关注你哦= =</h2>";
         } else {
@@ -151,12 +151,11 @@ function getProjetListHtmlStr(projects) {
         var htmlStr = "";
         for (var i = 0; i < projects.length; i++) {
             htmlStr += "<li>" +
-                "<h2>" +
+                "<a href='/project/getOneProject?pid=1' target='_blank'>"+
+                "<h3>" +
                 projects[i].pname +
-                "</h2>" +
-                "<p>" +
-                projects[i].pinstruction +
-                "</p>" +
+                "</h3>" +
+                "</a>"+
                 "</li>"
         }
         return htmlStr
@@ -167,11 +166,11 @@ function getPeopleListHtmlStr(people) {
     var html = "";
     for (var i = 0; i < people.length; i++) {
         html += "<li>" +
-            "<a href=\"#\" class=\"people-info\">" +
-            "<span class=\"people-pic\">" +
+            "<a href='/otherUser?uid="+people[i].uid+"' class='people-info' target=\"_blank\">" +
+            "<span class='people-pic'>" +
             "<img src=\"userPhoto.jpg?uid=" + people[i].uid + "\" alt=\"该用户暂无头像\">" +
             "</span>" +
-            "<ul class=\"people-lay\">" +
+            "<ul class='people-lay'>" +
             "<p>" +
             people[i].username +
             "</p>" +

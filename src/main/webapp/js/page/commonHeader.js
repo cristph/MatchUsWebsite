@@ -275,7 +275,7 @@ $(function(){
     $('#submit_sign').click(
         function(){
             if(chkEmail()&chkPswd()&chkName()&chkCode()){
-                $.post("/validate.do",
+                $.post("/validate",
                     {"userCheckCode":document.getElementById('checkCode').value,
                         "sign_email":document.getElementById('inEmail').value,
                         "sign_pswd":document.getElementById('inPassword').value,
@@ -284,7 +284,7 @@ $(function(){
                     function(data){
                         //alert(data);
                         if (data=="true") {
-                            window.top.location.href='/';
+                            location.href='/project';
                         } else if(data=="RegisterFalse"){
                             alert('用户名已存在，注册失败！');
                         }

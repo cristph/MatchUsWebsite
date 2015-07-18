@@ -13,13 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>设置个人信息</title>
-    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/page/cus.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/page/reset.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/page/style2.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/page/reset.css"/>
+    <link rel="stylesheet" href="/css/page/commonHeader.css"/>
 
     <link rel="stylesheet" href="/css/page/settings.css">
-    <link rel="stylesheet" href="/css/page/commonHeader.css"/>
 </head>
 
 <body>
@@ -59,9 +57,10 @@
 </section>
 
 
-<%--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>--%>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <%--<script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>--%>
 <%--<script type="text/javascript" src="/js/page/settings.js"></script>--%>
+<script src="/js/page/commonHeader.js"></script>
 </body>
 
 </html>
