@@ -48,7 +48,7 @@ public class UserInfoController extends MultiActionController{
         List<Project> list=userService.getPublishing(u.getUid());
         List<Project> newList=new LinkedList<Project>();
         for(int i=0;i<list.size();i++){
-            if(!list.get(i).isState().equals("past"))
+            if(list.get(i).isState().equals("now"))
                 newList.add(list.get(i));
         }
         if(newList.size()==0){
