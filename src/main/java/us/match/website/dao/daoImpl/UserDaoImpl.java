@@ -142,11 +142,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean focusProject(Project project,User user) {
         boolean result=true;
-        user.getWorkingprojects().add(project);
         Session session = sessionFactory.openSession();
+        String sql="insert into u_p values ("+project.getPid()+","+user.getUid()+")";
         try{
             session.beginTransaction();
-            session.update(user);
+            session.createSQLQuery(sql).executeUpdate();
         }catch(Exception e){
             result=false;
             e.printStackTrace();
@@ -234,13 +234,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean addfocuser(User focuser,User focused) {
             boolean result=true;
-            focuser.getFocuser().add(focused);
-            focused.getFocused().add(focuser);
-            focused.addfocused();
             Session session = sessionFactory.openSession();
+            String sql="insert into focuser_focused values("+focused.getUid()+","+focuser.getUid()+")";
             try{
                 session.beginTransaction();
-                session.update(focuser);
+                session.createSQLQuery(sql).executeUpdate();
             }catch(Exception e){
                 e.printStackTrace();
             }finally{
