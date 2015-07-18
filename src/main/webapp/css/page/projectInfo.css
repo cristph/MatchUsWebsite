@@ -100,14 +100,8 @@
     color: #f01400;
 }
 
-.thumbs{
-    /*position: relative;*/
-    /*border-left: 3px;*/
-    /*border-bottom: 3px;*/
-}
 
 .imgthumbs{
-    max-width: 55px;
     border:#fff 3px solid;
 }
 
@@ -116,4 +110,19 @@
     overflow: hidden;
     background-image: url('/');
     background-size: cover;
+}
+
+.container-fluid {
+    position: relative;
+    top: 15px;
+    padding: 3px;
+}
+.box {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    float: left;
+    max-width: 55px;
+}
+.box img {
+    max-width: 100%
 }
