@@ -224,7 +224,6 @@ public class ProjectDaoImpl implements ProjectDao {
                 User user=new User();
                 user.setUsername((String) o[7]);
                 temp.setPublisher(user);
-
                 result.add(temp);
             }
         }catch(Exception e){

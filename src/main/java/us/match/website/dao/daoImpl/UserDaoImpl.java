@@ -293,4 +293,62 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    @Override
+    //得到关注用户的人
+    public List<User> getfocuser(int id) {
+        List<User> result=new ArrayList<User>();
+        Session session = sessionFactory.openSession();
+        String sql="select uid,username,email,university,address from User where uid IN " +
+                "(select focuser_id from focuser_focused where focused_id="+id+")";
+        try {
+            session.beginTransaction();
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                User temp =new User();
+                temp.setUid((int)o[0]);
+                temp.setUsername((String) o[1]);
+                temp.setEmail((String) o[2]);
+                temp.setUniversity((String) o[3]);
+                temp.setAddress((String)o[4]);
+                result.add(temp);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            return result;
+        }
+    }
+
+    @Override
+    //得到被用户关注的人
+    public List<User> getfocused(int id) {
+        List<User> result=new ArrayList<User>();
+        Session session = sessionFactory.openSession();
+        String sql="select uid,username,email,university,address from User where uid IN " +
+                "(select focused_id from focuser_focused where focuser_id="+id+")";
+        try {
+            session.beginTransaction();
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                User temp =new User();
+                temp.setUid((int)o[0]);
+                temp.setUsername((String)o[1]);
+                temp.setEmail((String)o[2]);
+                temp.setUniversity((String)o[3]);
+                temp.setAddress((String)o[4]);
+                result.add(temp);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            return result;
+        }
+    }
+
 }
