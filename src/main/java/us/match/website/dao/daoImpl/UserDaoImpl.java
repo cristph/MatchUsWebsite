@@ -93,7 +93,7 @@ public class UserDaoImpl implements UserDao {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
                 temp.setModuel((String) o[1]);
-                temp.setPicture((byte[]) o[2]);
+                temp.setPicture((String) o[2]);
                 temp.setPinstruction((String) o[3]);
                 temp.setReward((String) o[4]);
                 temp.setSkill((String) o[5]);
@@ -396,7 +396,7 @@ public class UserDaoImpl implements UserDao {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
                 temp.setModuel((String) o[1]);
-                temp.setPicture((byte[]) o[2]);
+                temp.setPicture((String)o[2]);
                 temp.setPinstruction((String) o[3]);
                 temp.setReward((String) o[4]);
                 temp.setSkill((String) o[5]);
