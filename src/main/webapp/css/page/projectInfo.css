@@ -99,3 +99,22 @@
 .name_popover >a:hover{
     color: #f01400;
 }
+
+.thumbs{
+    /*position: relative;*/
+    /*border-left: 3px;*/
+    /*border-bottom: 3px;*/
+}
+
+.imgthumbs{
+    max-width: 55px;
+    border:#fff 3px solid;
+}
+
+.showImg{
+    height: auto;
+    width: 1100px;
+    overflow: hidden;
+    background-image: url('/image/ini/banner.jpg');
+    background-size: cover;
+}

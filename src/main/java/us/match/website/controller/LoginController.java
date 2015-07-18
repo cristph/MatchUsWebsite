@@ -71,19 +71,6 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(value = "/reg", method = RequestMethod.POST)
-    public String Register(@ModelAttribute User newUser, Model model){
-        User u=userService.register(newUser);
-        if(u==null){
-            model.addAttribute("registerResult","regFailed");
-            return "reg";
-        }else{
-            model.addAttribute("user",u);
-            model.addAttribute("registerResult", "regSuccess");
-            return "redirect:user";
-        }
-    }
-
     @RequestMapping(value="/hotUsers/userPhoto")
     public void getHotUserPhoto(HttpServletRequest request,
                                 HttpServletResponse response,@RequestParam int oneHotUserId){
