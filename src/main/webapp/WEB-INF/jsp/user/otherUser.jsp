@@ -46,7 +46,7 @@
         </ul>
       </div>
       <div>
-        <p>${user.instruction}</p>
+        <p>${oneOtherUser.instruction}</p>
       </div>
       <div>
         <ul class="left_nav">
@@ -91,12 +91,14 @@
       </div>
       <div id="attend_project" class="content_div hide">
         <ul class="nav nav-tabs">
-
           <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this,${oneOtherUser.uid})">
             <a href="#">已参加项目</a>
           </li>
           <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this,${oneOtherUser.uid})">
             <a href="#">已完成项目</a>
+          </li>
+          <li role="presentation" id="my_attention" class="sub_bar" onclick="changeBar(this,${oneOtherUser.uid})">
+            <a href="#">已关注项目</a>
           </li>
         </ul>
         <div class="project-list">
@@ -128,17 +130,16 @@
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
 <script type="text/javascript" defer="defer">
-  <c:forEach var="project" items="${projectList}">
+  <c:forEach var="project" items="${publishingProjects}">
   var pid=${project.pid};
   if(pid==-1){
     var project_body=document.getElementById("published_project_body");
-    project_body.innerHTML="<h2>Ta暂时还没有项目哦~~~</h2>";
+    project_body.innerHTML="<h2>暂时还没有项目哦~~~</h2>";
   }
   </c:forEach>
 </script>
