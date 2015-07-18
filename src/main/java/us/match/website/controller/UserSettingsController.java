@@ -31,13 +31,17 @@ public class UserSettingsController {
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
     public User getBasic() {
 //        String username = servletRequest.getSession().getAttribute("username").toString();
+        long up = System.currentTimeMillis();
         User user = userService.getBasicInfo("gjp");
+        System.out.println(System.currentTimeMillis()-up);
+//        User user = new User();
+//        user.setUsername("gjp");
         user.setFace(null);
         user.setSkills(null);
         user.setPublishingprojects(null);
         user.setWorkingprojects(null);
-        user.setFriends(null);
         user.setFocused(null);
+        user.setFocuser(null);
         return user;
     }
     @ResponseBody
