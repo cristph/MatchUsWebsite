@@ -216,6 +216,9 @@ public class UserInfoController extends MultiActionController{
     public void getOtherUser(Model model,@RequestParam int uid){
         User u=userService.getBasicInfo(uid);
         u.setPassword(null);
+        u.setFocused(null);
+        u.setPublishingprojects(null);
+        u.setFocuser(null);
         model.addAttribute("oneOtherUser",u);
     }
 
