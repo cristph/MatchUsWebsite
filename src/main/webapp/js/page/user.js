@@ -166,7 +166,7 @@ function getPeopleListHtmlStr(people) {
     var html = "";
     for (var i = 0; i < people.length; i++) {
         html += "<li>" +
-            "<a href='/' class='people-info'>" +
+            "<a href='/otherUser?uid="+people[i].uid+"' class='people-info' target=\"_blank\">" +
             "<span class='people-pic'>" +
             "<img src=\"userPhoto.jpg?uid=" + people[i].uid + "\" alt=\"该用户暂无头像\">" +
             "</span>" +

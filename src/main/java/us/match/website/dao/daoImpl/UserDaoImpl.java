@@ -265,18 +265,27 @@ public class UserDaoImpl implements UserDao {
         User result =new User();
         try {
             session.beginTransaction();
-            Query query = session.createSQLQuery("select uid,username,password,face from User WHERE username='" + user + "'"
+            Query query = session.createSQLQuery("select * from User WHERE username='" + user + "'"
             +"or email = '"+user+"'");
             List<Object[]> object=query.list();
             if(object.size()!=0){
                 for(Object[] o:object){
                     result.setUid((int) o[0]);
-                    result.setUsername((String) o[1]);
-                    result.setPassword((String) o[2]);
-                    result.setFace((byte[]) o[3]);
-//                    result.setSex((String)o[4]);
-//                    result.setAddress((String)o[5]);
-//                    result.setUniversity((String)o[6]);
+                    result.setAddress((String)o[1]);
+                    result.setBirthday((String)o[2]);
+                    result.setEmail((String)o[3]);
+                    result.setFace((byte[])o[4]);
+                    result.setInstruction((String)o[5]);
+                    result.setMajor((String)o[6]);
+                    result.setMobilephone((String)o[7]);
+                    result.setPassword((String)o[8]);
+                    result.setQq((String)o[9]);
+                    result.setRealname((String)o[10]);
+                    result.setSex((String)o[11]);
+                    result.setTelephone((String)o[12]);
+                    result.setUniversity((String)o[13]);
+                    result.setUsername((String)o[14]);
+                    result.setFocusednum((int)o[15]);
                 }
             }
             else{

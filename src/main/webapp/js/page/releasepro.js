@@ -50,9 +50,7 @@ $(function(){
     $('#inName').keyup(chkName);
     $('#submit_btn').click(
         function(){
-            alert("clicked");
-
-                $.post("/project/add",
+                $.get("/project/add",
                     {"projectname":document.getElementById('projectname').value,
                         "projectdetail":document.getElementById('projectdetail').value,
                         "projecttag":document.getElementById('projecttag').value,
@@ -63,17 +61,19 @@ $(function(){
                         "email":document.getElementById('email').value,
                         "phone":document.getElementById('phone').value,
                         "fax":document.getElementById('fax').value
-                    },
+                    }
+                    ,
                     function(data){
-                        alert("function is called");
                         alert(data);
+
                         if (data=="true") {
                             window.top.location.href='/';
                         }
                         else {
                             alert("no");
                         }
-                    });
+                    }
+                    );
 
         }
     );
