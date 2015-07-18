@@ -81,7 +81,7 @@
         <ul id="pe-thumbs" class="pe-thumbs">
             <c:forEach items="${hotUsers}" var="user">
                 <li>
-                    <a href="/user">
+                    <a href="/otherUser?uid=${user.uid}">
                         <img class="lazy" data-original="/hotUsers/userPhoto?oneHotUserId=${user.uid}">
                         <%--<img src="hotUsers/userPhoto?oneHotUserId=${user.uid}" alt="无头像"/>--%>
                         <div class="pe-description">

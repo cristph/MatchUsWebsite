@@ -3,32 +3,38 @@ var changeBar = function (bar,uid) {
     switch (bar.id) {
         case "publish":
             changeBarClass(bar);
-            getPublish_unCompleted(uid);
-            break;
-        case "published_uncompleted":
-            getPublish_unCompleted(uid);
-            break;
-        case "published_completed":
-            getPublish_completed(uid);
-            break;
+            getPublish(uid,"now");
+            break;//初始化发布的项目
         case "attend":
             changeBarClass(bar);
-            getAttend_unCompleted(uid);
-            break;
-        case "attend_uncompleted":
-            getAttend_unCompleted(uid);
-            break;
-        case "attend_completed":
-            getAttend_completed(uid);
-            break;
+            getAttend(uid,"now");
+            break;//初始化参加的项目
         case "follow":
             changeBarClass(bar);
             getFollow(uid);
-            break;
+            break;//初始化关注的人
         case "fans":
             changeBarClass(bar);
             getFans(uid);
-            break;
+            break;//初始化关注我的人
+        case "publish_now":
+            getPublish(uid,"now");
+            break;//正在进行的我发布的项目
+        case "publish_past":
+            getPublish(uid,"past");
+            break;//已完成的的我发布的项目
+        case "publish_will":
+            getPublish(uid,"will");
+            break;//未开始的我发布的项目
+        case "attend_now":
+            getAttend(uid,"now");
+            break;//正在进行的我参加的项目
+        case "attend_past":
+            getAttend(uid,"past");
+            break;//已完成的我参加的项目
+        case "attend_will":
+            getAttend(uid,"will");
+            break;//我关注的项目
     }
 }
 
@@ -52,57 +58,33 @@ function hideContents() {
     }
 }
 
-function getPublish_unCompleted(uid) {
-    var bar = document.getElementById("published_uncompleted");
-    var body = document.getElementById("published_project_body");
-    body.innerHTML = "";
+function getPublish(uid,state) {
+    var id="publish_"+state;
+    var bar = document.getElementById(id);
     changeToActive(bar);
-    $.post("/user/releasedProjects", {"uid":uid,"projectState": "will"}, function (projects) {
+    var body = document.getElementById("publish_project_body");
+    body.innerHTML = "";
+    $.post("/user/releasedProjects", {"uid":uid,"projectState": state}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
-    var div = document.getElementById("published_project");
+    var div = document.getElementById("publish_project");
     div.className = "content_div show";
-}//得到发布的未完成的项目
+}//得到发布的项目
 
-function getPublish_completed(uid) {
-    var bar = document.getElementById("published_completed");
-    var body = document.getElementById("published_project_body");
-    body.innerHTML = "";
-    changeToActive(bar)
-    $.post("/user/releasedProjects", {"uid":uid,"projectState": "Done"}, function (projects) {
-        var htmlStr = getProjetListHtmlStr(projects);
-        body.innerHTML = htmlStr;
-    });
-    var div = document.getElementById("published_project");
-    div.className = "content_div show";
-}//得到发布的完成的项目
-
-function getAttend_unCompleted(uid) {
-    var bar = document.getElementById("attend_uncompleted");
-    changeToActive(bar);
+function getAttend(uid,state) {
+    var id="attend_"+state;
+    var bar = document.getElementById(id);
+    changeToActive(bar);//修改指示框
     var body = document.getElementById("attend_project_body");
     body.innerHTML = "";
-    $.post("/user/attendProjects", {"uid":uid,"projectState": "will"}, function (projects) {
+    $.post("/user/attendProjects", {"uid":uid,"projectState": state}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
     var div = document.getElementById("attend_project");
-    div.className = "content_div show";
-}//得到参加的未完成的项目
-
-function getAttend_completed(uid) {
-    var bar = document.getElementById("attend_completed");
-    changeToActive(bar);
-    var body = document.getElementById("attend_project_body");
-    body.innerHTML = "";
-    $.post("/user/attendProjects", {"uid":uid,"projectState": "Done"}, function (projects) {
-        var htmlStr = getProjetListHtmlStr(projects);
-        body.innerHTML = htmlStr;
-    });
-    var div = document.getElementById("attend_project");
-    div.className = "content_div show";
-}//得到参加的已完成的项目
+    div.className = "content_div show";//修改展示的内容
+}//得到参加项目
 
 function getFollow(uid) {
     var body = document.getElementById("follow_people_body");

@@ -71,17 +71,20 @@
 
 
         <div id="detail_body">
-            <div id="published_project" class="content_div show">
+            <div id="publish_project" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this,${user.uid})">
-                        <a href="#">未完成项目</a>
+                    <li role="presentation" id="publish_now" class="sub_bar active" onclick="changeBar(this,${user.uid})">
+                        <a href="#">正在进行项目</a>
                     </li>
-                    <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this,${user.uid})">
+                    <li role="presentation" id="publish_past" class="sub_bar" onclick="changeBar(this,${user.uid})">
                         <a href="#">已完成项目</a>
+                    </li>
+                    <li role="presentation" id="publish_will" class="sub_bar" onclick="changeBar(this,${user.uid})">
+                        <a href="#">未开始项目</a>
                     </li>
                 </ul>
                 <div class="project-list">
-                    <ul id="published_project_body">
+                    <ul id="publish_project_body">
                         <c:forEach var="project" items="${projectList}">
                             <li>
                                 <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
@@ -94,12 +97,14 @@
             </div>
             <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
-
-                    <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this,${user.uid})">
-                        <a href="#">已参加项目</a>
+                    <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,${user.uid})">
+                        <a href="#">正在进行项目</a>
                     </li>
-                    <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this,${user.uid})">
+                    <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,${user.uid})">
                         <a href="#">已完成项目</a>
+                    </li>
+                    <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,${user.uid})">
+                        <a href="#">已关注项目</a>
                     </li>
                 </ul>
                 <div class="project-list">
@@ -140,7 +145,7 @@
     <c:forEach var="project" items="${projectList}">
         var pid=${project.pid};
         if(pid==-1){
-            var project_body=document.getElementById("published_project_body");
+            var project_body=document.getElementById("publish_project_body");
             project_body.innerHTML="<h2>暂时还没有项目哦~~~</h2>";
         }
     </c:forEach>
