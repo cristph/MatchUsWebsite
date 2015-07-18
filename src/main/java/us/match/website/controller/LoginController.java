@@ -56,6 +56,7 @@ public class LoginController {
                         @RequestParam("password") String password,
                         HttpServletRequest request) {
         User u=userService.login(username, password);
+
         if(u==null) {
             return "failed";
         }
