@@ -107,7 +107,7 @@ function getAttend_completed() {
 function getFollow() {
     var body = document.getElementById("follow_people_body");
     body.innerHTML = "";
-    $.post("/user/focus", null, function (people) {
+    $.post("/user/focused", null, function (people) {
         if (people[0].uid == -1) {
             body.innerHTML = "<h2>您还没有关注其他人，快快去寻找大牛吧~~~</h2>";
         } else {
@@ -122,7 +122,7 @@ function getFollow() {
 function getFans() {
     var body = document.getElementById("follow_me_body");
     body.innerHTML = "";
-    $.post("/user/focused", null, function (people) {
+    $.post("/user/focus", null, function (people) {
         if (people[0].uid == -1) {
             body.innerHTML = "<h2>还没有人关注你哦= =</h2>";
         } else {
@@ -166,7 +166,7 @@ function getPeopleListHtmlStr(people) {
     var html = "";
     for (var i = 0; i < people.length; i++) {
         html += "<li>" +
-            "<a href='#' class='people-info'>" +
+            "<a href='/' class='people-info'>" +
             "<span class='people-pic'>" +
             "<img src=\"userPhoto.jpg?uid=" + people[i].uid + "\" alt=\"该用户暂无头像\">" +
             "</span>" +
