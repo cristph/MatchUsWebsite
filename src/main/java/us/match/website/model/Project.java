@@ -22,7 +22,7 @@ public class Project {
     private String subject;
     private String moduel;
     private String skill;
-    private int reward;
+    private String reward;
     private User publisher;
     private List<User> workers;
     private Timestamp updatetime;
@@ -92,11 +92,11 @@ public class Project {
         this.skill = skill;
     }
 
-    public int getReward() {
+    public String getReward() {
         return reward;
     }
 
-    public void setReward(int reward) {
+    public void setReward(String reward) {
         this.reward = reward;
     }
 

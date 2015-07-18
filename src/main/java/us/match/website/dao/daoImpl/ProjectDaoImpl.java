@@ -101,7 +101,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPid((int) o[0]);
                 temp.setPicture((byte[]) o[1]);
                 temp.setPname((String) o[2]);
-                temp.setReward((int) o[3]);
+                temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
                 temp.setLocation((String) o[5]);
                 temp.setPhonenumber((String) o[6]);
@@ -142,7 +142,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPid((int) o[0]);
                 temp.setPicture((byte[]) o[1]);
                 temp.setPname((String) o[2]);
-                temp.setReward((int) o[3]);
+                temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
                 temp.setLocation((String) o[5]);
                 User user=new User();
@@ -184,7 +184,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPid((int) o[0]);
                 temp.setPicture((byte[]) o[1]);
                 temp.setPname((String) o[2]);
-                temp.setReward((int) o[3]);
+                temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
                 temp.setLocation((String) o[5]);
                 temp.setPhonenumber((String) o[6]);
@@ -217,7 +217,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPid((int) o[0]);
                 temp.setPicture((byte[]) o[1]);
                 temp.setPname((String) o[2]);
-                temp.setReward((int) o[3]);
+                temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
                 temp.setLocation((String) o[5]);
                 temp.setPhonenumber((String) o[6]);
@@ -303,7 +303,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setPid((int) o[0]);
                 temp.setPicture((byte[]) o[1]);
                 temp.setPname((String) o[2]);
-                temp.setReward((int) o[3]);
+                temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
                 temp.setLocation((String) o[5]);
                 temp.setPhonenumber((String) o[6]);

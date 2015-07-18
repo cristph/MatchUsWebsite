@@ -70,7 +70,7 @@ $(function(){
                             window.top.location.href='/';
                         }
                         else {
-                            alert("no");
+                            alert(data);
                         }
                     }
                     );

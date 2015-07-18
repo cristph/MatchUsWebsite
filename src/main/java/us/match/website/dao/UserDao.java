@@ -29,4 +29,5 @@ public interface UserDao {
     public User getbasicinfobyname(String user);
     public List<User> getfocuser(int id);
     public List<User> getfocused(int id);
+    public List<Project> getpublishing(int id);
 }
