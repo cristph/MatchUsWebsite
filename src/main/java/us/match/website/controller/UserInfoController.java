@@ -241,11 +241,14 @@ public class UserInfoController extends MultiActionController{
     public String getOtherUser(Model model,@RequestParam int uid){
         List<Project> list=userService.getWorkingProjects(uid);
         List<Project> newList=new LinkedList<Project>();
-        for(int i=0;i<list.size();i++)
-        {
-            Project temp=list.get(i);
-            if(!temp.isState().equals("past"))
-                newList.add(temp);
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).isState().equals("now"))
+                newList.add(list.get(i));
+        }
+        if(newList.size()==0){
+            Project p=new Project();
+            p.setPid(-1);
+            newList.add(p);
         }
         model.addAttribute("publishingProjects", newList);
         User u = userService.getBasicInfo(uid);
