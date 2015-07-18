@@ -33,7 +33,7 @@ public class UserSettingsController {
     public User getBasic(HttpSession session) {
         User u=(User)session.getAttribute("user");
         User user = userService.getBasicInfo(u.getUid());
-        // user.setFace(null);
+        user.setPassword(null);
         return user;
     }
     @ResponseBody

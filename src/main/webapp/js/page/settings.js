@@ -7,7 +7,7 @@ $(function () {
         this.address = ko.observable();
         this.skills = ko.observableArray([]);
         this.birthday = ko.observable();
-        this.introduction = ko.observable();
+        this.instruction = ko.observable();
     }
 
     function UserSettingsViewModel() {
@@ -23,8 +23,8 @@ $(function () {
             self.user().address(new_user.address);
             self.user().skills(new_user.skills);
             self.user().birthday(new_user.birthday);
-            self.user().introduction(new_user.introduction);
-        })
+            self.user().instruction(new_user.instruction);
+        });
         self.update = function () {
             $.post("/user/settings/basic", {
                 'username': self.user().username(),
@@ -33,7 +33,7 @@ $(function () {
                 'address': self.user().address(),
                 'skills': self.user().skills(),
                 'birthday': self.user().birthday(),
-                'introduction': self.user().introduction() || ''
+                'introduction': self.user().instruction() || ''
             }, function (data) {
                 if (data.success) {
                     var new_user = data.user;
@@ -43,7 +43,7 @@ $(function () {
                     self.user().address(new_user.address);
                     self.user().skills(new_user.skills);
                     self.user().birthday(new_user.birthday);
-                    self.user().introduction(new_user.introduction);
+                    self.user().instruction(new_user.instruction);
                     alert('update success');
                 }
                 else {

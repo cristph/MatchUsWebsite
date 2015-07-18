@@ -3,8 +3,7 @@
 <form data-bind="submit: update">
     <div class="settings-right wrapped-boxes active" data-bind="with: user">
         <div class="row">
-            <label for="name" class="col-md-2 text-right">昵称</label>
-
+            <label for="name" class="col-md-2 text-right">用户名</label>
             <div class="col-md-8">
                 <input data-bind="value: username" type="text" name="name" id="name" class="form-control"
                        required="required">
@@ -54,12 +53,13 @@
             <label class="col-md-2 text-right">简介</label>
 
             <div class="col-md-10">
-                <textarea data-bind="value: introduction" class="form-control" rows="5"></textarea>
+                <textarea data-bind="value: instruction" class="form-control" rows="5"></textarea>
             </div>
         </div>
-        <div class="row form-group">
-            <input id="submit" class="btn btn-success pull-right" type="submit" value="确认修改">
-        </div>
+        <p class="row form-group">
+            <div class="col-md-2"></div>
+            <input id="submit" class="btn btn-success col-md2" type="submit" value="确认修改">
+        </p>
     </div>
 </form>
 
