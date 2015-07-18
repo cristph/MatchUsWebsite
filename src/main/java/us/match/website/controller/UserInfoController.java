@@ -211,4 +211,12 @@ public class UserInfoController extends MultiActionController{
         }
     }
 
+    @ResponseBody
+    @RequestMapping(value="/otherUser",method = RequestMethod.POST)
+    public void getOtherUser(Model model,@RequestParam int uid){
+        User u=userService.getBasicInfo(uid);
+        u.setPassword(null);
+        model.addAttribute("oneOtherUser",u);
+    }
+
 }
