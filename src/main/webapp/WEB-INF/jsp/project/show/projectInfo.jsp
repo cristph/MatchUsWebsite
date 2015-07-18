@@ -137,9 +137,7 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 <script src="../../js/page/commonHeader.js"></script>
-<script src="//cdn.bootcss.com/masonry/3.3.1/masonry.pkgd.min.js"></script>
 <script src="/js/page/projectInfo.js"></script>
-
 
 </body>
 </html>
