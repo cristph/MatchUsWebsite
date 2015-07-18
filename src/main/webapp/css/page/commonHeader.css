@@ -81,9 +81,10 @@ ul.navbar-right li {
     position: absolute;
     left: 0px;
     top: 35px;
-    width: 223px;
+    width: 222px;
     margin-bottom: 20px;
-    border: 1px solid #d3d3d3;
+    *border: 1px solid #d3d3d3;
+    border: 0;
     border-top: none;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
@@ -92,12 +93,12 @@ ul.navbar-right li {
 }
 
 .searchResult dd {
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
 }
 
 .searchResult dd a {
-    padding: 0 10px 0 33px;
+    padding: 0 10px 0 20px;
     display: block;
     width: auto;
     color: #787d82;

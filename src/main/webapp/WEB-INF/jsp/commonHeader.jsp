@@ -45,10 +45,11 @@
                     <span class="input-group-btn">
                         <button class="btn searchButton" id="searchButton" type="button">GO</button>
                     </span>
-                    <dl class="searchResult">
-                        <dd><a href="#"><span>hahahhaha</span></a></dd>
-                        <dd><a href="#"><span>zxzxzxzzx</span></a></dd>
-                        <dd><a href="#"><span>uvuvvuvuv</span></a></dd>
+                    <dl class="searchResult" id="searchResult">
+                        <%--<dd><a href="#"><span>hahahhaha</span></a></dd>--%>
+                        <%--<dd><a href="#"><span>zxzxzxzzx</span></a></dd>--%>
+                        <%--<dd><a href="#"><span>uvuvvuvuv</span></a></dd>--%>
+                        <%--<dd><a href="#"><span>jijijijij</span></a></dd>--%>
                     </dl>
                 </div>
                 <!-- /input-group -->
