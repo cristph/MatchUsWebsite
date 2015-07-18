@@ -128,15 +128,15 @@ public class UserDaoImpl implements UserDao {
                 temp.setSkill((String) o[5]);
                 temp.setState((String) o[6]);
                 temp.setSubject((String) o[7]);
-                temp.setUpdatetime((Timestamp) o[8]);
-                temp.setStarttime((Timestamp) o[9]);
-                temp.setLocation((String) o[10]);
-                temp.setEmail((String) o[11]);
-                temp.setPhonenumber((String) o[12]);
-                temp.setPname((String) o[13]);
-                temp.setQq((String) o[14]);
-                temp.setTelephone((String) o[15]);
-                temp.setFax((String)o[16]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String)o[17]);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -431,15 +431,15 @@ public class UserDaoImpl implements UserDao {
                 temp.setSkill((String) o[5]);
                 temp.setState((String) o[6]);
                 temp.setSubject((String) o[7]);
-                temp.setUpdatetime((Timestamp) o[8]);
-                temp.setStarttime((Timestamp) o[9]);
-                temp.setLocation((String) o[10]);
-                temp.setEmail((String) o[11]);
-                temp.setPhonenumber((String) o[12]);
-                temp.setPname((String) o[13]);
-                temp.setQq((String) o[14]);
-                temp.setTelephone((String) o[15]);
-                temp.setFax((String)o[16]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String)o[17]);
                 result.add(temp);
             }
         }catch(Exception e){
