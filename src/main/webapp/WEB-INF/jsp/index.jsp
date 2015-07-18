@@ -41,7 +41,6 @@
 
     <div class="projects-header page-header">
         <h2>优质项目推荐</h2>
-
         <p>这些项目好牛逼啊！！！！</p>
     </div>
 
@@ -75,7 +74,6 @@
 
     <div class="projects-header page-header">
         <h2>结交牛人</h2>
-
         <p>看看底下的牛人->_-></p>
     </div>
 
@@ -83,8 +81,8 @@
         <ul id="pe-thumbs" class="pe-thumbs">
             <c:forEach items="${hotUsers}" var="user">
                 <li>
-                    <a href="../../view/page/user.html">
-                        <img class="lazy" data-original="hotUsers/userPhoto?oneHotUserId=${user.uid}">
+                    <a href="/user">
+                        <img class="lazy" data-original="/hotUsers/userPhoto?oneHotUserId=${user.uid}">
                         <%--<img src="hotUsers/userPhoto?oneHotUserId=${user.uid}" alt="无头像"/>--%>
                         <div class="pe-description">
                             <h3>${user.username}</h3>
