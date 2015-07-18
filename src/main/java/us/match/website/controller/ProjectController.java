@@ -48,14 +48,13 @@ public class ProjectController {
     }
 
 
-//    @RequestMapping(value = "/add",method = RequestMethod.POST)
     @RequestMapping(value = "/add")
     public String addProject(
             @RequestParam("projectname") String projectname,
-           @RequestParam("projectdetail") String projectdetail,
+             @RequestParam("projectdetail") String projectdetail,
             @RequestParam("projecttag") String projecttag,
             @RequestParam("protech") String protech,
-            //@RequestParam("proreward") String proreward,
+            @RequestParam("proreward") String proreward,
             @RequestParam("mobilephone") String mobilephone,
             @RequestParam("qq") String qq,
             @RequestParam("email") String email,
@@ -71,7 +70,7 @@ public class ProjectController {
         pro.setPinstruction(projectdetail);
         pro.setModuel(projecttag);
         pro.setSkill(protech);
-       // pro.setReward(proreward);
+        pro.setReward(proreward);
 
         pro.setPhonenumber(mobilephone);
         pro.setEmail(email);
@@ -81,9 +80,9 @@ public class ProjectController {
         User user=(User)session.getAttribute("user");
         pro.setPublisher(user);
         pro.setState("will");
-
+        System.out.println("项目发布了1");
         projectService.addProject(pro);
-        System.out.println("项目发布了！");
+        System.out.println("项目发布了2");
         return "WEB-INF/jsp/project/project";
     }
 
