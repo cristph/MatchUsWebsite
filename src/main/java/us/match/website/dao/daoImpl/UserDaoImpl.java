@@ -79,34 +79,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findUser(String username) {
-        User result=new User();
-        Session session = sessionFactory.openSession();
-
-        try {
-            session.beginTransaction();
-
-            Query query = session.createQuery("from User WHERE username='" + username + "'");
-
-            List<User> list= query.list();
-
-            if(list.size()!=0){
-                result=list.get(0);
-            }
-            else{
-                result=null;
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }finally{
-
-            session.getTransaction().commit();
-            session.close();
-            return result;
-        }
-    }
-
-    @Override
     public List<Project> getUserProject(int uid) {
         List<Project>  result =new ArrayList<Project>();
         Session session = sessionFactory.openSession();
@@ -121,7 +93,7 @@ public class UserDaoImpl implements UserDao {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
                 temp.setModuel((String) o[1]);
-                temp.setPicture((byte[]) o[2]);
+                temp.setPicture((String) o[2]);
                 temp.setPinstruction((String) o[3]);
                 temp.setReward((String) o[4]);
                 temp.setSkill((String) o[5]);
@@ -168,7 +140,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean addProject(Project project,User user) {
+    public boolean focusProject(Project project,User user) {
         boolean result=true;
         user.getWorkingprojects().add(project);
         Session session = sessionFactory.openSession();
@@ -189,7 +161,6 @@ public class UserDaoImpl implements UserDao {
     public User getUserbyid(int id) {
         Session session = sessionFactory.openSession();
         User result =new User();
-        long startTime = System.currentTimeMillis();//获取当前时间
         try {
             session.beginTransaction();
             Query query = session.createSQLQuery("select * from User WHERE uid="+id);
@@ -222,8 +193,7 @@ public class UserDaoImpl implements UserDao {
         }finally{
             session.getTransaction().commit();
             session.close();
-            long endTime = System.currentTimeMillis();
-            System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
+
             return result;
         }
     }
@@ -424,7 +394,7 @@ public class UserDaoImpl implements UserDao {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
                 temp.setModuel((String) o[1]);
-                temp.setPicture((byte[]) o[2]);
+                temp.setPicture((String)o[2]);
                 temp.setPinstruction((String) o[3]);
                 temp.setReward((String) o[4]);
                 temp.setSkill((String) o[5]);

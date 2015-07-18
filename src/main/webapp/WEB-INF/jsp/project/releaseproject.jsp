@@ -28,7 +28,7 @@
 <jsp:include page="../commonHeader.jsp"/>
 <div class="container">
   <h2>发布项目</h2><br>
-  <form role="form">
+  <form role="form" enctype="multipart/form-data" method="post">
     <div class="row">
       <div class="form-group col-md-6">
         <label >项目名称</label>
@@ -70,9 +70,14 @@
           eg: 最好能够跨平台，能够帮助进行多机型的测试提供测试报告……" data-placement="bottom" rows="4"></textarea>
       </div></div>
     <div class="form-group">
-      <label for="inputfile">上传附件</label>
-      <input type="file" id="inputfile">
-      <p class="help-block">上传项目描述图片或项目介绍文档</p>
+      <label for="imagefile">上传图片</label>
+      <input type="file" id="imagefile">
+      <p class="help-block">上传项目描述图片,图片将在项目缩略图中展现</p>
+    </div>
+    <div class="form-group">
+      <label for="extrafile">上传附件</label>
+      <input type="file" id="extrafile">
+      <p class="help-block">上传有关项目描述的附件</p>
     </div>
     <div class="row">
       <div class="form-group col-md-8">

@@ -99,7 +99,7 @@ public class ProjectDaoImpl implements ProjectDao {
             {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
-                temp.setPicture((byte[]) o[1]);
+                temp.setPicture((String) o[1]);
                 temp.setPname((String) o[2]);
                 temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
@@ -140,7 +140,7 @@ public class ProjectDaoImpl implements ProjectDao {
             {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
-                temp.setPicture((byte[]) o[1]);
+                temp.setPicture((String) o[1]);
                 temp.setPname((String) o[2]);
                 temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
@@ -182,7 +182,7 @@ public class ProjectDaoImpl implements ProjectDao {
             {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
-                temp.setPicture((byte[]) o[1]);
+                temp.setPicture((String) o[1]);
                 temp.setPname((String) o[2]);
                 temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
@@ -203,19 +203,18 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public List<Project> getbyreward(int maxmoney, int minmoney) {
+    public List<Project> getbyreward(String reward) {
         List<Project> result=new ArrayList<Project>();
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location,phonenumber,username from Project p,User u where p.uid=u.uid and reward between "+maxmoney
-            +"and "+minmoney);
+            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location,phonenumber,username from Project p,User u where p.uid=u.uid and reward='"+reward+"'");
             List<Object[]> object=query.list();
             for(Object[] o:object)
             {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
-                temp.setPicture((byte[]) o[1]);
+                temp.setPicture((String) o[1]);
                 temp.setPname((String) o[2]);
                 temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);
@@ -237,10 +236,12 @@ public class ProjectDaoImpl implements ProjectDao {
 
     public boolean addProject(Project project,User user) {
         boolean result=true;
+        long startTime = System.currentTimeMillis();//获取当前时间
         Session session = sessionFactory.openSession();
-        user.getPublishingprojects().add(project);
         project.setPublisher(user);
         session.save(project);
+        long endTime = System.currentTimeMillis();
+        System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
         try{
             session.beginTransaction();
             session.save(project);
@@ -301,7 +302,7 @@ public class ProjectDaoImpl implements ProjectDao {
                 User u=new User();
                 u.setUsername((String)o[7]);
                 temp.setPid((int) o[0]);
-                temp.setPicture((byte[]) o[1]);
+                temp.setPicture((String) o[1]);
                 temp.setPname((String) o[2]);
                 temp.setReward((String) o[3]);
                 temp.setSkill((String) o[4]);

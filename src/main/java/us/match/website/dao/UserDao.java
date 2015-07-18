@@ -17,10 +17,9 @@ public interface UserDao {
     public User addUser(User user);
     public boolean deleteUser(User user);
     public boolean updateUser(User user);
-    public User findUser(String username);
     public List<Project> getUserProject(int uid);
     public int getidbyname(String username);
-    public boolean addProject(Project project,User user);
+    public boolean focusProject(Project project,User user);
     public User getUserbyid(int id);
     public User addSkill(User user,List<UserSkill> userskills);
     public List<UserSkill> getallskills(String id);
