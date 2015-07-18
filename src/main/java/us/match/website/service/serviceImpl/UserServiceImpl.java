@@ -132,8 +132,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Project> getPublishing(int userId) {
-        User u=userDao.getUserbyid(userId);
-        return u.getPublishingprojects();
+        return userDao.getpublishing(userId);
     }
 
     @Override
