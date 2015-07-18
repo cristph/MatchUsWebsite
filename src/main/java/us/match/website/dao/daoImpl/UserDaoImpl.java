@@ -258,11 +258,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User loginjudge(String user) {
+    public User getbasicinfobyname(String user) {
         Session session = sessionFactory.openSession();
-        long startTime = System.currentTimeMillis();//获取当前时间
-        System.out.println(startTime+"________");
         User result =new User();
+        long startTime = System.currentTimeMillis();//获取当前时间
         try {
             session.beginTransaction();
             Query query = session.createSQLQuery("select * from User WHERE username='" + user + "'"
@@ -291,13 +290,13 @@ public class UserDaoImpl implements UserDao {
             else{
                 result=null;
             }
-            long endTime = System.currentTimeMillis();
-            System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
         }catch(Exception e){
             e.printStackTrace();
         }finally{
             session.getTransaction().commit();
             session.close();
+            long endTime = System.currentTimeMillis();
+            System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
             return result;
         }
     }
