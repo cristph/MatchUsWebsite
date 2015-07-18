@@ -72,13 +72,13 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/reg", method = RequestMethod.POST)
-    public String Register(@ModelAttribute User newUser, Model model){
+    public String Register(@ModelAttribute User newUser, Model model,HttpSession session){
         User u=userService.register(newUser);
         if(u==null){
             model.addAttribute("registerResult","regFailed");
             return "reg";
         }else{
-            model.addAttribute("user",u);
+            session.setAttribute("user",u);
             model.addAttribute("registerResult", "regSuccess");
             return "redirect:user";
         }
