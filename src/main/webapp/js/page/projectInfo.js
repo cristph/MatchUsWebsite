@@ -27,8 +27,8 @@ function showImage(){
     img.setAttribute("max-width",screenWidth);
     img.setAttribute("max-height",screenHeight);
 
-    var imgHeight=img.backgroundImage.height;
-    var imgWidth=img.backgroundImage.width;
+    var imgHeight=img.style.backgroundImage.height;
+    var imgWidth=img.style.width.backgroundImage.width;
     alert("h:"+imgHeight+" w:"+imgWidth);
 
     var dia=document.getElementById("imgDialog");
@@ -41,10 +41,4 @@ function showImage(){
     dia.style.position='relative';
     dia.style.left=(screenWidth-imgWidth)/2;
     dia.style.right=(screenHeight-imgHeight)/2;
-
-    //dialog.maxHeight=height;
-    //dialog.maxWidth=width;
-
-
-
 }
