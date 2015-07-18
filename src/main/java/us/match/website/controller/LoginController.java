@@ -56,6 +56,7 @@ public class LoginController {
                         @RequestParam("password") String password,
                         HttpServletRequest request) {
         User u=userService.login(username, password);
+
         if(u==null) {
             return "failed";
         }
@@ -67,19 +68,6 @@ public class LoginController {
             }
             request.getSession().setAttribute("user", u);
             return "success";
-        }
-    }
-
-    @RequestMapping(value = "/reg", method = RequestMethod.POST)
-    public String Register(@ModelAttribute User newUser, Model model){
-        User u=userService.register(newUser);
-        if(u==null){
-            model.addAttribute("registerResult","regFailed");
-            return "reg";
-        }else{
-            model.addAttribute("user",u);
-            model.addAttribute("registerResult", "regSuccess");
-            return "redirect:user";
         }
     }
 

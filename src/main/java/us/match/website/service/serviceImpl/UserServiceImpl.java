@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUsername(username);
         user.setPassword(MD5.toMD5(password));
-        User userFromDao=userDao.loginjudge(username);
+        User userFromDao=userDao.getbasicinfobyname(username);
 //        System.out.println("______________"+username+" "+user.getPassword());
         if(userFromDao!=null && user.getPassword()!=null){
             if(userFromDao.getPassword().equals(user.getPassword())){
@@ -138,8 +138,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getFocus(int userId) {
-        User u=userDao.getUserbyid(userId);
-        List<User> list=u.getFocused();
+//        User u=userDao.getUserbyid(userId);
+        List<User> list=userDao.getfocuser(userId);
         for (User user : list) {
             user.setFocused(null);
             user.setFocuser(null);
@@ -152,8 +152,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getFocused(int userId) {
-        User u=userDao.getUserbyid(userId);
-        List<User> list=u.getFocuser();
+//        User u=userDao.getUserbyid(userId);
+        List<User> list=userDao.getfocused(userId);
         for (User user : list) {
             user.setFocused(null);
             user.setFocuser(null);

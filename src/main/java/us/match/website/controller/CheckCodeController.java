@@ -51,7 +51,7 @@ public class CheckCodeController {
     }
 
     @ResponseBody
-    @RequestMapping(value="/validate.do")
+    @RequestMapping(value="/validate")
     public String validate(@RequestParam("sign_email") String email,
                            @RequestParam("sign_name") String name,
                            @RequestParam("sign_pswd") String password,
@@ -73,6 +73,7 @@ public class CheckCodeController {
             if(u==null){
                 return "RegisterFalse";
             }
+            session.setAttribute("user",u);
             return "true";
         }else
             return "false";

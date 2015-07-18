@@ -67,12 +67,13 @@ public class UserInfoController extends MultiActionController{
     @ResponseBody
     @RequestMapping(value="/user/releasedProjects",method = RequestMethod.POST)
     public List<Project> getReleased(HttpSession session,Model model,
-                              @RequestParam("projectState") String projectState){
+                              @RequestParam("projectState") String projectState,
+                                @RequestParam("uid") int uid){
         System.out.println("function entered");
         if(projectState.equals("Done")){
             User u=(User)session.getAttribute("user");
             System.out.println("function exed");
-            List<Project> list=userService.getPublishing(u.getUid());
+            List<Project> list=userService.getPublishing(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(list.get(i).isState().equals("past"))
@@ -87,8 +88,7 @@ public class UserInfoController extends MultiActionController{
             System.out.println(newList+newList.get(0).isState()+"------------------1");
             return newList;
         }else{
-            User u=(User)session.getAttribute("user");
-            List<Project> list=userService.getPublishing(u.getUid());
+            List<Project> list=userService.getPublishing(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(!list.get(i).isState().equals("past"))
@@ -109,12 +109,13 @@ public class UserInfoController extends MultiActionController{
     @ResponseBody
     @RequestMapping(value="/user/attendProjects",method = RequestMethod.POST)
     public List<Project> getAttend(HttpSession session,
-                                     @RequestParam("projectState") String projectState){
+                                     @RequestParam("projectState") String projectState,
+                                        @RequestParam("uid") int uid){
         System.out.println("function entered");
+        User u=userService.getBasicInfo(uid);
         if(projectState.equals("Done")){
-            User u=(User)session.getAttribute("user");
             System.out.println("function exed");
-            u=userService.getBasicInfo(u.getUid());
+            u=userService.getBasicInfo(uid);
             List<Project> list=u.getWorkingprojects();
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
@@ -129,8 +130,7 @@ public class UserInfoController extends MultiActionController{
             }
             return newList;
         }else{
-            User u=(User)session.getAttribute("user");
-            u=userService.getBasicInfo(u.getUid());
+            u=userService.getBasicInfo(uid);
             List<Project> list=u.getWorkingprojects();
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
@@ -151,9 +151,9 @@ public class UserInfoController extends MultiActionController{
     @ResponseBody
     @RequestMapping(value="/user/focus",method = RequestMethod.POST)
 //    @RequestMapping(value="/user/focus")
-    public List<User> getFocus(HttpSession session){
-        User u=(User)session.getAttribute("user");
-        List<User> list=userService.getFocus(u.getUid());
+    public List<User> getFocus(HttpSession session,
+                               @RequestParam int uid){
+        List<User> list=userService.getFocus(uid);
 //        List<User> list=null;
         if(list==null || list.size()==0) {
             list = new ArrayList<User>();
@@ -167,16 +167,16 @@ public class UserInfoController extends MultiActionController{
 
     @ResponseBody
     @RequestMapping(value="/user/focused",method = RequestMethod.POST)
-    public List<User> getFocused(HttpSession session){
-        User u=(User)session.getAttribute("user");
-        List<User> list=userService.getFocused(u.getUid());
-        if(list==null || list.size()==0) {
-            list = new ArrayList<User>();
-            User temp=new User();
-            temp.setUid(-1);
-            list.add(temp);
-        }
-        return  list;
+    public List<User> getFocused(HttpSession session,
+                                 @RequestParam int uid){
+            List<User> list=userService.getFocused(uid);
+            if(list==null || list.size()==0) {
+                list = new ArrayList<User>();
+                User temp=new User();
+                temp.setUid(-1);
+                list.add(temp);
+            }
+            return  list;
     }
 
 
@@ -209,6 +209,25 @@ public class UserInfoController extends MultiActionController{
             e.printStackTrace();
             System.out.println("输出用户头像失败！");
         }
+    }
+
+    @RequestMapping(value="/otherUser")
+    public String getOtherUser(Model model,@RequestParam int uid){
+        User u=userService.getBasicInfo(uid);
+        List<Project> newList=new LinkedList<Project>();
+        for(int i=0;i<u.getPublishingprojects().size();i++)
+        {
+            Project temp=u.getPublishingprojects().get(i);
+            if(!temp.isState().equals("past"))
+                newList.add(temp);
+        }
+        model.addAttribute("publishingProjects", newList);
+        u.setPassword(null);
+        u.setFocused(null);
+        u.setPublishingprojects(null);
+        u.setFocuser(null);
+        model.addAttribute("oneOtherUser", u);
+        return "/user/otherUser";
     }
 
 }

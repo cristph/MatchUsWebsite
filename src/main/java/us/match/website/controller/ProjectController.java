@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.ProjectService;
@@ -35,59 +36,61 @@ public class ProjectController {
         return "project/project";
     }
 
+
+
     @RequestMapping("/releaseProject")
     public String realeaseProject(Model model,HttpSession session)
     {
         User user=(User)session.getAttribute("user");
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
 
-        return "project/releaseproject";
+        return "/project/releaseproject";
     }
 
-///////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-//    @RequestMapping(value = "/add", method = RequestMethod.GET)
+//    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    @RequestMapping(value = "/add")
     public String addProject(
-                            @RequestParam("projectname") String projectname,
-                             @RequestParam("projectdetail")String projectdetail,
-                             @RequestParam("projecttag")String projecttag,
-                            @RequestParam("protech")String protech,//
-                            @RequestParam("proreward")String proreward,
-                            @RequestParam("mobilephone")String mobilephone,
-                             @RequestParam("qq")String qq,
-                            @RequestParam("email")String email,
-                            @RequestParam("phone")String phone,
-                            @RequestParam("fax")String fax,
-                                HttpSession session,Model model
+//            @RequestParam("projectname") String projectname,
+//            @RequestParam("projectdetail") String projectdetail,
+//            @RequestParam("projecttag") String projecttag,
+//            @RequestParam("protech") String protech,
+//            @RequestParam("proreward") String proreward,
+//            @RequestParam("mobilephone") String mobilephone,
+//            @RequestParam("qq") String qq,
+//            @RequestParam("email") String email,
+//            @RequestParam("phone") String phone,
+//            @RequestParam("fax") String fax,
+//            HttpSession session, Model model
     )
     {
 
-        Project pro=new Project();
+//        Project pro=new Project();
+//
+//        pro.setPname(projectname);
+//        pro.setPinstruction(projectdetail);
+//        pro.setModuel(projecttag);
+//        pro.setSkill(protech);
+//       // pro.setReward(proreward);
+//
+//        pro.setPhonenumber(mobilephone);
+//        pro.setEmail(email);
+//        pro.setFax(fax);
+//        pro.setTelephone(phone);
+//        pro.setQq(qq);
+//        User user=(User)session.getAttribute("user");
+//        pro.setPublisher(user);
+//        pro.setState("will");
+//
+//
+//        //projectService.addProject(pro);
+//        System.out.println("项目发布了！");
+//        model.addAttribute("result", "true");
+//        return "/project/show/projectInfo";
 
-        pro.setPname(projectname);
-        pro.setPinstruction(projectdetail);
-        pro.setModuel(projecttag);
-        pro.setSkill(protech);
-       // pro.setReward(proreward);
-
-        pro.setPhonenumber(mobilephone);
-        pro.setEmail(email);
-        pro.setFax(fax);
-        pro.setTelephone(phone);
-        pro.setQq(qq);
-        User user=(User)session.getAttribute("user");
-        pro.setPublisher(user);
-        pro.setState("will");
-
-
-        projectService.addProject(pro);
-        System.out.println("项目发布了！");
-        return  "true";
-
+        return "/";
     }
 
-    ///////////////////////////////////////////////////////////////////////////////
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
@@ -147,24 +150,11 @@ public class ProjectController {
     @RequestMapping(value = "/getOneProject")
     public String getOneProject(Model model,@RequestParam("pid") int pid)
     {
-        /*model.addAttribute("pname","dddd");
-        model.addAttribute("pid",100101);
-        model.addAttribute("state","will");
-        model.addAttribute("pinstruction","sdfsdfdf");
-        model.addAttribute("publisher","sfdsdifj");
-        model.addAttribute("subject","will");
-        model.addAttribute("moduel","will");
-        model.addAttribute("reward",2000);
-        model.addAttribute("location","beijing");
-        model.addAttribute("email","will");
-        model.addAttribute("phoneNumber","10000");
-        model.addAttribute("time","2000-01-01");*/
-
         Project pro=projectService.getOneProject(pid);
         model.addAttribute("project",pro);
         System.out.println("pid="+pid);
         return "project/show/projectInfo";
-    }
+}
 
 
 }
