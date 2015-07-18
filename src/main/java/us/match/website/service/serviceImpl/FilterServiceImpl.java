@@ -20,7 +20,9 @@ public class FilterServiceImpl implements FilterService {
     public List<Project> filter(ArrayList<String> keyWords) {
         long up = System.currentTimeMillis();
         long current = up, before = up;
-
+        boolean allForFirst=keyWords.contains("全部类目");
+        boolean allForSec=keyWords.contains("全部模式");
+        boolean allForeThr=keyWords.contains("全部技术");
         String[] classNames =this.getClassNames(keyWords);
         String[] modeNames=this.getModeName(keyWords);
         String[] techNames=this.getTechName(keyWords);
@@ -56,11 +58,14 @@ public class FilterServiceImpl implements FilterService {
         current = System.currentTimeMillis();
         System.out.println(current-before+"----1");
         before = current;
+        System.out.println("arrList1Size:"+arrList1.size());
+        System.out.println("arrList2Size:"+arrList2.size());
+        System.out.println("arrList3Size:"+arrList3.size());
 
-        if(arrList1.size()>0) {
-            if(arrList2.size()>0)
+        if(!allForFirst) {
+            if(!allForSec)
                 arrList1.retainAll(arrList2);
-            if(arrList3.size()>0)
+            if(!allForeThr)
                 arrList1.retainAll(arrList3);
 //            System.out.println(resultSet.size()+"ResultSetSize");
             return arrList1;
@@ -68,13 +73,13 @@ public class FilterServiceImpl implements FilterService {
         current = System.currentTimeMillis();
         System.out.println(current-before+"----2");
         before = current;
-        if(arrList2.size()>0){
-            if(arrList3.size()>0)
+        if(!allForSec){
+            if(!allForeThr)
                 arrList2.retainAll(arrList3);
 //            System.out.println(resultSet.size() + "ResultSetSize");
             return arrList2;
         }
-        else if(arrList3.size()>0){
+        else if(!allForeThr){
             return arrList3;
         }
         current = System.currentTimeMillis();
