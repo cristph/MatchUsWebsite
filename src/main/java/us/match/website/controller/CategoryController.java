@@ -31,7 +31,8 @@ public class CategoryController {
             strings[i] = dataContent[i].toString();
         ArrayList<String> chooseItem = new ArrayList<String>(Arrays.asList(strings));
         List<Project> list = filterService.filter(chooseItem);
-
+        for(int i=0;i<chooseItem.size();i++)
+            System.out.print(i+" "+chooseItem.get(i)+"; ");
         if (list.size() == 0) {
             Project p = new Project();
             p.setPid(-1);
