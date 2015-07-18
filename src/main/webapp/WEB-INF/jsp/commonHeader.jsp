@@ -31,9 +31,9 @@
                         </li>
                     </c:when>
                     <c:otherwise>
-                        <li id="navli6"><a href="project/releaseProject">发布项目</a></li>
+                        <li id="navli6"><a href="/project/releaseProject">发布项目</a></li>
                         <li style="height: 50px;"><a class="banner photo" href="/user">
-                            <img class="banner-face" src="userPhoto.jpg?uid=${sessionScope.user.uid}" width="30" height="30">
+                            <img class="banner-face" src="/userPhoto.jpg?uid=${sessionScope.user.uid}" width="30" height="30">
                         </a></li>
                     </c:otherwise>
                 </c:choose>
@@ -136,7 +136,7 @@
                                                placeholder="验证码" required>
                                     </div>
                                     <div class="col-md-6 imgRowCss">
-                                        <img src="checkCode.jpg" id="img_code" alt="验证码">
+                                        <img src="/checkCode.jpg" id="img_code" alt="验证码">
                                         <a href="#" onClick="myReload()">换一个</a>
                                     </div>
                                 </div>
