@@ -88,6 +88,15 @@
 
     <div class="col-sm-3 col-sm-offset-1 project-sidebar">
       <div class="sidebar-module sidebar-module-inset">
+          <ul class="list">
+            <li><img src="../../image/ini/thumbs/1.jpg"/></li>
+            <li><img src="../../image/ini/thumbs/2.jpg"/></li>
+            <li><img src="../../image/ini/thumbs/3.jpg"/></li>
+            <li><img src="../../image/ini/thumbs/8.jpg"/></li>
+            <li><img src="../../image/ini/thumbs/9.jpg"/></li>
+          </ul>
+      </div>
+      <div class="sidebar-module sidebar-module-inset">
         <h4>项目分类：</h4>
         <span class="label label-success category"><a href="http:\\GitHub.com">Web</a></span>
       </div>
@@ -116,16 +125,16 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 <script src="../../js/page/commonHeader.js"></script>
-
-
-<script type="javascript">
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-  $(function () {
-    $('[data-toggle="popover"]').popover()
-  })
+<script src="//cdn.bootcss.com/masonry/3.3.1/masonry.pkgd.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.list').masonry({
+      itemSelector:'.list li',
+      columnWidth:50
+    });
+  });
 </script>
+
 
 </body>
 </html>
