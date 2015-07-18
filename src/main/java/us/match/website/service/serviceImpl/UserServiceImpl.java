@@ -163,5 +163,10 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
+    @Override
+    public List<Project> getWorkingProjects(int userId) {
+        return userDao.getUserProject(userId);
+    }
+
 
 }
