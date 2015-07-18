@@ -84,7 +84,9 @@
                     <ul id="published_project_body">
                         <c:forEach var="project" items="${projectList}">
                             <li>
-                                <p>${project.pname}</p>
+                                <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
+                                    <h3>${project.pname}</h3>
+                                </a>
                             </li>
                         </c:forEach>
                     </ul>

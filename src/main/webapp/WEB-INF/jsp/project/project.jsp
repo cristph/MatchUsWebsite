@@ -10,8 +10,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>找项目</title>
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/page/project.css">
     <link rel="stylesheet" href="/css/page/commonHeader.css">
@@ -98,7 +96,7 @@
         <ul class="projects-index">
             <c:forEach var="project" items="${projects}">
                 <li>
-                    <a href="/project/getOneProject?pid=${project.pid}">
+                    <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
                         <div class="projects-img">
                             <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
                         </div>
@@ -126,5 +124,7 @@
     }
 </script>
 <script src="/js/page/commonHeader.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -151,12 +151,11 @@ function getProjetListHtmlStr(projects) {
         var htmlStr = "";
         for (var i = 0; i < projects.length; i++) {
             htmlStr += "<li>" +
-                "<h2>" +
+                "<a href='/project/getOneProject?pid=1' target='_blank'>"+
+                "<h3>" +
                 projects[i].pname +
-                "</h2>" +
-                "<p>" +
-                projects[i].pinstruction +
-                "</p>" +
+                "</h3>" +
+                "</a>"+
                 "</li>"
         }
         return htmlStr
@@ -167,11 +166,11 @@ function getPeopleListHtmlStr(people) {
     var html = "";
     for (var i = 0; i < people.length; i++) {
         html += "<li>" +
-            "<a href=\"#\" class=\"people-info\">" +
-            "<span class=\"people-pic\">" +
+            "<a href='#' class='people-info'>" +
+            "<span class='people-pic'>" +
             "<img src=\"userPhoto.jpg?uid=" + people[i].uid + "\" alt=\"该用户暂无头像\">" +
             "</span>" +
-            "<ul class=\"people-lay\">" +
+            "<ul class='people-lay'>" +
             "<p>" +
             people[i].username +
             "</p>" +
