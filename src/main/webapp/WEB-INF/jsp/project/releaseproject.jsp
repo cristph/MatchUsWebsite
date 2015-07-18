@@ -13,16 +13,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
   <link href="//cdn.bootcss.com/jquery.tipsy/1.0.2/jquery.tipsy.css" rel="stylesheet">
-  <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/js/page/releasepro.js"></script>
-  <script type="text/javascript" src="/js/page/commonHeader.js"></script>
   <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript">
-    $(function () {
-      $('[data-toggle="popover"]').popover()
-    })
-  </script>
+
 </head>
 <body>
 <jsp:include page="../commonHeader.jsp"/>
@@ -260,6 +252,16 @@
     </div>
   </div>
 </div>
+
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/page/releasepro.js"></script>
+<script type="text/javascript" src="/js/page/commonHeader.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
 
 </body>
 </html>
