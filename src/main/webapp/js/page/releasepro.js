@@ -44,10 +44,7 @@ $(document).ready(function(){
 
 
 $(function(){
-    $('#inEmail').keyup(chkEmail);
-    $('#sureinPassword').keyup(chkPswd);
-    $('#inPassword').keyup(chkPswd);
-    $('#inName').keyup(chkName);
+
     $('#submit_btn').click(
         function(){
                 $.get("/project/add",
@@ -85,5 +82,21 @@ function checkProName() {
     var help_span=document.getElementById('pswdHelpBlock');
     if(email.length<6){
 
+    }
+}
+
+function checkImage(){
+    var f = document.getElementById('imagefile');
+    if (!filename || !(filename.endsWith('.jpg') || filename.endsWith('.png') || filename.endsWith('.gif'))) {
+        alert('请上传图片文件.');
+        return false;
+    }
+}
+
+function checkExtra(){
+    var f = document.getElementById('extrafile');
+    if (!filename || !(filename.endsWith('.pdf') || filename.endsWith('.doc') || filename.endsWith('.zip'))) {
+        alert('请上传pdf,doc,zip格式文件.');
+        return false;
     }
 }

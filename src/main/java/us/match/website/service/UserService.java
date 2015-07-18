@@ -14,11 +14,11 @@ public interface UserService {
     public User logout(String username);
     public User register(User user);
     public User getBasicInfo(int userId);
-    public User getBasicInfo(String userName);
     public User editUserInfo(User user);
     public List<User> getHotUsers();
     public List<Project> getUserProject(int userId);
     public List<Project> getPublishing(int userId);
     public List<User> getFocus(int userId);
     public List<User> getFocused(int userId);
+    public List<Project> getWorkingProjects(int userId);
 }

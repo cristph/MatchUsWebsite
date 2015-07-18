@@ -99,10 +99,10 @@
       <div class="sidebar-module sidebar-module-inset">
           <ul class="list">
             <li class="thumbs"><img src="/image/ini/banner.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="../../image/ini/thumbs/2.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="../../image/ini/thumbs/3.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="/image/ini/thumbs/2.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="/image/ini/thumbs/3.jpg" class="imgthumbs"/></li>
             <li class="thumbs"><img src="/image/ini/banner1.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="../../image/ini/thumbs/9.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="/image/ini/thumbs/9.jpg" class="imgthumbs"/></li>
           </ul>
       </div>
       <div class="sidebar-module sidebar-module-inset">
