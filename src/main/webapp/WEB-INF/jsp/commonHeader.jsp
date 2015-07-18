@@ -25,7 +25,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <c:choose>
-                    <c:when test="${empty user}">
+                    <c:when test="${empty sessionScope.user}">
                         <li id="navli4"><a href="#" data-toggle="modal" data-target="#userlogin">登陆</a></li>
                         <li id="navli5"><a href="#" data-toggle="modal" data-target="#usersignin" onClick="myReload()">注册</a>
                         </li>
@@ -33,7 +33,7 @@
                     <c:otherwise>
                         <li id="navli6"><a href="project/releaseProject">发布项目</a></li>
                         <li style="height: 50px;"><a class="banner photo" href="/user">
-                            <img class="banner-face" src="userPhoto.jpg?uid=${user.uid}" width="30" height="30">
+                            <img class="banner-face" src="userPhoto.jpg?uid=${sessionScope.user.uid}" width="30" height="30">
                         </a></li>
                     </c:otherwise>
                 </c:choose>
@@ -53,7 +53,7 @@
     </div>
 </nav>
 
-<c:if test="${empty user}">
+<c:if test="${empty sessionScope.user}">
     <div class="modal fade" id="userlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog modal_width" role="document">
             <div class="modal-content">
