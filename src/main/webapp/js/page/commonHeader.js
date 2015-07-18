@@ -333,5 +333,8 @@ $(function(){
             });
         }
     }
-    ko.applyBindings(new loginViewModel());
+    var userlogin = document.getElementById('userlogin');
+    if(userlogin) {
+        ko.applyBindings(new loginViewModel(),userlogin);
+    }
 })();

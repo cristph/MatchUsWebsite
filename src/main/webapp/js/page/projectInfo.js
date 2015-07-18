@@ -15,30 +15,54 @@ $(function(){
 
 function showImage(){
     var img=document.getElementById("showImg");
+    var dialog=document.getElementById("imgDialog");
+    dialog.style.margin=0;
+    dialog.style.position='relative';
+
     var path=this.getAttribute("src");
-    path="url('"+path+"')";
-    alert(path);
-    img.style.backgroundImage=path;
 
     var screenHeight=document.documentElement.clientHeight;
     var screenWidth=document.documentElement.clientWidth;
+
+    var tempImg=new Image();
+    tempImg.src=path;
+    var tempWidth=tempImg.width;
+    var tempHeight=tempImg.height;
+    alert("ow"+tempWidth+" oh"+tempHeight);
+
+    if(tempWidth>=screenWidth){
+        img.style.width='1200px';
+        dialog.style.width='1200px';
+        dialog.style.left=(screenWidth-1200)/2+'px';
+    }else{
+        img.style.width=tempWidth+'px';
+        dialog.style.width=tempWidth+'px';
+        dialog.style.left=(screenWidth-tempWidth)/2+'px';
+
+    }
+
+    if(tempHeight>screenHeight){
+        img.style.height='620px';
+        dialog.style.height='620px';
+        dialog.style.top=(screenHeight-620)/2+'px';
+    }else{
+        img.style.height=tempHeight+'px';
+        dialog.style.height=tempHeight+'px';
+        dialog.style.top=(screenHeight-tempHeight)/2+'px';
+    }
+
+    path="url('"+path+"')";
+    alert(path);
+    img.style.backgroundImage=path;
+    
+
     alert("sh:"+screenHeight+" sw:"+screenWidth);
 
-    img.setAttribute("max-width",screenWidth);
-    img.setAttribute("max-height",screenHeight);
-
-    var imgHeight=img.style.backgroundImage.height;
-    var imgWidth=img.style.width.backgroundImage.width;
+    //var imgHeight=img.style.backgroundImage.height;
+    //var imgWidth=img.style.backgroundImage.width;
     alert("h:"+imgHeight+" w:"+imgWidth);
 
-    var dia=document.getElementById("imgDialog");
-    dia.style.margin=0;
 
-
-    dia.style.Height=imgHeight;
-    dia.style.Width=imgWidth;
-
-    dia.style.position='relative';
-    dia.style.left=(screenWidth-imgWidth)/2;
-    dia.style.right=(screenHeight-imgHeight)/2;
+    //dialog.style.left=(screenWidth-imgWidth)/2;
+    //dialog.style.right=(screenHeight-imgHeight)/2;
 }

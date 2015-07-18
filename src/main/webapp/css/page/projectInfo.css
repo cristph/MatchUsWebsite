@@ -114,6 +114,6 @@
 .showImg{
     height: 550px;
     overflow: hidden;
-    background-image: url('/image/ini/banner.jpg');
+    background-image: url('/');
     background-size: cover;
 }
