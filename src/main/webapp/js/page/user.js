@@ -21,6 +21,9 @@ var changeBar = function (bar,uid) {
         case "attend_completed":
             getAttend_completed(uid);
             break;
+        case "my_attention":
+            getMy_attention(uid);
+            break;
         case "follow":
             changeBarClass(bar);
             getFollow(uid);
@@ -57,7 +60,7 @@ function getPublish_unCompleted(uid) {
     var body = document.getElementById("published_project_body");
     body.innerHTML = "";
     changeToActive(bar);
-    $.post("/user/releasedProjects", {"uid":uid,"projectState": "will"}, function (projects) {
+    $.post("/user/releasedProjects", {"uid":uid,"projectState": "now"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -70,7 +73,7 @@ function getPublish_completed(uid) {
     var body = document.getElementById("published_project_body");
     body.innerHTML = "";
     changeToActive(bar)
-    $.post("/user/releasedProjects", {"uid":uid,"projectState": "Done"}, function (projects) {
+    $.post("/user/releasedProjects", {"uid":uid,"projectState": "past"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -83,7 +86,7 @@ function getAttend_unCompleted(uid) {
     changeToActive(bar);
     var body = document.getElementById("attend_project_body");
     body.innerHTML = "";
-    $.post("/user/attendProjects", {"uid":uid,"projectState": "will"}, function (projects) {
+    $.post("/user/attendProjects", {"uid":uid,"projectState": "now"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -96,7 +99,7 @@ function getAttend_completed(uid) {
     changeToActive(bar);
     var body = document.getElementById("attend_project_body");
     body.innerHTML = "";
-    $.post("/user/attendProjects", {"uid":uid,"projectState": "Done"}, function (projects) {
+    $.post("/user/attendProjects", {"uid":uid,"projectState": "past"}, function (projects) {
         var htmlStr = getProjetListHtmlStr(projects);
         body.innerHTML = htmlStr;
     });
@@ -104,6 +107,18 @@ function getAttend_completed(uid) {
     div.className = "content_div show";
 }//得到参加的已完成的项目
 
+function getMy_attention(uid) {
+    var bar = document.getElementById("my_attention");
+    changeToActive(bar);
+    var body = document.getElementById("attend_project_body");
+    body.innerHTML = "";
+    $.post("/user/attendProjects", {"uid":uid,"projectState": "will"}, function (projects) {
+        var htmlStr = getProjetListHtmlStr(projects);
+        body.innerHTML = htmlStr;
+    });
+    var div = document.getElementById("attend_project");
+    div.className = "content_div show";
+}
 function getFollow(uid) {
     var body = document.getElementById("follow_people_body");
     body.innerHTML = "";

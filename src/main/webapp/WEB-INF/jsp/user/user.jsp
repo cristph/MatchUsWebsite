@@ -94,12 +94,14 @@
             </div>
             <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
-
                     <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this,${user.uid})">
                         <a href="#">已参加项目</a>
                     </li>
                     <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this,${user.uid})">
                         <a href="#">已完成项目</a>
+                    </li>
+                    <li role="presentation" id="my_attention" class="sub_bar" onclick="changeBar(this,${user.uid})">
+                        <a href="#">已关注项目</a>
                     </li>
                 </ul>
                 <div class="project-list">
