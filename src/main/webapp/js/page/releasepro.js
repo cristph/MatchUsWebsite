@@ -44,6 +44,10 @@ $(document).ready(function(){
 
 
 $(function(){
+    $('#inEmail').keyup(chkEmail);
+    $('#sureinPassword').keyup(chkPswd);
+    $('#inPassword').keyup(chkPswd);
+    $('#inName').keyup(chkName);
     $('#submit_btn').click(
         function(){
                 $.get("/project/add",
@@ -74,3 +78,11 @@ $(function(){
         }
     );
 });
+
+function checkProName() {
+    var email = document.getElementById("projectname");
+    var help_span=document.getElementById('pswdHelpBlock');
+    if(email.length<6){
+
+    }
+}

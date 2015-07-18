@@ -53,16 +53,16 @@
             </div>
             <div>
                 <ul class="left_nav">
-                    <li id="publish" class="left_nav_bar selected" onclick="changeBar(this)">
+                    <li id="publish" class="left_nav_bar selected" onclick="changeBar(this,${user.uid})">
                         发布
                     </li>
-                    <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this)">
+                    <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
                         参与
                     </li>
-                    <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this)">
+                    <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
                         关注
                     </li>
-                    <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this)">
+                    <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,${user.uid})">
                         粉丝
                     </li>
                 </ul>
@@ -73,10 +73,10 @@
         <div id="detail_body">
             <div id="published_project" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this)">
+                    <li role="presentation" id="published_uncompleted" class="sub_bar active" onclick="changeBar(this,${user.uid})">
                         <a href="#">未完成项目</a>
                     </li>
-                    <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this)">
+                    <li role="presentation" id="published_completed" class="sub_bar" onclick="changeBar(this,${user.uid})">
                         <a href="#">已完成项目</a>
                     </li>
                 </ul>
@@ -94,10 +94,11 @@
             </div>
             <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this)">
+
+                    <li role="presentation" id="attend_uncompleted" class="sub_bar active" onclick="changeBar(this,${user.uid})">
                         <a href="#">已参加项目</a>
                     </li>
-                    <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this)">
+                    <li role="presentation" id="attend_completed" class="sub_bar" onclick="changeBar(this,${user.uid})">
                         <a href="#">已完成项目</a>
                     </li>
                 </ul>
