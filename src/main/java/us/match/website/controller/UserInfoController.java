@@ -127,12 +127,12 @@ public class UserInfoController extends MultiActionController{
                                      @RequestParam("projectState") String projectState,
                                         @RequestParam("uid") int uid){
         System.out.println("function entered");
-        if(projectState.equals("past")){
+        if(projectState.equals("now")){
             System.out.println("function exed");
             List<Project> list=userService.getWorkingProjects(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
-                if(list.get(i).isState().equals("past"))
+                if(list.get(i).isState().equals("now"))
                     newList.add(list.get(i));
             }
 //            model.addAttribute("projectList",newList);
@@ -142,11 +142,11 @@ public class UserInfoController extends MultiActionController{
                 newList.add(p);
             }
             return newList;
-        }else if(projectState.equals("now")){
+        }else if(projectState.equals("past")){
             List<Project> list=userService.getWorkingProjects(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
-                if(list.get(i).isState().equals("now"))
+                if(list.get(i).isState().equals("past"))
                     newList.add(list.get(i));
             }
 //            model.addAttribute("projectList",newList);
