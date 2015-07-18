@@ -275,7 +275,7 @@ $(function(){
     $('#submit_sign').click(
         function(){
             if(chkEmail()&chkPswd()&chkName()&chkCode()){
-                $.post("/validate.do",
+                $.post("/validate",
                     {"userCheckCode":document.getElementById('checkCode').value,
                         "sign_email":document.getElementById('inEmail').value,
                         "sign_pswd":document.getElementById('inPassword').value,
