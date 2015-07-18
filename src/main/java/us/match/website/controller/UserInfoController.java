@@ -215,11 +215,19 @@ public class UserInfoController extends MultiActionController{
     @RequestMapping(value="/otherUser",method = RequestMethod.POST)
     public void getOtherUser(Model model,@RequestParam int uid){
         User u=userService.getBasicInfo(uid);
+        List<Project> newList=new LinkedList<Project>();
+        for(int i=0;i<u.getPublishingprojects().size();i++)
+        {
+            Project temp=u.getPublishingprojects().get(i);
+            if(!temp.isState().equals("past"))
+                newList.add(temp);
+        }
+        model.addAttribute("publishingProjects",newList);
         u.setPassword(null);
         u.setFocused(null);
         u.setPublishingprojects(null);
         u.setFocuser(null);
-        model.addAttribute("oneOtherUser",u);
+        model.addAttribute("oneOtherUser", u);
     }
 
 }
