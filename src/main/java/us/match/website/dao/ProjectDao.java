@@ -16,7 +16,7 @@ public interface ProjectDao {
     public List<Project> getbysubject(String[] subject);
     public List<Project>  getbymodule(String[] module);
     public List<Project>  getbyskill(String[] skill);
-    public List<Project>  getbyreward(int maxmoney,int minmoney);
+    public List<Project>  getbyreward(String reward);
     public boolean addProject(Project project,User user);
     public boolean deleteProject(Project projetc);
     public boolean updateProject(Project project);

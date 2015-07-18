@@ -42,8 +42,8 @@
     <div class="row">
       <div class="form-group col-md-6">
         <label >项目标签</label>
-        <input type="text" class="form-control input-sm" id="projecttag"
-               placeholder="请输入标签">
+        <input type="text" class="form-control input-sm" id="projecttag" data-toggle="modal" data-target="#myModal" readOnly="true"
+               placeholder="请点击添加标签">
       </div>
     </div>
     <div class="row">
@@ -77,8 +77,8 @@
     <div class="row">
       <div class="form-group col-md-8">
         <label >涉及技术</label>
-        <input type="text" class="form-control input-sm" id="protech"
-               placeholder="请输入标签">
+        <input type="text" class="form-control input-sm" id="protech" data-toggle="modal" data-target="#myModal2" readOnly="true"
+               placeholder="请点击选择标签">
       </div></div>
     <div class="row">
       <div class="form-group col-md-8">
@@ -159,6 +159,101 @@
     <button type="submit" class="btn btn-default" id="submit_btn">提交</button>
   </form>
 
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">项目标签</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='移动应用';">移动应用</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='网站建设';">网站建设</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='企业软件';">企业软件</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='嵌入式开发';">嵌入式开发</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='视觉设计';">视觉设计</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='文案设计';">文案设计</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                onclick="document.getElementById('projecttag').value='其他类目';">其他类目</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel2">涉及技术</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('Java')>0){return false;}
+                        document.getElementById('protech').value=ori+'Java; ';">Java</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('C/C++')>0){return false;}
+                        document.getElementById('protech').value=ori+'C/C++; ';">C/C++</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('HTML/CSS/JS')>0){return false;}
+                        document.getElementById('protech').value=ori+'HTML/CSS/JS; ';">HTML/CSS/JS</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('PYTHON')>0){return false;}
+                        document.getElementById('protech').value=ori+'PYTHON; ';">PYTHON</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('PHP')>0){return false;}
+                        document.getElementById('protech').value=ori+'PHP; ';">PHP</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('RUBY')>0){return false;}
+                        document.getElementById('protech').value=ori+'RUBY; ';">RUBY</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('LINUX')>0){return false;}
+                        document.getElementById('protech').value=ori+'LINUX; ';">LINUX</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('MYSQL')>0){return false;}
+                        document.getElementById('protech').value=ori+'MYSQL; ';">MYSQL</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('C#')>0){return false;}
+                        document.getElementById('protech').value=ori+'C#; ';">C#</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('ANDROID')>0){return false;}
+                        document.getElementById('protech').value=ori+'ANDROID; ';">ANDROID</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('IOS')>0){return false;}
+                        document.getElementById('protech').value=ori+'IOS; ';">IOS</button>
+        <button type="button" class="btn btn-default"
+                onclick="var ori= document.getElementById('protech').value;
+                        if(ori.indexOf('其他技术')>0){return false;}
+                        document.getElementById('protech').value=ori+'其他技术; ';">其他技术</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>

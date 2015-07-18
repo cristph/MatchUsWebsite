@@ -17,7 +17,6 @@ public interface UserDao {
     public User addUser(User user);
     public boolean deleteUser(User user);
     public boolean updateUser(User user);
-    public User findUser(String username);
     public List<Project> getUserProject(int uid);
     public int getidbyname(String username);
     public boolean addProject(Project project,User user);
@@ -29,4 +28,5 @@ public interface UserDao {
     public User getbasicinfobyname(String user);
     public List<User> getfocuser(int id);
     public List<User> getfocused(int id);
+    public List<Project> getpublishing(int id);
 }

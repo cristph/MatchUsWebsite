@@ -109,7 +109,7 @@ function getFollow(uid) {
     body.innerHTML = "";
     $.post("/user/focused", {"uid":uid,}, function (people) {
         if (people[0].uid == -1) {
-            body.innerHTML = "<h2>您还没有关注其他人，快快去寻找大牛吧~~~</h2>";
+            body.innerHTML = "<h2>还没有关注其他人哦~~~</h2>";
         } else {
             var htmlStr = getPeopleListHtmlStr(people);
             body.innerHTML = htmlStr;
@@ -124,7 +124,7 @@ function getFans(uid) {
     body.innerHTML = "";
     $.post("/user/focus", {"uid":uid,}, function (people) {
         if (people[0].uid == -1) {
-            body.innerHTML = "<h2>还没有人关注你哦= =</h2>";
+            body.innerHTML = "<h2>还没有人关注哦~~~</h2>";
         } else {
             var htmlStr = getPeopleListHtmlStr(people);
             body.innerHTML = htmlStr;
@@ -146,7 +146,7 @@ function changeToActive(bar) {
 
 function getProjetListHtmlStr(projects) {
     if (projects[0].pid == -1) {
-        return "<h2>没有项目，快去参加吧~~~</h2>"
+        return "<h2>暂时还没有项目哦~~~</h2>"
     } else {
         var htmlStr = "";
         for (var i = 0; i < projects.length; i++) {

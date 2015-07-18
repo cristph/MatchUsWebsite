@@ -51,44 +51,40 @@ public class ProjectController {
 //    @RequestMapping(value = "/add",method = RequestMethod.POST)
     @RequestMapping(value = "/add")
     public String addProject(
-//            @RequestParam("projectname") String projectname,
-//            @RequestParam("projectdetail") String projectdetail,
-//            @RequestParam("projecttag") String projecttag,
-//            @RequestParam("protech") String protech,
-//            @RequestParam("proreward") String proreward,
-//            @RequestParam("mobilephone") String mobilephone,
-//            @RequestParam("qq") String qq,
-//            @RequestParam("email") String email,
-//            @RequestParam("phone") String phone,
-//            @RequestParam("fax") String fax,
-//            HttpSession session, Model model
+            @RequestParam("projectname") String projectname,
+           @RequestParam("projectdetail") String projectdetail,
+            @RequestParam("projecttag") String projecttag,
+            @RequestParam("protech") String protech,
+            //@RequestParam("proreward") String proreward,
+            @RequestParam("mobilephone") String mobilephone,
+            @RequestParam("qq") String qq,
+            @RequestParam("email") String email,
+            @RequestParam("phone") String phone,
+            @RequestParam("fax") String fax,
+           HttpSession session
     )
     {
 
-//        Project pro=new Project();
-//
-//        pro.setPname(projectname);
-//        pro.setPinstruction(projectdetail);
-//        pro.setModuel(projecttag);
-//        pro.setSkill(protech);
-//       // pro.setReward(proreward);
-//
-//        pro.setPhonenumber(mobilephone);
-//        pro.setEmail(email);
-//        pro.setFax(fax);
-//        pro.setTelephone(phone);
-//        pro.setQq(qq);
-//        User user=(User)session.getAttribute("user");
-//        pro.setPublisher(user);
-//        pro.setState("will");
-//
-//
-//        //projectService.addProject(pro);
-//        System.out.println("项目发布了！");
-//        model.addAttribute("result", "true");
-//        return "/project/show/projectInfo";
+        Project pro=new Project();
 
-        return "/";
+        pro.setPname(projectname);
+        pro.setPinstruction(projectdetail);
+        pro.setModuel(projecttag);
+        pro.setSkill(protech);
+       // pro.setReward(proreward);
+
+        pro.setPhonenumber(mobilephone);
+        pro.setEmail(email);
+        pro.setFax(fax);
+        pro.setTelephone(phone);
+        pro.setQq(qq);
+        User user=(User)session.getAttribute("user");
+        pro.setPublisher(user);
+        pro.setState("will");
+
+        projectService.addProject(pro);
+        System.out.println("项目发布了！");
+        return "WEB-INF/jsp/project/project";
     }
 
 
@@ -109,7 +105,7 @@ public class ProjectController {
                                 @RequestParam("subject")String subject,
                                 @RequestParam("moduel")String moduel,
                                 @RequestParam("skill")String skill,
-                                @RequestParam("reward")int reward,
+                                @RequestParam("reward")String reward,
                                 @RequestParam("userName")String userName,
                                 @RequestParam("location")String location,
                                 @RequestParam("email")String email,

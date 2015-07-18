@@ -9,6 +9,7 @@ import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
@@ -29,19 +30,10 @@ public class UserSettingsController {
 
     @ResponseBody
     @RequestMapping(value = "/basic", method = RequestMethod.GET)
-    public User getBasic() {
-//        String username = servletRequest.getSession().getAttribute("username").toString();
-        long up = System.currentTimeMillis();
-        User user = userService.getBasicInfo("gjp");
-        System.out.println(System.currentTimeMillis()-up);
-//        User user = new User();
-//        user.setUsername("gjp");
-        user.setFace(null);
-        user.setSkills(null);
-        user.setPublishingprojects(null);
-        user.setWorkingprojects(null);
-        user.setFocused(null);
-        user.setFocuser(null);
+    public User getBasic(HttpSession session) {
+        User u=(User)session.getAttribute("user");
+        User user = userService.getBasicInfo(u.getUid());
+        // user.setFace(null);
         return user;
     }
     @ResponseBody

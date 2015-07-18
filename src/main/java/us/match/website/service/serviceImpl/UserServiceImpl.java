@@ -69,19 +69,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getBasicInfo(String userName) {
-        User user=userDao.findUser(userName);
-        return user;
-    }
-
-    @Override
     public User editUserInfo(User user) {
         if(user==null)
             return null;
         User OutdatedUser=null;
         /*根据email查找用户*/
         if(user.getUsername()!=null)
-            OutdatedUser=userDao.findUser(user.getEmail());
+            OutdatedUser=userDao.getUserbyid(user.getUid());
         if(OutdatedUser==null)
             return null;
         /*OutDatedUser不为null*/
@@ -132,8 +126,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Project> getPublishing(int userId) {
-        User u=userDao.getUserbyid(userId);
-        return u.getPublishingprojects();
+        return userDao.getpublishing(userId);
     }
 
     @Override
@@ -162,6 +155,11 @@ public class UserServiceImpl implements UserService {
             user.setSkills(null);
         }
         return list;
+    }
+
+    @Override
+    public List<Project> getWorkingProjects(int userId) {
+        return userDao.getUserProject(userId);
     }
 
 
