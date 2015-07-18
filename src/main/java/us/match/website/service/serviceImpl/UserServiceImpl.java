@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUsername(username);
         user.setPassword(MD5.toMD5(password));
-        User userFromDao=userDao.loginjudge(username);
+        User userFromDao=userDao.getbasicinfobyname(username);
 //        System.out.println("______________"+username+" "+user.getPassword());
         if(userFromDao!=null && user.getPassword()!=null){
             if(userFromDao.getPassword().equals(user.getPassword())){
