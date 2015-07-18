@@ -64,14 +64,15 @@ $(function(){
                     }
                     ,
                     function(data){
-                        alert(data);
+                        /*alert(data);
 
                         if (data=="true") {
                             window.top.location.href='/';
                         }
                         else {
                             alert(data);
-                        }
+                        }*/
+                        window.open('http://www.baidu.com');
                     }
                     );
 
