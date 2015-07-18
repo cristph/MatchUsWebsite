@@ -51,7 +51,9 @@ public class UploadController {
 
     public String getFilePath(String fileName){
         File file=new File(System.getProperty("user.dir"));
-        return file.getAbsolutePath()+"/target/MatchUsWebsite/image/projectImage"+fileName;
+        return file.getAbsolutePath()+
+                "/target/MatchUsWebsite/image/projectImage/"+
+                fileName;
     }
 
     public static void main(String[] args) {

@@ -80,34 +80,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findUser(String username) {
-        User result=new User();
-        Session session = sessionFactory.openSession();
-
-        try {
-            session.beginTransaction();
-
-            Query query = session.createQuery("from User WHERE username='" + username + "'");
-
-            List<User> list= query.list();
-
-            if(list.size()!=0){
-                result=list.get(0);
-            }
-            else{
-                result=null;
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }finally{
-
-            session.getTransaction().commit();
-            session.close();
-            return result;
-        }
-    }
-
-    @Override
     public List<Project> getUserProject(int uid) {
         List<Project>  result =new ArrayList<Project>();
         Session session = sessionFactory.openSession();
