@@ -22,7 +22,7 @@
 
 <body>
 <jsp:include page="../../commonHeader.jsp"/>
-<section class='container'>
+<section class='container' id="ko-content">
     <!-- left side part -->
     <div class="settings-left col-md-3">
         <ul class="wrapped-boxes">
