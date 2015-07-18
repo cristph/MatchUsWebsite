@@ -236,10 +236,12 @@ public class ProjectDaoImpl implements ProjectDao {
 
     public boolean addProject(Project project,User user) {
         boolean result=true;
+        long startTime = System.currentTimeMillis();//获取当前时间
         Session session = sessionFactory.openSession();
-        user.getPublishingprojects().add(project);
         project.setPublisher(user);
         session.save(project);
+        long endTime = System.currentTimeMillis();
+        System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
         try{
             session.beginTransaction();
             session.save(project);

@@ -140,7 +140,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean addProject(Project project,User user) {
+    public boolean focusProject(Project project,User user) {
         boolean result=true;
         user.getWorkingprojects().add(project);
         Session session = sessionFactory.openSession();
@@ -161,7 +161,6 @@ public class UserDaoImpl implements UserDao {
     public User getUserbyid(int id) {
         Session session = sessionFactory.openSession();
         User result =new User();
-        long startTime = System.currentTimeMillis();//获取当前时间
         try {
             session.beginTransaction();
             Query query = session.createSQLQuery("select * from User WHERE uid="+id);
@@ -194,8 +193,7 @@ public class UserDaoImpl implements UserDao {
         }finally{
             session.getTransaction().commit();
             session.close();
-            long endTime = System.currentTimeMillis();
-            System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
+
             return result;
         }
     }
