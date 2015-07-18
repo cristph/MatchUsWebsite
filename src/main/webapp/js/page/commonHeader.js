@@ -284,7 +284,7 @@ $(function(){
                     function(data){
                         //alert(data);
                         if (data=="true") {
-                            window.top.location.href='/';
+                            location.href='/project';
                         } else if(data=="RegisterFalse"){
                             alert('用户名已存在，注册失败！');
                         }
