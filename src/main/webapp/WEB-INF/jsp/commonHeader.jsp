@@ -30,7 +30,9 @@
           </c:when>
           <c:otherwise>
             <li id="navli6"><a href="project/releaseProject">发布项目</a></li>
-            <li id="navli7"><a href="/user">${user.username}</a></li>
+            <li style="height: 50px;"><a class="banner photo" href="/user">
+              <img class="banner-face" src="userPhoto.jpg?uid=${user.uid}" width="30" height="30">
+            </a></li>
           </c:otherwise>
         </c:choose>
       </ul>
@@ -153,6 +155,7 @@
             <label class="control-label">项目名称：</label>
             <input type='text' id='pname' name="pname" class='form-control' required
                    autofocus>
+
           </div>
           <div class="form-group">
             <label class="control-label">项目描述：</label>

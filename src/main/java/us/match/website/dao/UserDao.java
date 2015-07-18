@@ -26,5 +26,5 @@ public interface UserDao {
     public List<UserSkill> getallskills(String id);
     public boolean addfocuser(User focuser,User focused);
     public List<User> gettopuser();
-    public String loginjudge(String user);
+    public User loginjudge(String user);
 }

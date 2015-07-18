@@ -25,19 +25,8 @@ public class ProjectServiceImpl implements ProjectService{
 
     @Override
     public String addProject(Project pro) {
-        /*String publisherName=pro.getPublisher().getUsername();
-        User user=userDao.findUser(publisherName);
-
-        boolean b=projectDao.addProject(pro,pro.getPublisher());
-        String result="failed";
-        if(b)
-            result="success";
-
-        return result;*/
-        User user=new User();
-        user.setUsername("111");
-        //projectDao.addProject(pro,user);
-        return "success";
+        projectDao.addProject(pro,pro.getPublisher());
+        return "true";
     }
 
     @Override
