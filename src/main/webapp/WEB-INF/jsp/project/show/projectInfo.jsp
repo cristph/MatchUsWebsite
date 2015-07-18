@@ -32,9 +32,18 @@
   <![endif]-->
 </head>
 
-<body>
+<body id="body">
 
 <jsp:include page="../../commonHeader.jsp"/>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document" id="imgDialog">
+    <div class="modal-content">
+      <div class="showImg" id="showImg"></div>
+      <%--<img src="/image/ini/banner.jpg" class="showImg" id="showImg"/>--%>
+    </div>
+  </div>
+</div>
 
 <div class="container">
 
@@ -89,11 +98,11 @@
     <div class="col-sm-3 col-sm-offset-1 project-sidebar">
       <div class="sidebar-module sidebar-module-inset">
           <ul class="list">
-            <li><img src="../../image/ini/thumbs/1.jpg"/></li>
-            <li><img src="../../image/ini/thumbs/2.jpg"/></li>
-            <li><img src="../../image/ini/thumbs/3.jpg"/></li>
-            <li><img src="../../image/ini/thumbs/8.jpg"/></li>
-            <li><img src="../../image/ini/thumbs/9.jpg"/></li>
+            <li class="thumbs"><img src="/image/ini/banner.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="../../image/ini/thumbs/2.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="../../image/ini/thumbs/3.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="/image/ini/banner1.jpg" class="imgthumbs"/></li>
+            <li class="thumbs"><img src="../../image/ini/thumbs/9.jpg" class="imgthumbs"/></li>
           </ul>
       </div>
       <div class="sidebar-module sidebar-module-inset">
@@ -126,11 +135,11 @@
 
 <script src="../../js/page/commonHeader.js"></script>
 <script src="//cdn.bootcss.com/masonry/3.3.1/masonry.pkgd.min.js"></script>
+<script src="/js/page/projectInfo.js"></script>
 <script>
   $(document).ready(function() {
     $('.list').masonry({
       itemSelector:'.list li',
-      columnWidth:50
     });
   });
 </script>
