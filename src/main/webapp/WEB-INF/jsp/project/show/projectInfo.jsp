@@ -88,8 +88,8 @@
 
       <nav>
         <ul class="pager">
-          <li><a href="#">Previous</a></li>
-          <li><a href="#">Next</a></li>
+          <li><a href="#">我要参与</a></li>
+          <li><a href="#">关注</a></li>
         </ul>
       </nav>
 
@@ -97,13 +97,16 @@
 
     <div class="col-sm-3 col-sm-offset-1 project-sidebar">
       <div class="sidebar-module sidebar-module-inset">
-          <ul class="list">
-            <li class="thumbs"><img src="/image/ini/banner.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="/image/ini/thumbs/2.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="/image/ini/thumbs/3.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="/image/ini/banner1.jpg" class="imgthumbs"/></li>
-            <li class="thumbs"><img src="/image/ini/thumbs/9.jpg" class="imgthumbs"/></li>
-          </ul>
+        <h4>
+          项目图片:
+        </h4>
+        <div class="container-fluid">
+          <div class="box"><img src="/image/ini/banner.jpg" class="imgthumbs"/></div>
+          <div class="box"><img src="/image/ini/thumbs/2.jpg" class="imgthumbs"/></div>
+          <div class="box"><img src="/image/ini/thumbs/3.jpg" class="imgthumbs"/></div>
+          <div class="box"><img src="/image/ini/banner1.jpg" class="imgthumbs"/></div>
+          <div class="box"><img src="/image/ini/thumbs/9.jpg" class="imgthumbs"/></div>
+        </div>
       </div>
       <div class="sidebar-module sidebar-module-inset">
         <h4>项目分类：</h4>
@@ -134,16 +137,7 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 <script src="../../js/page/commonHeader.js"></script>
-<script src="//cdn.bootcss.com/masonry/3.3.1/masonry.pkgd.min.js"></script>
 <script src="/js/page/projectInfo.js"></script>
-<script>
-  $(document).ready(function() {
-    $('.list').masonry({
-      itemSelector:'.list li',
-    });
-  });
-</script>
-
 
 </body>
 </html>
