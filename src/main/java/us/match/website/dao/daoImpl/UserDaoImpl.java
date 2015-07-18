@@ -1,5 +1,4 @@
 package us.match.website.dao.daoImpl;
-
 import com.google.common.collect.ArrayListMultimap;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -80,34 +79,6 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User findUser(String username) {
-        User result=new User();
-        Session session = sessionFactory.openSession();
-
-        try {
-            session.beginTransaction();
-
-            Query query = session.createQuery("from User WHERE username='" + username + "'");
-
-            List<User> list= query.list();
-
-            if(list.size()!=0){
-                result=list.get(0);
-            }
-            else{
-                result=null;
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }finally{
-
-            session.getTransaction().commit();
-            session.close();
-            return result;
-        }
-    }
-
-    @Override
     public List<Project> getUserProject(int uid) {
         List<Project>  result =new ArrayList<Project>();
         Session session = sessionFactory.openSession();
@@ -122,21 +93,21 @@ public class UserDaoImpl implements UserDao {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
                 temp.setModuel((String) o[1]);
-                temp.setPicture((byte[]) o[2]);
+                temp.setPicture((String) o[2]);
                 temp.setPinstruction((String) o[3]);
                 temp.setReward((String) o[4]);
                 temp.setSkill((String) o[5]);
                 temp.setState((String) o[6]);
                 temp.setSubject((String) o[7]);
-                temp.setUpdatetime((Timestamp) o[8]);
-                temp.setStarttime((Timestamp) o[9]);
-                temp.setLocation((String) o[10]);
-                temp.setEmail((String) o[11]);
-                temp.setPhonenumber((String) o[12]);
-                temp.setPname((String) o[13]);
-                temp.setQq((String) o[14]);
-                temp.setTelephone((String) o[15]);
-                temp.setFax((String)o[16]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String)o[17]);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -425,21 +396,21 @@ public class UserDaoImpl implements UserDao {
                 Project temp=new Project();
                 temp.setPid((int) o[0]);
                 temp.setModuel((String) o[1]);
-                temp.setPicture((byte[]) o[2]);
+                temp.setPicture((String)o[2]);
                 temp.setPinstruction((String) o[3]);
                 temp.setReward((String) o[4]);
                 temp.setSkill((String) o[5]);
                 temp.setState((String) o[6]);
                 temp.setSubject((String) o[7]);
-                temp.setUpdatetime((Timestamp) o[8]);
-                temp.setStarttime((Timestamp) o[9]);
-                temp.setLocation((String) o[10]);
-                temp.setEmail((String) o[11]);
-                temp.setPhonenumber((String) o[12]);
-                temp.setPname((String) o[13]);
-                temp.setQq((String) o[14]);
-                temp.setTelephone((String) o[15]);
-                temp.setFax((String)o[16]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String)o[17]);
                 result.add(temp);
             }
         }catch(Exception e){

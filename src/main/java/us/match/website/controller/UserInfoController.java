@@ -112,11 +112,9 @@ public class UserInfoController extends MultiActionController{
                                      @RequestParam("projectState") String projectState,
                                         @RequestParam("uid") int uid){
         System.out.println("function entered");
-        User u=userService.getBasicInfo(uid);
         if(projectState.equals("Done")){
             System.out.println("function exed");
-            u=userService.getBasicInfo(uid);
-            List<Project> list=u.getWorkingprojects();
+            List<Project> list=userService.getWorkingProjects(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(list.get(i).isState().equals("past"))
@@ -130,8 +128,7 @@ public class UserInfoController extends MultiActionController{
             }
             return newList;
         }else{
-            u=userService.getBasicInfo(uid);
-            List<Project> list=u.getWorkingprojects();
+            List<Project> list=userService.getWorkingProjects(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(!list.get(i).isState().equals("past"))
@@ -213,15 +210,16 @@ public class UserInfoController extends MultiActionController{
 
     @RequestMapping(value="/otherUser")
     public String getOtherUser(Model model,@RequestParam int uid){
-        User u=userService.getBasicInfo(uid);
+        List<Project> list=userService.getWorkingProjects(uid);
         List<Project> newList=new LinkedList<Project>();
-        for(int i=0;i<u.getPublishingprojects().size();i++)
+        for(int i=0;i<list.size();i++)
         {
-            Project temp=u.getPublishingprojects().get(i);
+            Project temp=list.get(i);
             if(!temp.isState().equals("past"))
                 newList.add(temp);
         }
         model.addAttribute("publishingProjects", newList);
+        User u = userService.getBasicInfo(uid);
         u.setPassword(null);
         u.setFocused(null);
         u.setPublishingprojects(null);

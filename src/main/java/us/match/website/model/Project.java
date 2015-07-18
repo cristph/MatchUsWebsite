@@ -17,7 +17,7 @@ public class Project {
     private int pid;
     private String pinstruction;
     private String pname;
-    private byte[] picture;
+    private String picture;
     private String state;
     private String subject;
     private String moduel;
@@ -51,11 +51,11 @@ public class Project {
         this.pname = pname;
     }
 
-    public byte[] getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(byte[] picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
