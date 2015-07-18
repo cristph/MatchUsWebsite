@@ -53,5 +53,5 @@ $(function () {
         }
     }
 
-    ko.applyBindings(new UserSettingsViewModel());
+    ko.applyBindings(new UserSettingsViewModel(), document.getElementById('ko-content'));
 });
