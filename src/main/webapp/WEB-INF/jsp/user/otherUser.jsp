@@ -133,6 +133,15 @@
   </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
+<script type="text/javascript" defer="defer">
+  <c:forEach var="project" items="${projectList}">
+  var pid=${project.pid};
+  if(pid==-1){
+    var project_body=document.getElementById("published_project_body");
+    project_body.innerHTML="<h2>Ta暂时还没有项目哦~~~</h2>";
+  }
+  </c:forEach>
+</script>
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>

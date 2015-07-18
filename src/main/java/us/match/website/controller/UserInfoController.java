@@ -112,11 +112,9 @@ public class UserInfoController extends MultiActionController{
                                      @RequestParam("projectState") String projectState,
                                         @RequestParam("uid") int uid){
         System.out.println("function entered");
-        User u=userService.getBasicInfo(uid);
         if(projectState.equals("Done")){
             System.out.println("function exed");
-            u=userService.getBasicInfo(uid);
-            List<Project> list=u.getWorkingprojects();
+            List<Project> list=userService.getWorkingProjects(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(list.get(i).isState().equals("past"))
@@ -130,8 +128,7 @@ public class UserInfoController extends MultiActionController{
             }
             return newList;
         }else{
-            u=userService.getBasicInfo(uid);
-            List<Project> list=u.getWorkingprojects();
+            List<Project> list=userService.getWorkingProjects(uid);
             List<Project> newList=new LinkedList<Project>();
             for(int i=0;i<list.size();i++){
                 if(!list.get(i).isState().equals("past"))

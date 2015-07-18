@@ -21,4 +21,5 @@ public interface UserService {
     public List<Project> getPublishing(int userId);
     public List<User> getFocus(int userId);
     public List<User> getFocused(int userId);
+    public List<Project> getWorkingProjects(int userId);
 }

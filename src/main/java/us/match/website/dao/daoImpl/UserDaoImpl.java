@@ -1,5 +1,4 @@
 package us.match.website.dao.daoImpl;
-
 import com.google.common.collect.ArrayListMultimap;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -16,6 +15,7 @@ import us.match.website.model.UserSkill;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -110,10 +110,34 @@ public class UserDaoImpl implements UserDao {
     public List<Project> getUserProject(int uid) {
         List<Project>  result =new ArrayList<Project>();
         Session session = sessionFactory.openSession();
+        String sql="select * from Project p where p.pid in"+
+                "(select project_id from u_p where user_id="+uid+")";
         try {
             session.beginTransaction();
-            User temp=(User)session.get(User.class,uid);
-            result=temp.getWorkingprojects();
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                Project temp=new Project();
+                temp.setPid((int) o[0]);
+                temp.setModuel((String) o[1]);
+                temp.setPicture((byte[]) o[2]);
+                temp.setPinstruction((String) o[3]);
+                temp.setReward((String) o[4]);
+                temp.setSkill((String) o[5]);
+                temp.setState((String) o[6]);
+                temp.setSubject((String) o[7]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String)o[17]);
+                result.add(temp);
+            }
         }catch(Exception e){
             e.printStackTrace();
         }finally{
@@ -163,18 +187,45 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserbyid(int id) {
-        User result=new User();
         Session session = sessionFactory.openSession();
-        try{
+        User result =new User();
+        long startTime = System.currentTimeMillis();//获取当前时间
+        try {
             session.beginTransaction();
-            result=(User)session.get(User.class,id);
+            Query query = session.createSQLQuery("select * from User WHERE uid="+id);
+            List<Object[]> object=query.list();
+            if(object.size()!=0){
+                for(Object[] o:object){
+                    result.setUid((int) o[0]);
+                    result.setAddress((String)o[1]);
+                    result.setBirthday((String)o[2]);
+                    result.setEmail((String)o[3]);
+                    result.setFace((byte[])o[4]);
+                    result.setInstruction((String)o[5]);
+                    result.setMajor((String)o[6]);
+                    result.setMobilephone((String)o[7]);
+                    result.setPassword((String)o[8]);
+                    result.setQq((String)o[9]);
+                    result.setRealname((String)o[10]);
+                    result.setSex((String)o[11]);
+                    result.setTelephone((String)o[12]);
+                    result.setUniversity((String)o[13]);
+                    result.setUsername((String)o[14]);
+                    result.setFocusednum((int)o[15]);
+                }
+            }
+            else{
+                result=null;
+            }
         }catch(Exception e){
             e.printStackTrace();
         }finally{
             session.getTransaction().commit();
             session.close();
+            long endTime = System.currentTimeMillis();
+            System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
+            return result;
         }
-        return result;
     }
 
     @Override
@@ -355,6 +406,46 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         finally{
+            return result;
+        }
+    }
+
+    @Override
+    public List<Project> getpublishing(int id) {
+        List<Project>  result =new ArrayList<Project>();
+        Session session = sessionFactory.openSession();
+        String sql="select * from Project where uid="+id;
+        try{
+            session.beginTransaction();
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                Project temp=new Project();
+                temp.setPid((int) o[0]);
+                temp.setModuel((String) o[1]);
+                temp.setPicture((byte[]) o[2]);
+                temp.setPinstruction((String) o[3]);
+                temp.setReward((String) o[4]);
+                temp.setSkill((String) o[5]);
+                temp.setState((String) o[6]);
+                temp.setSubject((String) o[7]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String)o[17]);
+                result.add(temp);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
             return result;
         }
     }

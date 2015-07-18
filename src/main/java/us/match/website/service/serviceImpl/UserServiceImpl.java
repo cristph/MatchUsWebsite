@@ -132,8 +132,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Project> getPublishing(int userId) {
-        User u=userDao.getUserbyid(userId);
-        return u.getPublishingprojects();
+        return userDao.getpublishing(userId);
     }
 
     @Override
@@ -162,6 +161,11 @@ public class UserServiceImpl implements UserService {
             user.setSkills(null);
         }
         return list;
+    }
+
+    @Override
+    public List<Project> getWorkingProjects(int userId) {
+        return userDao.getUserProject(userId);
     }
 
 

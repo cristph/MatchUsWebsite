@@ -28,7 +28,7 @@ public class ProjectTest {
         pro.setState(Project.states[2]);
         pro.setSubject("网站建设");
         pro.setModuel("外包");
-        pro.setReward(30000);
+        pro.setReward("1000-2000");
         pro.setSkill("java");
     }
 //  @Test
