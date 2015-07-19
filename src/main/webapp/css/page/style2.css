@@ -1,6 +1,6 @@
 .pe-thumbs{
-	width: 1100px;
-	height: 410px;
+	width: 1125px;
+	height: 495px;
 	margin: 20px auto;
 	position: relative;
 	border: 5px solid #fff;
@@ -26,7 +26,7 @@
 	position: relative;
 }
 .pe-thumbs li a img{
-	width:100px;
+	width:123px;
 	opacity: 0.2;
 }
 .pe-thumbs li a div.pe-description{

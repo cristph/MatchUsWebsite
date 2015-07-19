@@ -99,7 +99,7 @@
         <p class="lead">方便快捷的项目发布平台，轻松招兵买马！</p>
         <p class="lead">大量牛人，实践项目等你发现，交友&提升个人能力，一举两得！</p>
 
-        <p class="jumbotronBt"><a class="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们</a></p>
+        <p class="jumbotronBt"><a type="button" class="btn btn-danger" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们</a></p>
     </div>
     <!-- /END THE FEATURETTES -->
 </div>
