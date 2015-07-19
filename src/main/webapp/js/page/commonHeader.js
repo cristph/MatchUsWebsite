@@ -4,6 +4,8 @@
 
 document.getElementById("searchArea").addEventListener("focus",searchAreaIn,false);
 document.getElementById("searchArea").addEventListener("blur",searchAreaOut,false);
+//document.getElementById("searchArea").addEventListener("focus",search,false);
+//document.getElementById("searchResult").addEventListener("blur",searchOut,false);
 
 document.getElementById("searchButton").addEventListener("focus",searchBtnIn,false);
 document.getElementById("searchButton").addEventListener("blur",searchBtnOut,false);
@@ -338,3 +340,103 @@ $(function(){
         ko.applyBindings(new loginViewModel(),userlogin);
     }
 })();
+
+
+
+function search(){
+    //$post("/",
+    //    {"searchKey":document.getElementById("searchArea").value},
+    //    function(data){
+    //        var i;
+    //        var res=document.getElementById("searchResult");
+    //
+    //        for(i=0;i<data.length;i++){
+    //            var dd=document.createElement("dd");
+    //            var a=document.createElement("a");
+    //            var span=document.createElement("span");
+    //            span.innerText="kkkkkk";
+    //            a.setAttribute("href","/");
+    //            a.appendChild(span);
+    //            dd.appendChild(a);
+    //            res.appendChild(dd);
+    //        }
+    //    }
+    //);
+    searchOut();
+    var input=document.getElementById("searchArea").value;
+    if(input.length==0){
+        searchOut();
+    }else{
+        var j;
+        var res=document.getElementById("searchResult");
+        res.focus();
+
+        var dd=document.createElement("dd");
+        var a=document.createElement("a");
+        var span=document.createElement("span");
+        span.innerText="符合条件的项目";
+        a.setAttribute("href","/");
+        a.appendChild(span);
+        dd.appendChild(a);
+        res.appendChild(dd);
+        for(j=0;j<3;j++){
+            var dd=document.createElement("dd");
+            var a=document.createElement("a");
+            var span=document.createElement("span");
+            span.innerText="Project"+j;
+            a.setAttribute("href","http://www.baidu.com");
+            a.appendChild(span);
+            dd.appendChild(a);
+            res.appendChild(dd);
+        }
+
+        var dd=document.createElement("dd");
+        var a=document.createElement("a");
+        var span=document.createElement("span");
+        span.innerText="符合条件的牛人";
+        a.setAttribute("href","/");
+        a.appendChild(span);
+        dd.appendChild(a);
+        res.appendChild(dd);
+        for(j=0;j<3;j++){
+            var dd=document.createElement("dd");
+            var a=document.createElement("a");
+            var span=document.createElement("span");
+            span.innerText="NiuBi_"+j;
+            a.setAttribute("href","/");
+            a.appendChild(span);
+            dd.appendChild(a);
+            res.appendChild(dd);
+        }
+
+        var dd=document.createElement("dd");
+        var a=document.createElement("a");
+        var span=document.createElement("span");
+        span.innerText="符合条件的团队";
+        a.setAttribute("href","/");
+        a.appendChild(span);
+        dd.appendChild(a);
+        res.appendChild(dd);
+        for(j=0;j<3;j++){
+            var dd=document.createElement("dd");
+            var a=document.createElement("a");
+            var span=document.createElement("span");
+            span.innerText="Team_"+j;
+            a.setAttribute("href","/");
+            a.appendChild(span);
+            dd.appendChild(a);
+            res.appendChild(dd);
+        }
+    }
+}
+
+function searchOut(){
+    var res=document.getElementById("searchResult");
+    while(res.childElementCount>0){
+        res.removeChild(res.firstElementChild);
+    }
+}
+
+$(function(){
+    $("#searchArea").keyup(search);
+});

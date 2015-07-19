@@ -9,7 +9,7 @@ $(function(){
         var obj=list[i];
         obj.addEventListener("click",showImage,false);
         obj.setAttribute("data-toggle","modal");
-        obj.setAttribute("data-target","#exampleModal");
+        obj.setAttribute("data-target","#imgModal");
     }
 });
 
