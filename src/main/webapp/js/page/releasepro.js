@@ -43,11 +43,11 @@ $(document).ready(function(){
 });
 
 
-$(function(){
+$(document).ready(function(){
 
     $('#submit_btn').click(
         function(){
-                $.get("/project/add",
+                $.post("/project/add",
                     {"projectname":document.getElementById('projectname').value,
                         "projectdetail":document.getElementById('projectdetail').value,
                         "projecttag":document.getElementById('projecttag').value,
@@ -69,9 +69,12 @@ $(function(){
                         else {
                             alert(data);
                         }*/
-                        window.open('http://www.baidu.com');
-                    }
+                        alert(data);
+                        window.open('/project');
+                    },
+                    "text"
                     );
+
 
         }
     );
