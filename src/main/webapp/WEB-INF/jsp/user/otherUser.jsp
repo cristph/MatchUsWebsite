@@ -29,11 +29,12 @@
 <%!
   User thisUser;
   List<Project> thisProject;
-    String relationship="unfollow";
+    String relationship;
 %>
 <%
   thisUser =(User)request.getAttribute("oneOtherUser");
   thisProject=(List<Project>)request.getAttribute("publishingProjects");
+    relationship=(String) request.getAttribute("relationship");
 %>
 <div id="main" class="container">
   <div class="body_container">
@@ -58,14 +59,14 @@
         </ul>
       </div>
       <div>
-          <li style="list-style: none;text-align: center">
+          <li style="list-style: none">
               <p><%=thisUser.getInstruction()%></p>
           </li>
-          <li style="list-style: none">
+          <li style="list-style: none;text-align: center">
               <% if(relationship.equals("follow")){ %>
-                <button type="button" class="btn btn-default-sm" onclick="follow(<%=thisUser.getUid()%>)">已关注</button>
+                <button type="button" class="btn btn-default" onclick="follow(this,<%=thisUser.getUid()%>)">已关注</button>
               <% }else if (relationship.equals("unfollow")){ %>
-                <button type="button" class="btn btn-primary-sm" onclick="unfollow(<%=thisUser.getUid()%>)">关注</button>
+                <button type="button" class="btn btn-primary" onclick="unfollow(this,<%=thisUser.getUid()%>)">关注</button>
               <% }else if (relationship.equals("self")){%>
                 <a class="#" href="/user/settings">设置</a>
               <%}%>

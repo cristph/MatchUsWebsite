@@ -60,7 +60,7 @@ public class UserInfoController extends MultiActionController{
         System.out.println(newList.get(0).isState());
         System.out.println(newList.get(0).getEmail());
         model.addAttribute("user", u);
-        model.addAttribute("projectList",newList);
+        model.addAttribute("projectList", newList);
         return "user/user";
     }
 
@@ -238,7 +238,8 @@ public class UserInfoController extends MultiActionController{
     }
 
     @RequestMapping(value="/otherUser")
-    public String getOtherUser(Model model,@RequestParam int uid){
+    public String getOtherUser(HttpSession session,Model model,@RequestParam int uid){
+
         List<Project> list=userService.getWorkingProjects(uid);
         List<Project> newList=new LinkedList<Project>();
         for(int i=0;i<list.size();i++){
@@ -257,7 +258,32 @@ public class UserInfoController extends MultiActionController{
         u.setPublishingprojects(null);
         u.setFocuser(null);
         model.addAttribute("oneOtherUser", u);
+        User self=(User)session.getAttribute("user");
+        String relationShip=new String();
+        if(self.getUid()==uid){
+            relationShip="self";
+
+        } else if (isFollow(self.getFocused(),uid)){
+            relationShip="follow";
+        } else{
+            relationShip="unfollow";
+        }
+        model.addAttribute("relationship",relationShip);
         return "/user/otherUser";
     }
 
+    private boolean isFollow(List<User> follows,int targetUid){
+        boolean isFollow=false;
+        if(follows==null){
+            return false;
+        }else {
+            for(int i=0;i<follows.size();i++){
+                if(follows.get(i).getUid()==targetUid){
+                    isFollow=true;
+                    break;
+                }
+            }
+        }
+        return isFollow;
+    }//判断一个人是否为登陆者的关注的人
 }
