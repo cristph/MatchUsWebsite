@@ -205,6 +205,24 @@ public class UserInfoController extends MultiActionController{
             return  list;
     }
 
+    @ResponseBody
+    @RequestMapping(value="/user/addFollow",method = RequestMethod.POST)
+    public void addFollow(HttpSession session,
+                                 @RequestParam int uid){
+        //TODO
+        System.out.println("登陆者姓名："+((User)session.getAttribute("user")).getUsername());
+        System.out.println("添加关注的人的id为："+uid);
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/user/deleteFollow",method = RequestMethod.POST)
+    public void deleteFollow(HttpSession session,
+                                @RequestParam int uid){
+        //TODO
+        System.out.println("登陆者姓名："+((User)session.getAttribute("user")).getUsername());
+        System.out.println("取消关注的人的id为："+uid);
+    }
+
 
 
 
