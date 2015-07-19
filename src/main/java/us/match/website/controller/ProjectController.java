@@ -47,8 +47,8 @@ public class ProjectController {
         return "/project/releaseproject";
     }
 
-
-    @RequestMapping(value = "/add")
+    @ResponseBody
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public String addProject(
             @RequestParam("projectname") String projectname,
              @RequestParam("projectdetail") String projectdetail,
@@ -83,7 +83,7 @@ public class ProjectController {
         System.out.println("项目发布了1");
         projectService.addProject(pro);
         System.out.println("项目发布了2");
-        return "WEB-INF/jsp/project/project";
+        return "show/projectInfo";
     }
 
 
