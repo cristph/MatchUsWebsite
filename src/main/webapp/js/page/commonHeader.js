@@ -2,10 +2,15 @@
  * Created by cristph on 2015/7/16.
  */
 
+//$("body").click( function(event) {
+//    alert("最初触发事件的是:" + event.target.tagName + "#" + event.target.id);
+//} );
+
 document.getElementById("searchArea").addEventListener("focus",searchAreaIn,false);
 document.getElementById("searchArea").addEventListener("blur",searchAreaOut,false);
-//document.getElementById("searchArea").addEventListener("focus",search,false);
-//document.getElementById("searchResult").addEventListener("blur",searchOut,false);
+
+document.getElementById("searchArea").addEventListener("focus",search,false);
+//document.getElementById("searchArea").addEventListener("blur",test,false);
 
 document.getElementById("searchButton").addEventListener("focus",searchBtnIn,false);
 document.getElementById("searchButton").addEventListener("blur",searchBtnOut,false);
@@ -436,6 +441,16 @@ function searchOut(){
         res.removeChild(res.firstElementChild);
     }
 }
+
+
+
+//$("body").click( function(event) {
+//    var str=event.target.parentNode.parentNode.parentNode.id;
+//    alert(str);
+//    if(str!="searchResult"){
+//        searchAreaOut();
+//    }
+//} );
 
 $(function(){
     $("#searchArea").keyup(search);
