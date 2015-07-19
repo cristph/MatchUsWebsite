@@ -168,13 +168,24 @@ function getPeopleListHtmlStr(people) {
 
 function swapFollow(btn,uid){
     if(btn.className=="btn btn-primary"){
-        btn.className="btn btn-default";
-        btn.innerText="已关注";
-        $.post("/user/addFollow",{"uid":uid,});
+            $.post("/user/addFollow",{"uid":uid,},function (result){
+                if(result=="succeed"){
+                    btn.className="btn btn-default";
+                    btn.innerText="已关注";
+                }else{
+                    alert("关注失败");
+                }
+            });
     }else if(btn.className="btn btn-default"){
-        btn.className="btn btn-primary"
-        btn.innerText="关注Ta";
-        $.post("/user/deleteFollow",{"uid":uid,});
+        if(confirm("确认取消关注Ta吗？")) {
+            $.post("/user/deleteFollow",{"uid":uid,},function (result){
+                if(result=="succeed"){
+                    btn.className="btn btn-primary"
+                    btn.innerText="关注Ta";
+                }else{
+                    alert("取消关注失败");
+                }
+            });
+        }
     }
-
 }
