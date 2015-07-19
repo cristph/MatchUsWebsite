@@ -8,10 +8,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import javax.servlet.FilterRegistration;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+import javax.servlet.*;
 
 /**
  * Created by Ezio on 7/10/2015.
@@ -32,6 +29,8 @@ public class WebInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherServlet));
         dispatcher.addMapping("/");
         dispatcher.setLoadOnStartup(1);
+        String userdir = System.getProperty("user.dir");
+        dispatcher.setMultipartConfig(new MultipartConfigElement(userdir+"/upload", 1024*1024*5, 1024*1024*5*5, 1024*1024));
 
         FilterRegistration.Dynamic encodingFilter = servletContext.addFilter("encodingFilter", new CharacterEncodingFilter());
         encodingFilter.setInitParameter("encoding", "UTF-8");

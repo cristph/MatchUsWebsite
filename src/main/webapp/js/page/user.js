@@ -165,3 +165,16 @@ function getPeopleListHtmlStr(people) {
     }
     return html;
 }
+
+function swapFollow(btn,uid){
+    if(btn.className=="btn btn-primary"){
+        btn.className="btn btn-default";
+        btn.innerText="已关注";
+        $.post("/user/addFollow",{"uid":uid,});
+    }else if(btn.className="btn btn-default"){
+        btn.className="btn btn-primary"
+        btn.innerText="关注Ta";
+        $.post("/user/deleteFollow",{"uid":uid,});
+    }
+
+}
