@@ -444,9 +444,9 @@ function searchOut(){
 
 
 
-$("body").click( function(event) {
-    alert(event.target.parentNode.parentNode.parentNode.tagName);
-} );
+//$("body").click( function(event) {
+//    alert(event.target.parentNode.parentNode.parentNode.tagName);
+//} );
 
 $(function(){
     $("#searchArea").keyup(search);
