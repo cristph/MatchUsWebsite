@@ -445,7 +445,11 @@ function searchOut(){
 
 
 //$("body").click( function(event) {
-//    alert(event.target.parentNode.parentNode.parentNode.tagName);
+//    var str=event.target.parentNode.parentNode.parentNode.id;
+//    alert(str);
+//    if(str!="searchResult"){
+//        searchAreaOut();
+//    }
 //} );
 
 $(function(){

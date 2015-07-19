@@ -36,9 +36,24 @@
 
 <div class="topbanner"></div>
 
+
 <div class="container marketing">
     <!-- START THE FEATURETTES -->
 
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/image/ini/searchicon.jpg" width="200" height="200" />
+            </div>
+            <div class="col-md-4">
+                <img src="/image/ini/targeticon.jpg" width="200" height="200" />
+            </div>
+            <div class="col-md-4">
+                <img src="/image/ini/freeicon.jpg" width="200" height="200" />
+            </div>
+        </div>
+    </div>
     <div class="projects-header page-header">
         <p style="color:#d20104;font-size:160%">项目推荐</p>
     </div>
