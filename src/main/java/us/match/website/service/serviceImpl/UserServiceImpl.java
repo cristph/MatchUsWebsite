@@ -162,5 +162,23 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserProject(userId);
     }
 
+    @Override
+    public boolean addFollow(int id1, int id2) {
+        User u1=new User();
+        u1.setUid(id1);
+        User u2=new User();
+        u2.setUid(id2);
+        return userDao.addfocuser(u1,u2);
+    }
+
+    @Override
+    public boolean deleteFollow(int id1, int id2) {
+        User u1=new User();
+        u1.setUid(id1);
+        User u2=new User();
+        u2.setUid(id2);
+        return userDao.deletefocuser(u1,u2);
+    }
+
 
 }
