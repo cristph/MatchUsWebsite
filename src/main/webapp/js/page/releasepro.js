@@ -62,7 +62,6 @@ $(function(){
                     ,
                     function(data){
                         /*alert(data);
-
                         if (data=="true") {
                             window.top.location.href='/';
                         }
