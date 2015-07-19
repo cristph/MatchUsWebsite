@@ -68,7 +68,7 @@ public class UserTest {
         public void testgetallproject(){
             assertEquals(1,ud.getUserProject(14).size());
         }
-//        @Test
+////        @Test
 //        public void testsetskill(){
 //                User user =ud.findUser("gjp");
 //                List<UserSkill> u=new ArrayList<UserSkill>();
@@ -77,7 +77,7 @@ public class UserTest {
 //                m.setSkillname("java");
 //                m.setLevel(0);
 //                UserSkill n= new UserSkill();
-//                n.setUser(user);
+//               n.setUser(user);
 //                n.setSkillname("c++");
 //                n.setLevel(0);
 //                u.add(m);
