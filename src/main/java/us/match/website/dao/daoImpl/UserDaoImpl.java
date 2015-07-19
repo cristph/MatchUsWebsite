@@ -216,20 +216,35 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public boolean updateSkill(User user, List<UserSkill> userskills) {
+        return false;
+    }
+
+    @Override
     public List<UserSkill> getallskills(String id) {
         List<UserSkill> result=new ArrayList<UserSkill>();
         Session session = sessionFactory.openSession();
+        String sql="select * from  UserSkill where uid= '"+id+"'";
         try{
             session.beginTransaction();
-            User temp=(User)session.get(User.class,id);
-            result=temp.getSkills();
+            session.beginTransaction();
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                UserSkill temp =new UserSkill();
+                temp.setSkillname((String)o[0]);
+                temp.setLevel((int)o[1]);
+                result.add(temp);
+            }
         }catch(Exception e){
             e.printStackTrace();
         }finally{
             session.getTransaction().commit();
             session.close();
+            return result;
         }
-        return result;
+
     }
     @Override
     public boolean addfocuser(User focuser,User focused) {
@@ -345,6 +360,8 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         finally{
+            session.getTransaction().commit();
+            session.close();
             return result;
         }
     }
@@ -374,6 +391,8 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         finally{
+            session.getTransaction().commit();
+            session.close();
             return result;
         }
     }

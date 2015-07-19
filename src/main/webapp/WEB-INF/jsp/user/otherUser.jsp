@@ -28,11 +28,13 @@
 <jsp:include page="../commonHeader.jsp"/>
 <%!
   User thisUser;
-  List<Project> thisProject;%>
+  List<Project> thisProject;
+    String relationship;
+%>
 <%
   thisUser =(User)request.getAttribute("oneOtherUser");
-  out.println(thisUser.getUsername());
   thisProject=(List<Project>)request.getAttribute("publishingProjects");
+    relationship=(String) request.getAttribute("relationship");
 %>
 <div id="main" class="container">
   <div class="body_container">
@@ -57,7 +59,18 @@
         </ul>
       </div>
       <div>
-        <p><%=thisUser.getInstruction()%></p>
+          <li style="list-style: none">
+              <p><%=thisUser.getInstruction()%></p>
+          </li>
+          <li style="list-style: none;text-align: center">
+              <% if(relationship.equals("follow")){ %>
+                <button type="button" class="btn btn-default" onclick="follow(this,<%=thisUser.getUid()%>)">已关注</button>
+              <% }else if (relationship.equals("unfollow")){ %>
+                <button type="button" class="btn btn-primary" onclick="unfollow(this,<%=thisUser.getUid()%>)">关注</button>
+              <% }else if (relationship.equals("self")){%>
+                <a class="#" href="/user/settings">设置</a>
+              <%}%>
+          </li>
       </div>
       <div>
         <ul class="left_nav">
