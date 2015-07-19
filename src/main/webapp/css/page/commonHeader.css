@@ -98,7 +98,7 @@ ul.navbar-right li {
 }
 
 .searchResult dd a {
-    padding: 0;
+    padding: 0 10px 0 20px;
     display: block;
     width: auto;
     color: #787d82;
