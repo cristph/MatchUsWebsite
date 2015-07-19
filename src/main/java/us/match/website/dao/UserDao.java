@@ -21,7 +21,8 @@ public interface UserDao {
     public int getidbyname(String username);
     public boolean focusProject(Project project,User user);
     public User getUserbyid(int id);
-    public User addSkill(User user,List<UserSkill> userskills);
+    public User addSkill(User user,List<UserSkill> userskills);//实现还需要改动
+    public boolean updateSkill(User user,List<UserSkill> userskills);//还没实现，暂时不知道接口是怎么样的
     public List<UserSkill> getallskills(String id);
     public boolean addfocuser(User focuser,User focused);//前面是fans，后面是被关注的人
     public List<User> gettopuser();
