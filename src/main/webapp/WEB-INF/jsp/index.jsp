@@ -36,12 +36,26 @@
 
 <div class="topbanner"></div>
 
+
 <div class="container marketing">
     <!-- START THE FEATURETTES -->
 
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/image/ini/searchicon.jpg" width="200" height="200" />
+            </div>
+            <div class="col-md-4">
+                <img src="/image/ini/targeticon.jpg" width="200" height="200" />
+            </div>
+            <div class="col-md-4">
+                <img src="/image/ini/freeicon.jpg" width="200" height="200" />
+            </div>
+        </div>
+    </div>
     <div class="projects-header page-header">
-        <h2>优质项目推荐</h2>
-        <p>这些项目好牛逼啊！！！！</p>
+        <p style="color:#d20104;font-size:160%">项目推荐</p>
     </div>
 
 
@@ -73,8 +87,7 @@
     <hr class="featurette-divider">
 
     <div class="projects-header page-header">
-        <h2>结交牛人</h2>
-        <p>看看底下的牛人->_-></p>
+        <p style="color:#d20104;font-size:160%">结交牛人</p>
     </div>
 
     <section class="pe-container">
@@ -101,7 +114,7 @@
         <p class="lead">方便快捷的项目发布平台，轻松招兵买马！</p>
         <p class="lead">大量牛人，实践项目等你发现，交友&提升个人能力，一举两得！</p>
 
-        <p class="jumbotronBt"><a class="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们吧</a></p>
+        <p class="jumbotronBt"><a type="button" class="btn btn-danger" href="#" role="button" data-toggle="modal" data-target="#usersignin" onClick="myReload()">加入我们</a></p>
     </div>
     <!-- /END THE FEATURETTES -->
 </div>

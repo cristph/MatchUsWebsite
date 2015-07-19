@@ -1,3 +1,6 @@
+<%@ page import="us.match.website.model.User" %>
+<%@ page import="us.match.website.model.Project" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
@@ -23,84 +26,107 @@
 </head>
 <body>
 <jsp:include page="../commonHeader.jsp"/>
+<%!
+  User thisUser;
+  List<Project> thisProject;
+    String relationship;
+%>
+<%
+  thisUser =(User)request.getAttribute("oneOtherUser");
+  thisProject=(List<Project>)request.getAttribute("publishingProjects");
+    relationship=(String) request.getAttribute("relationship");
+%>
 <div id="main" class="container">
   <div class="body_container">
     <div class="sider">
       <div class="user-info">
                 <span class="user-pic">
-                    <img src="userPhoto.jpg?uid=${oneOtherUser.uid}" alt="该用户暂无头像">
+                    <img src="userPhoto.jpg?uid=<%=thisUser.getUid()%>" alt="该用户暂无头像">
                 </span>
         <ul class="user-lay">
           <li id="user_name">
-            昵称：<Strong>${oneOtherUser.username}</Strong>
+            昵称：<Strong><%=thisUser.getUsername()%></Strong>
           </li>
           <li id="user_sex">
-            性别：<Strong>${oneOtherUser.sex}</Strong>
+            性别：<Strong><%=thisUser.getSex()%></Strong>
           </li>
           <li id="user_university">
-            学校：<Strong>${oneOtherUser.university}</Strong>
+            学校：<Strong><%=thisUser.getUniversity()%></Strong>
           </li>
-          <li id="user_email">
-            地址：<Strong>${oneOtherUser.address}</Strong>
+          <li id="user_address">
+            地址：<Strong><%=thisUser.getAddress()%></Strong>
           </li>
         </ul>
       </div>
       <div>
-        <p>${oneOtherUser.instruction}</p>
+          <li style="list-style: none">
+              <p><%=thisUser.getInstruction()%></p>
+          </li>
+          <li style="list-style: none;text-align: center">
+              <% if(relationship.equals("follow")){ %>
+                <button type="button" class="btn btn-default" onclick="swapFollow(this,<%=thisUser.getUid()%>)">已关注</button>
+              <% }else if (relationship.equals("unfollow")){ %>
+                <button type="button" class="btn btn-primary" onclick="swapFollow(this,<%=thisUser.getUid()%>)">关注Ta</button>
+              <% }else if (relationship.equals("self")){%>
+                <a class="#" href="/user/settings">设置</a>
+              <%}%>
+          </li>
       </div>
       <div>
         <ul class="left_nav">
-          <li id="publish" class="left_nav_bar selected" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li id="publish" class="left_nav_bar selected" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             发布
           </li>
-          <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             参与
           </li>
-          <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             关注
           </li>
-          <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             粉丝
           </li>
         </ul>
       </div>
     </div>
-
-
     <div id="detail_body">
       <div id="publish_project" class="content_div show">
         <ul class="nav nav-tabs">
-          <li role="presentation" id="publish_now" class="sub_bar active" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li role="presentation" id="publish_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">正在进行项目</a>
           </li>
-          <li role="presentation" id="publish_past" class="sub_bar" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li role="presentation" id="publish_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">已完成项目</a>
           </li>
-          <li role="presentation" id="publish_will" class="sub_bar" onclick="changeBar(this,${oneOtherUser.uid})">
+          <li role="presentation" id="publish_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">未开始项目</a>
           </li>
         </ul>
         <div class="project-list">
           <ul id="publish_project_body">
-            <c:forEach var="project" items="${publishingProjects}">
+            <%if (thisProject.get(0).getPid()==-1){%>
+            <h2>暂时还没有项目哦~~~</h2>
+            <%} else{%>
+            <c:forEach var="project" items="${projectList}">
               <li>
                 <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
                   <h3>${project.pname}</h3>
                 </a>
               </li>
             </c:forEach>
+            <%}%>
           </ul>
         </div>
       </div>
       <div id="attend_project" class="content_div hide">
         <ul class="nav nav-tabs">
-          <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,${user.uid})">
+          <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">正在进行项目</a>
           </li>
-          <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,${user.uid})">
+          <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">已完成项目</a>
           </li>
-          <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,${user.uid})">
+          <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">已关注项目</a>
           </li>
         </ul>
@@ -129,24 +155,13 @@
         </ul>
         <div class="people-list">
           <ul id="follow_me_body">
-
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 <jsp:include page="../commonFooter.jsp"/>
-<script type="text/javascript" defer="defer">
-  <c:forEach var="project" items="${publishingProjects}">
-  var pid=${project.pid};
-  if(pid==-1){
-    var project_body=document.getElementById("publish_project_body");
-    project_body.innerHTML="<h2>暂时还没有项目哦~~~</h2>";
-  }
-  </c:forEach>
-</script>
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>

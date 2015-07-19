@@ -165,3 +165,14 @@ function getPeopleListHtmlStr(people) {
     }
     return html;
 }
+
+function swapFollow(btn,uid){
+    if(btn.className=="btn btn-primary"){
+        btn.className="btn btn-default";
+        btn.innerText="已关注";
+    }else if(btn.className="btn btn-default"){
+        btn.className="btn btn-primary"
+        btn.innerText="关注Ta";
+    }
+
+}
