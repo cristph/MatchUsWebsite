@@ -264,6 +264,24 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public boolean deletefocuser(User focuser, User focused) {
+        boolean result=true;
+        Session session = sessionFactory.openSession();
+        String sql="delete from focuser_focused where focused_id='"+focused.getUid()+"'"+"AND focuser_id='"
+                +focuser.getUid()+"'";
+        try{
+            session.beginTransaction();
+            session.createSQLQuery(sql).executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
+    }
+
+    @Override
     public List<User> gettopuser() {
         List<User> result=new ArrayList<User>();
         Session session = sessionFactory.openSession();

@@ -64,9 +64,9 @@
           </li>
           <li style="list-style: none;text-align: center">
               <% if(relationship.equals("follow")){ %>
-                <button type="button" class="btn btn-default" onclick="follow(this,<%=thisUser.getUid()%>)">已关注</button>
+                <button type="button" class="btn btn-default" onclick="swapFollow(this,<%=thisUser.getUid()%>)">已关注</button>
               <% }else if (relationship.equals("unfollow")){ %>
-                <button type="button" class="btn btn-primary" onclick="unfollow(this,<%=thisUser.getUid()%>)">关注</button>
+                <button type="button" class="btn btn-primary" onclick="swapFollow(this,<%=thisUser.getUid()%>)">关注Ta</button>
               <% }else if (relationship.equals("self")){%>
                 <a class="#" href="/user/settings">设置</a>
               <%}%>
@@ -155,11 +155,9 @@
         </ul>
         <div class="people-list">
           <ul id="follow_me_body">
-
           </ul>
         </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -165,3 +165,27 @@ function getPeopleListHtmlStr(people) {
     }
     return html;
 }
+
+function swapFollow(btn,uid){
+    if(btn.className=="btn btn-primary"){
+            $.post("/user/addFollow",{"uid":uid,},function (result){
+                if(result=="succeed"){
+                    btn.className="btn btn-default";
+                    btn.innerText="已关注";
+                }else{
+                    alert("关注失败");
+                }
+            });
+    }else if(btn.className="btn btn-default"){
+        if(confirm("确认取消关注Ta吗？")) {
+            $.post("/user/deleteFollow",{"uid":uid,},function (result){
+                if(result=="succeed"){
+                    btn.className="btn btn-primary"
+                    btn.innerText="关注Ta";
+                }else{
+                    alert("取消关注失败");
+                }
+            });
+        }
+    }
+}
