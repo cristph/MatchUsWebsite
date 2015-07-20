@@ -77,7 +77,7 @@ public class UserTest {
 //                m.setSkillname("java");
 //                m.setLevel(0);
 //                UserSkill n= new UserSkill();
-//               n.setUser(user);
+//                n.setUser(user);
 //                n.setSkillname("c++");
 //                n.setLevel(0);
 //                u.add(m);

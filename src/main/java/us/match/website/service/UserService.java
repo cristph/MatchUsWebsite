@@ -21,4 +21,6 @@ public interface UserService {
     public List<User> getFocus(int userId);
     public List<User> getFocused(int userId);
     public List<Project> getWorkingProjects(int userId);
+    public boolean addFollow(int id1,int id2);
+    public boolean deleteFollow(int id1,int id2);
 }

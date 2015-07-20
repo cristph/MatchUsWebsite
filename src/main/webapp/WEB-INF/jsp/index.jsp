@@ -43,14 +43,20 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4">
-                <img src="/image/ini/searchicon.jpg" width="200" height="200" />
+            <div class="col-md-4" style="text-align: center">
+                <img src="/image/ini/searchicon.jpg" width="190" height="190" />
+                <br>
+                <p>获取最热项目</p>
             </div>
-            <div class="col-md-4">
-                <img src="/image/ini/targeticon.jpg" width="200" height="200" />
+            <div class="col-md-4" style="text-align: center">
+                <img src="/image/ini/targeticon.jpg" width="235" height="190" />
+                <br>
+                <p>聚焦实战开发</p>
             </div>
-            <div class="col-md-4">
-                <img src="/image/ini/freeicon.jpg" width="200" height="200" />
+            <div class="col-md-4" style="text-align: center">
+                <img src="/image/ini/freeicon.jpg" width="190" height="190" />
+                <br>
+                <p>免费寻找牛人</p>
             </div>
         </div>
     </div>
