@@ -167,9 +167,9 @@ a.banner:focus{
     text-decoration: none;
 }
 
-.searchButton>a:link{
+.searchButton>a:link {
     text-decoration: none;
-
+}
 .menu ul {
     list-style-type: none;
 
