@@ -81,13 +81,13 @@
       <div class="form-group col-md-8">
         <label >项目预算</label>
         <select class="form-control input-sm" id="proreward">
-          <option>小于¥1,000</option>
-          <option>¥1,000-¥3,000</option>
-          <option>¥3,000-¥5,000</option>
-          <option>¥5,000-¥10,000</option>
-          <option>¥10,000－¥20,000</option>
-          <option>¥20,000－¥50,000</option>
-          <option>¥50,000以上</option>
+          <option>0-100</option>
+          <option>100-200</option>
+          <option>200-500</option>
+          <option>500-1000</option>
+          <option>1000-5000</option>
+          <option>5000-10000</option>
+          <option>其他报酬</option>
         </select>
       </div></div>
 
