@@ -23,8 +23,8 @@ import java.util.Iterator;
 public class UploadController {
 
     @RequestMapping(value="/upload",method = RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
-                                                 @RequestParam("file") MultipartFile file){
+    public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file){
+        System.out.println("upload start");
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
@@ -32,12 +32,12 @@ public class UploadController {
                         new BufferedOutputStream(new FileOutputStream(new File("name" + "-uploaded")));
                 stream.write(bytes);
                 stream.close();
-                return "You successfully uploaded " + name + " into " + name + "-uploaded !";
+                return "You successfully uploaded " + "" + " into " + "" + "-uploaded !";
             } catch (Exception e) {
-                return "You failed to upload " + name + " => " + e.getMessage();
+                return "You failed to upload " + "" + " => " + e.getMessage();
             }
         } else {
-            return "You failed to upload " + name + " because the file was empty.";
+            return "You failed to upload " + "" + " because the file was empty.";
         }
     }
 

@@ -69,16 +69,16 @@
         <ul class="projects-index clearfix">
             <c:forEach var="project" items="${projects}">
                 <li>
-                    <a href="/project/getOneProject/?pid=${project.pid}">
+                    <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
                         <div class="projects-img">
-                            <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+                            <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
                         </div>
-                        <div class="projects-info clearfix">
-                            <p>${project.skill}</p>
+                        <div class="projects-info">
+                            <p style="text-align: center">${project.skill}</p>
                             <span class="l">发布者:${project.publisher.username}</span>
                             <span class="r">电话:${project.phonenumber}</span>
                         </div>
-                        <div class="projects-subinfo clearfix">
+                        <div class="projects-subinfo">
                             <h2>${project.pname}</h2>
                             <span class="l">&#65509;≈${project.reward}</span>
                             <span class="r">所在地:${project.location}</span>
@@ -100,7 +100,7 @@
         <ul id="pe-thumbs" class="pe-thumbs">
             <c:forEach items="${hotUsers}" var="user">
                 <li>
-                    <a href="/otherUser?uid=${user.uid}">
+                    <a href="/otherUser?uid=${user.uid}" target="_blank">
                         <img class="lazy" data-original="/hotUsers/userPhoto?oneHotUserId=${user.uid}">
                         <%--<img src="hotUsers/userPhoto?oneHotUserId=${user.uid}" alt="无头像"/>--%>
                         <div class="pe-description">
@@ -124,6 +124,25 @@
     </div>
     <!-- /END THE FEATURETTES -->
 </div>
+
+<c:choose>
+    <c:when test="${empty sessionScope.user}">
+    </c:when>
+    <c:otherwise>
+        <div class="menu" style="position: absolute;margin-top: 10px;margin-left: 1100px;">
+            <ul>
+                <li>
+                    <ul id = "drop">
+                        <li><a class="first">Signed in as ${sessionScope.user.username}</a></li>
+                        <li><a href="/user" class="button 3">个人信息</a></li>
+                        <li><a href="#" class="button last">退出登录</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </c:otherwise>
+</c:choose>
 
 <!-- /.container -->
 <jsp:include page="commonFooter.jsp"/>
