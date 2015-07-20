@@ -125,6 +125,25 @@
     <!-- /END THE FEATURETTES -->
 </div>
 
+<c:choose>
+    <c:when test="${empty sessionScope.user}">
+    </c:when>
+    <c:otherwise>
+        <div class="menu" style="position: absolute;margin-top: 10px;margin-left: 1100px;">
+            <ul>
+                <li>
+                    <ul id = "drop">
+                        <li><a class="first">Signed in as ${sessionScope.user.username}</a></li>
+                        <li><a href="/user" class="button 3">个人信息</a></li>
+                        <li><a href="#" class="button last">退出登录</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </c:otherwise>
+</c:choose>
+
 <!-- /.container -->
 <jsp:include page="commonFooter.jsp"/>
 

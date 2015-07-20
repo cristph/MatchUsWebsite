@@ -1,0 +1,85 @@
+.container{
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.blockShadow{
+    box-shadow: 0 2px 5px rgba(1,1,1,0.3);
+}
+
+.listItem {
+    border-bottom: solid 1px #edf0f2;
+    padding: 30px 0 30px 20px;
+    font-size: 12px;
+
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.searchType,.moreInfo{
+    font-size: 16px;
+}
+
+.user-pic {
+    width: 120px;
+    text-align: center;
+    padding-top: 10px;
+    float: left;
+}
+
+.user-pic img {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.user-pic p {
+    line-height: 16px;
+}
+
+.user-name{
+    padding-top: 10px;
+}
+
+.sex{
+    padding-left: 5px;
+    color: #28a4c9;
+}
+
+.Info{
+    float: left;
+}
+
+.tip{
+    font-weight: bold;
+    color: #286090;
+}
+
+.schoolInfo,.selfIntro,.skillInfo,.projectInfo{
+    padding-left: 20px;
+}
+
+.project_info{
+    margin-top: 50px;
+}
+
+.projectPicture{
+    float: left;
+}
+
+.projectPicture >img{
+    width: 180px;
+    padding-top: 10px;
+}
+
+.projectIntro{
+    padding-left: 220px;
+}
+
+.projectTitle{
+    font-size: 20px;
+}
+
+.projectPublish{
+    font-size: 16px;
+}
