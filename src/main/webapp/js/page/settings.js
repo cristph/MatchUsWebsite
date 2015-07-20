@@ -2,6 +2,7 @@ $(function () {
     "use strict";
     function User() {
         this.username = ko.observable();
+        this.sex = ko.observable();
         this.university = ko.observable();
         this.major = ko.observable();
         this.address = ko.observable();

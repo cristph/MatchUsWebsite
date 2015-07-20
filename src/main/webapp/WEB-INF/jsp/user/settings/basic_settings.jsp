@@ -10,6 +10,17 @@
             </div>
         </div>
         <div class="row">
+            <label class="col-md-2 text-right">性别</label>
+                <label class="col-md-2">
+                    <input type="radio" name="sex" value="male">
+                    男
+                </label>
+                <label class="col-md-2">
+                    <input type="radio" name="sex" value="female">
+                    女
+                </label>
+        </div>
+        <div class="row">
             <label for="university" class="col-md-2 text-right">所在学校</label>
 
             <div class="col-md-8">
