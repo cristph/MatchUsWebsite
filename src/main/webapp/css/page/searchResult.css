@@ -20,6 +20,15 @@
     font-size: 16px;
 }
 
+.moreInfo{
+    text-align: center;
+    cursor: pointer;
+}
+
+.moreInfo:hover{
+    color: #be3a48;
+}
+
 .user-pic {
     width: 120px;
     text-align: center;
@@ -87,7 +96,17 @@
     font-size: 16px;
 }
 
-/*.slider{*/
-    /*position: relative;*/
-    /*top: 70px;*/
-/*}*/
+.slider{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navItem{
+    border-bottom: solid 1px #edf0f2;
+    padding: 15px 0 15px 30px;
+    font-size: 12px;
+
+    display: list-item;
+    text-align: -webkit-match-parent;
+    cursor: pointer;
+}
