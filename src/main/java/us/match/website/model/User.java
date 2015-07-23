@@ -35,7 +35,8 @@ public class User {
         private List<User>  focuser;//关注用户的人
         private List<User>  focused;//被用户关注的人
         private int focusednum=0;
-        private List<InfoRelation> informations;
+        private List<Information> sendinformations;
+        private List<Information> receivevinformations;
     public String getInstruction() {
         return instruction;
     }
@@ -219,12 +220,20 @@ public class User {
         focusednum++;
     }
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    public List<InfoRelation> getInformations() {
-        return informations;
+    @OneToMany(mappedBy = "sender",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<Information> getSendinformations() {
+        return sendinformations;
     }
 
-    public void setInformations(List<InfoRelation> informations) {
-        this.informations = informations;
+    public void setSendinformations(List<Information> sendinformations) {
+        this.sendinformations = sendinformations;
+    }
+    @OneToMany(mappedBy = "receiver",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<Information> getReceivevinformations() {
+        return receivevinformations;
+    }
+
+    public void setReceivevinformations(List<Information> receivevinformations) {
+        this.receivevinformations = receivevinformations;
     }
 }

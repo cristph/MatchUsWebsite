@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/page/reset.css"/>
     <link rel="stylesheet" href="/css/page/commonHeader.css"/>
+    <link rel="stylesheet" href="/css/page/commonFooter.css"/>
 
     <link rel="stylesheet" href="/css/page/settings.css">
 </head>
 
 <body>
-<jsp:include page="../../commonHeader.jsp"/>
+<jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
 <section class='container' id="ko-content">
     <!-- left side part -->
     <div class="settings-left col-md-3">
@@ -55,7 +56,7 @@
         </div>
     </div>
 </section>
-
+<jsp:include page="/WEB-INF/jsp/commonFooter.jsp"/>
 
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
