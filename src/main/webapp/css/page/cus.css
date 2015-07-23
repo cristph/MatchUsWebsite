@@ -241,11 +241,20 @@
 
 .projectIntro{
     padding-left: 220px;
+    padding-right: 30px;
 }
 
 .projectTitle{
     font-size: 22px;
     color: #286090;
+}
+
+.projectTitle>a:hover{
+    text-decoration: none;
+}
+
+.projectTitle>a:link{
+    text-decoration: none;
 }
 
 .projectPublish{
