@@ -62,7 +62,7 @@ function getInformation(uid,state) {
     var body = document.getElementById("information_body");
     body.innerHTML = "";
     $.post("/user/information", {"uid":uid,"informationState": state}, function (information) {
-        var htmlStr = getProjetListHtmlStr(information);
+        var htmlStr = getInformationHtmlStr(information);
         body.innerHTML = htmlStr;
     });
     var div = document.getElementById("information_all");

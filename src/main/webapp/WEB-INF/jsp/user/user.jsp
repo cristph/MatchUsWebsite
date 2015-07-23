@@ -97,7 +97,7 @@
                         <%} else{%>
                         <c:forEach var="information" items="${informationList}">
                             <li>
-                                <h3>${information.content}</h3>
+                                <p>${information.content}</p>
                             </li>
                         </c:forEach>
                         <%}%>
