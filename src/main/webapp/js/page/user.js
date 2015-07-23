@@ -125,16 +125,18 @@ function changeToActive(bar) {
 
 function getInformationHtmlStr(information){
     if(information[0].senderId==-1){
-        return "<h2>暂时还没有未读消息哦~~~</h2>";
+        return "<h2>暂时还没有消息哦~~~</h2>";
     }else {
+        alert(information[0].content)
         var htmlStr="";
         for(var i=0;i<information.length;i++){
             htmlStr+="<li>" +
-                "<h3>" +
-                information[i].content+
-                "</h3>"+
+                "<p>" +
+                information[i].content +
+                "</p>"+
                 "</li>";
         }
+        return htmlStr;
     }
 }
 function getProjetListHtmlStr(projects) {
