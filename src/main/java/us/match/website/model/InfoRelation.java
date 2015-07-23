@@ -9,7 +9,8 @@ import javax.persistence.*;
 public class InfoRelation {
     private int rid;
     private Information info;
-    private User user;
+    private User sender;
+    private User receiver;
     private int state;//1代表未读，0代表已读
 
     public int getState() {
@@ -30,16 +31,6 @@ public class InfoRelation {
         this.info = info;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name="uid")
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Id
     @GeneratedValue
     public int getRid() {
@@ -48,5 +39,25 @@ public class InfoRelation {
 
     public void setRid(int rid) {
         this.rid = rid;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="senderid")
+    public User getSender() {
+        return sender;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="receiverid")
+    public User getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
 }
