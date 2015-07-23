@@ -52,6 +52,7 @@ public class UserSettingsController {
         user.setTelephone(request.getParameter("telephone"));
         user.setQq(request.getParameter("qq"));
         user.setInstruction(request.getParameter("instruction"));
+        user = userService.editUserInfo(user);
         session.setAttribute("user",user);
         return ImmutableMap.of("success",true, "user", user);
     }
