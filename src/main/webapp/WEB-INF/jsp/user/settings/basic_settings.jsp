@@ -4,82 +4,88 @@
     <div class="settings-right wrapped-boxes active" data-bind="with: user">
         <div class="row">
             <label for="name" class="col-md-2 text-right">用户名</label>
+
             <div class="col-md-8">
-                <input data-bind="value: username" type="text" name="name" id="name" class="form-control"
+                <input data-bind="value: username" type="text" id="name" class="form-control"
                        required="required">
             </div>
         </div>
         <div class="row">
             <label class="col-md-2 text-right">性别</label>
-                <label class="col-md-2">
-                    <input type="radio" name="sex" value="male">
-                    男
-                </label>
-                <label class="col-md-2">
-                    <input type="radio" name="sex" value="female">
-                    女
-                </label>
+            <label class="col-md-2">
+                <input data-bind="checked: sex" type="radio" value="male">
+                男
+            </label>
+            <label class="col-md-2">
+                <input data-bind="checked: sex" type="radio" value="female">
+                女
+            </label>
         </div>
         <div class="row">
             <label for="university" class="col-md-2 text-right">所在学校</label>
 
             <div class="col-md-8">
-                <input data-bind="value: university" type="text" name="university" id="university"
-                       class="form-control"/>
+                <input data-bind="value: university" type="text" id="university" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <label for="major" class="col-md-2 text-right">就读专业</label>
 
             <div class="col-md-8">
-                <input data-bind="value: major" type="text" name="major" id="major" class="form-control"/>
+                <input data-bind="value: major" type="text" id="major" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
-                <label for="adress" class="col-md-2 text-right">所在地</label>
+                <label for="address" class="col-md-2 text-right">所在地</label>
 
                 <div class="col-md-8">
-                    <input data-bind="value: address" type="text" name="address" id="adress" class="form-control">
+                    <input data-bind="value: address" type="text" id="address" class="form-control">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label for="good_at" class="col-md-2 text-right">擅长领域</label>
+
                 <div class="col-md-8">
-                    <input data-bind="value: skills" type="text" name="good_at" id="good_at" class="form-control">
+                    <input data-bind="value: skills" type="text" id="good_at" class="form-control">
                 </div>
             </div>
         </div>
         <div class="row">
             <label for="birth" class="col-md-2 text-right">生日</label>
+
             <div class="col-md-8">
-                <input data-bind="value: birthday" type="text" name="birth" id="birth" class="form-control">
+                <input data-bind="value: birthday" type="text" id="birth" class="form-control">
             </div>
         </div>
         <div class="row">
-            <label for="mobile" class="col-md-2 text-right">手机</label>
+            <label for="mobilephone" class="col-md-2 text-right">手机</label>
+
             <div class="col-md-8">
-                <input type="text" name="mobile" id="mobile" class="form-control"/>
+                <input data-bind="value: mobilephone" type="text" id="mobilephone" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <label for="telephone" class="col-md-2 text-right">电话</label>
+
             <div class="col-md-8">
-                <input type="text" name="telephone" id="telephone" class="form-control"/>
+                <input data-bind="value: telephone" type="text" id="telephone" class="form-control"/>
             </div>
         </div>
         <div class="row">
+            <label for="qq" class="col-md-2 text-right">QQ</label>
+
             <div class="col-md-8">
-                <label for="qq" class="col-md-2 text-right">QQ</label>
-                <input type="text" name="qq" id="qq" class="form-control"/>
+                <input data-bind="value: qq" type="text" id="qq" class="form-control"/>
             </div>
         </div>
         <div class="row">
-            <label class="col-md-2 text-right">简介</label>
+            <label for="instruction" class="col-md-2 text-right">简介</label>
+
             <div class="col-md-10">
-                <textarea data-bind="value: instruction" class="form-control" rows="5"></textarea>
+                <textarea data-bind="value: instruction" id="instruction" class="form-control" rows="5"></textarea>
             </div>
         </div>
         <p class="row form-group">
