@@ -211,3 +211,73 @@
 }
 
 
+/******************************************************/
+
+.blockShadow{
+    box-shadow: 0 2px 5px rgba(1,1,1,0.3);
+}
+
+.listItem {
+    border-bottom: solid 1px #edf0f2;
+    padding: 30px 0 30px 20px;
+    font-size: 12px;
+
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.project_info{
+    margin-top: 50px;
+}
+
+.projectPicture{
+    float: left;
+}
+
+.projectPicture >img{
+    width: 180px;
+    padding-top: 10px;
+}
+
+.projectIntro{
+    padding-left: 220px;
+}
+
+.projectTitle{
+    font-size: 22px;
+    color: #286090;
+}
+
+.projectPublish{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 16px;
+}
+
+.moreInfo{
+    font-size: 16px;
+}
+
+.moreInfo{
+    text-align: center;
+    cursor: pointer;
+}
+
+.moreInfo:hover{
+    color: #be3a48;
+}
+
+.textStyle{
+    padding-top: 30px;
+    color: #be3a48;
+    text-align: right;
+    font-size: medium;
+}
+
+.textStyle:hover{
+    color: #d20104;
+}
+
+.textDivider{
+    margin-top: 20px;
+}
