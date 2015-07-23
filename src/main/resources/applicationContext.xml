@@ -49,7 +49,6 @@
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
-
     </bean>
 
     <!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->
