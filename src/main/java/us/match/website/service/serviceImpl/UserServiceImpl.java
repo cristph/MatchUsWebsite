@@ -219,7 +219,9 @@ public class UserServiceImpl implements UserService {
         List<Message> msgs=new LinkedList<Message>();
         for(int i=0;i<infos.size();i++){
             Message msg=new Message();
+            System.out.println("_________________"+infos.get(i).getSender().getUid());
             int s_id=infos.get(i).getSender().getUid();
+
             int r_id=infos.get(i).getReceiver().getUid();
             java.sql.Timestamp t=infos.get(i).getSendtime();
             User s=userDao.getUserbyid(s_id);
