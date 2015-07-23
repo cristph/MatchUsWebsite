@@ -35,8 +35,8 @@ public class User {
         private List<User>  focuser;//关注用户的人
         private List<User>  focused;//被用户关注的人
         private int focusednum=0;
-        private List<InfoRelation> sendinformations;
-        private List<InfoRelation> receivevinformations;
+        private List<Information> sendinformations;
+        private List<Information> receivevinformations;
     public String getInstruction() {
         return instruction;
     }
@@ -221,19 +221,19 @@ public class User {
     }
 
     @OneToMany(mappedBy = "sender",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    public List<InfoRelation> getSendinformations() {
+    public List<Information> getSendinformations() {
         return sendinformations;
     }
 
-    public void setSendinformations(List<InfoRelation> sendinformations) {
+    public void setSendinformations(List<Information> sendinformations) {
         this.sendinformations = sendinformations;
     }
     @OneToMany(mappedBy = "receiver",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    public List<InfoRelation> getReceivevinformations() {
+    public List<Information> getReceivevinformations() {
         return receivevinformations;
     }
 
-    public void setReceivevinformations(List<InfoRelation> receivevinformations) {
+    public void setReceivevinformations(List<Information> receivevinformations) {
         this.receivevinformations = receivevinformations;
     }
 }
