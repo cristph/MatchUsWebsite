@@ -47,7 +47,6 @@
         <div class="row">
             <div class="form-group">
                 <label for="good_at" class="col-md-2 text-right">擅长领域</label>
-
                 <div class="col-md-8">
                     <input data-bind="value: skills" type="text" name="good_at" id="good_at" class="form-control">
                 </div>
@@ -55,14 +54,30 @@
         </div>
         <div class="row">
             <label for="birth" class="col-md-2 text-right">生日</label>
-
             <div class="col-md-8">
                 <input data-bind="value: birthday" type="text" name="birth" id="birth" class="form-control">
             </div>
         </div>
         <div class="row">
+            <label for="mobile" class="col-md-2 text-right">手机</label>
+            <div class="col-md-8">
+                <input type="text" name="mobile" id="mobile" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+            <label for="telephone" class="col-md-2 text-right">电话</label>
+            <div class="col-md-8">
+                <input type="text" name="telephone" id="telephone" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <label for="qq" class="col-md-2 text-right">QQ</label>
+                <input type="text" name="qq" id="qq" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
             <label class="col-md-2 text-right">简介</label>
-
             <div class="col-md-10">
                 <textarea data-bind="value: instruction" class="form-control" rows="5"></textarea>
             </div>
