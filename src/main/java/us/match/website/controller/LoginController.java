@@ -32,18 +32,8 @@ public class LoginController {
     ProjectService projectService;
 
     @RequestMapping("")
-    public String index(Model model, HttpSession session,
-                        @RequestParam(value="exit",required = false) String state){
-        /*如果state为exit，退出登录*/
-        if(state.equals("exit")) {
-            session.setAttribute("user",null);
-            return "index";
-        }
+    public String index(Model model, HttpSession session){
         User userInSession = (User)session.getAttribute("user");
-        if (userInSession != null) {
-            // 呈现已登陆状态
-            model.addAttribute("user", userInSession);
-        }
         List<Project> list=projectService.getAllProject();
         list=list.subList(0,8);
         model.addAttribute("projects",list);
@@ -52,6 +42,12 @@ public class LoginController {
         model.addAttribute("hotUsers",users);
         model.addAttribute("hotUserReturn","True");
         return "index";
+    }
+
+    @RequestMapping("/exit")
+    public String exit(HttpSession session) {
+        session.setAttribute("user", null);
+        return "redirect:/";
     }
 
     @ResponseBody
