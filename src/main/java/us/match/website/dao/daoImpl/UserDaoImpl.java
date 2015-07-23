@@ -455,4 +455,23 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+    @Override
+    public User getcomuserbyid(String id) {
+        Session session = sessionFactory.openSession();
+        User result =new User();
+        try{
+            session.beginTransaction();
+            result=(User)session.get(User.class,id);
+        }catch(Exception e){
+            result=null;
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
+
+    }
+
+
 }

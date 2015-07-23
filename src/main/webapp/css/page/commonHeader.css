@@ -163,7 +163,13 @@ a.banner:focus{
     border-color: #fff;
     transition: all .2s ease-in .13s;
 }
+.searchButton>a:hover{
+    text-decoration: none;
+}
 
+.searchButton>a:link {
+    text-decoration: none;
+}
 .menu ul {
     list-style-type: none;
 
