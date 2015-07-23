@@ -160,7 +160,7 @@
                     <ul id = "drop">
                         <li><a class="first">Signed in as gjp</a></li>
                         <li><a href="/user" class="button 3">个人信息</a></li>
-                        <li><a href="#" class="button last">退出登录</a></li>
+                        <li><a href="/exit" class="button last">退出登录</a></li>
 
                     </ul>
                 </li>
