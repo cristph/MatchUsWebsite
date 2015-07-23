@@ -14,6 +14,7 @@ public class Information {
     private User sender;
     private User receiver;
     private Timestamp sendtime;
+    private int state;//1表示未读，0表示已读
     @Id
     @GeneratedValue
     public int getInfoid() {
@@ -58,5 +59,13 @@ public class Information {
 
     public void setSendtime(Timestamp sendtime) {
         this.sendtime = sendtime;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }
