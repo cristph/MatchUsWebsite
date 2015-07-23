@@ -3,7 +3,7 @@ var changeBar = function (bar,uid) {
     switch (bar.id) {
         case "information":
             changeBarClass(bar);
-            getInformation(uid,"now");
+            getInformation(uid,"new");
             break;//初始化发布的项目
         case "attend":
             changeBarClass(bar);
