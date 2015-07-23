@@ -36,7 +36,7 @@ public class LoginController {
                         @RequestParam(value="exit",required = false) String state){
         /*如果state为exit，退出登录*/
         if(state.equals("exit")) {
-            model.addAttribute("user",null);
+            session.setAttribute("user",null);
             return "index";
         }
         User userInSession = (User)session.getAttribute("user");
