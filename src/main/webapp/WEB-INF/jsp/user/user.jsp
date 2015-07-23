@@ -63,40 +63,37 @@
             </div>
             <div>
                 <ul class="left_nav">
-                    <li id="publish" class="left_nav_bar selected" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        发布
+                    <li id="information" class="left_nav_bar selected" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+                        我的消息
                     </li>
                     <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        参与
+                        我的比赛
                     </li>
                     <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        关注
+                        我的关注
                     </li>
                     <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        粉丝
+                        我的粉丝
                     </li>
                 </ul>
             </div>
         </div>
         <div id="detail_body">
-            <div id="publish_project" class="content_div show">
+            <div id="information_all" class="content_div show">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" id="publish_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        <a href="#">正在进行项目</a>
+                    <li role="presentation" id="information_new" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+                        <a href="#">未读消息</a>
                     </li>
-                    <li role="presentation" id="publish_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        <a href="#">已完成项目</a>
-                    </li>
-                    <li role="presentation" id="publish_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        <a href="#">未开始项目</a>
+                    <li role="presentation" id="information_old" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+                        <a href="#">已读消息</a>
                     </li>
                 </ul>
-                <div class="project-list">
-                    <ul id="publish_project_body">
+                <div class="#">
+                    <ul id="information_body">
                         <%if (thisProject.get(0).getPid()==-1){%>
-                        <h2>暂时还没有项目哦~~~</h2>
+                        <h2>暂时还没有未读消息哦~~~</h2>
                         <%} else{%>
-                        <c:forEach var="project" items="${projectList}">
+                        <c:forEach var="information" items="${informationList}">
                             <li>
                                 <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
                                     <h3>${project.pname}</h3>
@@ -110,13 +107,13 @@
             <div id="attend_project" class="content_div hide">
                 <ul class="nav nav-tabs">
                     <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        <a href="#">正在进行项目</a>
+                        <a href="#">正在进行比赛</a>
                     </li>
                     <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        <a href="#">已完成项目</a>
+                        <a href="#">已完成比赛</a>
                     </li>
                     <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-                        <a href="#">已关注项目</a>
+                        <a href="#">已关注比赛</a>
                     </li>
                 </ul>
                 <div class="project-list">
