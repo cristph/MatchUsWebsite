@@ -6,7 +6,6 @@ $(function () {
         this.university = ko.observable();
         this.major = ko.observable();
         this.address = ko.observable();
-        this.skills = ko.observableArray([]);
         this.birthday = ko.observable();
         this.mobilephone = ko.observable();
         this.telephone = ko.observable();
@@ -26,7 +25,6 @@ $(function () {
             self.user().university(new_user.university);
             self.user().major(new_user.major);
             self.user().address(new_user.address);
-            self.user().skills(new_user.skills);
             self.user().birthday(new_user.birthday);
             self.user().mobilephone(new_user.mobilephone);
             self.user().telephone(new_user.telephone);
@@ -40,7 +38,6 @@ $(function () {
                 'university': self.user().university(),
                 'major': self.user().major(),
                 'address': self.user().address(),
-                'skills': self.user().skills(),
                 'birthday': self.user().birthday(),
                 'mobilephone': self.user().mobilephone(),
                 'telephone': self.user().telephone(),
@@ -54,7 +51,6 @@ $(function () {
                     self.user().university(new_user.university);
                     self.user().major(new_user.major);
                     self.user().address(new_user.address);
-                    self.user().skills(new_user.skills);
                     self.user().birthday(new_user.birthday);
                     self.user().mobilephone(new_user.mobilephone);
                     self.user().telephone(new_user.telephone);
