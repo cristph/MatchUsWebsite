@@ -161,6 +161,10 @@ a.banner .banner-face{
 a.banner:hover ,
 a.banner:focus{
     border-color: #fff;
+    -webkit-transition: all .2s ease-in .13s;
+    -moz-transition: all .2s ease-in .13s;
+    -o-transition: all .2s ease-in .13s;
+    -ms-transition: all .2s ease-in .13s;
     transition: all .2s ease-in .13s;
 }
 .searchButton>a:hover{
@@ -189,7 +193,11 @@ a.banner:focus{
 .menu ul li:focus ul {
     opacity:1;
     top: 50px;
-    transition: all .3s ease-in .4s;
+    -webkit-transition: all .4s ease-in .3s;
+    -moz-transition: all .4s ease-in .3s;
+    -o-transition: all .4s ease-in .3s;
+    -ms-transition: all .4s ease-in .3s;
+    transition: all .4s ease-in .3s;
 
 }
 
@@ -219,12 +227,18 @@ a.first{
     color: #8c8c8c;
     padding: .6em 1.1em .5em 1.5em;
     -webkit-border-radius: 15px 0 0 0;
+    -khtml-border-radius: 15px 0 0 0;
+    -moz-border-radius: 15px 0 0 0;
+    border-radius: 15px 0 0 0;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
 }
 a.button.last{
     padding: .6em 1.5em .8em 1.5em;
     -webkit-border-radius: 0 0 15px 0;
+    -khtml-border-radius: 0 0 15px 0;
+    -moz-border-radius: 0 0 15px 0;
+    border-radius: 0 0 15px 0;
 }
 
 a.button:hover{
