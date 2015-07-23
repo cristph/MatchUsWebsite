@@ -35,6 +35,7 @@ public class User {
         private List<User>  focuser;//关注用户的人
         private List<User>  focused;//被用户关注的人
         private int focusednum=0;
+        private List<InfoRelation> informations;
     public String getInstruction() {
         return instruction;
     }
@@ -183,7 +184,7 @@ public class User {
     public void setWorkingprojects(List<Project> workingprojects) {
         this.workingprojects = workingprojects;
     }
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<UserSkill> getSkills() {
         return Skills;
     }
@@ -216,5 +217,14 @@ public class User {
     }
     public void addfocused(){
         focusednum++;
+    }
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<InfoRelation> getInformations() {
+        return informations;
+    }
+
+    public void setInformations(List<InfoRelation> informations) {
+        this.informations = informations;
     }
 }
