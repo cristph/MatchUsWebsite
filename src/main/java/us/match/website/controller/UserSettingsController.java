@@ -47,12 +47,12 @@ public class UserSettingsController {
         user.setUniversity(request.getParameter("university"));
         user.setMajor(request.getParameter("major"));
         user.setAddress(request.getParameter("address"));
-//        user.setSkills()
         user.setBirthday(request.getParameter("birthday"));
         user.setMobilephone(request.getParameter("mobilephone"));
         user.setTelephone(request.getParameter("telephone"));
         user.setQq(request.getParameter("qq"));
         user.setInstruction(request.getParameter("instruction"));
+        user = userService.editUserInfo(user);
         session.setAttribute("user",user);
         return ImmutableMap.of("success",true, "user", user);
     }
