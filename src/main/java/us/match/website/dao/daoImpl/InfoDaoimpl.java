@@ -42,6 +42,8 @@ public class InfoDaoimpl implements InfoDao {
                 temp.setContext((String) o[1]);
                 temp.setSendtime((Timestamp) o[4]);
                 temp.setState((int)o[5]);
+                temp.setReceiver(r);
+                temp.setSender(s);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -73,6 +75,8 @@ public class InfoDaoimpl implements InfoDao {
                 temp.setContext((String) o[1]);
                 temp.setSendtime((Timestamp)o[4]);
                 temp.setState((int)o[5]);
+                temp.setReceiver(r);
+                temp.setSender(s);
                 result.add(temp);
             }
         }catch(Exception e){
@@ -80,6 +84,7 @@ public class InfoDaoimpl implements InfoDao {
         }finally{
             session.getTransaction().commit();
             session.close();
+            System.out.println("___________"+result.size());
             return result;
         }
     }
@@ -104,6 +109,8 @@ public class InfoDaoimpl implements InfoDao {
                 temp.setContext((String) o[1]);
                 temp.setSendtime((Timestamp)o[4]);
                 temp.setState((int)o[5]);
+                temp.setSender(s);
+                temp.setReceiver(r);
                 result.add(temp);
             }
         }catch(Exception e){
