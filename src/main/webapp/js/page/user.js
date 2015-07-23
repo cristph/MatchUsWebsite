@@ -1,9 +1,9 @@
 var changeBar = function (bar,uid) {
     hideContents();
     switch (bar.id) {
-        case "publish":
+        case "information":
             changeBarClass(bar);
-            getPublish(uid,"now");
+            getInformation(uid,"now");
             break;//初始化发布的项目
         case "attend":
             changeBarClass(bar);
@@ -17,15 +17,12 @@ var changeBar = function (bar,uid) {
             changeBarClass(bar);
             getFans(uid);
             break;//初始化关注我的人
-        case "publish_now":
-            getPublish(uid,"now");
-            break;//正在进行的我发布的项目
-        case "publish_past":
-            getPublish(uid,"past");
-            break;//已完成的的我发布的项目
-        case "publish_will":
-            getPublish(uid,"will");
-            break;//未开始的我发布的项目
+        case "information_new":
+            getInformation(uid,"new");
+            break;//未读消息
+        case "information_old":
+            getInformation(uid,"old");
+            break;//已读消息
         case "attend_now":
             getAttend(uid,"now");
             break;//正在进行的我参加的项目
@@ -58,17 +55,17 @@ function hideContents() {
     }
 }
 
-function getPublish(uid,state) {
-    var id="publish_"+state;
+function getInformation(uid,state) {
+    var id="information_"+state;
     var bar = document.getElementById(id);
     changeToActive(bar);
-    var body = document.getElementById("publish_project_body");
+    var body = document.getElementById("information_body");
     body.innerHTML = "";
-    $.post("/user/releasedProjects", {"uid":uid,"projectState": state}, function (projects) {
-        var htmlStr = getProjetListHtmlStr(projects);
-        body.innerHTML = htmlStr;
-    });
-    var div = document.getElementById("publish_project");
+    //$.post("/user/releasedProjects", {"uid":uid,"projectState": state}, function (projects) {
+    //    var htmlStr = getProjetListHtmlStr(projects);
+    //    body.innerHTML = htmlStr;
+    //});
+    var div = document.getElementById("information_all");
     div.className = "content_div show";
 }//得到发布的项目
 

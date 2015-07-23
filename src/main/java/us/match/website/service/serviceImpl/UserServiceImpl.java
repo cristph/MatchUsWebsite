@@ -79,22 +79,9 @@ public class UserServiceImpl implements UserService {
         if(OutdatedUser==null)
             return null;
         /*OutDatedUser不为null*/
-        /*更新个人简介*/
-        if(!OutdatedUser.getInstruction().equals(user.getInstruction())
-                && user.getInstruction()!=null)
-            OutdatedUser.setInstruction(user.getInstruction());
-        /*更新生日*/
-        if(!OutdatedUser.getBirthday().equals(user.getBirthday())
-                && user.getBirthday()!=null)
-            OutdatedUser.setBirthday(user.getBirthday());
-        /*更新手机*/
-        if(!OutdatedUser.getMobilephone().equals(user.getMobilephone())
-                && user.getMobilephone()!=null)
-            OutdatedUser.setMobilephone(user.getMobilephone());
-        /*更新Qq*/
-        if(!OutdatedUser.getQq().equals(user.getQq())
-                && user.getQq()!=null)
-            OutdatedUser.setQq(user.getQq());
+        /*修改姓名*/
+        /*修改性别*/
+        OutdatedUser.setSex(user.getSex());
         /*更新大学*/
         if(!OutdatedUser.getUniversity().equals(user.getUniversity())
                 && user.getUniversity()!=null)
@@ -103,10 +90,31 @@ public class UserServiceImpl implements UserService {
         if(!OutdatedUser.getMajor().equals(user.getMajor())
                 && user.getMajor()!=null)
             OutdatedUser.setMajor(user.getMajor());
-        /*更新擅长*/
-//        if(!OutdatedUser.getGoodat().equals(user.getGoodat())
-//                && user.getGoodat()!=null)
-//            OutdatedUser.setGoodat(user.getGoodat());
+        /*更新地址*/
+        if(!OutdatedUser.getAddress().equals(user.getAddress())
+                && user.getAddress()!=null)
+            OutdatedUser.setAddress(user.getAddress());
+        /*更新生日*/
+        if(!OutdatedUser.getBirthday().equals(user.getBirthday())
+                && user.getBirthday()!=null)
+            OutdatedUser.setBirthday(user.getBirthday());
+         /*更新手机*/
+        if (!OutdatedUser.getMobilephone().equals(user.getMobilephone())
+                && user.getMobilephone()!=null)
+            OutdatedUser.setMobilephone(user.getMobilephone());
+        /*更新固定机*/
+        if(!OutdatedUser.getTelephone().equals(user.getTelephone())
+                && user.getTelephone()!=null)
+            OutdatedUser.setTelephone(user.getTelephone());
+        /*更新Qq*/
+        if(!OutdatedUser.getQq().equals(user.getQq())
+                && user.getQq()!=null)
+            OutdatedUser.setQq(user.getQq());
+        /*更新个人简介*/
+        if (!OutdatedUser.getInstruction().equals(user.getInstruction())
+                && user.getInstruction()!=null)
+            OutdatedUser.setInstruction(user.getInstruction());
+
         boolean  res=userDao.updateUser(OutdatedUser);
         if(res)
             return OutdatedUser;
