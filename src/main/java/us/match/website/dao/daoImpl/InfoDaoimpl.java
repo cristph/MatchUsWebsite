@@ -26,7 +26,7 @@ public class InfoDaoimpl implements InfoDao {
     public List<Information> getReadInfoById(int uid) {
         List<Information> result=new ArrayList<Information>();
         Session session = sessionFactory.openSession();
-        String sql="select * from Information where receiverid= '"+uid+"' AND state= 1";
+        String sql="select * from Information where receiverid= '"+uid+"' AND state= 0";
         try {
             session.beginTransaction();
             Query query =session.createSQLQuery(sql);
@@ -57,7 +57,7 @@ public class InfoDaoimpl implements InfoDao {
     public List<Information> getNotReadInfoById(int uid) {
         List<Information> result=new ArrayList<Information>();
         Session session = sessionFactory.openSession();
-        String sql="select * from Information where receiverid= '"+uid+"' AND state= 0";
+        String sql="select * from Information where receiverid= '"+uid+"' AND state= 1";
         try {
             session.beginTransaction();
             Query query =session.createSQLQuery(sql);

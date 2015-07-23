@@ -49,10 +49,10 @@ public class UserInfoController extends MultiActionController{
         List<Message> list=userService.getNotReadMsg(u.getUid());
         if(list.size()==0){
             Message m=new Message();
-            m.setSendName("-1");
+            m.setSenderId(-1);
             list.add(m);
         }
-        model.addAttribute("infomationList",list);
+        model.addAttribute("informationList",list);
         model.addAttribute("user", u);
         return "user/user";
     }//初始化个人页面，返回所有的未读消息，如果没有则返回一个id为-1的
@@ -69,7 +69,7 @@ public class UserInfoController extends MultiActionController{
             List<Message> list=userService.getReadMsg(uid);
             if(list.size()==0){
                 Message m=new Message();
-                m.setSendName("-1");
+                m.setSenderId(-1);
                 list.add(m);
             }
             return list;

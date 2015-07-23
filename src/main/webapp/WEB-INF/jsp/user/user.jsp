@@ -2,6 +2,7 @@
 <%@ page import="us.match.website.model.Project" %>
 <%@ page import="java.util.List" %>
 <%@ page import="us.match.website.model.Information" %>
+<%@ page import="us.match.website.model.Message" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
@@ -29,10 +30,10 @@
 <jsp:include page="../commonHeader.jsp"/>
 <%!
     User thisUser;
-    List<Information> thisInformation;%>
+    List<Message> thisInformation;%>
 <%
     thisUser =(User)request.getAttribute("user");
-    thisInformation=(List<Information>)request.getAttribute("informationList");
+    thisInformation=(List<Message>)request.getAttribute("informationList");
 %>
 <div id="main" class="container">
     <div class="body_container">
@@ -91,14 +92,12 @@
                 </ul>
                 <div class="#">
                     <ul id="information_body">
-                        <%if (thisInformation.get(0).getInfoid()==-1){%>
+                        <%if (thisInformation.get(0).getSenderId()==-1){%>
                         <h2>暂时还没有未读消息哦~~~</h2>
                         <%} else{%>
                         <c:forEach var="information" items="${informationList}">
                             <li>
-                                <a href="#" target="_blank">
-                                    <h3>${project.pname}</h3>
-                                </a>
+                                <h3>${information.content}</h3>
                             </li>
                         </c:forEach>
                         <%}%>

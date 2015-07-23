@@ -123,6 +123,20 @@ function changeToActive(bar) {
     bar.classList.add("active");
 }//将特定的分页项转化为选中
 
+function getInformationHtmlStr(information){
+    if(information[0].getSenderId(-1)){
+        return "<h2>暂时还没有未读消息哦~~~</h2>";
+    }else {
+        var htmlStr="";
+        for(var i=0;i<information.length;i++){
+            htmlStr+="<li>" +
+                "<h3>" +
+                information.getContent()+
+                "</h3>"+
+                "</li>";
+        }
+    }
+}
 function getProjetListHtmlStr(projects) {
     if (projects[0].pid == -1) {
         return "<h2>暂时还没有项目哦~~~</h2>"
