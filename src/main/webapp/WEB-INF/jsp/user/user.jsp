@@ -91,17 +91,17 @@
                 </ul>
                 <div class="#">
                     <ul id="information_body">
-                        <%--<%if (thisInformation.get(0).getInfoid()==-1){%>--%>
-                        <%--<h2>暂时还没有未读消息哦~~~</h2>--%>
-                        <%--<%} else{%>--%>
-                        <%--<c:forEach var="information" items="${informationList}">--%>
-                            <%--<li>--%>
-                                <%--<a href="#" target="_blank">--%>
-                                    <%--<h3>${project.pname}</h3>--%>
-                                <%--</a>--%>
-                            <%--</li>--%>
-                        <%--</c:forEach>--%>
-                        <%--<%}%>--%>
+                        <%if (thisInformation.get(0).getInfoid()==-1){%>
+                        <h2>暂时还没有未读消息哦~~~</h2>
+                        <%} else{%>
+                        <c:forEach var="information" items="${informationList}">
+                            <li>
+                                <a href="#" target="_blank">
+                                    <h3>${project.pname}</h3>
+                                </a>
+                            </li>
+                        </c:forEach>
+                        <%}%>
                     </ul>
                 </div>
             </div>

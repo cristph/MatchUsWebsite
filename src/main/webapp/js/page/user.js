@@ -61,10 +61,10 @@ function getInformation(uid,state) {
     changeToActive(bar);
     var body = document.getElementById("information_body");
     body.innerHTML = "";
-    //$.post("/user/releasedProjects", {"uid":uid,"projectState": state}, function (projects) {
-    //    var htmlStr = getProjetListHtmlStr(projects);
-    //    body.innerHTML = htmlStr;
-    //});
+    $.post("/user/information", {"uid":uid,"informationState": state}, function (information) {
+        var htmlStr = getProjetListHtmlStr(information);
+        body.innerHTML = htmlStr;
+    });
     var div = document.getElementById("information_all");
     div.className = "content_div show";
 }//得到发布的项目
