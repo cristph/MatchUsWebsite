@@ -60,10 +60,10 @@
             </div>
         </div>
     </div>
-    <div class="projects-header page-header">
-        <p style="color:#d20104;font-size:160%">项目推荐</p>
-    </div>
 
+    <div class="projects-header page-header">
+        <p style="color:#d20104;font-size:160%">比赛推荐</p>
+    </div>
 
     <div class="projects">
         <ul class="projects-index clearfix">
@@ -89,6 +89,70 @@
         </ul>
     </div>
 
+    <div class="textStyle"><a href="">更多比赛......</a></div>
+
+    <hr class="featurette-divider textDivider">
+
+    <div class="projects-header page-header">
+        <p style="color:#d20104;font-size:160%">热门话题</p>
+    </div>
+
+    <div class="project_info blockShadow">
+
+        <div>
+            <ul>
+
+                <li class="listItem clearfix">
+                    <div class="projectTitle">
+                        <a href="/project/getOneProject?pid=1" target="_blank">软件学院创新杯比赛</a>
+                    </div>
+                    <div class="projectPublish">
+                        <p>
+                            2015-7-21  posted by <span><a href="/">Somebody</a></span>
+                        </p>
+                    </div>
+                    <div class="projectPicture">
+                        <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+                    </div>
+                    <div class="projectIntro">
+                        政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
+                        不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
+                        产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
+                        无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
+                    </div>
+
+
+                </li>
+
+                <li class="listItem clearfix">
+                    <div class="projectTitle">
+                        <a href="/project/getOneProject?pid=2" target="_blank">“全志杯”东南大学第八届嵌入式系统设计邀请赛</a>
+                    </div>
+                    <div class="projectPublish">
+                        <p>
+                            2015-7-21  posted by <span><a href="/">Somebody</a></span>
+                        </p>
+                    </div>
+                    <div class="projectPicture">
+                        <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+                    </div>
+                    <div class="projectIntro">
+                        政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
+                        不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
+                        产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
+                        无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
+                    </div>
+
+
+                </li>
+
+                <li class="listItem clearfix">
+                    <div class="moreInfo">更多话题......</div>
+                </li>
+            </ul>
+        </div><!-- /.project-post -->
+
+    </div><!-- /.project-main -->
 
     <hr class="featurette-divider">
 
