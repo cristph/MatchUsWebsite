@@ -34,20 +34,20 @@ public class LoginController {
     @RequestMapping("")
     public String index(Model model, HttpSession session){
         User userInSession = (User)session.getAttribute("user");
-        if (userInSession != null) {
-            // 呈现已登陆状态
-            model.addAttribute("user", userInSession);
-        }
         List<Project> list=projectService.getAllProject();
         list=list.subList(0,8);
         model.addAttribute("projects",list);
-
         List<User> users=null;
         users=userService.getHotUsers();
         model.addAttribute("hotUsers",users);
         model.addAttribute("hotUserReturn","True");
-
         return "index";
+    }
+
+    @RequestMapping("/exit")
+    public String exit(HttpSession session) {
+        session.setAttribute("user", null);
+        return "redirect:/";
     }
 
     @ResponseBody

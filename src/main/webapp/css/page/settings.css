@@ -4,7 +4,7 @@
 
 .wrapped-boxes {
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 .settings-left div {
@@ -23,14 +23,10 @@
 }
 
 .settings-right {
-  padding: 50px 160px 100px;
+  padding: 30px 160px 100px;
   margin-bottom: 100px;
 }
 
 .settings-right .row {
   height: 70px;
-}
-
-#submit {
-  margin-top: 50px;
 }

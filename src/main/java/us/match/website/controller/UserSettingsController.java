@@ -1,15 +1,19 @@
 package us.match.website.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import us.match.website.model.User;
+import us.match.website.model.UserSkill;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -20,12 +24,10 @@ import java.util.Map;
 public class UserSettingsController {
     @Resource
     private UserService userService;
-    @Resource
-    private HttpServletRequest servletRequest;
 
     @RequestMapping("")
     public String settings(Model model) {
-        return "user/settings/index";
+        return "/user/settings/index";
     }
 
     @ResponseBody
@@ -33,29 +35,25 @@ public class UserSettingsController {
     public User getBasic(HttpSession session) {
         User u=(User)session.getAttribute("user");
         User user = userService.getBasicInfo(u.getUid());
-        // user.setFace(null);
+        user.setPassword(null);
         return user;
     }
     @ResponseBody
     @RequestMapping(value = "/basic", method = RequestMethod.POST)
-    public Map<String, Object> setBasic(
-            @RequestParam("username") String username,
-            @RequestParam("university") String university,
-            @RequestParam("major") String major,
-            @RequestParam("address") String address,
-            @RequestParam("skills") String[] skills,
-            @RequestParam("birthday") String birthday,
-            @RequestParam("introduction") String introduction
-    ) {
-//        System.out.println(username);
-//        System.out.println(university);
-        System.out.println(major);
-//        System.out.println(address);
-//        System.out.println(skills);
-//        System.out.println(birthday);
-//        System.out.println(introduction);
-        User user = new User();
-        user.setUsername("new name");
+    public Map<String, Object> setBasic(HttpServletRequest request, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        user.setUsername(request.getParameter("username"));
+        user.setSex(request.getParameter("sex"));
+        user.setUniversity(request.getParameter("university"));
+        user.setMajor(request.getParameter("major"));
+        user.setAddress(request.getParameter("address"));
+//        user.setSkills()
+        user.setBirthday(request.getParameter("birthday"));
+        user.setMobilephone(request.getParameter("mobilephone"));
+        user.setTelephone(request.getParameter("telephone"));
+        user.setQq(request.getParameter("qq"));
+        user.setInstruction(request.getParameter("instruction"));
+        session.setAttribute("user",user);
         return ImmutableMap.of("success",true, "user", user);
     }
 
