@@ -1,6 +1,7 @@
 <%@ page import="us.match.website.model.User" %>
 <%@ page import="us.match.website.model.Project" %>
 <%@ page import="java.util.List" %>
+<%@ page import="us.match.website.model.Information" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
@@ -28,10 +29,10 @@
 <jsp:include page="../commonHeader.jsp"/>
 <%!
     User thisUser;
-    List<Project> thisProject;%>
+    List<Information> thisInformation;%>
 <%
     thisUser =(User)request.getAttribute("user");
-    thisProject=(List<Project>)request.getAttribute("projectList");
+    thisInformation=(List<Information>)request.getAttribute("informationList");
 %>
 <div id="main" class="container">
     <div class="body_container">
@@ -90,17 +91,17 @@
                 </ul>
                 <div class="#">
                     <ul id="information_body">
-                        <%if (thisProject.get(0).getPid()==-1){%>
-                        <h2>暂时还没有未读消息哦~~~</h2>
-                        <%} else{%>
-                        <c:forEach var="information" items="${informationList}">
-                            <li>
-                                <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
-                                    <h3>${project.pname}</h3>
-                                </a>
-                            </li>
-                        </c:forEach>
-                        <%}%>
+                        <%--<%if (thisInformation.get(0).getInfoid()==-1){%>--%>
+                        <%--<h2>暂时还没有未读消息哦~~~</h2>--%>
+                        <%--<%} else{%>--%>
+                        <%--<c:forEach var="information" items="${informationList}">--%>
+                            <%--<li>--%>
+                                <%--<a href="#" target="_blank">--%>
+                                    <%--<h3>${project.pname}</h3>--%>
+                                <%--</a>--%>
+                            <%--</li>--%>
+                        <%--</c:forEach>--%>
+                        <%--<%}%>--%>
                     </ul>
                 </div>
             </div>
