@@ -47,7 +47,6 @@ public class UserSettingsController {
         user.setUniversity(request.getParameter("university"));
         user.setMajor(request.getParameter("major"));
         user.setAddress(request.getParameter("address"));
-//        user.setSkills()
         user.setBirthday(request.getParameter("birthday"));
         user.setMobilephone(request.getParameter("mobilephone"));
         user.setTelephone(request.getParameter("telephone"));
