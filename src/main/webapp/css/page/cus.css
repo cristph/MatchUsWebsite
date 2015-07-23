@@ -274,6 +274,10 @@
     font-size: medium;
 }
 
+.textStyle>a{
+    text-decoration: none;
+}
+
 .textStyle:hover{
     color: #d20104;
 }
