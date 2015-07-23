@@ -1,6 +1,7 @@
 package us.match.website.service;
 
 import us.match.website.model.Information;
+import us.match.website.model.Message;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 
@@ -24,5 +25,7 @@ public interface UserService {
     public List<Project> getWorkingProjects(int userId);
     public boolean addFollow(int id1,int id2);
     public boolean deleteFollow(int id1,int id2);
+    public List<Message> getReadMsg(int userId);
+    public List<Message> getNotReadMsg(int userId);
 
 }

@@ -3,8 +3,11 @@ package us.match.website.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+import us.match.website.dao.InfoDao;
 import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
+import us.match.website.model.Information;
+import us.match.website.model.Message;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
@@ -12,7 +15,9 @@ import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.security.Timestamp;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     UserDao userDao;
+
+    @Resource
+    InfoDao infoDao;
 
     @Override
     public User login(String username, String password) {
@@ -185,5 +193,44 @@ public class UserServiceImpl implements UserService {
         return userDao.deletefocuser(u1,u2);
     }
 
+    @Override
+    public List<Message> getReadMsg(int userId) {
+        List<Information> infos=infoDao.getReadInfoById(userId);
+        List<Message> msgs=new LinkedList<Message>();
+        for(int i=0;i<infos.size();i++){
+            Message msg=new Message();
+            int s_id=infos.get(i).getSender().getUid();
+            int r_id=infos.get(i).getReceiver().getUid();
+            java.sql.Timestamp t=infos.get(i).getSendtime();
+            User s=userDao.getUserbyid(s_id);
+            User r=userDao.getUserbyid(r_id);
+            msg.setSendName(s.getUsername());
+            msg.setReceiverName(r.getUsername());
+            msg.setContent(infos.get(i).getContext());
+            msg.setTime(t.toString());
+            msgs.add(msg);
+        }
+        return msgs;
+    }
+
+    @Override
+    public List<Message> getNotReadMsg(int userId) {
+        List<Information> infos=infoDao.getNotReadInfoById(userId);
+        List<Message> msgs=new LinkedList<Message>();
+        for(int i=0;i<infos.size();i++){
+            Message msg=new Message();
+            int s_id=infos.get(i).getSender().getUid();
+            int r_id=infos.get(i).getReceiver().getUid();
+            java.sql.Timestamp t=infos.get(i).getSendtime();
+            User s=userDao.getUserbyid(s_id);
+            User r=userDao.getUserbyid(r_id);
+            msg.setSendName(s.getUsername());
+            msg.setReceiverName(r.getUsername());
+            msg.setContent(infos.get(i).getContext());
+            msg.setTime(t.toString());
+            msgs.add(msg);
+        }
+        return msgs;
+    }
 
 }
