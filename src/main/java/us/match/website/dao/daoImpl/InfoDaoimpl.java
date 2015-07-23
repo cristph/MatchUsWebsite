@@ -136,14 +136,26 @@ public class InfoDaoimpl implements InfoDao {
             return result;
         }
     }
-
     @Override
     public boolean deleteinfo(Information info, User user) {
         return false;
     }
-
+    
     @Override
     public boolean readInfo(User sender, User receiver) {
-            return false;
+        boolean result =true;
+        Session session = sessionFactory.openSession();
+        String sql="update Information set state =0 where senderid= '"+sender.getUid()+"'"+"AND receiverid= '"
+                +receiver.getUid()+"'";
+        try{
+            session.createSQLQuery(sql).executeUpdate();
+        }catch(Exception e){
+            result=false;
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+        }
+        return result;
     }
 }
