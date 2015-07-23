@@ -63,7 +63,7 @@ public class UserInfoController extends MultiActionController{
                               @RequestParam("informationState") String messageState,
                                 @RequestParam("uid") int uid){
         System.out.println("function entered");
-        if(messageState.equals("past")){
+        if(messageState.equals("old")){
             User u=(User)session.getAttribute("user");
             System.out.println("function exed");
             List<Message> list=userService.getReadMsg(uid);
