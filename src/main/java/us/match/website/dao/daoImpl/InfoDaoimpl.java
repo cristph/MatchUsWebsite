@@ -22,7 +22,7 @@ public class InfoDaoimpl implements InfoDao {
     SessionFactory sessionFactory;
 
     @Override
-    public List<Information> getreadinfobyid(int uid) {
+    public List<Information> getReadInfoById(int uid) {
         List<Information> result=new ArrayList<Information>();
         Session session = sessionFactory.openSession();
         String sql="select i.infoid,i.context from ";
@@ -39,7 +39,7 @@ public class InfoDaoimpl implements InfoDao {
     }
 
     @Override
-    public List<Information> getreadedinfobyid(int uid) {
+    public List<Information> getNotReadInfoById(int uid) {
         return null;
     }
 

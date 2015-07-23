@@ -1,6 +1,7 @@
 package us.match.website.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -10,8 +11,9 @@ import java.util.List;
 public class Information {
     private int infoid;
     private String context;
-    private List<InfoRelation> users;
-
+    private User sender;
+    private User receiver;
+    private Timestamp sendtime;
     @Id
     @GeneratedValue
     public int getInfoid() {
@@ -30,12 +32,31 @@ public class Information {
         this.context = context;
     }
 
-    @OneToMany(mappedBy = "info",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    public List<InfoRelation> getUsers() {
-        return users;
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="senderid")
+    public User getSender() {
+        return sender;
     }
 
-    public void setUsers(List<InfoRelation> users) {
-        this.users = users;
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="receiverid")
+    public User getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
+    }
+
+    @PrePersist
+    public Timestamp getSendtime() {
+        return sendtime;
+    }
+
+    public void setSendtime(Timestamp sendtime) {
+        this.sendtime = sendtime;
     }
 }
