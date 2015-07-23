@@ -35,8 +35,10 @@ public class LoginController {
     public String index(Model model, HttpSession session,
                         @RequestParam(value="exit",required = false) String state){
         /*如果state为exit，退出登录*/
-        if(state.equals("exit"))
+        if(state.equals("exit")) {
+            model.addAttribute("user",null);
             return "index";
+        }
         User userInSession = (User)session.getAttribute("user");
         if (userInSession != null) {
             // 呈现已登陆状态
