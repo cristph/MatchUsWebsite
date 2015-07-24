@@ -1,7 +1,5 @@
 package us.match.website.config;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -29,8 +27,6 @@ public class WebInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherServlet));
         dispatcher.addMapping("/");
         dispatcher.setLoadOnStartup(1);
-        String userdir = System.getProperty("user.dir");
-        dispatcher.setMultipartConfig(new MultipartConfigElement(userdir+"/upload", 1024*1024*5, 1024*1024*5*5, 1024*1024));
 
         FilterRegistration.Dynamic encodingFilter = servletContext.addFilter("encodingFilter", new CharacterEncodingFilter());
         encodingFilter.setInitParameter("encoding", "UTF-8");

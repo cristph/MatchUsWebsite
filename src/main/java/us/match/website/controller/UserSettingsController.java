@@ -1,19 +1,16 @@
 package us.match.website.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import us.match.website.model.User;
-import us.match.website.model.UserSkill;
 import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -26,7 +23,7 @@ public class UserSettingsController {
     private UserService userService;
 
     @RequestMapping("")
-    public String settings(Model model) {
+    public String settings() {
         return "/user/settings/index";
     }
 

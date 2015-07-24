@@ -6,39 +6,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedOutputStream;
+
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Iterator;
 
 /**
  * Created by Master on 2015/7/14.
  */
 @Controller
 public class UploadController {
+    @RequestMapping("/upload")
+    public String upload(){return "/uploadTest";}
 
-    @RequestMapping(value="/upload",method = RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file){
-        System.out.println("upload start");
-        if (!file.isEmpty()) {
-            try {
-                byte[] bytes = file.getBytes();
-                BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File("name" + "-uploaded")));
-                stream.write(bytes);
-                stream.close();
-                return "You successfully uploaded " + "" + " into " + "" + "-uploaded !";
-            } catch (Exception e) {
-                return "You failed to upload " + "" + " => " + e.getMessage();
-            }
-        } else {
-            return "You failed to upload " + "" + " because the file was empty.";
-        }
+    @ResponseBody
+    @RequestMapping(value="/upload",method = RequestMethod.POST, produces = "text/html; charset=utf-8")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file){
+//        try {
+//            File f = new File("C:\\Users\\Ezio\\Desktop\\"+file.getOriginalFilename());
+//            file.transferTo(f);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        return "filename: "+ file.getOriginalFilename()+"\n" +
+                "size: "+file.getSize();
     }
 
     public String getFilePath(String fileName){
@@ -47,10 +36,4 @@ public class UploadController {
                 "/target/MatchUsWebsite/image/projectImage/"+
                 fileName;
     }
-
-    public static void main(String[] args) {
-        UploadController u=new UploadController();
-        System.out.println(u.getFilePath("test.file"));
-    }
-
 }
