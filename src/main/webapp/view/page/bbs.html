@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bbs</title>
+
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/page/reset.css" rel="stylesheet" type="text/css">
+    <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
+    <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
+    <link href="/css/page/bbs.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" id="nav_top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" id="img_a">
+                <img src="/image/base/logov1.png" id="img_wh">
+            </a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left" id="nav_left">
+                <li id="navli1"><a href="/project">找项目</a></li>
+                <li id="navli2"><a href="../../view/page/team.html">找团队</a></li>
+                <li id="navli3"><a href="../../view/page/talent.html">找人才</a></li>
+            </ul>
+
+            <form class="navbar-form navbar-right">
+                <div class="input-group">
+                    <input type="text" class="form-control searchArea" id="searchArea" placeholder="搜索项目，大牛">
+                    <span class="input-group-btn">
+                        <button class="btn searchButton" id="searchButton" type="button">GO</button>
+                    </span>
+                    <dl class="searchResult" id="searchResult">
+                    </dl>
+                </div>
+                <!-- /input-group -->
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-10 person_info blockShadow pos">
+
+            <div>
+                <ul>
+                    <li class="listItem clearfix bbs_header">
+                        <div class="searchType">符合条件的大牛：</div>
+                    </li>
+
+                    <li class="listItem clearfix">
+                        <div class="user-pic">
+                            <a href="/otherUser?uid=13" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=13"></a>
+                            <p class="user-name"><a href="/otherUser?uid=13" target="_blank">gjp</a><span class="sex">男</span></p>
+                        </div>
+                        <div class="Info">
+                            <div class="schoolInfo"><span class="tip">学校：</span>南京大学</div>
+                            <div class="selfIntro"><span class="tip">个人说明：</span>嗯哈哈哈哈哈哈哈哈哈。</div>
+                            <div class="skillInfo"><span class="tip">擅长领域：</span>Java,C++,Ruby</div>
+                            <div class="projectInfo">
+                                <span class="tip">项目经历：</span>
+                                <ul>
+                                    <li><a href="/">JavaWeb Project</a></li>
+                                    <li><a href="/">Android Project</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="listItem clearfix">
+                        <div class="user-pic">
+                            <a href="/otherUser?uid=15" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=15"></a>
+                            <p class="user-name"><a href="/otherUser?uid=13" target="_blank">AH</a><span class="sex">男</span></p>
+                        </div>
+                        <div class="Info">
+                            <div class="schoolInfo"><span class="tip">学校：</span>南京大学</div>
+                            <div class="selfIntro"><span class="tip">个人说明：</span>嗯哈哈哈哈哈哈哈哈哈。</div>
+                            <div class="skillInfo"><span class="tip">擅长领域：</span>Java,C++,Ruby</div>
+                            <div class="projectInfo">
+                                <span class="tip">项目经历：</span>
+                                <ul>
+                                    <li><a href="/">JavaWeb Project</a></li>
+                                    <li><a href="/">Android Project</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="listItem clearfix">
+                        <div class="moreInfo">更多大牛......</div>
+                    </li>
+                </ul>
+            </div><!-- /.project-post -->
+
+        </div><!-- /.project-main -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+
+
+<footer class="co-footer">
+    <p compay>@ company <a href="/">Math Us</a></p>
+    <p><a href="#">Back to top</a></p>
+</footer>
+
+
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/js/page/commonHeader.js"></script>
+
+</body>
+</html>
