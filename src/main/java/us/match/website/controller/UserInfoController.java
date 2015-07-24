@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+import us.match.website.model.Message;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
@@ -45,80 +46,42 @@ public class UserInfoController extends MultiActionController{
     @RequestMapping(value="/user")
     public String getBasicInfo(HttpSession session,Model model){
         User u=(User)session.getAttribute("user");
-        List<Project> list=userService.getPublishing(u.getUid());
-        List<Project> newList=new LinkedList<Project>();
-        for(int i=0;i<list.size();i++){
-            if(list.get(i).isState().equals("now"))
-                newList.add(list.get(i));
+        List<Message> list=userService.getNotReadMsg(u.getUid());
+        if(list.size()==0){
+            Message m=new Message();
+            m.setSenderId(-1);
+            list.add(m);
         }
-        if(newList.size()==0){
-            Project p=new Project();
-            p.setPid(-1);
-            newList.add(p);
-        }
-        System.out.println(newList.size()+"newList");
-        System.out.println(newList.get(0).isState());
-        System.out.println(newList.get(0).getEmail());
+        model.addAttribute("informationList",list);
         model.addAttribute("user", u);
-        model.addAttribute("projectList", newList);
         return "user/user";
-    }
+    }//初始化个人页面，返回所有的未读消息，如果没有则返回一个id为-1的
 
     @ResponseBody
-    @RequestMapping(value="/user/releasedProjects",method = RequestMethod.POST)
-    public List<Project> getReleased(HttpSession session,Model model,
-                              @RequestParam("projectState") String projectState,
+    @RequestMapping(value="/user/information",method = RequestMethod.POST)
+    public List<Message> getReleased(HttpSession session,Model model,
+                              @RequestParam("informationState") String messageState,
                                 @RequestParam("uid") int uid){
         System.out.println("function entered");
-        if(projectState.equals("past")){
+        if(messageState.equals("old")){
             User u=(User)session.getAttribute("user");
             System.out.println("function exed");
-            List<Project> list=userService.getPublishing(uid);
-            List<Project> newList=new LinkedList<Project>();
-            for(int i=0;i<list.size();i++){
-                if(list.get(i).isState().equals("past"))
-                    newList.add(list.get(i));
+            List<Message> list=userService.getReadMsg(uid);
+            if(list.size()==0){
+                Message m=new Message();
+                m.setSenderId(-1);
+                list.add(m);
             }
-//            model.addAttribute("projectList",newList);
-            if(newList.size()==0){
-                Project p=new Project();
-                p.setPid(-1);
-                newList.add(p);
+            return list;
+        }else{
+            List<Message> list=userService.getNotReadMsg(uid);
+            if(list.size()==0){
+                Message m=new Message();
+                m.setSendName("-1");
+                list.add(m);
             }
-            System.out.println(newList+newList.get(0).isState()+"------------------1");
-            return newList;
-        }else if(projectState.equals("now")){
-            List<Project> list=userService.getPublishing(uid);
-            List<Project> newList=new LinkedList<Project>();
-            for(int i=0;i<list.size();i++){
-                if(list.get(i).isState().equals("now"))
-                    newList.add(list.get(i));
-            }
-//            model.addAttribute("projectList",newList);
-            if(newList.size()==0){
-                Project p=new Project();
-                p.setPid(-1);
-                newList.add(p);
-            }
-            System.out.println(newList+newList.get(0).isState()+"------------------2");
-            return newList;
-        }else {
-            List<Project> list=userService.getPublishing(uid);
-            List<Project> newList=new LinkedList<Project>();
-            for(int i=0;i<list.size();i++){
-                if(list.get(i).isState().equals("will"))
-                    newList.add(list.get(i));
-            }
-//            model.addAttribute("projectList",newList);
-            if(newList.size()==0){
-                Project p=new Project();
-                p.setPid(-1);
-                newList.add(p);
-            }
-            System.out.println(newList+newList.get(0).isState()+"------------------2");
-            return newList;
+           return list;
         }
-
     }
 
     @ResponseBody
@@ -314,4 +277,6 @@ public class UserInfoController extends MultiActionController{
         }
         return isFollow;
     }//判断一个人是否为登陆者的关注的人
+
+
 }

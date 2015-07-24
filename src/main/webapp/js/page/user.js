@@ -3,7 +3,7 @@ var changeBar = function (bar,uid) {
     switch (bar.id) {
         case "information":
             changeBarClass(bar);
-            getInformation(uid,"now");
+            getInformation(uid,"new");
             break;//初始化发布的项目
         case "attend":
             changeBarClass(bar);
@@ -61,10 +61,10 @@ function getInformation(uid,state) {
     changeToActive(bar);
     var body = document.getElementById("information_body");
     body.innerHTML = "";
-    //$.post("/user/releasedProjects", {"uid":uid,"projectState": state}, function (projects) {
-    //    var htmlStr = getProjetListHtmlStr(projects);
-    //    body.innerHTML = htmlStr;
-    //});
+    $.post("/user/information", {"uid":uid,"informationState": state}, function (information) {
+        var htmlStr = getInformationHtmlStr(information);
+        body.innerHTML = htmlStr;
+    });
     var div = document.getElementById("information_all");
     div.className = "content_div show";
 }//得到发布的项目
@@ -123,6 +123,22 @@ function changeToActive(bar) {
     bar.classList.add("active");
 }//将特定的分页项转化为选中
 
+function getInformationHtmlStr(information){
+    if(information[0].senderId==-1){
+        return "<h2>暂时还没有消息哦~~~</h2>";
+    }else {
+        alert(information[0].content)
+        var htmlStr="";
+        for(var i=0;i<information.length;i++){
+            htmlStr+="<li>" +
+                "<p>" +
+                information[i].content +
+                "</p>"+
+                "</li>";
+        }
+        return htmlStr;
+    }
+}
 function getProjetListHtmlStr(projects) {
     if (projects[0].pid == -1) {
         return "<h2>暂时还没有项目哦~~~</h2>"

@@ -3,8 +3,11 @@ package us.match.website.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+import us.match.website.dao.InfoDao;
 import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
+import us.match.website.model.Information;
+import us.match.website.model.Message;
 import us.match.website.model.Project;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
@@ -12,7 +15,9 @@ import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
+import java.security.Timestamp;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +30,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     UserDao userDao;
+
+    @Resource
+    InfoDao infoDao;
 
     @Override
     public User login(String username, String password) {
@@ -73,50 +81,47 @@ public class UserServiceImpl implements UserService {
         if(user==null)
             return null;
         User OutdatedUser=null;
-        /*根据email查找用户*/
+        /*根据 uid 查找用户*/
         if(user.getUsername()!=null)
             OutdatedUser=userDao.getUserbyid(user.getUid());
         if(OutdatedUser==null)
             return null;
         /*OutDatedUser不为null*/
-        /*修改姓名*/
-        /*修改性别*/
-        OutdatedUser.setSex(user.getSex());
+        /*更新用户名*/
+        if(user.getUsername()!=null)
+            OutdatedUser.setUsername(user.getUsername());
+        /*更新性别*/
+        if(user.getSex()!=null)
+            OutdatedUser.setSex(user.getSex());
         /*更新大学*/
-        if(!OutdatedUser.getUniversity().equals(user.getUniversity())
-                && user.getUniversity()!=null)
+        if(user.getUniversity()!=null)
             OutdatedUser.setUniversity(user.getUniversity());
         /*更新专业*/
-        if(!OutdatedUser.getMajor().equals(user.getMajor())
-                && user.getMajor()!=null)
+        if(user.getMajor()!=null)
             OutdatedUser.setMajor(user.getMajor());
-        /*更新地址*/
-        if(!OutdatedUser.getAddress().equals(user.getAddress())
-                && user.getAddress()!=null)
+        /*更新所在地*/
+        if(user.getAddress()!=null)
             OutdatedUser.setAddress(user.getAddress());
         /*更新生日*/
-        if(!OutdatedUser.getBirthday().equals(user.getBirthday())
-                && user.getBirthday()!=null)
+        if(user.getBirthday()!=null)
             OutdatedUser.setBirthday(user.getBirthday());
-         /*更新手机*/
-        if (!OutdatedUser.getMobilephone().equals(user.getMobilephone())
-                && user.getMobilephone()!=null)
+        /*更新手机*/
+        if(user.getMobilephone()!=null)
             OutdatedUser.setMobilephone(user.getMobilephone());
-        /*更新固定机*/
-        if(!OutdatedUser.getTelephone().equals(user.getTelephone())
-                && user.getTelephone()!=null)
+        /*更新电话*/
+        if(user.getTelephone()!=null)
             OutdatedUser.setTelephone(user.getTelephone());
         /*更新Qq*/
-        if(!OutdatedUser.getQq().equals(user.getQq())
-                && user.getQq()!=null)
+        if(user.getQq()!=null)
             OutdatedUser.setQq(user.getQq());
         /*更新个人简介*/
-        if (!OutdatedUser.getInstruction().equals(user.getInstruction())
-                && user.getInstruction()!=null)
+        if(user.getInstruction()!=null)
             OutdatedUser.setInstruction(user.getInstruction());
-
-        boolean  res=userDao.updateUser(OutdatedUser);
-        if(res)
+        /*更新擅长*/
+//        if(!OutdatedUser.getGoodat().equals(user.getGoodat())
+//                && user.getGoodat()!=null)
+//            OutdatedUser.setGoodat(user.getGoodat());
+        if(userDao.updateUser(OutdatedUser))
             return OutdatedUser;
         else
             return null;
@@ -188,5 +193,46 @@ public class UserServiceImpl implements UserService {
         return userDao.deletefocuser(u1,u2);
     }
 
+    @Override
+    public List<Message> getReadMsg(int userId) {
+        List<Information> infos=infoDao.getReadInfoById(userId);
+        List<Message> msgs=new LinkedList<Message>();
+        for(int i=0;i<infos.size();i++){
+            Message msg=new Message();
+            int s_id=infos.get(i).getSender().getUid();
+            int r_id=infos.get(i).getReceiver().getUid();
+            java.sql.Timestamp t=infos.get(i).getSendtime();
+            User s=userDao.getUserbyid(s_id);
+            User r=userDao.getUserbyid(r_id);
+            msg.setSendName(s.getUsername());
+            msg.setReceiverName(r.getUsername());
+            msg.setContent(infos.get(i).getContext());
+            msg.setTime(t.toString());
+            msgs.add(msg);
+        }
+        return msgs;
+    }
+
+    @Override
+    public List<Message> getNotReadMsg(int userId) {
+        List<Information> infos=infoDao.getNotReadInfoById(userId);
+        List<Message> msgs=new LinkedList<Message>();
+        for(int i=0;i<infos.size();i++){
+            Message msg=new Message();
+            System.out.println("_________________"+infos.get(i).getSender().getUid());
+            int s_id=infos.get(i).getSender().getUid();
+
+            int r_id=infos.get(i).getReceiver().getUid();
+            java.sql.Timestamp t=infos.get(i).getSendtime();
+            User s=userDao.getUserbyid(s_id);
+            User r=userDao.getUserbyid(r_id);
+            msg.setSendName(s.getUsername());
+            msg.setReceiverName(r.getUsername());
+            msg.setContent(infos.get(i).getContext());
+            msg.setTime(t.toString());
+            msgs.add(msg);
+        }
+        return msgs;
+    }
 
 }
