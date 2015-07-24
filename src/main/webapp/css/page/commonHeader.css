@@ -183,14 +183,19 @@ a.banner:focus{
     opacity:0;
     position:fixed;
     z-index: 9999;
-    top: 70px;
+    top: 50px;
     right: 10px;
-
+    -webkit-transition: all .4s ease-in .3s;
+    -moz-transition: all .4s ease-in .3s;
+    -o-transition: all .4s ease-in .3s;
+    -ms-transition: all .4s ease-in .3s;
+    transition: all .4s ease-in .3s;
 }
 
 
-.menu ul li:hover ul ,
-.menu ul li:focus ul {
+
+
+#a.banner:hover #a.menu ul li ul{
     opacity:1;
     top: 50px;
     -webkit-transition: all .4s ease-in .3s;
@@ -198,7 +203,6 @@ a.banner:focus{
     -o-transition: all .4s ease-in .3s;
     -ms-transition: all .4s ease-in .3s;
     transition: all .4s ease-in .3s;
-
 }
 
 .button{

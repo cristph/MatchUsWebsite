@@ -220,6 +220,21 @@
 <script type="text/javascript" src="/js/page/jquery.proximity.js"></script>
 <script type="text/javascript" src="/js/page/commonHeader.js"></script>
 <script type="text/javascript" src="/js/page/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#banner").mouseover(function(){
+            $("#drop").css("opacity","1");
+
+        });
+        $("#banner").mouseout(function(){
+            setTimeout(function () {
+                $('#drop').css("opacity","0");
+            }, 3000);
+
+        });
+    });
+</script>
+
 
 
 <script type="text/javascript">

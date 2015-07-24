@@ -147,5 +147,20 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
 <script src="/js/page/commonHeader.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#banner").mouseover(function(){
+            $("#drop").css("opacity","1");
+
+        });
+        $("#banner").mouseout(function(){
+            setTimeout(function () {
+                $('#drop').css("opacity","0");
+            }, 3000);
+
+        });
+    });
+</script>
+
 </body>
 </html>
