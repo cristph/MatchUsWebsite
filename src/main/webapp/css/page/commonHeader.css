@@ -207,7 +207,7 @@ a.banner:focus{
 
 .button{
     text-decoration: none !important;
-    cursor: pointer;
+    cursor: default;
     display: inline-block;
     padding: .6em 1.5em .6em 1.5em;
     width: 200px;

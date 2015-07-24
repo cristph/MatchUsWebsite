@@ -224,11 +224,12 @@
     $(document).ready(function(){
         $("#banner").mouseover(function(){
             $("#drop").css("opacity","1");
-
+            $(".button").css("cursor" ,"pointer");
         });
         $("#banner").mouseout(function(){
             setTimeout(function () {
                 $('#drop').css("opacity","0");
+                $(".button").css("cursor" ,"default");
             }, 3000);
 
         });
