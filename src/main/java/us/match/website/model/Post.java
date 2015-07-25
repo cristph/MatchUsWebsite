@@ -17,7 +17,7 @@ public class Post {
     private Timestamp post_updatetime;
     private String post_content;
     private int post_ispay ;
-    private boolean is_stick;
+    private int is_stick;//1代表置顶，0代表不置顶
     /*
         Lists
      */
@@ -112,11 +112,11 @@ public class Post {
         this.post_match = post_match;
     }
 
-    public boolean getIs_stick() {
+    public int getIs_stick() {
         return is_stick;
     }
 
-    public void setIs_stick(boolean is_stick) {
+    public void setIs_stick(int is_stick) {
         this.is_stick = is_stick;
     }
 }
