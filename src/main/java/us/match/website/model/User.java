@@ -29,17 +29,19 @@ public class User {
         private String university;
         private String major;
         private String friends;
+        private int focusednum=0;
+        /*
+            Lists
+         */
         private List<UserSkill> Skills;
         private List<Project> publishingprojects;
         private List<Project> workingprojects;
         private List<User>  focuser;//关注用户的人
         private List<User>  focused;//被用户关注的人
-        private int focusednum=0;
         private List<Information> sendinformations;
         private List<Information> receivevinformations;
-        private int NotRead=0;
-
-
+        private List<Post> posts;
+        private List<Reply> replies;
     public String getInstruction() {
         return instruction;
     }
@@ -228,11 +230,23 @@ public class User {
         this.receivevinformations = receivevinformations;
     }
 
-    public void setNotRead(int num){
-            NotRead =num;
+
+
+
+    @OneToMany(mappedBy = "poster",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<Post> getPosts() {
+        return posts;
     }
-//    public Role getRole() {
-//        return role;
-//    }
-//    public void set(Role role) {this.role = role;}
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    @OneToMany(mappedBy = "reply_user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
+    }
 }

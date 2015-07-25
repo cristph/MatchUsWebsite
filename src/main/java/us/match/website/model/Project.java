@@ -24,7 +24,6 @@ public class Project {
     private String skill;
     private String reward;
     private User publisher;
-    private List<User> workers;
     private Timestamp updatetime;
     private Timestamp starttime;
     private String location;
@@ -34,6 +33,11 @@ public class Project {
     private String telephone;
     private String fax;
     public String userName;/*Add by wh*/
+    /*
+            Lists
+     */
+    private List<User> workers;
+    private List<Post> posts;
 
     public String getPinstruction() {
         return pinstruction;
@@ -193,5 +197,14 @@ public class Project {
 
     public void setFax(String fax) {
         this.fax = fax;
+    }
+
+    @OneToMany(mappedBy = "post_match",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }
