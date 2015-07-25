@@ -248,3 +248,22 @@ a.button.last{
 a.button:hover{
     background:#2b2b2b;
 }
+
+p{
+    font-family: sans-serif;
+    color:#fff;
+    text-align: center;
+    font-size: 10px;
+}
+
+
+#circle{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    position:relative;
+    top:-20px;
+    left:10px;
+    background:#f30808;
+    box-shadow: 0px 0px 2px #404040;
+}

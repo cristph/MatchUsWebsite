@@ -148,7 +148,7 @@ public class ProjectController {
         Project pro=projectService.getOneProject(pid);
         model.addAttribute("project",pro);
         System.out.println("pid="+pid);
-        return "contest/contest";
+        return "project/show/projectInfo";
 }
 
 
