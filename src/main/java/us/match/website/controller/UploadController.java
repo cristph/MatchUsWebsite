@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Master on 2015/7/14.
@@ -20,12 +21,12 @@ public class UploadController {
     @ResponseBody
     @RequestMapping(value="/upload",method = RequestMethod.POST, produces = "text/html; charset=utf-8")
     public String handleFileUpload(@RequestParam("file") MultipartFile file){
-//        try {
-//            File f = new File("C:\\Users\\Ezio\\Desktop\\"+file.getOriginalFilename());
-//            file.transferTo(f);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            File f = new File("C:\\Users\\WH\\Desktop\\"+file.getOriginalFilename());
+            file.transferTo(f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return "filename: "+ file.getOriginalFilename()+"\n" +
                 "size: "+file.getSize();
     }
