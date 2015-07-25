@@ -90,14 +90,18 @@
                         <a href="#">已读消息</a>
                     </li>
                 </ul>
-                <div class="#">
+                <div class="information-list">
                     <ul id="information_body">
                         <%if (thisInformation.get(0).getSenderId()==-1){%>
                         <h2>暂时还没有未读消息哦~~~</h2>
                         <%} else{%>
                         <c:forEach var="information" items="${informationList}">
                             <li>
-                                <p>${information.content}</p>
+                                <a href="http://www.baidu.com" class="information-info">
+                                <div>
+                                    ${information.content}
+                                </div>
+                                </a>
                             </li>
                         </c:forEach>
                         <%}%>
@@ -188,6 +192,8 @@
             }, 3000);
 
         });
+        var mess = Math.floor((Math.random()*10)+1);
+        document.getElementById("messages").innerHTML = mess;
     });
 </script>
 </body>
