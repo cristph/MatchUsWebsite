@@ -36,6 +36,12 @@ span {
 p.detail{
     line-height: 120%;
 }
+.titleNoPadding{
+    padding: 0px;
+}
+.titleBtn{
+    width:auto; height:250px; background-color:#364247; color:#fff;
+}
 .settings-left div {
     display: block;
     border-bottom: 1px solid #e6e8e9;
