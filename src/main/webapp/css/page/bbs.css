@@ -16,15 +16,16 @@
 
 .listItem {
     border-bottom: solid 1px #edf0f2;
-    padding: 30px 0 30px 20px;
+    padding: 30px 0 30px 10px;
     font-size: 12px;
 
     display: list-item;
     text-align: -webkit-match-parent;
 }
 
-.searchType,.moreInfo{
-    font-size: 16px;
+.bbsTitle{
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .moreInfo{
@@ -40,11 +41,14 @@
     width: 120px;
     text-align: center;
     padding-top: 10px;
+    padding-right: 10px;
     float: left;
+    border-right: 1px solid #a9cbee;
 }
 
+
 .user-pic img {
-    border-radius: 50%;
+    border:#eee 3px solid;
     height: 80px;
     width: 80px;
 }
@@ -64,6 +68,7 @@
 
 .Info{
     float: left;
+    width: 82%;
 }
 
 .tip{
@@ -71,8 +76,71 @@
     color: #286090;
 }
 
-.schoolInfo,.selfIntro,.skillInfo,.projectInfo{
-    padding-left: 20px;
+.textInfo{
+    padding-left: 5%;
+}
+
+.date{
+    position: relative;
+    text-align: right;
+    padding-top: 9px;
+}
+
+.replyBtn{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.replyList{
+    width: 80%;
+    /*position: relative;*/
+    /*right: 0;*/
+    /*margin-right: 0;*/
+    float: right;
+    /*border:1px solid #ccc;*/
+}
+
+.replyItem {
+    border-bottom: solid 1px #edf0f2;
+    padding: 20px 0 20px 10px;
+    font-size: 12px;
+
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.replyPic{
+    width: 50px;
+    float: left;
+}
+
+.replyInfo{
+    float: left;
+    padding-left: 10px;
+    width: 85%;
+}
+
+.replyInfo>a{
+    color: #2b669a;
+}
+
+.replyDate{
+    position: relative;
+    text-align: right;
+    padding-top: 9px;
+}
+
+.replyPic>a{
+    padding-left: 10px;
+}
+
+.replyPic>a>img{
+    max-height: 40px;
+    border:#eee 3px solid;
+}
+
+.replyPic>p{
+
 }
 
 .pos {
@@ -80,5 +148,45 @@
 }
 
 .bbs_header{
-     background-color: #c4e6f5;
+     *background-color: #c4e6f5;
  }
+
+.replyArea{
+    margin-top: 50px;
+}
+
+.replyArea>textarea{
+    margin: 0 auto;
+    max-width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+.replyItem>textarea{
+    margin: 0 auto;
+    max-width: 85%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+
+.replyItem>button{
+    background-color: #a1d9f2;
+    border-radius: 2px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    position: relative;
+    left: 80%;
+}
+
+.rebtn{
+    background-color: #a1d9f2;
+    border-radius: 2px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    position: relative;
+    left: 70%;
+}
