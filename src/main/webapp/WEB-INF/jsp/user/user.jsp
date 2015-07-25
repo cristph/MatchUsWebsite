@@ -192,6 +192,8 @@
             }, 3000);
 
         });
+        var mess = Math.floor((Math.random()*10)+1);
+        document.getElementById("messages").innerHTML = mess;
     });
 </script>
 </body>
