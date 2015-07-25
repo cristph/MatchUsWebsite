@@ -18,7 +18,7 @@ import java.util.List;
  * Created by apple on 2015/7/23.
  */
 @Repository
-public class InfoDaoimpl implements InfoDao {
+public class InfoDaoImpl implements InfoDao {
     @Resource
     SessionFactory sessionFactory;
 
