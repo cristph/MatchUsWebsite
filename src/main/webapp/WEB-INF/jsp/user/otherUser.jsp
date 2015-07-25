@@ -161,10 +161,47 @@
     </div>
   </div>
 </div>
+
+<c:choose>
+  <c:when test="${empty sessionScope.user}">
+  </c:when>
+  <c:otherwise>
+    <div id = "drop" class="menu" style="position: absolute;margin-top: 10px;margin-left: 1100px;">
+      <ul>
+        <li>
+          <ul >
+            <li><a class="first">Signed in as ${sessionScope.user.username}</a></li>
+            <li><a href="/user" class="button 3">个人信息</a></li>
+            <li><a href="/exit" class="button last">退出登录</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </c:otherwise>
+</c:choose>
+
+
 <jsp:include page="../commonFooter.jsp"/>
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
 <script type="text/javascript" src="/js/page/commonHeader.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#banner").mouseover(function(){
+      $("#drop").css("opacity","1");
+      $(".button").css("cursor" ,"pointer");
+    });
+    $("#banner").mouseout(function(){
+      setTimeout(function () {
+        $('#drop').css("opacity","0");
+        $(".button").css("cursor" ,"default");
+      }, 3000);
+
+    });
+  });
+</script>
+
 </body>
 </html>

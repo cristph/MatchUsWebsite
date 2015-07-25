@@ -30,7 +30,8 @@
 <jsp:include page="../commonHeader.jsp"/>
 <%!
     User thisUser;
-    List<Message> thisInformation;%>
+    List<Message> thisInformation;
+%>
 <%
     thisUser =(User)request.getAttribute("user");
     thisInformation=(List<Message>)request.getAttribute("informationList");
@@ -90,14 +91,17 @@
                         <a href="#">已读消息</a>
                     </li>
                 </ul>
-                <div class="#">
+                <div class="information-list">
                     <ul id="information_body">
                         <%if (thisInformation.get(0).getSenderId()==-1){%>
                         <h2>暂时还没有未读消息哦~~~</h2>
                         <%} else{%>
                         <c:forEach var="information" items="${informationList}">
                             <li>
-                                <p>${information.content}</p>
+                                <a href="http://www.baidu.com" class="information-info" onclick="">
+                                    <img src="userPhoto.jpg?uid=${information.senderId}">
+                                    <p>${information.content}</p>
+                                </a>
                             </li>
                         </c:forEach>
                         <%}%>
@@ -158,7 +162,7 @@
             <ul>
                 <li>
                     <ul >
-                        <li><a class="first">Signed in as gjp</a></li>
+                        <li><a class="first">Signed in as ${sessionScope.user.username}</a></li>
                         <li><a href="/user" class="button 3">个人信息</a></li>
                         <li><a href="/exit" class="button last">退出登录</a></li>
 
@@ -188,6 +192,8 @@
             }, 3000);
 
         });
+        var mess = Math.floor((Math.random()*10)+1);
+        document.getElementById("messages").innerHTML = mess;
     });
 </script>
 </body>
