@@ -176,7 +176,6 @@ public class ProjectDaoImpl implements ProjectDao {
             sql+=") AND u.uid=p.uid";
 
             Query query =session.createSQLQuery(sql);
-            System.out.println("____________________" + sql);
             List<Object[]> object=query.list();
             for(Object[] o:object)
             {
