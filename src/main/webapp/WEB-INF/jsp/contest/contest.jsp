@@ -13,14 +13,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="keywords" content=""/>
   <meta name="description" content=""/>
-  <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/page/contest.css" type="text/css"/>
+  <link href="./bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./user.css" type="text/css"/>
 </head>
 <body class="grayBg">
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <img src="/image/contestImg/poster.png" class="titleimg">
+      <img src="./poster.png" class="titleimg">
     </div>
     <div class="col-md-3">
       <
