@@ -3,8 +3,9 @@ package us.match.website.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+import java.sql.Timestamp;
+
 import us.match.website.dao.InfoDao;
-import us.match.website.dao.ProjectDao;
 import us.match.website.dao.UserDao;
 import us.match.website.model.Information;
 import us.match.website.model.Message;
@@ -15,7 +16,8 @@ import us.match.website.util.Identicon;
 import us.match.website.util.MD5;
 
 import javax.annotation.Resource;
-import java.security.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -223,13 +225,14 @@ public class UserServiceImpl implements UserService {
             int s_id=infos.get(i).getSender().getUid();
 
             int r_id=infos.get(i).getReceiver().getUid();
-            java.sql.Timestamp t=infos.get(i).getSendtime();
+            Timestamp t=infos.get(i).getSendtime();
+            DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             User s=userDao.getUserbyid(s_id);
             User r=userDao.getUserbyid(r_id);
             msg.setSendName(s.getUsername());
             msg.setReceiverName(r.getUsername());
             msg.setContent(infos.get(i).getContext());
-            msg.setTime(t.toString());
+            msg.setTime(sdf.format(t));
             msgs.add(msg);
         }
         return msgs;
