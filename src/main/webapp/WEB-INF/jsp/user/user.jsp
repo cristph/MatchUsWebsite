@@ -99,8 +99,17 @@
                         <c:forEach var="information" items="${informationList}">
                             <li>
                                 <a href="http://www.baidu.com" class="information-info" onclick="">
-                                    <img src="userPhoto.jpg?uid=${information.senderId}">
-                                    <p>${information.content}</p>
+                                    <div>
+                                        <div class="information-pic-div">
+                                            <img class="information-img" src="userPhoto.jpg?uid=${information.senderId}">
+                                        </div>
+                                        <div class="information-content">
+                                                ${information.content}
+                                        </div>
+                                        <div class="information-time">
+                                            ${information.time}
+                                        </div>
+                                    </div>
                                 </a>
                             </li>
                         </c:forEach>
@@ -165,7 +174,6 @@
                         <li><a class="first">Signed in as ${sessionScope.user.username}</a></li>
                         <li><a href="/user" class="button 3">个人信息</a></li>
                         <li><a href="/exit" class="button last">退出登录</a></li>
-
                     </ul>
                 </li>
             </ul>
