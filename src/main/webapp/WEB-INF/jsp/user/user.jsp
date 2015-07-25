@@ -30,7 +30,8 @@
 <jsp:include page="../commonHeader.jsp"/>
 <%!
     User thisUser;
-    List<Message> thisInformation;%>
+    List<Message> thisInformation;
+%>
 <%
     thisUser =(User)request.getAttribute("user");
     thisInformation=(List<Message>)request.getAttribute("informationList");
@@ -97,10 +98,9 @@
                         <%} else{%>
                         <c:forEach var="information" items="${informationList}">
                             <li>
-                                <a href="http://www.baidu.com" class="information-info">
-                                <div>
-                                    ${information.content}
-                                </div>
+                                <a href="http://www.baidu.com" class="information-info" onclick="">
+                                    <img src="userPhoto.jpg?uid=${information.senderId}">
+                                    <p>${information.content}</p>
                                 </a>
                             </li>
                         </c:forEach>
