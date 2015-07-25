@@ -37,19 +37,23 @@ public class User {
         private int focusednum=0;
         private List<Information> sendinformations;
         private List<Information> receivevinformations;
+        private int NotRead=0;
+
+
     public String getInstruction() {
         return instruction;
     }
-
     public void setInstruction(String instruction) {
         this.instruction = instruction;
     }
+
     public String getPassword() {
         return password;
     }
     public void setPassword(String password) {
         this.password=password;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -60,7 +64,6 @@ public class User {
     public String getRealname() {
         return realname;
     }
-
     public void setRealname(String realname) {
         this.realname = realname;
     }
@@ -68,7 +71,6 @@ public class User {
     public String getSex() {
         return sex;
     }
-
     public void setSex(String sex) {
         this.sex = sex;
     }
@@ -76,7 +78,6 @@ public class User {
     public String getBirthday() {
         return birthday;
     }
-
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
@@ -84,7 +85,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -92,7 +92,6 @@ public class User {
     public String getMobilephone() {
         return mobilephone;
     }
-
     public void setMobilephone(String mobilephone) {
         this.mobilephone = mobilephone;
     }
@@ -100,7 +99,6 @@ public class User {
     public String getTelephone() {
         return telephone;
     }
-
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
@@ -108,7 +106,6 @@ public class User {
     public String getQq() {
         return qq;
     }
-
     public void setQq(String qq) {
         this.qq = qq;
     }
@@ -116,7 +113,6 @@ public class User {
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -124,7 +120,6 @@ public class User {
     public String getUniversity() {
         return university;
     }
-
     public void setUniversity(String university) {
         this.university = university;
     }
@@ -136,23 +131,16 @@ public class User {
         this.major = major;
     }
 
-
-
-
     public byte[] getFace() {
         return face;
     }
-
     public void setFace(byte[] face) {
         this.face = face;
     }
 
-
-
     public String getFriends() {
         return friends;
     }
-
     public void setFriends(String friends) {
         this.friends = friends;
     }
@@ -162,18 +150,18 @@ public class User {
     public int getUid() {
         return uid;
     }
-
     public void setUid(int uid) {
         this.uid = uid;
     }
+
     @OneToMany(mappedBy = "publisher",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<Project> getPublishingprojects() {
         return publishingprojects;
     }
-
     public void setPublishingprojects(List<Project> publishingprojects) {
         this.publishingprojects = publishingprojects;
     }
+
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name="u_p",
             joinColumns= @JoinColumn(name="user_id"),
@@ -185,6 +173,7 @@ public class User {
     public void setWorkingprojects(List<Project> workingprojects) {
         this.workingprojects = workingprojects;
     }
+
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<UserSkill> getSkills() {
         return Skills;
@@ -192,6 +181,7 @@ public class User {
     public void setSkills(List<UserSkill> skills) {
         Skills = skills;
     }
+
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name="focuser_focused",
             joinColumns= @JoinColumn(name="focuser_id"),
@@ -203,6 +193,7 @@ public class User {
     public void setFocuser(List<User> focuser) {
         this.focuser = focuser;
     }
+
     @ManyToMany(mappedBy = "focuser",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<User> getFocused() {
         return focused;
@@ -210,6 +201,7 @@ public class User {
     public void setFocused(List<User> focused) {
         this.focused = focused;
     }
+
     public int getFocusednum() {
         return focusednum;
     }
@@ -224,16 +216,23 @@ public class User {
     public List<Information> getSendinformations() {
         return sendinformations;
     }
-
     public void setSendinformations(List<Information> sendinformations) {
         this.sendinformations = sendinformations;
     }
+
     @OneToMany(mappedBy = "receiver",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public List<Information> getReceivevinformations() {
         return receivevinformations;
     }
-
     public void setReceivevinformations(List<Information> receivevinformations) {
         this.receivevinformations = receivevinformations;
     }
+
+    public void setNotRead(int num){
+            NotRead =num;
+    }
+//    public Role getRole() {
+//        return role;
+//    }
+//    public void set(Role role) {this.role = role;}
 }
