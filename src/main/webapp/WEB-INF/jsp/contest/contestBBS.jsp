@@ -84,6 +84,11 @@
                 </div>
               </div>
             </li>
+
+            <li class="replyItem clearfix">
+              <textarea class="form-control" rows="3"></textarea>
+              <button type="button">评论</button>
+            </li>
           </ul>
         </div>
       </div>
