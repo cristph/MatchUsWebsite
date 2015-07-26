@@ -20,35 +20,26 @@
   <link href="/css/page/style2.css" rel="stylesheet" type="text/css"/>
   <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
   <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
-=======
-  <link href="./bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./user.css" type="text/css"/>
->>>>>>> aa7f737ae7d0b50b82d0a04b12b04f809d2f674c
 </head>
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
 <div class="container" style="margin-top: 100px;">
-  <div class="row">
-<<<<<<< HEAD
-    <div class="col-md-6 whiteBg titleNoPadding">
-      <img src="/image/contestImg/poster.png" class="titleimg">
-=======
-    <div class="col-md-6">
-      <img src="./poster.png" class="titleimg">
->>>>>>> aa7f737ae7d0b50b82d0a04b12b04f809d2f674c
+  <div class="row" style="background-color:#364247;">
+    <div class="col-md-6  titleNoPadding">
+      <img src="/image/contestImg/poster.png" class="titleimg" style="margin: 0px;">
     </div>
-    <div class="col-md-3 whiteBg titleNoPadding">
+    <div class="col-md-3  titleNoPadding">
       <div class="titleBtn">
-        <ul>
-          <li style="padding:22px;"><span style="background-color:#364247;">参加人数</span>
+        <ul style="background-color:#364247;color:#fff;">
+          <li style="padding:24px;"><span style="background-color:#364247;">参加人数</span>
           </li>
-          <li style="padding:22px;"><span style="background-color:#364247">开始时间</span>
+          <li style="padding:24px;"><span style="background-color:#364247">开始时间</span>
           </li>
-          <li style="padding:22px;"><span style="background-color:#364247">比赛市场</span>
+          <li style="padding:24px;"><span style="background-color:#364247">比赛市场</span>
           </li>
         </ul>
       </div></div>
-    <div class="col-md-3 whiteBg titleNoPadding">
+    <div class="col-md-3 titleNoPadding">
       <div >
         <ul>
           <li style="padding:32px;background-color:#4d5a61">
@@ -101,5 +92,10 @@
 
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+
+<script>
+  var self=this;
+  self.active_part=ko.observable(1);
+</script>
 </body>
 </html>

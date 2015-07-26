@@ -21,6 +21,9 @@
 .mContainer{
     padding: 10px;
 }
+.titleNoPadding{
+    padding: 0px;
+}
 span {
     background-color: #fc0;
     display: -moz-inline-box;

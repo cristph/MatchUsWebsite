@@ -11,12 +11,11 @@
     <title></title>
 </head>
 <body>
-
 <div style="padding: 30px;" >
 
   <h3>比赛介绍</h3><hr/>
 
-  <p style="line-height:180%;color:#5a5a5a;font-size:15px;">
+  <p style="line-height:180%;color:#5a5a5a;font-size:15px;text-align: left;">
     嗨嗨嗨~大家期待已久的EL比赛开始报名啦！没组好队的要抓紧时间啦！没抱到大腿的不要悲伤~【求人不如求己！嘿嘿】下面是一些有关报名的详细信息：<br>
     组队报名方面：<br>
     1）原则上四人一队。如果因为特殊原因，可以接受个别人数不足四人的队伍。（关于这一点，我们将会在后文中提供一个队伍人数协调机制）<br>
