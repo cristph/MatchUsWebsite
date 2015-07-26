@@ -83,3 +83,38 @@
     text-align: right;
     padding-top: 9px;
 }
+
+.replyArea{
+    margin-top: 50px;
+}
+
+.formTitle{
+    margin: 0 auto;
+    max-width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+.replyContent{
+    margin: 0 auto;
+    max-width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+.rebtn{
+    background-color: #2e6da4;
+    border-radius: 2px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    position: relative;
+    left: 76%;
+    margin-bottom: 30px;
+}
+
+.rebtn:hover{
+    background-color: #a1d9f2;
+}

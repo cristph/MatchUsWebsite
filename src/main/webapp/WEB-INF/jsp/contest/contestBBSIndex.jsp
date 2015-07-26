@@ -73,4 +73,12 @@
       </div>
     </li>
   </ul>
+
+
+
+  <div class="replyArea">
+    <input type="text" class="form-control formTitle" placeholder="标题">
+    <textarea class="form-control replyContent" rows="6" placeholder="内容"></textarea>
+    <button type="button" class="rebtn">发表新帖</button>
+  </div>
 </div><!-- /.project-post -->
