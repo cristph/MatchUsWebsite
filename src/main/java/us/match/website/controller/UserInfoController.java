@@ -289,4 +289,21 @@ public class UserInfoController extends MultiActionController{
             else
                 return "99+";
     }
+
+    @ResponseBody
+    @RequestMapping(value="/user/changeToRead",method = RequestMethod.POST)
+    public void changeToRead(@RequestParam("infoId") int infoId){
+        //TODO设为已读、
+        System.out.println("消息id"+infoId);
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/user/sendMessage",method = RequestMethod.POST)
+    public void sendMessage(@RequestParam("senderId") int senderId,
+                            @RequestParam("receiverId") int receiverId,
+                            @RequestParam("content") String content){
+        //TODO发送消息
+        System.out.println(senderId+"发送给"+receiverId+"消息内容为："+content);
+    }
+
 }

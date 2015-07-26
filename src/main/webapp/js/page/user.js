@@ -207,13 +207,15 @@ function swapFollow(btn,uid){
     }
 }
 
-var reply=function(sender,receiver){
+var reply=function(sender,receiver,infoId){
     $('#myModal').modal('show');
     senderId=sender;
     receiverId=receiver;
-}
+    $.post("/user/changeToRead",{"infoId":infoId},null);
+}//将某条消息设为已读
 
 var sendReply=function(){
-    var message=document.getElementById("message-text").value;
+    var content=document.getElementById("message-text").value;
+    $.post("/user/sendMessage",{"senderId":senderId,"receiverId":receiverId,"content":content},null);
     $('#myModal').modal('hide');
 }

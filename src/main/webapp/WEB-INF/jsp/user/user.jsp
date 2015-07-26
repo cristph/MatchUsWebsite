@@ -104,7 +104,7 @@
                                             <img class="information-img" src="userPhoto.jpg?uid=${information.senderId}">
                                         </a>
                                     </div>
-                                    <div class="information-content" onclick="reply(${information.senderId},${information.receiverId})">
+                                    <div class="information-content" onclick="reply(${information.senderId},${information.receiverId},${information.infoId})">
                                        ${information.content}
                                     </div>
                                     <div class="information-time">
