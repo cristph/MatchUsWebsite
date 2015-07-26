@@ -1,3 +1,7 @@
+var senderId;
+var receiverId;
+var replyText;
+
 var changeBar = function (bar,uid) {
     hideContents();
     switch (bar.id) {
@@ -201,4 +205,15 @@ function swapFollow(btn,uid){
             });
         }
     }
+}
+
+var reply=function(sender,receiver){
+    $('#myModal').modal('show');
+    senderId=sender;
+    receiverId=receiver;
+}
+
+var sendReply=function(){
+    var message=document.getElementById("message-text").value;
+    $('#myModal').modal('hide');
 }
