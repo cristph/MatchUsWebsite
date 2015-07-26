@@ -47,7 +47,7 @@
           2015-7-25 10:05
                                 <span class="replyBtn">
                                     <a>
-                                      回复
+                                      评论
                                     </a>
                                 </span>
         </div>
@@ -105,7 +105,7 @@
           2015-7-25 10:05
                                 <span class="replyBtn">
                                     <a>
-                                      回复
+                                      评论
                                     </a>
                                 </span>
         </div>
@@ -145,7 +145,7 @@
 
             <li class="replyItem clearfix">
               <textarea class="form-control" rows="3"></textarea>
-              <button type="button" class="rebtn">回复</button>
+              <button type="button">评论</button>
             </li>
           </ul>
         </div>

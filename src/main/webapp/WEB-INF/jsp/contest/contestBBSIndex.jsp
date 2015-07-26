@@ -20,7 +20,8 @@
       </div>
       <div class="Info">
         <div class="infoTitle">
-          <a href="" class="setTop">[置顶]政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重。</a>
+          <a href="#" data-bind="click: function(){active_part(5)}" class="setTop bbsTopic">
+            [置顶]政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重。</a>
         </div>
         <div class="infoIntro">
           不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
@@ -40,7 +41,8 @@
       </div>
       <div class="Info">
         <div class="infoTitle">
-          <a href="" class="setTop">[置顶]政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重。</a>
+          <a href="#" data-bind="click: function(){active_part(5)}" class="setTop bbsTopic">
+            [置顶]政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重。</a>
         </div>
         <div class="infoIntro">
           不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
@@ -60,7 +62,8 @@
       </div>
       <div class="Info">
         <div class="infoTitle">
-          <a href="">政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重。</a>
+          <a href="#" data-bind="click: function(){active_part(5)}" class="bbsTopic">
+            政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重。</a>
         </div>
         <div class="infoIntro">
           不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。

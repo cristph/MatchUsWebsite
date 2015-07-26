@@ -56,21 +56,24 @@
   </div>
 
 
-  <div class="row">
+  <div id="content" class="row">
 
     <div class="col-md-9">
-        <div data-bind="visible: active_part() === 1">
-          <%@include file="contestDetail.jsp"%>
-        </div>
-        <div data-bind="visible: active_part() === 2">
-          <%@include file="contestExp.jsp"%>
-        </div>
-        <div data-bind="visible: active_part()=== 3">
-          <%@include file="contestProduct.jsp"%>
-        </div>
-        <div data-bind="visible: active_part()=== 4">
-          <%@include file="contestBBSIndex.jsp"%>
-        </div>
+      <div data-bind="visible: active_part() === 1">
+        <%@include file="contestDetail.jsp"%>
+      </div>
+      <div data-bind="visible: active_part() === 2">
+        <%@include file="contestExp.jsp"%>
+      </div>
+      <div data-bind="visible: active_part()=== 3">
+        <%@include file="contestProduct.jsp"%>
+      </div>
+      <div data-bind="visible: active_part()=== 4" id="bbsModel">
+        <%@include file="contestBBSIndex.jsp"%>
+      </div>
+      <div data-bind="visible: active_part()=== 5">
+        <%@include file="contestBBS.jsp"%>>
+      </div>
     </div>
 
 
@@ -96,10 +99,15 @@
 
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+<script src="/js/page/commonHeader.js"></script>
+<script src="/js/page/contestBBSIndex.js"></script>
 
 <script>
-  var self=this;
-  self.active_part=ko.observable(1);
+  var viewModel = function() {
+    var self=this;
+    self.active_part=ko.observable(1);
+  }
+  ko.applyBindings(new viewModel(), document.getElementById('content'));
 </script>
 </body>
 </html>
