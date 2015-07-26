@@ -98,23 +98,41 @@
                         <%} else{%>
                         <c:forEach var="information" items="${informationList}">
                             <li>
-                                <a href="http://www.baidu.com" class="information-info" onclick="">
-                                    <div>
-                                        <div class="information-pic-div">
+                                <div>
+                                    <div class="information-pic-div">
+                                        <a href="/otherUser?uid=${information.senderId}" target="_blank">
                                             <img class="information-img" src="userPhoto.jpg?uid=${information.senderId}">
-                                        </div>
-                                        <div class="information-content">
-                                                ${information.content}
-                                        </div>
-                                        <div class="information-time">
-                                            ${information.time}
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
+                                    <div class="information-content" onclick="reply(${information.senderId},${information.receiverId},${information.infoId})">
+                                       ${information.content}
+                                    </div>
+                                    <div class="information-time">
+                                    ${information.time}
+                                    </div>
+                                </div>
                             </li>
                         </c:forEach>
                         <%}%>
                     </ul>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">快速回复</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="message-text" class="control-label">回复Ta:</label>
+                                    <textarea class="form-control" id="message-text" placeholder="请输入回复，不超过100字"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary" onclick="sendReply()">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="attend_project" class="content_div hide">
@@ -200,8 +218,9 @@
             }, 3000);
 
         });
-        var mess = Math.floor((Math.random()*10)+1);
-        document.getElementById("messages").innerHTML = mess;
+        $.get("/usermessage",function (result){
+            document.getElementById("messages").innerHTML = result;
+        });
     });
 </script>
 </body>

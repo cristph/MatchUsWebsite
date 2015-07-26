@@ -1,3 +1,7 @@
+var senderId;
+var receiverId;
+var replyText;
+
 var changeBar = function (bar,uid) {
     hideContents();
     switch (bar.id) {
@@ -201,4 +205,17 @@ function swapFollow(btn,uid){
             });
         }
     }
+}
+
+var reply=function(sender,receiver,infoId){
+    $('#myModal').modal('show');
+    senderId=sender;
+    receiverId=receiver;
+    $.post("/user/changeToRead",{"infoId":infoId},null);
+}//将某条消息设为已读
+
+var sendReply=function(){
+    var content=document.getElementById("message-text").value;
+    $.post("/user/sendMessage",{"senderId":senderId,"receiverId":receiverId,"content":content},null);
+    $('#myModal').modal('hide');
 }

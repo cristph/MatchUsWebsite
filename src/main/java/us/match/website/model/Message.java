@@ -4,12 +4,18 @@ package us.match.website.model;
  * Created by WH on 2015/7/23.
  */
 public class Message {
+    int infoId;
     int senderId;
     int receiverId;
     String sendName;
     String receiverName;
     String content;
     String time;
+
+    public int getInfoId(){return infoId;}
+
+    public void setInfoId(int infoId){this.infoId=infoId;}
+
     public int getSenderId() {
         return senderId;
     }

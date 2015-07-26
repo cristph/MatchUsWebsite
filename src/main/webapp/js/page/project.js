@@ -2,6 +2,7 @@ var select = function () {
     changeColor(this);
     applySelect();
 }
+
 function applySelect() {
     var primary_btn_list = document.getElementsByClassName("btn-primary");
     var all_btn = document.getElementsByClassName("all-btn");

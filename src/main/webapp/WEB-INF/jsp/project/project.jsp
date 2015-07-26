@@ -158,10 +158,17 @@
                 $('#drop').css("opacity","0");
                 $(".button").css("cursor" ,"default");
             }, 3000);
+        });
+        $.get("/usermessage",function (result){
+            if(result==0){
+                $("#circle").css("opacity","0");
+            }
+            else{
+                $("#circle").css("opacity","1");
+                document.getElementById("messages").innerHTML = result;
+            }
 
         });
-        var mess = Math.floor((Math.random()*10)+1);
-        document.getElementById("messages").innerHTML = mess;
     });
 </script>
 
