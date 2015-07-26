@@ -216,6 +216,10 @@ var reply=function(sender,receiver,infoId){
 
 var sendReply=function(){
     var content=document.getElementById("message-text").value;
-    $.post("/user/sendMessage",{"senderId":senderId,"receiverId":receiverId,"content":content},null);
-    $('#myModal').modal('hide');
+    if(content==null||content.length==0){
+        alert("消息内容不能为空")
+    }else{
+        $.post("/user/sendMessage",{"senderId":senderId,"receiverId":receiverId,"content":content},null);
+        $('#myModal').modal('hide');
+    }
 }
