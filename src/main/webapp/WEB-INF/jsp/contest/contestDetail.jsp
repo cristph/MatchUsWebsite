@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-<div style="padding: 30px;" >
+<div class="leftBlock whiteBg" style="padding: 30px;" >
 
   <h3>比赛介绍</h3><hr/>
 
