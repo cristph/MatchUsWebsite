@@ -21,12 +21,10 @@
 .mContainer{
     padding: 10px;
 }
-span {
-    background-color: #fc0;
-    display: -moz-inline-box;
-    display: inline-block;
-    width: 150px;
+.titleNoPadding{
+    padding: 0px;
 }
+
 .rightBtn{
     margin-left: 40px;
     font-size: 15px;

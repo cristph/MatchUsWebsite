@@ -20,26 +20,29 @@
   <link href="/css/page/style2.css" rel="stylesheet" type="text/css"/>
   <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
   <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
+
+  <link href="/css/page/bbs.css" rel="stylesheet" type="text/css">
+  <link href="/css/page/bbsIndex.css" rel="stylesheet" type="text/css">
 </head>
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
 <div class="container" style="margin-top: 100px;">
-  <div class="row">
-    <div class="col-md-6 whiteBg titleNoPadding">
-      <img src="/image/contestImg/poster.png" class="titleimg">
+  <div class="row" style="background-color:#364247;">
+    <div class="col-md-6  titleNoPadding">
+      <img src="/image/contestImg/poster.png" class="titleimg" style="margin: 0px;">
     </div>
-    <div class="col-md-3 whiteBg titleNoPadding">
+    <div class="col-md-3  titleNoPadding">
       <div class="titleBtn">
-        <ul>
-          <li style="padding:22px;"><span style="background-color:#364247;">参加人数</span>
+        <ul style="background-color:#364247;color:#fff;">
+          <li style="padding:24px;"><span style="background-color:#364247;">参加人数</span>
           </li>
-          <li style="padding:22px;"><span style="background-color:#364247">开始时间</span>
+          <li style="padding:24px;"><span style="background-color:#364247">开始时间</span>
           </li>
-          <li style="padding:22px;"><span style="background-color:#364247">比赛市场</span>
+          <li style="padding:24px;"><span style="background-color:#364247">比赛市场</span>
           </li>
         </ul>
       </div></div>
-    <div class="col-md-3 whiteBg titleNoPadding">
+    <div class="col-md-3 titleNoPadding">
       <div >
         <ul>
           <li style="padding:32px;background-color:#4d5a61">
@@ -56,7 +59,6 @@
   <div class="row">
 
     <div class="col-md-9">
-      <div class="leftBlock whiteBg">
         <div data-bind="visible: active_part() === 1">
           <%@include file="contestDetail.jsp"%>
         </div>
@@ -66,7 +68,9 @@
         <div data-bind="visible: active_part()=== 3">
           <%@include file="contestProduct.jsp"%>
         </div>
-      </div>
+        <div data-bind="visible: active_part()=== 4">
+          <%@include file="contestBBSIndex.jsp"%>
+        </div>
     </div>
 
 
