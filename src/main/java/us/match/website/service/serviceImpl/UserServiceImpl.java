@@ -244,4 +244,9 @@ public class UserServiceImpl implements UserService {
         return msgs;
     }
 
+    @Override
+    public int getMessageNum(int uid) {
+        return infoDao.getNotReadInfoById(uid).size();
+    }
+
 }

@@ -20,6 +20,9 @@
   <link href="/css/page/style2.css" rel="stylesheet" type="text/css"/>
   <link href="/css/page/commonHeader.css" rel="stylesheet" type="text/css">
   <link href="/css/page/commonFooter.css" rel="stylesheet" type="text/css">
+
+  <link href="/css/page/bbs.css" rel="stylesheet" type="text/css">
+  <link href="/css/page/bbsIndex.css" rel="stylesheet" type="text/css">
 </head>
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
@@ -56,7 +59,6 @@
   <div class="row">
 
     <div class="col-md-9">
-      <div class="leftBlock whiteBg">
         <div data-bind="visible: active_part() === 1">
           <%@include file="contestDetail.jsp"%>
         </div>
@@ -66,7 +68,9 @@
         <div data-bind="visible: active_part()=== 3">
           <%@include file="contestProduct.jsp"%>
         </div>
-      </div>
+        <div data-bind="visible: active_part()=== 4">
+          <%@include file="contestBBSIndex.jsp"%>
+        </div>
     </div>
 
 
