@@ -284,7 +284,7 @@ public class UserInfoController extends MultiActionController{
             User user=(User)session.getAttribute("user");
             int uid=user.getUid();
             int num=userService.getMessageNum(uid);
-            if(num<=3)
+            if(num<=99)
                 return String.valueOf(userService.getMessageNum(uid));
             else
                 return "99+";
