@@ -4,7 +4,9 @@ import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import us.match.website.model.User;
 import us.match.website.service.UserService;
 
@@ -54,5 +56,10 @@ public class UserSettingsController {
         return ImmutableMap.of("success",true, "user", user);
     }
 
+    @ResponseBody
+    @RequestMapping("/uploadAvator")
+    public String uploadAvator(@RequestParam("avator")MultipartFile avator) {
+        return "upload avator success!";
+    }
 
 }
