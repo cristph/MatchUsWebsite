@@ -190,7 +190,7 @@ public class UserInfoController extends MultiActionController{
         System.out.println("登陆者姓名："+((User)session.getAttribute("user")).getUsername());
         System.out.println("取消关注的人的id为："+uid);
         int id1=((User)session.getAttribute("user")).getUid();
-        if(userService.deleteFollow(id1,uid))
+        if(userService.deleteFollow(id1, uid))
             return "succeed";
         else
             return "failed";
@@ -259,7 +259,7 @@ public class UserInfoController extends MultiActionController{
         } else{
             relationShip="unfollow";
         }
-        model.addAttribute("relationship",relationShip);
+        model.addAttribute("relationship", relationShip);
         return "/user/otherUser";
     }
 
@@ -278,5 +278,15 @@ public class UserInfoController extends MultiActionController{
         return isFollow;
     }//判断一个人是否为登陆者的关注的人
 
-
+    @ResponseBody
+    @RequestMapping(value="/usermessage")
+    public  String getmessagenum(HttpSession session){
+            User user=(User)session.getAttribute("user");
+            int uid=user.getUid();
+            int num=userService.getMessageNum(uid);
+            if(num<=3)
+                return String.valueOf(userService.getMessageNum(uid));
+            else
+                return "99+";
+    }
 }
