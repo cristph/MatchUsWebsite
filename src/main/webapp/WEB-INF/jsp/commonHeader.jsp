@@ -48,7 +48,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control searchArea" id="searchArea" placeholder="搜索项目，大牛">
                     <span class="input-group-btn">
-                        <button class="btn searchButton" id="searchButton" type="button"><a href="/search/searchResult?pattern=11" target="_blank">GO</a></button>
+                        <button class="btn searchButton" id="searchButton" type="button"><a href="#" target="_blank" id="linkLocation">GO</a></button>
                     </span>
                     <dl class="searchResult" id="searchResult">
                     </dl>

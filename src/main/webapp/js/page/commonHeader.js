@@ -14,7 +14,13 @@ document.getElementById("searchArea").addEventListener("focus",search,false);
 
 document.getElementById("searchButton").addEventListener("focus",searchBtnIn,false);
 document.getElementById("searchButton").addEventListener("blur",searchBtnOut,false);
+document.getElementById("searchButton").addEventListener("click",showResult,false);
 
+function showResult(){
+    var link=document.getElementById("linkLocation");
+    var pattern=document.getElementById("searchArea").value;
+    link.setAttribute("href",'/search/searchResult?pattern='+pattern);
+}
 
 $(function () {
     var i;
