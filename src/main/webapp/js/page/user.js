@@ -131,7 +131,6 @@ function getInformationHtmlStr(information){
     if(information[0].senderId==-1){
         return "<h2>暂时还没有消息哦~~~</h2>";
     }else {
-        alert(information[0].content)
         var htmlStr="";
         for(var i=0;i<information.length;i++){
             htmlStr+=

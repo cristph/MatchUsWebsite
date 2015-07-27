@@ -77,7 +77,7 @@ public class UserInfoController extends MultiActionController{
             List<Message> list=userService.getNotReadMsg(uid);
             if(list.size()==0){
                 Message m=new Message();
-                m.setSendName("-1");
+                m.setSenderId(-1);
                 list.add(m);
             }
            return list;
