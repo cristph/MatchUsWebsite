@@ -24,11 +24,17 @@ public class PostController {
 
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-    public String addPost(@RequestParam("topicTitle") String title,@RequestParam("topicContent") String content,HttpSession session){
-        System.out.println("到达了 addPost了");
+    public String addPost(
+            @RequestParam("topicTitle") String title,
+            @RequestParam("topicContent") String content,
+            HttpSession session){
         User user=(User)session.getAttribute("user");
-        if(user==null)
-            return "false";
-        return null;
+        if(user==null) {
+            return "fail";
+        }else{
+
+
+            return "success";
+        }
     }
 }

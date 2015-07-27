@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import us.match.website.dao.InfoDao;
 import us.match.website.model.Information;
-import us.match.website.model.Project;
 import us.match.website.model.User;
 
 import javax.annotation.Resource;

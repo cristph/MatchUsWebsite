@@ -12,21 +12,21 @@ var btn=document.getElementById("releaseTopic");
 btn.addEventListener("click",releaseTopic,false);
 
 function releaseTopic(){
-    alert('post');
     $.post("/post/add",
         {
             "topicTitle":document.getElementById("topicTitle").value,
             "topicContent":document.getElementById("topicContent").value
         },
         function(data){
-            if(data=='true'){
+            if(data=='fail'){
+                alert('游客请先登录');
+            }else if(data=='success'){
                 alert('发布成功');
-            }else if(data=='false'){
-                alert('游客请先登录！');
             }else{
-                alert(data);
+                alert('other error');
             }
-        }
+        },
+        "text"
     );
 }
 
