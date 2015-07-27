@@ -24,7 +24,6 @@ public class SearchController {
     @Resource
     SearchService searchService;
 
-    @ResponseBody
     @RequestMapping(value="/searchResult")
     public String getSearchResult(Model model,@RequestParam("pattern") String pattern){
 //        List<Project> projectList=searchService.searchProject(pattern);
@@ -34,6 +33,6 @@ public class SearchController {
 //        model.addAttribute("projectList",projectList);
 //        model.addAttribute("userList",userList);
 //        model.addAttribute("postList",postList);
-        return "/searchResult";
+        return "searchResult";
     }
 }
