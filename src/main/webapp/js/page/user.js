@@ -131,13 +131,23 @@ function getInformationHtmlStr(information){
     if(information[0].senderId==-1){
         return "<h2>暂时还没有消息哦~~~</h2>";
     }else {
-        alert(information[0].content)
         var htmlStr="";
         for(var i=0;i<information.length;i++){
-            htmlStr+="<li>" +
-                "<p>" +
-                information[i].content +
-                "</p>"+
+            htmlStr+=
+                "<li>"+
+                    "<div>"+
+                        "<div class='information-pic-div'>"+
+                            "<a href='/otherUser?uid="+information[i].senderId+"' target='_blank'>"+
+                                "<img class='information-img' src='userPhoto.jpg?uid="+information[i].senderId+"'>"+
+                            "</a>"+
+                        "</div>"+
+                        "<div class='information-content' onclick='reply("+information[i].senderId+","+information[i].receiverId+","+information[i].infoId+")'>"+
+                            information[i].content+
+                        "</div>"+
+                        "<div class='information-time'>"+
+                            information[i].time+
+                        "</div>"+
+                    "</div>"+
                 "</li>";
         }
         return htmlStr;

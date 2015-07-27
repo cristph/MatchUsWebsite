@@ -28,4 +28,6 @@ public interface UserService {
     public List<Message> getReadMsg(int userId);
     public List<Message> getNotReadMsg(int userId);
     public int getMessageNum(int uid);
+    public void changestate(int infoid);
+    public int sendMessage(int Senderid,int Receiverid,String context);
 }

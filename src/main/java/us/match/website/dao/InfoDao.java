@@ -12,7 +12,7 @@ public interface InfoDao {
     public List<Information> getReadInfoById(int uid);
     public List<Information> getNotReadInfoById(int uid);
     public List<Information> getsendinfobyid(int uid);
-    public boolean addinfo(String context,User sender,User receiver);
+    public int addinfo(String context,User sender,User receiver);
     public boolean deleteinfo(Information info,User user);
-    public boolean readInfo(User sender,User receiver);
+    public boolean readInfo(int infoid);
 }

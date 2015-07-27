@@ -227,7 +227,6 @@ public class UserServiceImpl implements UserService {
             Message msg=new Message();
             System.out.println("_________________"+infos.get(i).getSender().getUid());
             int s_id=infos.get(i).getSender().getUid();
-
             int r_id=infos.get(i).getReceiver().getUid();
             Timestamp t=infos.get(i).getSendtime();
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -248,6 +247,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public int getMessageNum(int uid) {
         return infoDao.getNotReadInfoById(uid).size();
+    }
+
+    @Override
+    public void changestate(int infoid) {
+        infoDao.readInfo(infoid);
+    }
+
+    @Override
+    public int sendMessage(int Senderid, int Receiverid, String context) {
+            User receiver =new User();
+            User sender=new User();
+            receiver =userDao.getUserbyid(Receiverid);
+            sender=userDao.getUserbyid(Senderid);
+            return infoDao.addinfo(context,sender,receiver);
     }
 
 }

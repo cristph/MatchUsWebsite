@@ -77,7 +77,7 @@ public class UserInfoController extends MultiActionController{
             List<Message> list=userService.getNotReadMsg(uid);
             if(list.size()==0){
                 Message m=new Message();
-                m.setSendName("-1");
+                m.setSenderId(-1);
                 list.add(m);
             }
            return list;
@@ -242,7 +242,7 @@ public class UserInfoController extends MultiActionController{
             p.setPid(-1);
             newList.add(p);
         }
-        model.addAttribute("publishingProjects", newList);
+        model.addAttribute("attendProjects", newList);
         User u = userService.getBasicInfo(uid);
         u.setPassword(null);
         u.setFocused(null);
@@ -293,19 +293,19 @@ public class UserInfoController extends MultiActionController{
     @ResponseBody
     @RequestMapping(value="/user/changeToRead",method = RequestMethod.POST)
     public void changeToRead(@RequestParam("infoId") int infoId){
-        //TODO
         // 设为已读、
+        userService.changestate(infoId);
         System.out.println("消息id"+infoId);
     }
 
     @ResponseBody
     @RequestMapping(value="/user/sendMessage",method = RequestMethod.POST)
-    public void sendMessage(@RequestParam("senderId") int senderId,
+    public int sendMessage(@RequestParam("senderId") int senderId,
                             @RequestParam("receiverId") int receiverId,
                             @RequestParam("content") String content){
-        //TODO
         // 发送消息
         System.out.println(senderId+"发送给"+receiverId+"消息内容为："+content);
+        return userService.sendMessage(senderId, receiverId, content);
     }
 
 }
