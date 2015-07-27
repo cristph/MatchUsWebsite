@@ -249,16 +249,17 @@ public class UserInfoController extends MultiActionController{
         u.setPublishingprojects(null);
         u.setFocuser(null);
         model.addAttribute("oneOtherUser", u);
-        User self=(User)session.getAttribute("user");
+        int myId=((User)session.getAttribute("user")).getUid();
         String relationShip=new String();
-        if(self.getUid()==uid){
+        if(myId==uid){
             relationShip="self";
 
-        } else if (isFollow(self.getFocused(),uid)){
+        } else if (isFollow(userService.getFocused(myId),uid)){
             relationShip="follow";
         } else{
             relationShip="unfollow";
         }
+        System.out.println(relationShip);
         model.addAttribute("relationship", relationShip);
         return "/user/otherUser";
     }
@@ -266,10 +267,12 @@ public class UserInfoController extends MultiActionController{
     private boolean isFollow(List<User> follows,int targetUid){
         boolean isFollow=false;
         if(follows==null){
+            System.out.println();
             return false;
         }else {
             for(int i=0;i<follows.size();i++){
                 if(follows.get(i).getUid()==targetUid){
+                    System.out.println(follows.get(i).getUid());
                     isFollow=true;
                     break;
                 }
