@@ -1,6 +1,7 @@
 <%@ page import="us.match.website.model.User" %>
 <%@ page import="us.match.website.model.Project" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.hibernate.Session" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
@@ -27,14 +28,16 @@
 <body>
 <jsp:include page="../commonHeader.jsp"/>
 <%!
-  User thisUser;
-  List<Project> thisProject;
+    User thisUser;
+    List<Project> thisProject;
     String relationship;
+    User me;
 %>
 <%
-  thisUser =(User)request.getAttribute("oneOtherUser");
-  thisProject=(List<Project>)request.getAttribute("publishingProjects");
+    thisUser =(User)request.getAttribute("oneOtherUser");
+    thisProject=(List<Project>)request.getAttribute("attendProjects");
     relationship=(String) request.getAttribute("relationship");
+    me=(User)session.getAttribute("user");
 %>
 <div id="main" class="container">
   <div class="body_container">
@@ -63,47 +66,46 @@
               <p><%=thisUser.getInstruction()%></p>
           </li>
           <li style="list-style: none;text-align: center">
-              <% if(relationship.equals("follow")){ %>
-                <button type="button" class="btn btn-default" onclick="swapFollow(this,<%=thisUser.getUid()%>)">已关注</button>
-              <% }else if (relationship.equals("unfollow")){ %>
-                <button type="button" class="btn btn-primary" onclick="swapFollow(this,<%=thisUser.getUid()%>)">关注Ta</button>
-              <% }else if (relationship.equals("self")){%>
-                <a class="#" href="/user/settings">设置</a>
-              <%}%>
+                <% if(relationship.equals("follow")){ %>
+                    <button type="button" class="btn btn-default" onclick="swapFollow(this,<%=thisUser.getUid()%>)">已关注</button>
+                    <button type="button" class="btn btn-primary" onclick="sendMessage(<%=me.getUid()%>,<%=thisUser.getUid()%>)">私信</button>
+                <% }else if (relationship.equals("unfollow")){ %>
+                    <button type="button" class="btn btn-primary" onclick="swapFollow(this,<%=thisUser.getUid()%>)">关注Ta</button>
+                    <button type="button" class="btn btn-primary" onclick="sendMessage(<%=me.getUid()%>,<%=thisUser.getUid()%>)">私信</button>
+                <% }else if (relationship.equals("self")){%>
+                    <a class="#" href="/user/settings">设置</a>
+                <%}%>
           </li>
       </div>
       <div>
         <ul class="left_nav">
-          <li id="publish" class="left_nav_bar selected" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            发布
-          </li>
-          <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            参与
+          <li id="attend" class="left_nav_bar selected" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+            我的比赛
           </li>
           <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            关注
+            我的关注
           </li>
           <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            粉丝
+            我的粉丝
           </li>
         </ul>
       </div>
     </div>
     <div id="detail_body">
-      <div id="publish_project" class="content_div show">
+      <div id="attend_project" class="content_div show">
         <ul class="nav nav-tabs">
-          <li role="presentation" id="publish_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+          <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">正在进行项目</a>
           </li>
-          <li role="presentation" id="publish_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+          <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">已完成项目</a>
           </li>
-          <li role="presentation" id="publish_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+          <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">未开始项目</a>
           </li>
         </ul>
         <div class="project-list">
-          <ul id="publish_project_body">
+          <ul id="attend_project_body">
             <%if (thisProject.get(0).getPid()==-1){%>
             <h2>暂时还没有项目哦~~~</h2>
             <%} else{%>
@@ -115,23 +117,6 @@
               </li>
             </c:forEach>
             <%}%>
-          </ul>
-        </div>
-      </div>
-      <div id="attend_project" class="content_div hide">
-        <ul class="nav nav-tabs">
-          <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            <a href="#">正在进行项目</a>
-          </li>
-          <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            <a href="#">已完成项目</a>
-          </li>
-          <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            <a href="#">已关注项目</a>
-          </li>
-        </ul>
-        <div class="project-list">
-          <ul id="attend_project_body">
           </ul>
         </div>
       </div>
@@ -158,6 +143,24 @@
           </ul>
         </div>
       </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">私信</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="message-text" class="control-label">对Ta说:</label>
+                        <textarea class="form-control" id="message-text" placeholder="请输入回复，不超过100字"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="sendReply()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 </div>

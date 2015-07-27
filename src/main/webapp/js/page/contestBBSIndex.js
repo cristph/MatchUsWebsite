@@ -8,6 +8,34 @@ for(i=0;i<list.length;i++){
     list[i].addEventListener("click",getTopic,false);
 }
 
+var btn=document.getElementById("releaseTopic");
+btn.addEventListener("click",releaseTopic,false);
+
+function releaseTopic(){
+    $.post("/post/add",
+        {
+            "post_id":1,
+            "post_ispay":0,
+            "is_stick":0,
+            "topicTitle":document.getElementById("topicTitle").value,
+            "topicContent":document.getElementById("topicContent").value
+        },
+        function(data){
+            if(data=='fail'){
+                alert('游客请先登录');
+            }else if(data=='success'){
+                alert('发布成功');
+            }else{
+                alert('other error');
+            }
+        },
+        "text"
+    );
+}
+
+
+
+
 function getTopic(){
     //var div=document.getElementById("bbsModel");
     //while(div.childElementCount>0){

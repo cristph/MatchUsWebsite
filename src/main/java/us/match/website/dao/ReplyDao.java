@@ -15,5 +15,5 @@ public interface ReplyDao {
             Query
      */
 
-    public List<Reply> getReplybyPost(Post post);
+    public List<Reply> getReplybyPost(int post_id);
 }
