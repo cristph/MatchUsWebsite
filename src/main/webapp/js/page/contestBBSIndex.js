@@ -14,6 +14,9 @@ btn.addEventListener("click",releaseTopic,false);
 function releaseTopic(){
     $.post("/post/add",
         {
+            "post_id":11111,
+            "post_ispay":0,
+            "is_stick":0,
             "topicTitle":document.getElementById("topicTitle").value,
             "topicContent":document.getElementById("topicContent").value
         },
