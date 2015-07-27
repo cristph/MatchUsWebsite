@@ -217,6 +217,12 @@ function swapFollow(btn,uid){
     }
 }
 
+var sendMessage=function(sender,receiver){
+    $('#myModal').modal('show');
+    senderId=sender;
+    receiverId=receiver;
+}
+
 var reply=function(sender,receiver,infoId){
     $('#myModal').modal('show');
     senderId=sender;

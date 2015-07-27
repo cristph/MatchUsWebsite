@@ -14,5 +14,5 @@ public interface PostDao {
             Query
      */
     public List<Post> getpostByProject(int pid);
-    public Post getPostbyuserAndProject(int uid,int pid);
+
 }

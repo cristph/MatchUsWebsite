@@ -16,7 +16,7 @@ public class Post {
     private Timestamp post_createtime;
     private Timestamp post_updatetime;
     private String post_content;
-    private int post_ispay ;
+    private int post_ispay ;//是否结帖,1代表结贴，0代表未结贴
     private int is_stick;//1代表置顶，0代表不置顶
     /*
         Lists
@@ -32,7 +32,6 @@ public class Post {
     public String getPost_title() {
         return post_title;
     }
-
 
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
