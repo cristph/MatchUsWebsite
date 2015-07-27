@@ -3,6 +3,7 @@ package us.match.website.dao.daoImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 import us.match.website.dao.ReplyDao;
 import us.match.website.model.Post;
 import us.match.website.model.Project;
@@ -17,6 +18,7 @@ import java.util.List;
 /**
  * Created by apple on 2015/7/25.
  */
+@Repository
 public class ReplyDaOImpl implements ReplyDao {
     @Resource
     SessionFactory sessionFactory;

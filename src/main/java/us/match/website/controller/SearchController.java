@@ -27,13 +27,13 @@ public class SearchController {
     @ResponseBody
     @RequestMapping(value="/searchResult")
     public String getSearchResult(Model model,@RequestParam("pattern") String pattern){
-        List<Project> projectList=searchService.searchProject(pattern);
-        List<User> userList=searchService.searchUser(pattern);
-        List<Post> postList=searchService.searchPost(pattern);
-
-        model.addAttribute("projectList",projectList);
-        model.addAttribute("userList",userList);
-        model.addAttribute("postList",postList);
-        return null;
+//        List<Project> projectList=searchService.searchProject(pattern);
+//        List<User> userList=searchService.searchUser(pattern);
+//        List<Post> postList=searchService.searchPost(pattern);
+//
+//        model.addAttribute("projectList",projectList);
+//        model.addAttribute("userList",userList);
+//        model.addAttribute("postList",postList);
+        return "/searchResult";
     }
 }
