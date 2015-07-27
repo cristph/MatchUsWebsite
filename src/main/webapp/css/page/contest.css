@@ -24,12 +24,7 @@
 .titleNoPadding{
     padding: 0px;
 }
-span {
-    background-color: #fc0;
-    display: -moz-inline-box;
-    display: inline-block;
-    width: 150px;
-}
+
 .rightBtn{
     margin-left: 40px;
     font-size: 15px;

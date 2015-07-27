@@ -27,5 +27,5 @@ public interface UserService {
     public boolean deleteFollow(int id1,int id2);
     public List<Message> getReadMsg(int userId);
     public List<Message> getNotReadMsg(int userId);
-
+    public int getMessageNum(int uid);
 }

@@ -207,6 +207,7 @@ public class UserServiceImpl implements UserService {
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             User s=userDao.getUserbyid(s_id);
             User r=userDao.getUserbyid(r_id);
+            msg.setInfoId(infos.get(i).getInfoid());
             msg.setSenderId(s.getUid());
             msg.setReceiverId(r.getUid());
             msg.setSendName(s.getUsername());
@@ -232,7 +233,7 @@ public class UserServiceImpl implements UserService {
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             User s=userDao.getUserbyid(s_id);
             User r=userDao.getUserbyid(r_id);
-
+            msg.setInfoId(infos.get(i).getInfoid());
             msg.setSenderId(s.getUid());
             msg.setReceiverId(r.getUid());
             msg.setSendName(s.getUsername());
@@ -242,6 +243,11 @@ public class UserServiceImpl implements UserService {
             msgs.add(msg);
         }
         return msgs;
+    }
+
+    @Override
+    public int getMessageNum(int uid) {
+        return infoDao.getNotReadInfoById(uid).size();
     }
 
 }

@@ -152,4 +152,9 @@ public class ProjectController {
 }
 
 
+    @RequestMapping(value = "/bbsTopic")
+    public String getBBSTopic(Model model,@RequestParam("bid") int bid){
+        return "contest/contestBBS";
+    }
+
 }
