@@ -123,8 +123,8 @@ public class InfoDaoImpl implements InfoDao {
     }
 
     @Override
-    public boolean addinfo(String context, User sender,User receiver) {
-            boolean result=true;
+    public int addinfo(String context, User sender,User receiver) {
+            int result=1;
             Information info =new Information();
             info.setState(1);
             info.setContext(context);
@@ -134,12 +134,14 @@ public class InfoDaoImpl implements InfoDao {
         try {
             session.beginTransaction();
             session.save(info);
+            System.out.println("__________________????");
         } catch (Exception e) {
-            result=false;
+            result=0;
             e.printStackTrace();
         }finally{
             session.getTransaction().commit();
             session.close();
+            System.out.println("_________________result");
             return result;
         }
     }
@@ -149,11 +151,10 @@ public class InfoDaoImpl implements InfoDao {
     }
     
     @Override
-    public boolean readInfo(User sender, User receiver) {
+    public boolean readInfo(int info) {
         boolean result =true;
         Session session = sessionFactory.openSession();
-        String sql="update Information set state =0 where senderid= '"+sender.getUid()+"'"+"AND receiverid= '"
-                +receiver.getUid()+"'";
+        String sql="update Information set state =0 where infoid = '"+info+"'";
         try{
             session.createSQLQuery(sql).executeUpdate();
         }catch(Exception e){
