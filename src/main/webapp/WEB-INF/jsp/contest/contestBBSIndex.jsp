@@ -80,8 +80,8 @@
 
 
   <div class="replyArea">
-    <input type="text" class="form-control formTitle" placeholder="标题">
-    <textarea class="form-control replyContent" rows="6" placeholder="内容"></textarea>
-    <button type="button" class="rebtn">发表新帖</button>
+    <input type="text" class="form-control formTitle" name="topicTitle" id="topicTitle" placeholder="标题">
+    <textarea class="form-control replyContent" rows="6" name="topicContent" id="topicContent" placeholder="内容"></textarea>
+    <button type="button" class="rebtn" id="releaseTopic">发表新帖</button>
   </div>
 </div><!-- /.project-post -->
