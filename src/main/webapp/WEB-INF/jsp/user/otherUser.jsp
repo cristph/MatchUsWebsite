@@ -33,8 +33,8 @@
 %>
 <%
   thisUser =(User)request.getAttribute("oneOtherUser");
-  thisProject=(List<Project>)request.getAttribute("publishingProjects");
-    relationship=(String) request.getAttribute("relationship");
+  thisProject=(List<Project>)request.getAttribute("attendProjects");
+  relationship=(String) request.getAttribute("relationship");
 %>
 <div id="main" class="container">
   <div class="body_container">
@@ -70,40 +70,38 @@
               <% }else if (relationship.equals("self")){%>
                 <a class="#" href="/user/settings">设置</a>
               <%}%>
+              <button type="button" class="btn btn-primary" onclick="">私信</button>
           </li>
       </div>
       <div>
         <ul class="left_nav">
-          <li id="publish" class="left_nav_bar selected" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            发布
-          </li>
-          <li id="attend" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            参与
+          <li id="attend" class="left_nav_bar selected" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+            我的比赛
           </li>
           <li id="follow" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            关注
+            我的关注
           </li>
           <li id="fans" class="left_nav_bar" href="#" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            粉丝
+            我的粉丝
           </li>
         </ul>
       </div>
     </div>
     <div id="detail_body">
-      <div id="publish_project" class="content_div show">
+      <div id="attend_project" class="content_div show">
         <ul class="nav nav-tabs">
-          <li role="presentation" id="publish_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+          <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">正在进行项目</a>
           </li>
-          <li role="presentation" id="publish_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+          <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">已完成项目</a>
           </li>
-          <li role="presentation" id="publish_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
+          <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
             <a href="#">未开始项目</a>
           </li>
         </ul>
         <div class="project-list">
-          <ul id="publish_project_body">
+          <ul id="attend_project_body">
             <%if (thisProject.get(0).getPid()==-1){%>
             <h2>暂时还没有项目哦~~~</h2>
             <%} else{%>
@@ -115,23 +113,6 @@
               </li>
             </c:forEach>
             <%}%>
-          </ul>
-        </div>
-      </div>
-      <div id="attend_project" class="content_div hide">
-        <ul class="nav nav-tabs">
-          <li role="presentation" id="attend_now" class="sub_bar active" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            <a href="#">正在进行项目</a>
-          </li>
-          <li role="presentation" id="attend_past" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            <a href="#">已完成项目</a>
-          </li>
-          <li role="presentation" id="attend_will" class="sub_bar" onclick="changeBar(this,<%=thisUser.getUid()%>)">
-            <a href="#">已关注项目</a>
-          </li>
-        </ul>
-        <div class="project-list">
-          <ul id="attend_project_body">
           </ul>
         </div>
       </div>

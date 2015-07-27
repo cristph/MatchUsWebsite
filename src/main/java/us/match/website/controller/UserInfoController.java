@@ -242,7 +242,7 @@ public class UserInfoController extends MultiActionController{
             p.setPid(-1);
             newList.add(p);
         }
-        model.addAttribute("publishingProjects", newList);
+        model.addAttribute("attendProjects", newList);
         User u = userService.getBasicInfo(uid);
         u.setPassword(null);
         u.setFocused(null);
