@@ -30,3 +30,12 @@
 .settings-right .row {
   height: 70px;
 }
+
+.avator-btn-wrap{position: relative;margin-top: 10px; height: 30px;overflow: hidden;}
+.avator-btn-wrap input{position: absolute;top:-3px;right: -3px;font-size:50px;background:none;filter:alpha(opacity=0);opacity:0;cursor:pointer;}
+
+
+.avator-btn-group{position:relative;height: 220px;margin-left: 260px;width: 220px;}
+.avator-btn-inner{position: absolute;bottom: 0;left: 0;right: 0;}
+.avator-btn-inner .avator-btn-wrap{height: 40px;margin: 0; text-align: center;background-color: darkgray;}
+.avator-btn-inner .avator-btn-fake:link{height: 40px;line-height: 40px;}
