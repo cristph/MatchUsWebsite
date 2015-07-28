@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,43 +25,27 @@
             <div class="searchType">符合条件的大牛：</div>
           </li>
 
-          <li class="listItem clearfix">
-            <div class="user-pic">
-              <a href="/otherUser?uid=13" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=13"></a>
-              <p class="user-name"><a href="/otherUser?uid=13" target="_blank">gjp</a><span class="sex">男</span></p>
-            </div>
-            <div class="Info">
-              <div class="schoolInfo"><span class="tip">学校：</span>南京大学</div>
-              <div class="selfIntro"><span class="tip">个人说明：</span>嗯哈哈哈哈哈哈哈哈哈。</div>
-              <div class="skillInfo"><span class="tip">擅长领域：</span>Java,C++,Ruby</div>
-              <div class="projectInfo">
-                <span class="tip">项目经历：</span>
-                <ul>
-                  <li><a href="/">JavaWeb Project</a></li>
-                  <li><a href="/">Android Project</a></li>
-                </ul>
+          <c:forEach var="user" items="${userList}">
+            <li class="listItem clearfix">
+              <div class="user-pic">
+                <a href="/otherUser?uid=13" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=13"></a>
+                <p class="user-name"><a href="/otherUser?uid=13" target="_blank">${user.username}</a><span class="sex">${user.sex}</span></p>
               </div>
-            </div>
-          </li>
-
-          <li class="listItem clearfix">
-            <div class="user-pic">
-              <a href="/otherUser?uid=15" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=15"></a>
-              <p class="user-name"><a href="/otherUser?uid=13" target="_blank">AH</a><span class="sex">男</span></p>
-            </div>
-            <div class="Info">
-              <div class="schoolInfo"><span class="tip">学校：</span>南京大学</div>
-              <div class="selfIntro"><span class="tip">个人说明：</span>嗯哈哈哈哈哈哈哈哈哈。</div>
-              <div class="skillInfo"><span class="tip">擅长领域：</span>Java,C++,Ruby</div>
-              <div class="projectInfo">
-                <span class="tip">项目经历：</span>
-                <ul>
-                  <li><a href="/">JavaWeb Project</a></li>
-                  <li><a href="/">Android Project</a></li>
-                </ul>
+              <div class="Info">
+                <div class="schoolInfo"><span class="tip">学校：</span>${user.university}</div>
+                <div class="selfIntro"><span class="tip">个人说明：</span>${user.instruction}</div>
+                <div class="skillInfo"><span class="tip">擅长领域：</span>${user.major}</div>
+                <div class="projectInfo">
+                  <span class="tip">项目经历：</span>
+                  <ul>
+                    <c:forEach var="project" items="${user.workingprojects}">
+                      <li><a href="/">${project.pname}</a></li>
+                    </c:forEach>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </c:forEach>
 
           <li class="listItem clearfix">
             <div class="moreInfo">更多大牛......</div>
@@ -97,49 +82,24 @@
             <div class="searchType">符合条件的比赛：</div>
           </li>
 
-          <li class="listItem clearfix">
-            <div class="projectTitle">
-              <a href="/project/getOneProject?pid=1" target="_blank">软件学院创新杯比赛</a>
-            </div>
-            <div class="projectPublish">
-              <p>
-                2015-7-21  posted by <span><a href="/">Somebody</a></span>
-              </p>
-            </div>
-            <div class="projectPicture">
-              <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
-            </div>
-            <div class="projectIntro">
-              政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
-              不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
-              产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
-              无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
-            </div>
-
-
-          </li>
-
-          <li class="listItem clearfix">
-            <div class="projectTitle">
-              <a href="/project/getOneProject?pid=2" target="_blank">“全志杯”东南大学第八届嵌入式系统设计邀请赛</a>
-            </div>
-            <div class="projectPublish">
-              <p>
-                2015-7-21  posted by <span><a href="/">Somebody</a></span>
-              </p>
-            </div>
-            <div class="projectPicture">
-              <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
-            </div>
-            <div class="projectIntro">
-              政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
-              不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
-              产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
-              无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
-            </div>
-
-
-          </li>
+          <c:forEach var="project" items="${projectList}">
+            <li class="listItem clearfix">
+              <div class="projectTitle">
+                <a href="/project/getOneProject?pid=1" target="_blank">${project.pname}</a>
+              </div>
+              <div class="projectPublish">
+                <p>
+                  2015-7-21  posted by <span><a href="/">${project.publisher.username}</a></span>
+                </p>
+              </div>
+              <div class="projectPicture">
+                <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+              </div>
+              <div class="projectIntro">
+                ${project.pinstruction}
+              </div>
+            </li>
+          </c:forEach>
 
           <li class="listItem clearfix">
             <div class="moreInfo">更多项目......</div>
