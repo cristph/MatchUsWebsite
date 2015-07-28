@@ -203,7 +203,14 @@
 
         });
         $.get("/usermessage",function (result){
-            document.getElementById("messages").innerHTML = result;
+            if(result==0){
+                $("#circle").css("opacity","0");
+            }
+            else{
+                $("#circle").css("opacity","1");
+                document.getElementById("messages").innerHTML = result;
+            }
+
         });
     });
 </script>

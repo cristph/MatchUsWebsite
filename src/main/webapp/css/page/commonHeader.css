@@ -179,7 +179,7 @@ a.banner:focus{
 
 }
 
-.menu ul li ul {
+#drop {
     opacity:0;
     position:fixed;
     z-index: 9999;
@@ -195,15 +195,6 @@ a.banner:focus{
 
 
 
-#a.banner:hover #a.menu ul li ul{
-    opacity:1;
-    top: 50px;
-    -webkit-transition: all .4s ease-in .3s;
-    -moz-transition: all .4s ease-in .3s;
-    -o-transition: all .4s ease-in .3s;
-    -ms-transition: all .4s ease-in .3s;
-    transition: all .4s ease-in .3s;
-}
 
 .button{
     text-decoration: none !important;
@@ -258,6 +249,7 @@ p{
 
 
 #circle{
+    opacity:0;
     width:18px;
     height:18px;
     border-radius:50%;
