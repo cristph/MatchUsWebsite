@@ -27,6 +27,7 @@ public class SearchController {
 
     @RequestMapping(value="/searchResult")
     public String getSearchResult(Model model,@RequestParam("pattern") String pattern){
+        System.out.println(pattern);
         List<Project> projectList=searchService.searchProject(pattern);
         List<User> userList=searchService.searchUser(pattern);
         List<Post> postList=searchService.searchPost(pattern);
