@@ -3,6 +3,8 @@ package us.match.website.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.File;
 import java.sql.Timestamp;
 
 import us.match.website.dao.InfoDao;
@@ -183,7 +185,7 @@ public class UserServiceImpl implements UserService {
         u1.setUid(id1);
         User u2=new User();
         u2.setUid(id2);
-        return userDao.addfocuser(u1,u2);
+        return userDao.addfocuser(u1, u2);
     }
 
     @Override
@@ -192,7 +194,7 @@ public class UserServiceImpl implements UserService {
         u1.setUid(id1);
         User u2=new User();
         u2.setUid(id2);
-        return userDao.deletefocuser(u1,u2);
+        return userDao.deletefocuser(u1, u2);
     }
 
     @Override
@@ -263,4 +265,10 @@ public class UserServiceImpl implements UserService {
             return infoDao.addinfo(context,sender,receiver);
     }
 
+    @Override
+    public void setFace(int uid, byte[] avator) {
+        User user = this.getBasicInfo(uid);
+        user.setFace(avator);
+        userDao.updateUser(user);
+    }
 }
