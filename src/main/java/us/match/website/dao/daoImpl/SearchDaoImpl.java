@@ -28,6 +28,7 @@ public class SearchDaoImpl implements SearchDao {
         Session session = sessionFactory.openSession();
         String sql="select * from User where username like '%"+key+"%'";
         try{
+            session.beginTransaction();
             Query query =session.createSQLQuery(sql);
             List<Object[]> object=query.list();
             for(Object[] o:object){
@@ -63,6 +64,7 @@ public class SearchDaoImpl implements SearchDao {
         Session session = sessionFactory.openSession();
         String sql="select * from Project where pname like '%"+key+"%'";
         try{
+            session.beginTransaction();
             Query query =session.createSQLQuery(sql);
             List<Object[]> object=query.list();
             for(Object[] o:object){
@@ -90,10 +92,12 @@ public class SearchDaoImpl implements SearchDao {
 
     @Override
     public List<Post> searchPost(String key) {
+
         List<Post> result=new ArrayList<Post>();
         Session session = sessionFactory.openSession();
         String sql="select * from Post where post_title like '%"+key+"%'";
         try{
+            session.beginTransaction();
             Query query =session.createSQLQuery(sql);
             List<Object[]> object=query.list();
             for(Object[] o:object){
