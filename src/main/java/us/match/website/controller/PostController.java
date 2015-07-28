@@ -43,7 +43,7 @@ public class PostController {
         Post post=new Post();
         Project project=projectService.getOneProject(Integer.parseInt(pid));
 
-        project.setPublisher(user);
+        post.setPoster(user);
         post.setPost_match(project);
         post.setPost_title(title);
         post.setPost_content(content);
