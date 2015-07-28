@@ -141,7 +141,7 @@ function getInformationHtmlStr(information){
                                 "<img class='information-img' src='userPhoto.jpg?uid="+information[i].senderId+"'>"+
                             "</a>"+
                         "</div>"+
-                        "<div class='information-content' onclick='reply("+information[i].senderId+","+information[i].receiverId+","+information[i].infoId+")'>"+
+                        "<div class='information-content' onclick='reply("+information[i].receiverId+","+information[i].senderId+","+information[i].infoId+")'>"+
                             information[i].content+
                         "</div>"+
                         "<div class='information-time'>"+
