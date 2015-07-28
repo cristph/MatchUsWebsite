@@ -192,6 +192,9 @@
       }, 3000);
 
     });
+    $.get("/usermessage",function (result){
+      document.getElementById("messages").innerHTML = result;
+    });
   });
 </script>
 
