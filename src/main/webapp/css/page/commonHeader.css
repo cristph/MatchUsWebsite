@@ -258,6 +258,7 @@ p{
 
 
 #circle{
+    opacity:0;
     width:18px;
     height:18px;
     border-radius:50%;
