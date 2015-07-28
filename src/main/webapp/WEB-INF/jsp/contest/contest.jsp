@@ -34,11 +34,11 @@
     <div class="col-md-3  titleNoPadding">
       <div class="titleBtn">
         <ul style="background-color:#364247;color:#fff;">
-          <li style="padding:24px;"><span style="background-color:#364247;">参加人数</span>
+          <li style="padding:24px;"><span style="background-color:#364247;">参加人数: 196人</span>
           </li>
-          <li style="padding:24px;"><span style="background-color:#364247">开始时间</span>
+          <li style="padding:24px;"><span style="background-color:#364247">开始时间: 2015年4月1日</span>
           </li>
-          <li style="padding:24px;"><span style="background-color:#364247">比赛市场</span>
+          <li style="padding:24px;"><span style="background-color:#364247">比赛时长: 96天</span>
           </li>
         </ul>
       </div></div>

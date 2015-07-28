@@ -31,6 +31,8 @@
           <a  style="cursor: hand;">Night夜落</a>，
           <a  style="cursor: hand;">Seven</a>，
           <a  style="cursor: hand;">gjp</a><br>
+          作品介绍：
+          这是一款三体主题皮肤的阅读器，支持DOC，PDF，PPT等主流文档格式，有在上面加笔记，加书签等方便阅读的功能。<br>
 
           <br>
           <img src="/image/contestImg/poster.png" style="cursor: hand;margin-right: 20px;" width="70px" height="70px"
