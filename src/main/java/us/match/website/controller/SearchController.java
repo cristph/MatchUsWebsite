@@ -36,6 +36,11 @@ public class SearchController {
         model.addAttribute("userList",userList);
         model.addAttribute("postList",postList);
 
+        System.out.println("result:"+projectList.size());
+        if(projectList.size()>0){
+            System.out.println(projectList.get(0).getPname());
+        }
+
 //        Project p1=new Project();
 //        p1.setPname("p1");
 //        p1.setPinstruction("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
