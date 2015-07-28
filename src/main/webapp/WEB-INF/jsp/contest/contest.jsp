@@ -34,11 +34,13 @@
     <div class="col-md-3  titleNoPadding">
       <div class="titleBtn">
         <ul style="background-color:#364247;color:#fff;">
-          <li style="padding:24px;"><span style="background-color:#364247;">参加人数: 196人</span>
+          <li style="padding-top:34px;padding-bottom: 4px;padding-left: 30px;"><span style="background-color:#364247;">参加人数: 196</span>
           </li>
-          <li style="padding:24px;"><span style="background-color:#364247">开始时间: 2015年4月1日</span>
+          <hr style="border:0;background-color:#40484b;height:1px; margin-left: 30px;margin-right: 30px;">
+          <li style="padding-top:4px;padding-bottom: 4px;padding-left: 30px;"><span style="background-color:#364247">开始时间: 2015年4月1日</span>
           </li>
-          <li style="padding:24px;"><span style="background-color:#364247">比赛时长: 96天</span>
+          <hr style="border:0;background-color:#40484b;height:1px;margin-left: 30px;margin-right: 30px;">
+          <li style="padding-bottom:24px;padding-top: 4px;padding-left: 30px;"><span style="background-color:#364247">比赛时长: 96天</span>
           </li>
         </ul>
       </div></div>
