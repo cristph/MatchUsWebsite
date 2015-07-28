@@ -26,7 +26,7 @@
 </head>
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
-<div class="container" style="margin-top: 100px;">
+<div class="container">
   <div class="row" style="background-color:#364247;">
     <div class="col-md-6  titleNoPadding">
       <img src="/image/contestImg/poster.png" class="titleimg" style="margin: 0px;">
@@ -97,6 +97,25 @@
   </div>
 </div>
 
+<c:choose>
+  <c:when test="${empty sessionScope.user}">
+  </c:when>
+  <c:otherwise>
+    <div class="menu" style="position: absolute;margin-top: 10px;margin-left: 1100px;">
+      <ul>
+        <li>
+          <ul id = "drop">
+            <li><a class="first">Signed in as ${sessionScope.user.username}</a></li>
+            <li><a href="/user" class="button 3">个人信息</a></li>
+            <li><a href="/exit" class="button last">退出登录</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </c:otherwise>
+</c:choose>
+
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
 <script src="/js/page/commonHeader.js"></script>
@@ -108,6 +127,32 @@
     self.active_part=ko.observable(1);
   }
   ko.applyBindings(new viewModel(), document.getElementById('content'));
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#banner").mouseover(function(){
+      $('#drop').css("opacity","1");
+      $(".button").css("cursor" ,"pointer");
+    });
+    $("#banner").mouseout(function(){
+      setTimeout(function () {
+        $('#drop').css("opacity","0");
+        $(".button").css("cursor" ,"default");
+      }, 3000);
+
+    });
+    $.get("/usermessage",function (result){
+      if(result==0){
+        $("#circle").css("opacity","0");
+      }
+      else{
+        $("#circle").css("opacity","1");
+        document.getElementById("messages").innerHTML = result;
+      }
+
+    });
+  });
 </script>
 </body>
 </html>
