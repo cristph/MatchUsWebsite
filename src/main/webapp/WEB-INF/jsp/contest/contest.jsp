@@ -26,7 +26,7 @@
 </head>
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
-<div class="container" style="margin-top: 100px;">
+<div class="container">
   <div class="row" style="background-color:#364247;">
     <div class="col-md-6  titleNoPadding">
       <img src="/image/contestImg/poster.png" class="titleimg" style="margin: 0px;">

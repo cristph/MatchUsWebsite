@@ -33,9 +33,33 @@
           <a  style="cursor: hand;">gjp</a><br>
 
           <br>
-          <img src="/image/contestImg/poster.png" style="cursor: hand;" width="60px" height="60px">
+          <img src="/image/contestImg/poster.png" style="cursor: hand;margin-right: 20px;" width="70px" height="70px"
+                  >
+          <img src="/image/contestImg/poster.png" style="cursor: hand;margin-right: 20px;" width="70px" height="70px"
+                  >
+          <img src="/image/contestImg/poster.png" style="cursor: hand;margin-right: 20px;" width="70px" height="70px"
+                  >
+          <img src="/image/contestImg/poster.png" style="cursor: hand;margin-right: 20px;" width="70px" height="70px"
+                  >
         </div>
 
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
         <div class="date">
