@@ -27,18 +27,20 @@
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
 <div class="container">
-  <div class="row" style="background-color:#364247;">
+  <div class="row" style="background-color:#364247;margin-left: 0px;margin-right: 0px;">
     <div class="col-md-6  titleNoPadding">
       <img src="/image/contestImg/poster.png" class="titleimg" style="margin: 0px;">
     </div>
     <div class="col-md-3  titleNoPadding">
       <div class="titleBtn">
         <ul style="background-color:#364247;color:#fff;">
-          <li style="padding:24px;"><span style="background-color:#364247;">参加人数: 196人</span>
+          <li style="padding-top:34px;padding-bottom: 4px;padding-left: 30px;"><span style="background-color:#364247;">参加人数: 196</span>
           </li>
-          <li style="padding:24px;"><span style="background-color:#364247">开始时间: 2015年4月1日</span>
+          <hr style="border:0;background-color:#40484b;height:1px; margin-left: 30px;margin-right: 30px;">
+          <li style="padding-top:4px;padding-bottom: 4px;padding-left: 30px;"><span style="background-color:#364247">开始时间: 2015年4月1日</span>
           </li>
-          <li style="padding:24px;"><span style="background-color:#364247">比赛时长: 96天</span>
+          <hr style="border:0;background-color:#40484b;height:1px;margin-left: 30px;margin-right: 30px;">
+          <li style="padding-bottom:24px;padding-top: 4px;padding-left: 30px;"><span style="background-color:#364247">比赛时长: 96天</span>
           </li>
         </ul>
       </div></div>
@@ -48,7 +50,7 @@
           <li style="padding:32px;background-color:#4d5a61">
             <span style="background-color:#4d5a61;color:#fff">关注比赛</span>
           </li >
-          <li style="padding:32px;background-color:#c73b4d;height:158px;"><span style="background-color:#c73b4d;color:#fff">我要报名</span>
+          <li style="padding:32px;background-color:#c73b4d;height:150px;"><span style="background-color:#c73b4d;color:#fff">我要报名</span>
           </li>
         </ul>
       </div>
