@@ -25,31 +25,74 @@
             <div class="searchType">符合条件的大牛：</div>
           </li>
 
-          <c:forEach var="user" items="${userList}">
-            <li class="listItem clearfix">
-              <div class="user-pic">
-                <a href="/otherUser?uid=13" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=13"></a>
-                <p class="user-name"><a href="/otherUser?uid=13" target="_blank">${user.username}</a><span class="sex">${user.sex}</span></p>
-              </div>
-              <div class="Info">
-                <div class="schoolInfo"><span class="tip">学校：</span>${user.university}</div>
-                <div class="selfIntro"><span class="tip">个人说明：</span>${user.instruction}</div>
-                <div class="skillInfo"><span class="tip">擅长领域：</span>${user.major}</div>
-                <div class="projectInfo">
-                  <span class="tip">项目经历：</span>
-                  <ul>
-                    <c:forEach var="project" items="${user.workingprojects}">
-                      <li><a href="/">${project.pname}</a></li>
-                    </c:forEach>
-                  </ul>
-                </div>
-              </div>
-            </li>
-          </c:forEach>
+          <c:choose>
+            <c:when test="${empty userList}">
+              <li class="listItem clearfix">
+                <div class="searchType">暂无符合条件的内容</div>
+              </li>
+            </c:when>
+            <c:otherwise>
+              <c:forEach var="user" items="${userList}">
+                <li class="listItem clearfix">
+                  <div class="user-pic">
+                    <a href="/otherUser?uid=${user.uid}" target="_blank"><img src="/userPhoto.jpg?uid=${user.uid}"></a>
+                    <p class="user-name"><a href="/otherUser?uid=${user.uid}" target="_blank">${user.username}</a><span class="sex">${user.sex}</span></p>
+                  </div>
+                  <div class="Info">
+                    <div class="schoolInfo">
+                      <span class="tip">学校：</span>
+                      <c:choose>
+                        <c:when test="${empty user.university}">
+                          暂无信息
+                        </c:when>
+                        <c:otherwise>
+                          ${user.university}
+                        </c:otherwise>
+                      </c:choose>
+                    </div>
+                    <div class="selfIntro">
+                      <span class="tip">个人说明：</span>
+                      <c:choose>
+                        <c:when test="${empty user.instruction}">
+                          暂无信息
+                        </c:when>
+                        <c:otherwise>
+                          ${user.instruction}
+                        </c:otherwise>
+                      </c:choose>
+                    </div>
+                    <div class="skillInfo">
+                      <span class="tip">擅长领域：</span>
+                      <c:choose>
+                        <c:when test="${empty user.major}">
+                          暂无信息
+                        </c:when>
+                        <c:otherwise>
+                          ${user.major}
+                        </c:otherwise>
+                      </c:choose>
+                    </div>
+                    <div class="projectInfo">
+                      <span class="tip">项目经历：</span>
+                      <ul>
+                        <c:choose>
+                          <c:when test="${empty user.workingprojects}">
+                            暂无信息
+                          </c:when>
+                          <c:otherwise>
+                            <c:forEach var="project" items="${user.workingprojects}">
+                              <li><a href="/">${project.pname}</a></li>
+                            </c:forEach>
+                          </c:otherwise>
+                        </c:choose>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </c:forEach>
+            </c:otherwise>
+          </c:choose>
 
-          <li class="listItem clearfix">
-            <div class="moreInfo">更多大牛......</div>
-          </li>
         </ul>
       </div><!-- /.project-post -->
 
@@ -82,28 +125,34 @@
             <div class="searchType">符合条件的比赛：</div>
           </li>
 
-          <c:forEach var="project" items="${projectList}">
-            <li class="listItem clearfix">
-              <div class="projectTitle">
-                <a href="/project/getOneProject?pid=1" target="_blank">${project.pname}</a>
-              </div>
-              <div class="projectPublish">
-                <p>
-                  2015-7-21  posted by <span><a href="/">${project.publisher.username}</a></span>
-                </p>
-              </div>
-              <div class="projectPicture">
-                <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
-              </div>
-              <div class="projectIntro">
-                ${project.pinstruction}
-              </div>
-            </li>
-          </c:forEach>
+          <c:choose>
+            <c:when test="${empty projectList}">
+              <li class="listItem clearfix">
+                <div class="searchType">暂无符合条件的内容</div>
+              </li>
+            </c:when>
+            <c:otherwise>
+              <c:forEach var="project" items="${projectList}">
+                <li class="listItem clearfix">
+                  <div class="projectTitle">
+                    <a href="/project/getOneProject?pid=1" target="_blank">${project.pname}</a>
+                  </div>
+                  <div class="projectPublish">
+                    <p>
+                      2015-7-21  posted by <span><a href="/">${project.publisher.username}</a></span>
+                    </p>
+                  </div>
+                  <div class="projectPicture">
+                    <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+                  </div>
+                  <div class="projectIntro">
+                      ${project.pinstruction}
+                  </div>
+                </li>
+              </c:forEach>
+            </c:otherwise>
+          </c:choose>
 
-          <li class="listItem clearfix">
-            <div class="moreInfo">更多项目......</div>
-          </li>
         </ul>
       </div><!-- /.project-post -->
 
