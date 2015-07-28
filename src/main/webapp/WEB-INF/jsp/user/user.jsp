@@ -184,7 +184,7 @@
     <c:when test="${empty sessionScope.user}">
     </c:when>
     <c:otherwise>
-        <div id = "drop" class="menu" style="position: absolute;margin-top: 10px;margin-left: 1100px;">
+        <div id = "drop" class="menu" style="position: fixed;margin-left: 1100px;">
             <ul>
                 <li>
                     <ul >
@@ -207,7 +207,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#banner").mouseover(function(){
-            $("#drop").css("opacity","1");
+            $('#drop').css("opacity","1");
             $(".button").css("cursor" ,"pointer");
         });
         $("#banner").mouseout(function(){
@@ -229,5 +229,8 @@
         });
     });
 </script>
+
+
+
 </body>
 </html>
