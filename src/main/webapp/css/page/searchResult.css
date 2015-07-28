@@ -68,7 +68,7 @@
     padding-left: 20px;
 }
 
-.project_info{
+.project_info,.bbs_block{
     margin-top: 50px;
 }
 
@@ -109,4 +109,69 @@
     display: list-item;
     text-align: -webkit-match-parent;
     cursor: pointer;
+}
+
+
+/**************post***************/
+.user-pic {
+    width: 120px;
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 10px;
+    float: left;
+    border-right: 1px solid #a9cbee;
+}
+
+
+.user-pic img {
+    border:#eee 3px solid;
+    height: 80px;
+    width: 80px;
+}
+
+.user-pic p {
+    line-height: 16px;
+}
+
+.user-name{
+    padding-top: 10px;
+}
+
+.sex{
+    padding-left: 5px;
+    color: #28a4c9;
+}
+
+.Info{
+    float: left;
+    width: 82%;
+}
+
+.tip{
+    font-weight: bold;
+    color: #286090;
+}
+
+.infoTitle{
+    padding-left: 5%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.infoTitle>a{
+    color: #337ab7;
+}
+
+.setTop{
+    color: #d20104 !important;
+}
+
+.infoIntro{
+    padding-left: 5%;
+}
+
+.date{
+    position: relative;
+    text-align: right;
+    padding-top: 9px;
 }

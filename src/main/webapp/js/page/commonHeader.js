@@ -8,10 +8,6 @@
 
 document.getElementById("searchArea").addEventListener("focus",searchAreaIn,false);
 document.getElementById("searchArea").addEventListener("blur",searchAreaOut,false);
-
-document.getElementById("searchArea").addEventListener("focus",search,false);
-//document.getElementById("searchArea").addEventListener("blur",test,false);
-
 document.getElementById("searchButton").addEventListener("focus",searchBtnIn,false);
 document.getElementById("searchButton").addEventListener("blur",searchBtnOut,false);
 document.getElementById("searchButton").addEventListener("click",showResult,false);
@@ -246,29 +242,6 @@ function chkName(){
         }
         return true;
     }
-
-
-    //$post("/",{"userName":name},function(data){
-    //    if(data=="true"){
-    //        input.parentNode.classList.remove('has_error');
-    //        input.parentNode.classList.add('has_success');
-    //        if(helpBlock!=null){
-    //            helpBlock.parentNode.removeChild(helpBlock);
-    //        }
-    //        return true;
-    //    }else{
-    //        input.parentNode.classList.remove('has_success');
-    //        input.parentNode.classList.add('has-error');
-    //        if(helpBlock==null){
-    //            helpBlock=document.createElement('span');
-    //            helpBlock.id='nameHelpBlock';
-    //            helpBlock.classList.add("help-block");
-    //            helpBlock.innerText="昵称已存在";
-    //            input.parentNode.appendChild(helpBlock);
-    //        }
-    //        return false;
-    //    }
-    //});
 }
 
 function chkCode(){
@@ -458,6 +431,6 @@ function searchOut(){
 //    }
 //} );
 
-$(function(){
-    $("#searchArea").keyup(search);
-});
+//$(function(){
+//    $("#searchArea").keyup(search);
+//});
