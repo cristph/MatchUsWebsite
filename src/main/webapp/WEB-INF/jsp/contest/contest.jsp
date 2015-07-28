@@ -27,7 +27,7 @@
 <body class="grayBg">
 <jsp:include page="/WEB-INF/jsp/commonHeader.jsp"/>
 <div class="container">
-  <div class="row" style="background-color:#364247;">
+  <div class="row" style="background-color:#364247;margin-left: 0px;margin-right: 0px;">
     <div class="col-md-6  titleNoPadding">
       <img src="/image/contestImg/poster.png" class="titleimg" style="margin: 0px;">
     </div>
@@ -50,7 +50,7 @@
           <li style="padding:32px;background-color:#4d5a61">
             <span style="background-color:#4d5a61;color:#fff">关注比赛</span>
           </li >
-          <li style="padding:32px;background-color:#c73b4d;height:158px;"><span style="background-color:#c73b4d;color:#fff">我要报名</span>
+          <li style="padding:32px;background-color:#c73b4d;height:150px;"><span style="background-color:#c73b4d;color:#fff">我要报名</span>
           </li>
         </ul>
       </div>
