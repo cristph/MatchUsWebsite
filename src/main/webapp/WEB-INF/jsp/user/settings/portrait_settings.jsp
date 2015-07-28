@@ -7,28 +7,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%--<form action="/user/settings/portrait" method="post">--%>
-    <div class="settings-right wrapped-boxes">
-        <div id="setting-avator">
-            <div class="avator-img l">
-                <div><img src="/userPhoto.jpg?uid=${sessionScope.user.uid}" width="220" height="220"></div>
-            </div>
-            <div class="avator-btn-group">
-                <div id="avator-btns" class="avator-btn-inner">
+<div class="settings-right wrapped-boxes">
+    <div id="setting-avator">
+        <div class="avator-img l">
+            <div><img src="/userPhoto.jpg?uid=${sessionScope.user.uid}" width="220" height="220"></div>
+        </div>
+        <div class="avator-btn-group">
+            <div id="avator-btns" class="avator-btn-inner">
 
-                    <div class="avator-btn-wrap">
-                        <form target="uploadtarget" action="/uploadAvator" method="post" enctype="multipart/form-data">
-                            <a href="javascript:void(0)" hidefocus="true" class="avator-btn-fake">上传头像</a>
-                            <input type="file" title="上传头像" name="fileField" id="upload" accept="image/*">
-                            <input type="hidden" name="type" value="1">
-                        </form>
-                        <iframe src="about:blank" id="uploadtarget" name="uploadtarget" frameborder="0" style="display:none;"></iframe>
-                    </div>
-                </div>
-                <div class="avator-upload-wrap" style="display:none;">
-                    <span hidefocus="true" id="avator-btn-save" aria-role="button" class="rlf-btn-green btn-block">保存</span>
+                <div class="avator-btn-wrap">
+                    <iframe src="about:blank" id="uploadtarget" name="uploadtarget" style="display:none;"></iframe>
+                    <form target="uploadtarget" action="/user/settings/uploadAvator" method="post" enctype="multipart/form-data">
+                        <a href="javascript:void(0)" hidefocus="true" class="avator-btn-fake">上传头像</a>
+                        <input type="file" name="avator">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-<%--</form>--%>
+</div>

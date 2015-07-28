@@ -13,6 +13,8 @@ import us.match.website.service.UserService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -57,9 +59,15 @@ public class UserSettingsController {
     }
 
     @ResponseBody
-    @RequestMapping("/uploadAvator")
-    public String uploadAvator(@RequestParam("avator")MultipartFile avator) {
-        return "upload avator success!";
+    @RequestMapping(value = "/uploadAvator", method = RequestMethod.POST)
+    public String uploadAvator(@RequestParam("avator") MultipartFile avator, HttpSession session) {
+        try {
+            int uid = ((User) session.getAttribute("user")).getUid();
+            userService.setFace(uid, avator.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "<script>parent.uploadAvatorSuccessCallback()</script>";
     }
 
 }

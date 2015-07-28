@@ -63,10 +63,18 @@ function UserSettingsViewModel() {
     }
 }
 
+function uploadAvatorSuccessCallback() {
+    "use strict";
+    var url = $('img.banner-face').attr('src');
+    var uid = parseInt(/uid=(\d*)/.exec(url)[1]);
+    var src = '/userPhoto.jpg?uid='+uid+'&random='+Math.random();
+    $('.avator-img img').attr('src',src);
+    $('img.banner-face').attr('src',src);
+}
 $(function () {
     "use strict";
     ko.applyBindings(new UserSettingsViewModel(), document.getElementById('ko-content'));
-    $('.avator-img > img').change(function() {
-        alert(this);
+    $('.avator-btn-wrap input').change(function() {
+        this.parentElement.submit();
     });
 });

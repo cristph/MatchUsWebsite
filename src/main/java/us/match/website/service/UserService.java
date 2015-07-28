@@ -30,4 +30,6 @@ public interface UserService {
     public int getMessageNum(int uid);
     public void changestate(int infoid);
     public int sendMessage(int Senderid,int Receiverid,String context);
+
+    public void setFace(int uid, byte[] avator);
 }
