@@ -154,6 +154,13 @@ public class ProjectController {
         //System.out.println("pid="+pid);
 
         List<Post> postList=postService.getAllPost(1);
+        System.out.println(postList.size());
+        if(postList.size()>0){
+            for(int i=0;i<postList.size();i++){
+                System.out.println(postList.get(i).getPost_content()+":");
+                System.out.println(postList.get(i).getPoster().getUid());
+            }
+        }
         model.addAttribute("postList",postList);
         return "contest/contest";
 }
