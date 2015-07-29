@@ -94,4 +94,40 @@ public class PostDaoImpl implements PostDao {
         }
     }
 
+    @Override
+    public Post getpostByPost(int pid) {
+        Post result=new Post();
+        Session session = sessionFactory.openSession();
+        String sql="select * from Post where post_id= '"+pid+"'";
+        try {
+            session.beginTransaction();
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object)
+            {
+                Post temp=new Post();
+                User temp1=new User();
+                Project temp2=new Project();
+                temp.setPost_id((int)o[0]);
+                temp.setPost_content((String) o[1]);
+                temp.setPost_createtime((Timestamp) o[2]);
+                temp.setPost_ispay((int) o[3]);
+                temp.setPost_title((String) o[4]);
+                temp.setPost_updatetime((Timestamp) o[5]);
+                temp.setIs_stick((int)o[8]);
+                temp1.setUid((int)o[6]);
+                temp2.setPid((int)o[7]);
+                temp.setPoster(temp1);
+                temp.setPost_match(temp2);
+                result=temp;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            session.getTransaction().commit();
+            session.close();
+            return result;
+        }
+    }
+
 }
