@@ -11,6 +11,9 @@ for(i=0;i<list.length;i++){
 var btn=document.getElementById("releaseTopic");
 btn.addEventListener("click",releaseTopic,false);
 
+var replybtn=document.getElementById("replyTopic");
+replybtn.addEventListener("click",replyTopic,false);
+
 function releaseTopic(){
     alert('send');
     $.post("/post/add",
@@ -27,6 +30,26 @@ function releaseTopic(){
                 alert('游客请先登录');
             }else if(data=='success'){
                 alert('发布成功');
+            }else{
+                alert('other error');
+            }
+        },
+        "text"
+    );
+}
+
+function replyTopic(){
+    alert('reply');
+    $post("/post/reply",
+        {
+            "replyContent":document.getElementById("replyContentS").value
+        },
+        function(data){
+            alert("infuncton");
+            if(data=='fail'){
+                alert('游客请先登录');
+            }else if(data=='success'){
+                alert('回复成功');
             }else{
                 alert('other error');
             }

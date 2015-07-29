@@ -52,45 +52,6 @@
                                 </span>
         </div>
 
-        <div class="blockShadow replyList">
-          <ul>
-            <li class="replyItem clearfix">
-              <div class="replyPic">
-                <a href="/otherUser?uid=13" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=13"></a>
-              </div>
-              <div class="replyInfo">
-                <a href="/otherUser?uid=13" target="_blank">gjp</a>
-                : 政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
-                不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
-                产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
-                无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
-                <div class="replyDate">
-                  2015-7-25 14:02
-                </div>
-              </div>
-
-            </li>
-
-
-            <li class="replyItem clearfix">
-              <div class="replyPic">
-                <a href="/otherUser?uid=15" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=15"></a>
-              </div>
-              <div class="replyInfo">
-                <a href="/otherUser?uid=15" target="_blank">AH</a>
-                : 哈哈哈哈哈哈哈哈
-                <div class="replyDate">
-                  2015-7-25 14:02
-                </div>
-              </div>
-            </li>
-
-            <li class="replyItem clearfix">
-              <textarea class="form-control" rows="3"></textarea>
-              <button type="button">评论</button>
-            </li>
-          </ul>
-        </div>
       </div>
     </li>
 
@@ -115,53 +76,13 @@
                                 </span>
         </div>
 
-        <div class="blockShadow replyList">
-          <ul>
-            <li class="replyItem clearfix">
-              <div class="replyPic">
-                <a href="/otherUser?uid=13" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=13"></a>
-              </div>
-              <div class="replyInfo">
-                <a href="/otherUser?uid=13" target="_blank">gjp</a>
-                : 政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
-                不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
-                产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
-                无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
-                <div class="replyDate">
-                  2015-7-25 14:02
-                </div>
-              </div>
-
-            </li>
-
-
-            <li class="replyItem clearfix">
-              <div class="replyPic">
-                <a href="/otherUser?uid=15" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=15"></a>
-              </div>
-              <div class="replyInfo">
-                <a href="/otherUser?uid=15" target="_blank">AH</a>
-                : 哈哈哈哈哈哈哈哈
-                <div class="replyDate">
-                  2015-7-25 14:02
-                </div>
-              </div>
-            </li>
-
-            <li class="replyItem clearfix">
-              <textarea class="form-control" rows="3"></textarea>
-              <button type="button">评论</button>
-            </li>
-          </ul>
-        </div>
       </div>
     </li>
 
   </ul>
 
   <div class="replyArea">
-    <input type="text" class="form-control formTitle" name="topicTitle" id="topicTitle" placeholder="标题">
-    <textarea class="form-control replyContent" rows="6" name="topicContent" id="topicContent" placeholder="内容"></textarea>
-    <button type="button" class="rebtn" id="releaseTopic">发表新帖</button>
+    <textarea class="form-control replyContentS" rows="6" name="topicContent" id="replyContent" placeholder="内容"></textarea>
+    <button type="button" class="rebtn" id="replyTopic">回复楼主</button>
   </div>
 </div><!-- /.project-post -->

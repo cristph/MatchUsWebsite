@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import us.match.website.model.Post;
 import us.match.website.model.Project;
+import us.match.website.model.Reply;
 import us.match.website.model.User;
 import us.match.website.service.PostService;
 import us.match.website.service.ProjectService;
@@ -63,7 +64,21 @@ public class PostController {
     @ResponseBody
     @RequestMapping(value = "/reply", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public String replyPost(
+            @RequestParam("replyContent") String content,
             HttpSession session){
-        return null;
+
+        User user=(User)session.getAttribute("user");
+        if(user==null) {
+            System.out.println("_______________!!!!!!!!!!!");
+            return "fail";
+        }
+
+        Reply reply=new Reply();
+        Post post=new Post();
+        reply.setReply_content(content);
+        reply.setReply_user(user);
+        reply.setReply_post(post);
+        postService.addReply(reply);
+        return "success";
     }
 }
