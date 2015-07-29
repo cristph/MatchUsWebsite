@@ -3,6 +3,7 @@ package us.match.website.service.serviceImpl;
 import org.springframework.stereotype.Service;
 import us.match.website.dao.PostDao;
 import us.match.website.model.Post;
+import us.match.website.model.Reply;
 import us.match.website.service.PostService;
 
 import javax.annotation.Resource;
@@ -24,6 +25,16 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<Post> getAllPost(int pid) {
+        return null;
+    }
+
+    @Override
+    public void addReply(Reply reply) {
+
+    }
+
+    @Override
+    public List<Reply> getAllReply(int postID) {
         return null;
     }
 }
