@@ -71,7 +71,17 @@
                 <li>
                     <a href="/project/getOneProject?pid=${project.pid}" target="_blank">
                         <div class="projects-img">
-                            <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
+                            <c:choose>
+                                <c:when test="${project.pid==1}" >
+                                    <img src="http://ww4.sinaimg.cn/mw690/005ZoaEmjw1eujnqid1z6j306y04gt9u.jpg">
+                                </c:when>
+                                <c:when test="${project.pid==2}" >
+                                    <img src="http://ww1.sinaimg.cn/mw690/005ZoaEmjw1eujnyuzepwj306y04gq30.jpg">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg">
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                         <div class="projects-info">
                             <p style="text-align: center">${project.skill}</p>
@@ -112,7 +122,7 @@
                         </p>
                     </div>
                     <div class="projectPicture">
-                        <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
+                        <img src="http://ww1.sinaimg.cn/mw690/005ZoaEmjw1eujnyuzepwj306y04gq30.jpg">
                     </div>
                     <div class="projectIntro">
                         政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
