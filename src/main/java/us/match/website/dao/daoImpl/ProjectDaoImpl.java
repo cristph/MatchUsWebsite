@@ -27,7 +27,9 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
+            System.out.println(session.isConnected());
             result=(Project)session.get(Project.class,id);
+            System.out.println(result.getPname());
         }catch(Exception e){
             e.printStackTrace();
         }finally{
