@@ -145,9 +145,9 @@ public class ProjectController {
     @RequestMapping(value = "/getOneProject")
     public String getOneProject(Model model,@RequestParam("pid") int pid)
     {
-        Project pro=projectService.getOneProject(pid);
-        model.addAttribute("project",pro);
-        System.out.println("pid="+pid);
+        //Project pro=projectService.getOneProject(pid);
+        //model.addAttribute("project",pro);
+        //System.out.println("pid="+pid);
         return "contest/contest";
 }
 

@@ -37,19 +37,23 @@ public class PostController {
             @RequestParam("is_stick") int is_stick,
             HttpSession session){
         User user=(User)session.getAttribute("user");
+        System.out.println("inpost00");
         if(user==null) {
             return "fail";
         }
         Post post=new Post();
         Project project=projectService.getOneProject(Integer.parseInt(pid));
-
+        System.out.println("inpost0");
         post.setPoster(user);
         post.setPost_match(project);
         post.setPost_title(title);
         post.setPost_content(content);
         post.setIs_stick(post_ispay);
         post.setIs_stick(is_stick);
+
+        System.out.println("inpost1");
         postService.addPost(post);
+        System.out.println("inpost2");
         return "success";
 
     }

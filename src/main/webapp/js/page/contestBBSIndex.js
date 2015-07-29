@@ -21,6 +21,7 @@ function releaseTopic(){
             "topicContent":document.getElementById("topicContent").value
         },
         function(data){
+            alert("infuncton");
             if(data=='fail'){
                 alert('游客请先登录');
             }else if(data=='success'){
