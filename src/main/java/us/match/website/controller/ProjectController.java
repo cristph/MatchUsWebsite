@@ -153,9 +153,8 @@ public class ProjectController {
         //model.addAttribute("project",pro);
         //System.out.println("pid="+pid);
 
-
-//        List<Post> postList=postService.getAllPost(pid);
-//        model.addAttribute("postList",postList);
+        List<Post> postList=postService.getAllPost(1);
+        model.addAttribute("postList",postList);
         return "contest/contest";
 }
 
