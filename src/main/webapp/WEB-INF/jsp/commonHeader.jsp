@@ -18,9 +18,8 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left" id="nav_left">
-                <li id="navli1"><a href="/project">找项目</a></li>
-                <li id="navli2"><a href="../../view/page/team.html">找团队</a></li>
-                <li id="navli3"><a href="../../view/page/talent.html">找人才</a></li>
+                <li id="navli1"><a href="/project">找比赛</a></li>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
