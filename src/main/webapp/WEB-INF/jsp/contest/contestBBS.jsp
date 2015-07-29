@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<input id="postID" type="hidden" value="${post.post_id}">
 <div class="bbs_block blockShadow">
   <ul>
     <li class="listItem clearfix bbs_header">

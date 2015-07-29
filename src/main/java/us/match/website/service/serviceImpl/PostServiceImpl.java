@@ -40,4 +40,9 @@ public class PostServiceImpl implements PostService{
     public List<Reply> getAllReply(int postID) {
         return replyDao.getReplybyPost(postID);
     }
+
+    @Override
+    public Post getpostByPost(int pid) {
+        return postDao.getpostByPost(pid);
+    }
 }

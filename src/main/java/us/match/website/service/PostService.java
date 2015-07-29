@@ -13,4 +13,5 @@ public interface PostService {
     public List<Post> getAllPost(int pid);
     public void addReply(Reply reply);
     public List<Reply> getAllReply(int postID);
+    public Post getpostByPost(int pid);
 }

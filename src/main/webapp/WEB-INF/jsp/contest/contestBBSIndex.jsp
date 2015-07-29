@@ -22,7 +22,7 @@
         </div>
         <div class="Info">
           <div class="infoTitle">
-            <a href="#" data-bind="click: function(){active_part(5)}" class="bbsTopic">
+            <a href="#" data-bind="click: function(){active_part(5),load(${post.post_id})}" class="bbsTopic">
               ${post.post_title}</a>
           </div>
           <div class="infoIntro">

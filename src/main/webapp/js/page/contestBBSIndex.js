@@ -42,6 +42,7 @@ function replyTopic(){
     alert('reply');
     $post("/post/reply",
         {
+            "postID":document.getElementById("postID").value,
             "replyContent":document.getElementById("replyContentS").value
         },
         function(data){
