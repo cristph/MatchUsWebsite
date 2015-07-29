@@ -39,6 +39,7 @@ public class PostController {
         User user=(User)session.getAttribute("user");
         System.out.println("inpost00");
         if(user==null) {
+            System.out.println("fail");
             return "fail";
         }
         Post post=new Post();

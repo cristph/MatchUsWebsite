@@ -12,6 +12,7 @@ var btn=document.getElementById("releaseTopic");
 btn.addEventListener("click",releaseTopic,false);
 
 function releaseTopic(){
+    alert('send');
     $.post("/post/add",
         {
             "post_id":1,
@@ -29,8 +30,7 @@ function releaseTopic(){
             }else{
                 alert('other error');
             }
-        },
-        "text"
+        }
     );
 }
 
