@@ -27,6 +27,7 @@
     <hr>
     <hr>
     <div id="select_option">
+        <br>
         <div class="select_line_div">
             <span class="select_line_text">类目：</span>
 
@@ -39,18 +40,6 @@
                 <button type="button" name="视觉设计" class="btn btn-default">视觉设计</button>
                 <button type="button" name="文案设计" class="btn btn-default">文案设计</button>
                 <button type="button" name="其他类目" class="btn btn-default">其他类目</button>
-            </div>
-        </div>
-        <br>
-
-        <div class="select_line_div">
-            <span class="select_line_text">模式：</span>
-
-            <div class="btn-group project-mode">
-                <button type="submit" id="全部模式" name="全部模式" class="btn btn-primary all-btn">全部模式</button>
-                <button type="button" name="外包" class="btn btn-default">外包</button>
-                <button type="button" name="比赛" class="btn btn-default">比赛</button>
-                <button type="button" name="其他模式" class="btn btn-default">其他模式</button>
             </div>
         </div>
         <br>
@@ -75,21 +64,6 @@
             </div>
         </div>
         <br>
-
-        <div class="select_line_div">
-            <span class="select_line_text">报酬：</span>
-
-            <div class="btn-group project-pay">
-                <button type="button" id="全部报酬" name="全部报酬" class="btn btn-primary all-btn">全部报酬</button>
-                <button type="button" name="0-100" class="btn btn-default">0-100</button>
-                <button type="button" name="100-200" class="btn btn-default">100-200</button>
-                <button type="button" name="200-500" class="btn btn-default">200-500</button>
-                <button type="button" name="500-1000" class="btn btn-default">500-1000</button>
-                <button type="button" name="1000-5000" class="btn btn-default">1000-5000</button>
-                <button type="button" name="5000-10000" class="btn btn-default">5000-10000</button>
-                <button type="button" name="其他报酬" class="btn btn-default">其他报酬</button>
-            </div>
-        </div>
     </div>
     <hr style="margin-left: 5%">
     <div id="projects">
