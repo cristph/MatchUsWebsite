@@ -13,6 +13,27 @@
       <div class="bbsTitle">EL大赛讨论版块</div>
     </li>
 
+    <c:forEach var="post" items="${postList}">
+      <li class="listItem clearfix">
+        <div class="user-pic">
+          <a href="/otherUser?uid=${post.poster.uid}" target="_blank"><img src="/userPhoto.jpg?uid=${post.poster.uid}"></a>
+          <p class="user-name"><a href="/otherUser?uid=${post.poster.uid}" target="_blank">${post.poster.username}</a><span class="sex">${post.poster.sex}</span></p>
+        </div>
+        <div class="Info">
+          <div class="infoTitle">
+            <a href="#" data-bind="click: function(){active_part(5)}" class="setTop bbsTopic">
+              [置顶]${post.post_title}</a>
+          </div>
+          <div class="infoIntro">
+            ${post.post_content}
+          </div>
+          <div class="date">
+            ${post.post_createtime}
+          </div>
+        </div>
+      </li>
+    </c:forEach>
+
     <li class="listItem clearfix">
       <div class="user-pic">
         <a href="/otherUser?uid=15" target="_blank"><img src="/hotUsers/userPhoto?oneHotUserId=15"></a>
@@ -75,6 +96,9 @@
         </div>
       </div>
     </li>
+
+
+
   </ul>
 
 

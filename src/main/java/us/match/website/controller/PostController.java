@@ -42,7 +42,7 @@ public class PostController {
             return "fail";
         }
         Post post=new Post();
-        System.out.println(projectService.getOneProject(Integer.parseInt(pid)));
+        //System.out.println(projectService.getOneProject(Integer.parseInt(pid)));
         Project project=projectService.getOneProject(Integer.parseInt(pid));
         System.out.println("inpost0");
         post.setPoster(user);

@@ -74,7 +74,7 @@
         <%@include file="contestBBSIndex.jsp"%>
       </div>
       <div data-bind="visible: active_part()=== 5">
-        <%@include file="contestBBS.jsp"%>>
+        <%@include file="contestBBS.jsp"%>
       </div>
     </div>
 
