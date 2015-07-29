@@ -54,7 +54,7 @@ function getOneProjectView(project) {
         "</div>" +
         "<div class=\"projects-subinfo\">" +
         "<h2 align='center'>" + project.pname + "</h2>" +
-        "<span class=\"left\">" + "发布者:" + project.userName + "</span> " +
+        "<span class=\"left\">" + "主办方:" + project.userName + "</span> " +
         "<span class=\"right\">"+  "所在地:" + project.location+ "</span> " +
         "</div> " +
         "</a> " +
