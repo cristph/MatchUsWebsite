@@ -6,6 +6,7 @@ import us.match.website.model.Post;
 import us.match.website.service.PostService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by cristph on 2015/7/27.
@@ -19,5 +20,10 @@ public class PostServiceImpl implements PostService{
     @Override
     public void addPost(Post post) {
         postDao.addPost(post);
+    }
+
+    @Override
+    public List<Post> getAllPost() {
+        return null;
     }
 }

@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import us.match.website.model.Post;
 import us.match.website.model.Project;
 import us.match.website.model.User;
+import us.match.website.service.PostService;
 import us.match.website.service.ProjectService;
 import us.match.website.service.UserService;
 
@@ -27,6 +29,8 @@ public class ProjectController {
     ProjectService projectService;
     @Resource
     UserService userService;
+    @Resource
+    PostService postService;
 
     @RequestMapping("")
     public String project(Model model){
@@ -148,6 +152,10 @@ public class ProjectController {
         //Project pro=projectService.getOneProject(pid);
         //model.addAttribute("project",pro);
         //System.out.println("pid="+pid);
+
+
+//        List<Post> postList=postService.getAllPost();
+//        model.addAttribute("postList",postList);
         return "contest/contest";
 }
 
