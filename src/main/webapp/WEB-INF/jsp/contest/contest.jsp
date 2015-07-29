@@ -63,19 +63,19 @@
 
     <div class="col-md-9">
       <div data-bind="visible: active_part() === 1">
-        <%@include file="contestDetail.jsp"%>
+        <jsp:include page="contestDetail.jsp"/>
       </div>
       <div data-bind="visible: active_part() === 2">
-        <%@include file="contestExp.jsp"%>
+        <jsp:include page="contestExp.jsp"/>
       </div>
       <div data-bind="visible: active_part()=== 3">
-        <%@include file="contestProduct.jsp"%>
+        <jsp:include page="contestProduct.jsp"/>
       </div>
       <div data-bind="visible: active_part()=== 4" id="bbsModel">
-        <%@include file="contestBBSIndex.jsp"%>
+        <jsp:include page="contestBBSIndex.jsp"/>
       </div>
       <div data-bind="visible: active_part()=== 5">
-        <%@include file="contestBBS.jsp"%>
+        <jsp:include page="contestBBS.jsp"/>
       </div>
     </div>
 
