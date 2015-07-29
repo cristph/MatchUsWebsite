@@ -316,13 +316,11 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location,phonenumber,username from Project p,User u where p.uid=u.uid order by updatetime desc");
+            Query query =session.createSQLQuery("select pid,picture,pname,reward,skill,location,phonenumber from Project p  order by updatetime desc");
             List<Object[]> object=query.list();
             for(Object[] o:object)
             {
                 Project temp=new Project();
-                User u=new User();
-                u.setUsername((String)o[7]);
                 temp.setPid((int) o[0]);
                 temp.setPicture((String) o[1]);
                 temp.setPname((String) o[2]);
@@ -330,7 +328,6 @@ public class ProjectDaoImpl implements ProjectDao {
                 temp.setSkill((String) o[4]);
                 temp.setLocation((String) o[5]);
                 temp.setPhonenumber((String) o[6]);
-                temp.setPublisher(u);
                 result.add(temp);
             }
         }catch(Exception e){

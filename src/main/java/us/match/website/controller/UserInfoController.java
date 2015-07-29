@@ -253,7 +253,6 @@ public class UserInfoController extends MultiActionController{
         String relationShip=new String();
         if(myId==uid){
             relationShip="self";
-
         } else if (isFollow(userService.getFocused(myId),uid)){
             relationShip="follow";
         } else{
