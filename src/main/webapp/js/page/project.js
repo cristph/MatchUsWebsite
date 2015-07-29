@@ -49,13 +49,13 @@ function getOneProjectView(project) {
         "</div>" +
         "<div class=\"projects-info\">" +
         "<p>" + project.skill + "</p> " +
-        "<span class=\"left\">" + "发布者:" + project.userName + "</span> " +
-        "<span class=\"right\">"+ "电话:" + project.phonenumber + "</span> " +
+        "<span class =\"left\">" + "邮箱:" + project.email + "</span>" +
+        "<span class =\"right\">"+ "电话:" + project.phonenumber + "</span>" +
         "</div>" +
         "<div class=\"projects-subinfo\">" +
         "<h2 align='center'>" + project.pname + "</h2>" +
-        "<span class =\"left\">" + "&#65509;≈" + project.reward + "</span>" +
-        "<span class =\"right\">"+ "所在地:" + project.location + "</span>" +
+        "<span class=\"left\">" + "发布者:" + project.userName + "</span> " +
+        "<span class=\"right\">"+  "所在地:" + project.location+ "</span> " +
         "</div> " +
         "</a> " +
         "</li>";
