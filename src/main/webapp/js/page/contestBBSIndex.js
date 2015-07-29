@@ -30,7 +30,8 @@ function releaseTopic(){
             }else{
                 alert('other error');
             }
-        }
+        },
+        "text"
     );
 }
 

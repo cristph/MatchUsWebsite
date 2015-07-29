@@ -9,6 +9,7 @@ import us.match.website.model.Project;
 import us.match.website.model.User;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +28,30 @@ public class ProjectDaoImpl implements ProjectDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            System.out.println(session.isConnected());
-            result=(Project)session.get(Project.class,id);
-            System.out.println(result.getPname());
+            String sql="select * from Project where pid = '"+id+"'";
+            Query query =session.createSQLQuery(sql);
+            List<Object[]> object=query.list();
+            for(Object[] o:object) {
+                Project temp = new Project();
+                temp.setPid((int) o[0]);
+                temp.setModuel((String) o[1]);
+                temp.setPicture((String) o[2]);
+                temp.setPinstruction((String) o[3]);
+                temp.setReward((String) o[4]);
+                temp.setSkill((String) o[5]);
+                temp.setState((String) o[6]);
+                temp.setSubject((String) o[7]);
+                temp.setUpdatetime((Timestamp) o[9]);
+                temp.setStarttime((Timestamp) o[10]);
+                temp.setLocation((String) o[11]);
+                temp.setEmail((String) o[12]);
+                temp.setPhonenumber((String) o[13]);
+                temp.setPname((String) o[14]);
+                temp.setQq((String) o[15]);
+                temp.setTelephone((String) o[16]);
+                temp.setFax((String) o[17]);
+                result =temp;
+            }
         }catch(Exception e){
             e.printStackTrace();
         }finally{

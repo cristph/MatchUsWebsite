@@ -37,11 +37,12 @@ public class PostController {
             @RequestParam("is_stick") int is_stick,
             HttpSession session){
         User user=(User)session.getAttribute("user");
-        System.out.println("inpost00");
         if(user==null) {
+            System.out.println("_______________!!!!!!!!!!!");
             return "fail";
         }
         Post post=new Post();
+        System.out.println(projectService.getOneProject(Integer.parseInt(pid)));
         Project project=projectService.getOneProject(Integer.parseInt(pid));
         System.out.println("inpost0");
         post.setPoster(user);
