@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface PostService {
     public void addPost(Post post);
-    public List<Post> getAllPost();
+    public List<Post> getAllPost(String pid);
 }

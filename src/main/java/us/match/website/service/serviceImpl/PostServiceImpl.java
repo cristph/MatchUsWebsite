@@ -23,7 +23,7 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public List<Post> getAllPost() {
+    public List<Post> getAllPost(String pid) {
         return null;
     }
 }
