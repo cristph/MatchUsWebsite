@@ -1,6 +1,7 @@
 package us.match.website.service;
 
 import us.match.website.model.Post;
+import us.match.website.model.Reply;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ import java.util.List;
 public interface PostService {
     public void addPost(Post post);
     public List<Post> getAllPost(int pid);
+    public void addReply(Reply reply);
+    public List<Reply> getAllReply(int postID);
 }

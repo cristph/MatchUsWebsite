@@ -58,4 +58,12 @@ public class PostController {
         return "success";
 
     }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/reply", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    public String replyPost(
+            HttpSession session){
+        return null;
+    }
 }
