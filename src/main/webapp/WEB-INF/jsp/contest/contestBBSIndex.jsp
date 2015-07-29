@@ -5,6 +5,7 @@
   Time: 10:02
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <div class="bbs_block blockShadow">
@@ -17,7 +18,6 @@
         <%--${postList}--%>
     <%--</div>--%>
     <c:forEach var="post" items="${postList}">
-      ${post.post_id}
       <li class="listItem clearfix">
         <div class="user-pic">
           <a href="/otherUser?uid=${post.poster.uid}" target="_blank"><img src="/userPhoto.jpg?uid=${post.poster.uid}"></a>
