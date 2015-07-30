@@ -30,7 +30,6 @@
                         </li>
                     </c:when>
                     <c:otherwise>
-                        <li id="navli6"><a href="/project/releaseProject">发布项目</a></li>
                         <li style="height: 50px;"><a id="banner" class="banner photo" href="/user">
                             <img class="banner-face" src="/userPhoto.jpg?uid=${sessionScope.user.uid}" width="30" height="30">
                             <div id="notify">

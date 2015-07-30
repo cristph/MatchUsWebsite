@@ -114,47 +114,30 @@
 
                 <li class="listItem clearfix">
                     <div class="projectTitle">
-                        <a href="/project/getOneProject?pid=1" target="_blank">软件学院创新杯比赛</a>
+                        <a href="/project/getOneProject?pid=1" target="_blank">软件学院EL比赛</a>
                     </div>
                     <div class="projectPublish">
                         <p>
-                            2015-7-21  posted by <span><a href="/">Somebody</a></span>
+                            2015-7-21  posted by <span><a href="/">njusoftware</a></span>
                         </p>
                     </div>
                     <div class="projectPicture">
-                        <img src="http://ww1.sinaimg.cn/mw690/005ZoaEmjw1eujnyuzepwj306y04gq30.jpg">
+                        <img src="http://ww4.sinaimg.cn/mw690/005ZoaEmjw1eujnqid1z6j306y04gt9u.jpg">
                     </div>
                     <div class="projectIntro">
-                        政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
-                        不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
-                        产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
-                        无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
+                        嗨嗨嗨~大家期待已久的EL比赛开始报名啦！没组好队的要抓紧时间啦！没抱到大腿的不要悲伤~【求人不如求己！嘿嘿】下面是一些有关报名的详细信息：<br>
+                        组队报名方面：<br>
+                        1）原则上四人一队。如果因为特殊原因，可以接受个别人数不足四人的队伍。（关于这一点，我们将会在后文中提供一个队伍人数协调机制）<br>
+
+                        2）全队队员必须皆为大一的学生。只要队伍中有一人不是大一的学生，将不会通过审核。<br>
+
+                        ......
                     </div>
 
 
                 </li>
 
-                <li class="listItem clearfix">
-                    <div class="projectTitle">
-                        <a href="/project/getOneProject?pid=2" target="_blank">“全志杯”东南大学第八届嵌入式系统设计邀请赛</a>
-                    </div>
-                    <div class="projectPublish">
-                        <p>
-                            2015-7-21  posted by <span><a href="/">Somebody</a></span>
-                        </p>
-                    </div>
-                    <div class="projectPicture">
-                        <img src="http://img.mukewang.com/54c5e5ab0001dd9906000338-280-160.jpg" alt="Img">
-                    </div>
-                    <div class="projectIntro">
-                        政府对开发公司的实力要求不严，开发商实力良莠不齐，受传统观念束缚严重，
-                        不重视客源心理及市场发展特性，主观开发，追求暴利，无品牌意识，对专业销售机构极度排斥。
-                        产品形式单一（多层为主），缺乏特色，不注重整体规划，且有明显区域性特征（集中在千佛山周边）。
-                        无整体营销思路，盲目追求高利，定价偏高，且无有效的表现及宣传手法，不注重品牌的培养和树立。
-                    </div>
 
-
-                </li>
 
                 <li class="listItem clearfix">
                     <div class="moreInfo">更多话题......</div>
