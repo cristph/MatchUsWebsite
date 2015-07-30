@@ -15,7 +15,6 @@ var replybtn=document.getElementById("replyTopic");
 replybtn.addEventListener("click",replyTopic,false);
 
 function releaseTopic(){
-    alert('send');
     $.post("/post/add",
         {
             "post_id":1,
@@ -25,11 +24,11 @@ function releaseTopic(){
             "topicContent":document.getElementById("topicContent").value
         },
         function(data){
-            alert("infuncton");
             if(data=='fail'){
                 alert('游客请先登录');
             }else if(data=='success'){
                 alert('发布成功');
+
             }else{
                 alert('other error');
             }

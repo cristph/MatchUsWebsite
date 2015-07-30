@@ -83,6 +83,6 @@
 
   <div class="replyArea">
     <textarea class="form-control replyContentS" rows="6" name="topicContent" id="replyContent" placeholder="内容"></textarea>
-    <button type="button" class="rebtn" id="replyTopic">回复楼主</button>
+    <button type="button" class="rebtn" id="replyTopic" style="margin-top: 10px;left:88%;">回复楼主</button>
   </div>
 </div><!-- /.project-post -->
