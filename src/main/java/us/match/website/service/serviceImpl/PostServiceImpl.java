@@ -32,7 +32,11 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<Post> getAllPost(int pid) {
-       return postDao.getpostByProject(pid);
+        List<Post> result =postDao.getpostByProject(pid);
+        for(Post r:result){
+            r.setPoster(userDao.getUserbyid(r.getPoster().getUid()));
+        }
+        return result;
     }
 
     @Override
