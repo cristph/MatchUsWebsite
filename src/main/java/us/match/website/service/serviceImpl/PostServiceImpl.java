@@ -3,6 +3,7 @@ package us.match.website.service.serviceImpl;
 import org.springframework.stereotype.Service;
 import us.match.website.dao.PostDao;
 import us.match.website.dao.ReplyDao;
+import us.match.website.dao.UserDao;
 import us.match.website.model.Post;
 import us.match.website.model.Reply;
 import us.match.website.service.PostService;
@@ -21,6 +22,9 @@ public class PostServiceImpl implements PostService{
     @Resource
     ReplyDao replyDao;
 
+    @Resource
+    UserDao userDao;
+
     @Override
     public void addPost(Post post) {
         postDao.addPost(post);
@@ -38,7 +42,11 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<Reply> getAllReply(int postID) {
-        return replyDao.getReplybyPost(postID);
+        List<Reply> result =replyDao.getReplybyPost(postID);
+        for(Reply r:result){
+            r.setReply_user(userDao.getUserbyid(r.getReply_user().getUid()));
+        }
+        return result;
     }
 
     @Override
