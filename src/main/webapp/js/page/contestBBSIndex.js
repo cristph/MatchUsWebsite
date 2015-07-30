@@ -1,19 +1,21 @@
 /**
  * Created by cristph on 2015/7/26.
  */
+$(function() {
+    var list = document.getElementsByClassName("bbsTopic");
+    var i;
+    for (i = 0; i < list.length; i++) {
+        list[i].addEventListener("click", getTopic, false);
+    }
 
-var list=document.getElementsByClassName("bbsTopic");
-var i;
-for(i=0;i<list.length;i++){
-    list[i].addEventListener("click",getTopic,false);
-}
+    var btn = document.getElementById("releaseTopic");
+    btn.addEventListener("click", releaseTopic, false);
 
-var btn=document.getElementById("releaseTopic");
-btn.addEventListener("click",releaseTopic,false);
-
-var replybtn=document.getElementById("replyTopic");
-replybtn.addEventListener("click",replyTopic,false);
-
+    var repn = document.getElementById("replyTopic");
+    console.log(replyTopic);
+    repn.addEventListener("click", replyTopic);
+    console.log(repn);
+});
 function releaseTopic(){
     $.post("/post/add",
         {
@@ -38,6 +40,7 @@ function releaseTopic(){
 }
 
 function replyTopic(){
+    alert("in reply");
     alert(document.getElementById('postID').value);
     alert(document.getElementById('replyContent').value);
     $.post("/post/reply",
