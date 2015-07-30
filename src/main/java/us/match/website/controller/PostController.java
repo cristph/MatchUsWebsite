@@ -13,6 +13,7 @@ import us.match.website.model.Reply;
 import us.match.website.model.User;
 import us.match.website.service.PostService;
 import us.match.website.service.ProjectService;
+import us.match.website.service.UserService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,8 @@ public class PostController {
     private PostService postService;
     @Resource
     private ProjectService projectService;
+    @Resource
+    private UserService userService;
 
     @ResponseBody
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
@@ -87,7 +90,7 @@ public class PostController {
         if(user==null) {
             return "fail";
         }
-
+        user=userService.getBasicInfo(user.getUid());
         Reply reply=new Reply();
         Post post=postService.getpostByPost(id);
         reply.setReply_content(content);

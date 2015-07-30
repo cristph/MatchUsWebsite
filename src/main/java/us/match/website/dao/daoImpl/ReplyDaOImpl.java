@@ -29,7 +29,9 @@ public class ReplyDaOImpl implements ReplyDao {
         Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
-            session.save(reply);
+            String sql="insert into Reply(reply_content,post_id,uid) values('"+reply.getReply_content()+"',"+reply.getReply_post().getPost_id()+","+reply.getReply_user().getUid()+")";
+            System.out.println(sql);
+            session.createSQLQuery(sql).executeUpdate();
         }catch(Exception e){
             e.printStackTrace();
             result=false;
