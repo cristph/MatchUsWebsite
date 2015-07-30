@@ -91,4 +91,29 @@
     <textarea class="form-control replyContentS" rows="6" name="topicContent" id="replyContent" placeholder="内容"></textarea>
     <button type="button" class="rebtn" id="replyTopic" style="margin-top: 10px;left:88%;">回复楼主</button>
   </div>
+  <script>
+    var repn = document.getElementById("replyTopic");
+    repn.onclick = function(){
+      alert("in reply");
+      alert(document.getElementById('postID').value);
+      alert(document.getElementById('replyContent').value);
+      $.post("/post/reply",
+              {
+                "postID":document.getElementById("postID").value,
+                "replyContent":document.getElementById("replyContent").value
+              },
+              function(data){
+                alert("infuncton");
+                if(data=='fail'){
+                  alert('游客请先登录');
+                }else if(data=='success'){
+                  alert('回复成功');
+                }else{
+                  alert('other error');
+                }
+              },
+              "text"
+      );
+    };
+  </script>
 </div><!-- /.project-post -->

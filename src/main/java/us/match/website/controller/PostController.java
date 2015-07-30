@@ -88,15 +88,15 @@ public class PostController {
             return "fail";
         }
 
-//        Reply reply=new Reply();
-//        Post post=postService.getpostByPost(id);
-//        reply.setReply_content(content);
-//        System.out.println("content:" + content);
-//        reply.setReply_user(user);
-//        System.out.println("user:" + user.getUsername());
-//        reply.setReply_post(post);
-//        System.out.println("post:" + post.getPost_title());
-//        postService.addReply(reply);
+        Reply reply=new Reply();
+        Post post=postService.getpostByPost(id);
+        reply.setReply_content(content);
+        System.out.println("content:" + content);
+        reply.setReply_user(user);
+        System.out.println("user:" + user.getUsername());
+        reply.setReply_post(post);
+        System.out.println("post:" + post.getPost_title());
+        postService.addReply(reply);
         return "success";
     }
 }
