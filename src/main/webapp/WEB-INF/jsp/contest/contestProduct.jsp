@@ -45,7 +45,7 @@
                   >
         </div>
         <div class="date">
-          <a>点击下载</a>
+          <a href="/Resource/santi.zip">点击下载</a>
         </div>
     </li>
 
@@ -76,7 +76,7 @@
                 >
       </div>
       <div class="date">
-        <a>点击下载</a>
+        <a href="/Resource/santi_reader.zip">点击下载</a>
       </div>
     </li>
 
