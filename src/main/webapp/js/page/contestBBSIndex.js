@@ -38,11 +38,12 @@ function releaseTopic(){
 }
 
 function replyTopic(){
-    alert('reply');
-    $post("/post/reply",
+    alert(document.getElementById('postID').value);
+    alert(document.getElementById('replyContent').value);
+    $.post("/post/reply",
         {
             "postID":document.getElementById("postID").value,
-            "replyContent":document.getElementById("replyContentS").value
+            "replyContent":document.getElementById("replyContent").value
         },
         function(data){
             alert("infuncton");

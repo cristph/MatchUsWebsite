@@ -74,7 +74,7 @@
       <div data-bind="visible: active_part()=== 4" id="bbsModel">
         <jsp:include page="contestBBSIndex.jsp"/>
       </div>
-      <div data-bind="visible: active_part()=== 5">
+      <div data-bind="visible: active_part()=== 5" id="bbs">
         <jsp:include page="contestBBS.jsp"/>
       </div>
     </div>
@@ -128,13 +128,13 @@
 <script>
   var viewModel = function() {
     var self=this;
+    self.active_part=ko.observable(1);
       self.load = function(post_id) {
-          $.get('/post/show','{"postID":post_id}',function(data){
-              x.innerHTML = data;
+          $.get('/post/show',{postID:post_id},function(contestBBS){
+            $('#bbs').html(contestBBS);
           });
           self.active_part=ko.observable(5);
       }
-    self.active_part=ko.observable(1);
   }
   ko.applyBindings(new viewModel(), document.getElementById('content'));
 </script>

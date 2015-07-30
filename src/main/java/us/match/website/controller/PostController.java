@@ -62,7 +62,7 @@ public class PostController {
 
     }
 
-    @RequestMapping(value = "/show", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/show")
     public String showPost(
             Model model,
             @RequestParam("postID") int id,
@@ -77,7 +77,7 @@ public class PostController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/reply", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/reply", method = RequestMethod.POST)
     public String replyPost(
             @RequestParam("postID") int id,
             @RequestParam("replyContent") String content,
@@ -85,19 +85,18 @@ public class PostController {
 
         User user=(User)session.getAttribute("user");
         if(user==null) {
-            System.out.println("_______________!!!!!!!!!!!");
             return "fail";
         }
 
-        Reply reply=new Reply();
-        Post post=postService.getpostByPost(id);
-        reply.setReply_content(content);
-        System.out.println("content:" + content);
-        reply.setReply_user(user);
-        System.out.println("user:" + user.getUsername());
-        reply.setReply_post(post);
-        System.out.println("post:" + post.getPost_title());
-        postService.addReply(reply);
+//        Reply reply=new Reply();
+//        Post post=postService.getpostByPost(id);
+//        reply.setReply_content(content);
+//        System.out.println("content:" + content);
+//        reply.setReply_user(user);
+//        System.out.println("user:" + user.getUsername());
+//        reply.setReply_post(post);
+//        System.out.println("post:" + post.getPost_title());
+//        postService.addReply(reply);
         return "success";
     }
 }
