@@ -128,6 +128,12 @@
 <script>
   var viewModel = function() {
     var self=this;
+      self.load = function(post_id) {
+          $.get('/post/show','{"postID":post_id}',function(data){
+              x.innerHTML = data;
+          });
+          self.active_part=ko.observable(5);
+      }
     self.active_part=ko.observable(1);
   }
   ko.applyBindings(new viewModel(), document.getElementById('content'));
